@@ -1,0 +1,41 @@
+﻿header {
+    width: 100%;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+table {
+    table-layout: fixed; 
+    width: 100%;
+}
+
+tr {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.align_right {
+    text-align: right;
+}
+
+.align_center {
+    text-align: center;
+}
+
+.seperator {
+    height: 0;
+    border-bottom: 1px dotted #808080;
+}
+
+.content_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}

@@ -1,10 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace bumbo_projectgroep_j.Controllers
+namespace Bumbo.Controllers
 {
     public class EmployeeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Availability()
+        {
+            return View();
+        }
+
+        public IActionResult RequestLeave()
+        {
+            return View();
+        }
+
+        public IActionResult SchoolSchedule()
+        {
+            return View();
+        }
+
+        public IActionResult WorkSchedule()
         {
             return View();
         }

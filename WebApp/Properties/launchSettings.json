@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "bumbo_projectgroep_j": {
+    "Bumbo": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7183;http://localhost:5228",
