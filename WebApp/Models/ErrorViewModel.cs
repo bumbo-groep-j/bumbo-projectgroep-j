@@ -1,4 +1,4 @@
-﻿namespace bumbo_projectgroep_j.Models;
+﻿namespace Bumbo.Models;
 
 public class ErrorViewModel
 {

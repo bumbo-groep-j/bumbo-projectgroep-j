@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace bumbo_projectgroep_j.Controllers
+namespace Bumbo.Controllers
 {
     public class EmployeeController : Controller
     {
