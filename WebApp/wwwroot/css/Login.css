@@ -1,0 +1,23 @@
+﻿.login-group{
+    display:flex;
+    justify-content:center;
+    border:2px solid #ccc;
+    padding:10px;
+}
+
+.login-InputBars {
+    padding: 0px;
+    margin: 0px;
+    line-height: 0px;
+}
+
+.loginButton{
+    padding:5px;
+    display:flex;
+    justify-content:center;
+}
+
+/* Gives the error message the colour red */
+.field-validation-error{
+    color:red;
+}
