@@ -6,14 +6,14 @@
 <link rel="stylesheet" type="text/css" href="~/css/login.css">
 
 
-	<div class= "login-group">
+	<div class= "login_group">
 
 		<!--Needed to format everything-->
 		@using(Html.BeginForm("Verify", "Login", FormMethod.Post))
 		{
 			<h1 style="text-align:center">Inloggen</h1>
 
-			<div class="login-InputBars">
+			<div class="login_input_bars">
 				<p>
 					@Html.EditorFor(model => model.Username, 
 					new { htmlAttributes = new { @class = "form-control", @placeholder = "Gebruikersnaam" } })
@@ -26,7 +26,7 @@
 				<p>@Html.ValidationMessageFor(model => model.Password)</p>
 			</div>
 
-			<div class="loginButton">
+			<div class="login_button">
 				<input type="submit" name="name" value="Inloggen" />
 			</div>
 		}
