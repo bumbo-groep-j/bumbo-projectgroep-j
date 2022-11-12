@@ -14,7 +14,7 @@ namespace Bumbo.Controllers
 
         // Check if username and password are correct
         [HttpPost]
-        public ActionResult Verify(WebApp.Domain.Account model)
+        public ActionResult Login(WebApp.Domain.Account model)
         {
             // microsoft authenticator????????????
             return View();
