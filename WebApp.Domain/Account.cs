@@ -14,11 +14,12 @@ namespace WebApp.Domain
         [Required(ErrorMessage = "This field is required")]
         public string Password { get; set; } // Public for now for the database generation
 
-        public Account(string userName, string password)
+        public Account() { }
+
+        public Account(string username, string password)
         {
-            Username = userName;
+            Username = username;
             Password = password;
         }
-
     }
 }

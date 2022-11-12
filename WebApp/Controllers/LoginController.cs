@@ -19,7 +19,5 @@ namespace Bumbo.Controllers
             // microsoft authenticator????????????
             return View();
         }
-
-
     }
 }
