@@ -7,4 +7,12 @@
     <RootNamespace>Bumbo</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\login.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApp.Domain\WebApp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
