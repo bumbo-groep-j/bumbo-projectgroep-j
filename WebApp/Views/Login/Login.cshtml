@@ -1,9 +1,8 @@
 ﻿@model WebApp.Domain.Account
 @{
-    ViewData["Title"] = "Login";
+	ViewData["Title"] = "Login";
+	ViewData["Stylesheet"] = "/css/login.css";
 }
-<!--Getting CSS file-->
-<link rel="stylesheet" type="text/css" href="~/css/login.css">
 <div class= "login_group">
 	<!--Needed to format everything-->
 	@using(Html.BeginForm("Verify", "Login", FormMethod.Post))

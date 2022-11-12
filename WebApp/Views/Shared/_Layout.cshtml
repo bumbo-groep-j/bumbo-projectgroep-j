@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/manager.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Bumbo.styles.css" asp-append-version="true" />
+    @if(ViewData.ContainsKey("Stylesheet"))
+    {
+        <link rel="stylesheet" href="@ViewData["Stylesheet"]" asp-append-version="true" />
+    }
 </head>
 <body>
     <header>
