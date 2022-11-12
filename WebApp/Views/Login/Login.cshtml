@@ -3,25 +3,22 @@
 	ViewData["Title"] = "Login";
 	ViewData["Stylesheet"] = "/css/login.css";
 }
-<div class= "login_group">
-	<!--Needed to format everything-->
-	@using(Html.BeginForm("Verify", "Login", FormMethod.Post))
-	{
+<div class="login_group">
+	<form asp-action="Login">
 		<h1 style="text-align:center">Inloggen</h1>
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 		<div class="login_input_bars">
 			<p>
-				@Html.EditorFor(model => model.Username, 
-				new { htmlAttributes = new { @class = "form-control", @placeholder = "Gebruikersnaam" } })
+				<input asp-for="Username" class="form-control" placeholder="Gebruikersnaam" />
+				<span asp-validation-for="Username" class="text-danger"></span>
 			</p>
-			<p>@Html.ValidationMessageFor(model => model.Username)</p>
 			<p>
-				@Html.EditorFor(model => model.Password, 
-				new { htmlAttributes = new { @class = "form-control", @placeholder = "Wachtwoord" } })
+				<input asp-for="Password" class="form-control" placeholder="Wachtwoord" type="password" />
+				<span asp-validation-for="Password" class="text-danger"></span>
 			</p>
-			<p>@Html.ValidationMessageFor(model => model.Password)</p>
 		</div>
 		<div class="login_button">
-			<input type="submit" name="name" value="Inloggen" />
+			<input type="submit" value="Inloggen" />
 		</div>
-	}
+	</form>
 </div>
