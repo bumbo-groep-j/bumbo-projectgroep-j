@@ -1,1 +1,223 @@
-﻿
+﻿@model WebApp.Domain.Availability
+@{
+    ViewData["Title"] = "Availability";
+    ViewData["Stylesheet"] = "/css/employee.css";
+}
+
+<div class="availability_group">
+    <div class="day_group">
+        <table>
+            <tr>
+                <td>&nbsp;</td>
+                <th>Maandag</th>
+                <th>Dinsdag</th>
+                <th>Woensdag</th>
+                <th>Donderdag</th>
+                <th>Vrijdag</th>
+                <th>Zaterdag</th>
+                <th>Zondag</th>
+            </tr>
+        </table>
+    </div>
+
+    <table class="time_input_group">
+        <!--Start time input boxes-->
+        <tr>
+            <td> Start tijd</td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+        </tr>
+
+        <!--End time input boxes-->
+        <tr>
+            <td> Eind tijd </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm"/>
+                <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <!--Second input. For example if they can work between 8-10 and 18-22 -->
+    <table class="time_input_group">
+        <!--Start time input boxes-->
+        <tr>
+            <td> Start tijd</td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm"/>
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="start_time_input">
+                    <input asp-for="StartTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="StartTime" class="text-danger"> </span>
+                </div>
+            </td>
+        </tr>
+
+        <!--End time input boxes-->
+        <tr>
+            <td> Eind tijd </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+            <td>
+                <div class="end_time_input">
+                    <input asp-for="EndTime" class="form-control" placeholder="hh:mm" />
+                    <span asp-validation-for="EndTime" class="text-danger"> </span>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="new_button">
+        <input type="submit" value="Nieuw" />
+    </div>
+</div>
+
+    
