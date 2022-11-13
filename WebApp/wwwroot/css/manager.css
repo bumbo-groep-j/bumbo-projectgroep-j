@@ -122,4 +122,14 @@ tr {
 .visible_link {
     color: #0000ee;
     text-decoration: underline;
-} 
+}
+
+.space_between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.space_between > * {
+    margin-top: auto;
+    margin-bottom: auto;
+}
