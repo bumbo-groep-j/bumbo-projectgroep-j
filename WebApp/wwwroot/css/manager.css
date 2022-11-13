@@ -40,7 +40,8 @@ tr {
     grid-template-columns: 1fr 5fr;
 }
 
-.grid3, .grid4 {
+.grid3, 
+.grid4 {
     display: grid;
     column-gap: 32px;
     margin-top: 32px;
@@ -59,30 +60,66 @@ tr {
     grid-template-columns: 256px 256px 256px 256px;
 }
 
-.grid3 > div, .grid4 > div {
+.grid3 > div, 
+.grid4 > div {
     background-color: #ebecec;
     border-radius: 16px;
     padding: 32px 16px;
 }
 
-.grid3 > div > h5, .grid4 > div > h5 {
+.grid3 > div > h5,
+.grid4 > div > h5 {
     text-align: center;
 }
 
-.grid3 > div > p, .grid4 > div > p {
+.grid3 > div > p, 
+.grid4 > div > p {
     position: relative;
     width: 100%;
 }
 
-.grid3 > div > p > span, .grid4 > div > p > span {
+.grid3 > div > p > span, 
+.grid4 > div > p > span {
     position: absolute;
     width: 40px;
     right: 0;
     background-color: #ffffff;
     border-radius: 8px;
-    padding-top: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
+    padding: 5px 5px 5px 5px;
     text-align: center;
 }
+
+.tr_bg:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.tr_bg > th,
+.tr_bg > td {
+    padding: 8px 0 8px 12px;
+}
+
+.accepted {
+    font-weight: 500;
+    background-color: #7ad03a;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.pending {
+    font-weight: 500;
+    background-color: #f3ad28;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.rejected {
+    font-weight: 500;
+    background-color: indianred;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.visible_link {
+    color: #0000ee;
+    text-decoration: underline;
+} 
