@@ -1,0 +1,11 @@
+﻿.save_button {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 4px 2px;
+}
+
+.time_input {
+    max-width: 90px;
+}
+
