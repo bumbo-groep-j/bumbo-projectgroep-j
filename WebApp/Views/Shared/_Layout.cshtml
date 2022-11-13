@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 navbar-desktop">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Bumbo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -68,9 +68,64 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted footer-desktop">
         <div class="container">
             &copy; 2022 - Bumbo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <footer class="border-top footer text-muted footer-mobile">
+        <div class="container-fluid">
+            <ul class="d-flex  flex-row flex align-content-between">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="WorkSchedule">
+                        <ul class="d-flex flex-column align-content-center">
+                            <li class="nav-item  align-self-center">
+                                <img class="footer-img" src="~/images/schedule_icon.png"/>
+                            </li>
+                            <li class="nav-item  align-self-center">
+                                Rooster
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Availability">
+                        <ul class="d-flex flex-column align-content-center">
+                            <li class="nav-item  align-self-center">
+                                <img class="footer-img" src="~/images/availability_icon.png" />
+                            </li>
+                            <li class="nav-item  align-self-center">
+                                Beschikbaarheid
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="LeaveRequests">
+                        <ul class="d-flex flex-column align-content-center">
+                            <li class="nav-item  align-self-center">
+                                <img class="footer-img" src="~/images/moon_icon.png" />
+                            </li>
+                            <li class="nav-item  align-self-center">
+                                Verlof
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="SchoolSchedule">
+                        <ul class="d-flex flex-column align-content-center">
+                            <li class="nav-item  align-self-center">
+                                <img class="footer-img" src="~/images/school_icon.png" />
+                            </li>
+                            <li class="nav-item  align-self-center">
+                                Schoolrooster
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
