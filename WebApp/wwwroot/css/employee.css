@@ -1,14 +1,11 @@
-﻿.new_button {
+﻿.save_button {
     display: flex;
     justify-content: center;
     padding: 10px;
     margin: 4px 2px;
 }
 
-.start_time_input {
+.time_input {
     max-width: 90px;
 }
 
-.end_time_input {
-    max-width: 90px;
-}
