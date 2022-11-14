@@ -1,1 +1,112 @@
-﻿
+﻿@{
+    ViewData["Stylesheet"] = "/css/manager.css";
+}
+<div class="content_container">
+    <aside>
+        <partial name="Calendar" model="new CalendarData {
+            CurrentMonth = 9,
+            CurrentYear = 2022,
+            FirstWeekdayOfMonth = 4,
+            Today = new DateOnly(2022, 9, 26),
+            Selected = new DateOnly(2022, 9, 23),
+            MaximumDay = new DateOnly(2022, 9, 25)
+        };" />
+        <hr />
+        <p>Afdeling</p>
+        <ul>
+            <li><a asp-controller="Manager" asp-action="WorkedHours">Kassa</a></li>
+            <li><a asp-controller="Manager" asp-action="WorkedHours">Vers</a></li>
+            <li><a asp-controller="Manager" asp-action="WorkedHours">VKK</a></li>
+        </ul>
+    </aside>
+    <div>
+        <header>
+            <h1 class="align_center">
+                <a asp-controller="Manager" asp-action="WorkedHours">&#x2039;</a>
+                vrijdag 23 september
+                <a asp-controller="Manager" asp-action="WorkedHours">&#x203A;</a>
+            </h1>
+        </header>
+        <table>
+            <tr class="tr_bg">
+                <th width="20%">Naam</th>
+                <th>Starttijd</th>
+                <th>Eindtijd</th>
+                <th>Inkloktijd</th>
+                <th>Uitkloktijd</th>
+                <th width="12%">Gewerkte uren</th>
+                <th width="12%">Tijdsverschil</th>
+                <th width="20%">Actie</th>
+            </tr>
+            <tr class="tr_bg">
+                <td>Kevin Schuren</td>
+                <td>07:00</td>
+                <td>09:00</td>
+                <td>07:01</td>
+                <td>08:49</td>
+                <td>1h 48min</td>
+                <td>-12 min</td>
+                <td>
+                    <button>Accepteren</button>
+                    <button>Weigeren</button>
+                </td>
+            </tr>
+            <tr class="tr_bg">
+                <td>Katja Ryzhkova</td>
+                <td>08:00</td>
+                <td>14:00</td>
+                <td>07:47</td>
+                <td>14:13</td>
+                <td>6h 26min</td>
+                <td>+26 min</td>
+                <td>
+                    <button>Accepteren</button>
+                    <button>Weigeren</button>
+                </td>
+            </tr>
+            <tr class="tr_bg">
+                <td>Chinook Walther</td>
+                <td>16:00</td>
+                <td>18:00</td>
+                <td>16:02</td>
+                <td>18:05</td>
+                <td>2h 3min</td>
+                <td>+3 min</td>
+                <td>
+                    <button>Accepteren</button>
+                    <button>Weigeren</button>
+                </td>
+            </tr>
+            <tr class="tr_bg">
+                <td>Thampie Anthonyrajah</td>
+                <td>14:00</td>
+                <td>19:00</td>
+                <td>13:58</td>
+                <td>18:47</td>
+                <td>4h 49min</td>
+                <td>-11 min</td>
+                <td>
+                    <button>Accepteren</button>
+                    <button>Weigeren</button>
+                </td>
+            </tr>
+        </table>
+        <div class="space_between">
+            <button>Alle uren accorderen</button>
+            <div>
+                <p class="align_right">
+                    Pagina 1 van 1
+                    <select>
+                        <option>10 per pagina</option>
+                        <option>25 per pagina</option>
+                        <option>50 per pagina</option>
+                    </select>
+                </p>
+                <p class="align_right">
+                    <a asp-controller="Manager" asp-action="WorkedHours" class="visible_link">Vorige pagina</a>
+                    <a asp-controller="Manager" asp-action="WorkedHours" class="visible_link">Volgende pagina</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

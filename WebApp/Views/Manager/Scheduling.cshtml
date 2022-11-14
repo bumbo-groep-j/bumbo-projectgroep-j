@@ -3,7 +3,15 @@
 }
 <div class="content_container">
     <aside>
-        <input type="date" />
+        <partial name="Calendar" model="new CalendarData {
+            CurrentMonth = 9,
+            CurrentYear = 2022,
+            FirstWeekdayOfMonth = 4,
+            Today = new DateOnly(2022, 9, 26),
+            Selected = new DateOnly(2022, 9, 30),
+            MinimumDay = new DateOnly(2022, 9, 27)
+        };" />
+        <hr />
         <p>Afdeling</p>
         <ul>
             <li><a asp-controller="Manager" asp-action="Scheduling">Kassa</a></li>
