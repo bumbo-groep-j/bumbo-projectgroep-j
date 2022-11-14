@@ -1,1 +1,52 @@
 ﻿
+@{
+    ViewData["Title"] = "RequestLeave";
+    ViewData["Stylesheet"] = "/css/employee.css";
+}
+
+<!-- Values are hardcoded now, will be changed later-->
+<!-- Same for "form-asp-action" need to be changed later on -->
+<div class="request_leave_group">
+    <div class="current_requests">
+        <form asp-action="Availability">
+            <table>
+                    <tr>
+                        <th class="request_leave_th">Huidige aanvraag</th>
+                    </tr>
+                    <tr>
+                        <td>Vrij aanvraag 1</td>
+                    </tr>
+                    <tr>
+                        <td>Begin Datum: 29-09-2022 </td>
+                    </tr>
+                    <tr>
+                        <td>Eind Datum: 30-09-2022</td>
+                    </tr>
+                    <tr>
+                        <td> <input type="checkbox">&nbsp; Annuleren </td>
+                    </tr>
+            </table>
+        </form>
+    </div>
+    <div class="new_request">
+        <form asp-action="Availability">
+            <table>
+                <tr>
+                    <th class="request_leave_th">Nieuw aanvraag</th>
+                </tr>
+                <tr>
+                    <td>Begin Datum: <input type="date"></td>
+                </tr>
+                <tr>
+                    <td>Eind Datum: <input type="date"></td>
+                </tr>
+                <tr>
+                    <td>Opmerking: <input type="text"></td>
+                </tr>
+            </table>
+            <div class="send_button">
+                <input type="submit" value="verstuur">
+            </div>
+        </form>
+    </div>
+</div>
