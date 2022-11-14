@@ -1,0 +1,94 @@
+﻿:root {
+    --black-bars: #808080;
+    --background: #f2f2f6;
+    --focus-background: #ffffff;
+    --light-background: #c0c0c0;
+    --text-color: #000000;
+    --unselected: #808080;
+    --selected: #007aff;
+}
+
+body {
+    background-color: var(--black-bars);
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    position: fixed;
+    background-color: var(--background);
+    aspect-ratio: 1290 / 2796;
+    border-radius: 5.2vh;
+    height: 100vh;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    height: 13vh;
+    width: 100%;
+    padding-top: 5.4vh;
+    padding-bottom: 1.7vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 9vh;
+    width: 100%;
+    background-color: var(--focus-background);
+    padding: 1.4vh 0 1.8vh 0;
+    border-bottom-right-radius: 5.2vh;
+    border-bottom-left-radius: 5.2vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+footer > div {
+    position: relative;
+    height: 100%;
+}
+
+footer > div p {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 0;
+    font-size: 1.5vh;
+}
+
+footer img {
+    object-fit: cover;
+    width: 3.5vh;
+    height: 3.5vh;
+}
+
+.unselected {
+    color: var(--unselected);
+}
+
+.selected {
+    color: var(--selected);
+}
+
+.content {
+    position: absolute;
+    top: 13vh;
+    width: 100%;
+    height: 78vh;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}

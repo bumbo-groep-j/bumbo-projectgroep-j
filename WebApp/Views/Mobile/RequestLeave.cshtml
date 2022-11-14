@@ -1,1 +1,35 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Verlof";
+    ViewData["Stylesheet"] = "/css/mobile.css";
+}
+
+<header>
+    <h1>Verlof</h1>
+</header>
+<div class="content">
+
+</div>
+<footer>
+    <div>
+        <a asp-action="WorkSchedule">
+            <img src="/img/schedule.svg" />
+            <p class="unselected">Rooster</p>
+        </a>
+    </div>
+    <div>
+        <a asp-action="Availability">
+            <img src="/img/availability.svg" />
+            <p class="unselected">Beschikbaarheid</p>
+        </a>
+    </div>
+    <div>
+        <img src="/img/vacation_selected.svg" />
+        <p class="selected">Verlof</p>
+    </div>
+    <div>
+        <a asp-action="SchoolSchedule">
+            <img src="/img/school.svg" />
+            <p class="unselected">Schoolrooster</p>
+        </a>
+    </div>
+</footer>
