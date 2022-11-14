@@ -5,47 +5,63 @@
 }
 
 <!-- Values are hardcoded now, will be changed later-->
-<!-- Same for "form-asp-action" need to be changed later on -->
+<!-- Same for "form-asp-action" need to be changed later ons-->
 <div class="request_leave_group">
     <div class="current_requests">
         <form asp-action="Availability">
             <table>
                     <tr>
-                        <th class="request_leave_th">Huidige aanvraag</th>
+                        <th class="request_leave_th">Huidige aanvraagen</th>
                     </tr>
                     <tr>
                         <td>Vrij aanvraag 1</td>
                     </tr>
                     <tr>
-                        <td>Begin Datum: 29-09-2022 </td>
+                        <td>Begindatum: 29-09-2022 </td>
                     </tr>
                     <tr>
-                        <td>Eind Datum: 30-09-2022</td>
+                        <td>Einddatum: 30-09-2022</td>
                     </tr>
                     <tr>
                         <td> <input type="checkbox">&nbsp; Annuleren </td>
                     </tr>
             </table>
+            <br />
+            <table>
+                <tr>
+                    <td>Vrij aanvraag 2</td>
+                </tr>
+                <tr>
+                    <td>Begindatum: 01-10-2022 </td>
+                </tr>
+                <tr>
+                    <td>Einddatum: 10-10-2022</td>
+                </tr>
+                <tr>
+                    <td> <input type="checkbox">&nbsp; Annuleren </td>
+                </tr>
+            </table>
+
         </form>
     </div>
     <div class="new_request">
         <form asp-action="Availability">
             <table>
                 <tr>
-                    <th class="request_leave_th">Nieuw aanvraag</th>
+                    <th class="request_leave_th">Nieuwe aanvraag</th>
                 </tr>
                 <tr>
-                    <td>Begin Datum: <input type="date"></td>
+                    <td>Begindatum: <input type="date"></td>
                 </tr>
                 <tr>
-                    <td>Eind Datum: <input type="date"></td>
+                    <td>Einddatum: <input type="date"></td>
                 </tr>
                 <tr>
-                    <td>Opmerking: <input type="text"></td>
+                    <td>Opmerking: <input type="text" class="remark_input"></td>
                 </tr>
             </table>
             <div class="send_button">
-                <input type="submit" value="verstuur">
+                <input type="submit" value="Verstuur">
             </div>
         </form>
     </div>
