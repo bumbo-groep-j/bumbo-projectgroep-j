@@ -92,3 +92,23 @@ footer img {
     display: flex;
     justify-content: center;
 }
+
+.outer_div {
+    margin-bottom: 32px;
+}
+
+.inner_div {
+    background-color: white;
+    padding: 10px 20px;
+    margin-top: 4px;
+}
+
+.date {
+    font-size: 14pt;
+    color: grey;
+}
+
+.department {
+    font-size: 13pt;
+    color: grey;
+}
