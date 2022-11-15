@@ -107,7 +107,7 @@
                 <tr class="clickable" onclick="$('.calendar').load('/Mobile/InlineCalendar?@week');">
                     @for(int i = 1; i < weekday; i++)
                     {
-                        <td class="unselected">@(DateTime.DaysInMonth(previousMonthYear, previousMonthMonth) + 1 - i)</td>
+                        <td class="unselected">@(DateTime.DaysInMonth(previousMonthYear, previousMonthMonth) + 1 + i - weekday)</td>
                     }
 
                     @for(int i = weekday; i <= 7; i++)
@@ -156,9 +156,14 @@
                     + "&selectedMonth=" + month
                     + "&selectedYear="  + year
                     + "&fullSize="      + fullSize;
+
+                string classes = "unselected";
+                if(nextMonthMonth == Model.Selected.Month && nextMonthYear == Model.Selected.Year && lastDay == Model.Selected.Day) classes += " selecteddate";
                 <tr class="clickable"onclick="$('.calendar').load('/Mobile/InlineCalendar?@week');">
                     @for(int j = 0; j < 7; j++)
                     {
+                        string daily_classes = classes;
+                        if(nextMonthMonth == Model.Today.Month && nextMonthYear == Model.Today.Year && lastDay == Model.Today.Day) daily_classes += " today";
                         <td class="unselected">@(++lastDay)</td>
                     }
                 </tr>
