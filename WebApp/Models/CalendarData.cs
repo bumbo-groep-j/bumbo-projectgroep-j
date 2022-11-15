@@ -18,18 +18,18 @@
             {
                 switch(CurrentMonth)
                 {
-                    case 1: return "Januari";
-                    case 2: return "Februari";
-                    case 3: return "Maart";
-                    case 4: return "April";
-                    case 5: return "Mei";
-                    case 6: return "Juni";
-                    case 7: return "Juli";
-                    case 8: return "Augustus";
-                    case 9: return "September";
-                    case 10: return "Oktober";
-                    case 11: return "November";
-                    case 12: return "December";
+                    case 1: return "januari";
+                    case 2: return "februari";
+                    case 3: return "maart";
+                    case 4: return "april";
+                    case 5: return "mei";
+                    case 6: return "juni";
+                    case 7: return "juli";
+                    case 8: return "augustus";
+                    case 9: return "september";
+                    case 10: return "oktober";
+                    case 11: return "november";
+                    case 12: return "december";
                     default: return "";
                 }
             }

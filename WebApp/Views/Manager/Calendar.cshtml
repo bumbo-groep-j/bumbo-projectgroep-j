@@ -42,19 +42,19 @@
     </div>
     <table>
         <tr>
-            <th class="weekday">MA</th>
-            <th class="weekday">DI</th>
-            <th class="weekday">WO</th>
-            <th class="weekday">DO</th>
-            <th class="weekday">VR</th>
-            <th class="weekday">ZA</th>
-            <th class="weekday">ZO</th>
+            <th class="weekday">ma</th>
+            <th class="weekday">di</th>
+            <th class="weekday">wo</th>
+            <th class="weekday">do</th>
+            <th class="weekday">vr</th>
+            <th class="weekday">za</th>
+            <th class="weekday">zo</th>
         </tr>
         @{
             int weekday = Model.FirstWeekdayOfMonth;
             int weeks = 0;
 
-            for(int monthday = 1; monthday < DateTime.DaysInMonth(Model.CurrentYear, Model.CurrentMonth);)
+            for(int monthday = 1; monthday <= DateTime.DaysInMonth(Model.CurrentYear, Model.CurrentMonth);)
             {
                 <tr>
                     @for(int i = 1; i < weekday; i++)
