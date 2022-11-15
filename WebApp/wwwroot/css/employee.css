@@ -1,4 +1,5 @@
-﻿.save_button {
+﻿/* Availability CSS*/
+.save_button {
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -9,3 +10,25 @@
     max-width: 90px;
 }
 
+/* Request leave CSS*/
+.request_leave_th {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.request_leave_group {
+    display: flex;
+    flex-direction: row;
+}
+
+.new_request {
+    padding: 10px;
+    margin: 5px;
+    flex: 1;
+}
+
+.current_requests {
+    padding: 10px;
+    margin: 5px;
+    flex: 1;
+}
