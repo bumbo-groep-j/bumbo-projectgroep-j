@@ -112,3 +112,78 @@ footer img {
     font-size: 13pt;
     color: grey;
 }
+
+.clickable {
+    cursor: pointer;
+}
+
+/* calendar */
+
+.space_between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.space_between > * {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.chevron {
+    position: relative;
+    top: -6px;
+    font-size: 36pt;
+    line-height: 0;
+}
+
+.calendar {
+    position: relative;
+    width: 80%;
+    left: 10%;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar tr {
+    height: 48px;
+}
+
+.calendar th {
+    width: calc(100% / 7);
+}
+
+.calendar td {
+    position: relative;
+    text-align: center;
+    line-height: 1.9;
+    margin: 0;
+    padding: 0;
+}
+
+.calendar .today {
+    color: var(--selected);
+}
+
+.calendar .selecteddate > div {
+    background-color: var(--light-background);
+    margin: 0;
+    height: 32px;
+}
+
+.calendar .selecteddate:first-child > div {
+    border-radius: 16px 0 0 16px;
+}
+
+.calendar .selecteddate:last-child > div {
+    border-radius: 0 16px 16px 0;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 400;
+    font-size: 10pt;
+    color: var(--unselected);
+}
