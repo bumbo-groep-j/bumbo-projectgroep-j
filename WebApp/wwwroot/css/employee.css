@@ -18,20 +18,17 @@
 
 .request_leave_group {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
 }
 
 .new_request {
     padding: 10px;
     margin: 5px;
-    align-items: center;
     flex: 1;
 }
 
 .current_requests {
     padding: 10px;
     margin: 5px;
-    align-items: center;
-    flex:1;
+    flex: 1;
 }
-
