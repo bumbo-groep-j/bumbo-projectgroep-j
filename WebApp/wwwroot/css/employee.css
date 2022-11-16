@@ -9,3 +9,27 @@
     max-width: 90px;
 }
 
+.watermark_concept {
+    min-height: 50%;
+    min-width: 50%;
+}
+
+.concept_text {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    font-size: 100px;
+    font-weight: 500;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    opacity: 0.2;
+    transform: rotate(320deg);
+}
+
+.current_page_title {
+    text-align: center;
+}
