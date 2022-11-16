@@ -6,32 +6,6 @@
   html {
     font-size: 16px;
   }
-
-  .footer-mobile{
-      visibility: hidden;
-  }
-}
-@media(max-width: 768px){
-   .footer-desktop{
-       visibility: hidden;
-   }
-    .navbar-desktop{
-        visibility: hidden;
-    }
-    .footer-mobile {
-        border: solid 1px;
-        border-radius: 0px 0px 25px 25px;
-        display: flex;
-        flex-direction: row;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-    }
-    .footer-img{
-        width: 50px;
-        height: auto;
-    }
 }
 
 html {

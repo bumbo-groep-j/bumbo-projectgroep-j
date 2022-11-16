@@ -8,10 +8,6 @@ namespace Bumbo.Controllers
         {
             return View();
         }
-        public IActionResult AvailabilityEdit()
-        {
-            return View();
-        }
 
         public IActionResult RequestLeave()
         {
