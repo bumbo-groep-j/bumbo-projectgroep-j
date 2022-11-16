@@ -8,42 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\img\**" />
-    <Content Remove="wwwroot\img\**" />
-    <EmbeddedResource Remove="wwwroot\img\**" />
-    <None Remove="wwwroot\img\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="wwwroot\images\moon_icon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\css\login.css" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\WebApp.Domain\WebApp.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="wwwroot\images\moon_icon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="wwwroot\images\availability_icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\images\schedule_icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\images\school_icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 
 </Project>
