@@ -118,6 +118,11 @@ footer img {
     cursor: pointer;
 }
 
+.edit_availability {
+    float: right;
+    color: #007aff;
+}
+
 @media(max-width: 350px) {
     header {
         height: 120px;
