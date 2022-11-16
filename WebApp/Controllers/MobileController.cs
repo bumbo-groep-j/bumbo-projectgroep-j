@@ -3,34 +3,37 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Bumbo.Controllers
 {
-    public class ManagerController : Controller
+    public class MobileController : Controller
     {
-        public IActionResult LeaveRequests()
+        public IActionResult Availability()
         {
+            ViewBag.IsMobile = true;
             return View();
         }
 
-        public IActionResult Prognosis()
+        public IActionResult RequestLeave()
         {
+            ViewBag.IsMobile = true;
             return View();
         }
 
-        public IActionResult Scheduling()
+        public IActionResult SchoolSchedule()
         {
+            ViewBag.IsMobile = true;
             return View();
         }
 
-        public IActionResult WorkedHours()
+        public IActionResult WorkSchedule()
         {
+            ViewBag.IsMobile = true;
             return View();
         }
 
-        public IActionResult Calendar(
+        public IActionResult InlineCalendar(
             int month, int year,
             int todayDay, int todayMonth, int todayYear,
             int selectedDay, int selectedMonth, int selectedYear,
-            int minimumDay, int minimumMonth, int minimumYear,
-            int maximumDay, int maximumMonth, int maximumYear
+            bool fullSize
         )
         {
             int weekday = 1;
@@ -54,10 +57,14 @@ namespace Bumbo.Controllers
                 Selected = new DateOnly(selectedYear, selectedMonth, selectedDay)
             };
 
-            if(minimumDay != 0) data.MinimumDay = new DateOnly(minimumYear, minimumMonth, minimumDay);
-            if(maximumDay != 0) data.MaximumDay = new DateOnly(maximumYear, maximumMonth, maximumDay);
+            ViewBag.FullSize = fullSize;
 
             return PartialView(data);
+        }
+
+        public IActionResult Index()
+        {
+            return RedirectToAction("WorkSchedule");
         }
     }
 }

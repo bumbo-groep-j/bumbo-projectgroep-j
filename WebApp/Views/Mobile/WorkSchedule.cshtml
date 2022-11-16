@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Rooster";
+    ViewData["Stylesheet"] = "/css/mobile.css";
+
+    int previousMonthMonth = (DateTime.Today.Month == 1 ? 12 : DateTime.Today.Month - 1);
+    int previousMonthYear  = (DateTime.Today.Month == 1 ? DateTime.Today.Year - 1 : DateTime.Today.Year);
+
+    int mondayDay   = DateTime.Today.Day;
+    int mondayMonth = DateTime.Today.Month;
+    int mondayYear  = DateTime.Today.Year;
+
+    switch(DateTime.Today.DayOfWeek)
+    {
+        case DayOfWeek.Tuesday:   mondayDay -= 1; break;
+        case DayOfWeek.Wednesday: mondayDay -= 2; break;
+        case DayOfWeek.Thursday:  mondayDay -= 3; break;
+        case DayOfWeek.Friday:    mondayDay -= 4; break;
+        case DayOfWeek.Saturday:  mondayDay -= 5; break;
+        case DayOfWeek.Sunday:    mondayDay -= 6; break;
+    }
+
+    int firstWeekdayOfMonth = 1;
+
+    switch(new DateOnly(mondayYear, mondayMonth, 1).DayOfWeek)
+    {
+        case DayOfWeek.Tuesday:   firstWeekdayOfMonth = 2; break;
+        case DayOfWeek.Wednesday: firstWeekdayOfMonth = 3; break;
+        case DayOfWeek.Thursday:  firstWeekdayOfMonth = 4; break;
+        case DayOfWeek.Friday:    firstWeekdayOfMonth = 5; break;
+        case DayOfWeek.Saturday:  firstWeekdayOfMonth = 6; break;
+        case DayOfWeek.Sunday:    firstWeekdayOfMonth = 7; break;
+    }
+
+    if(mondayDay < 1)
+    {
+        mondayDay  += DateTime.DaysInMonth(previousMonthYear, previousMonthMonth);
+        mondayMonth = previousMonthMonth;
+        mondayYear  = previousMonthYear;
+    }
+}
+
+<header>
+    <h1>Rooster</h1>
+</header>
+<div class="content">
+    <partial name="InlineCalendar" model="new CalendarData {
+        CurrentMonth = mondayMonth,
+        CurrentYear = mondayYear,
+        FirstWeekdayOfMonth = firstWeekdayOfMonth,
+        Today = DateOnly.FromDateTime(DateTime.Today),
+        Selected = new DateOnly(mondayYear, mondayMonth, mondayDay)
+    };" />
+    <div class="outer_div">
+        <div class="inner_div">
+            <h4><b>maandag </b><span class="date">26/09/2022</span></h4>
+            <b>09:00 - 12:00 </b><span class="department">Kassa</span>
+        </div>
+        <div class="inner_div">
+            <b>15:00 - 20:00 </b><span class="department">Kassa</span>
+        </div>
+    </div>
+    <div class="outer_div">
+        <div class="inner_div">
+            <h4><b>woensdag </b><span class="date">28/09/2022</span></h4>
+            <b>13:00 - 17:00 </b><span class="department">Kassa</span> 
+        </div>
+    </div>
+    <div class="outer_div">
+        <div class="inner_div">
+            <h4><b>vrijdag </b><span class="date">30/09/2022</span></h4>
+            <b>09:00 - 15:00 </b><span class="department">Kassa</span>
+        </div>
+    </div>
+</div>
+<footer>
+    <div>
+        <img src="/img/schedule_selected.svg" />
+        <p class="selected">Rooster</p>
+    </div>
+    <div>
+        <a asp-action="Availability">
+            <img src="/img/availability.svg" />
+            <p class="unselected">Beschikbaarheid</p>
+        </a>
+    </div>
+    <div>
+        <a asp-action="RequestLeave">
+            <img src="/img/vacation.svg" />
+            <p class="unselected">Verlof</p>
+        </a>
+    </div>
+    <div>
+        <a asp-action="SchoolSchedule">
+            <img src="/img/school.svg" />
+            <p class="unselected">Schoolrooster</p>
+        </a>
+    </div>
+</footer>

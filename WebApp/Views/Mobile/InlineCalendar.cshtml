@@ -1,0 +1,198 @@
+﻿@model CalendarData
+
+@{
+    bool fullSize = ViewData.ContainsKey("FullSize") && ViewBag.FullSize;
+
+    int previousMonthMonth = (Model.CurrentMonth == 1 ? 12 : Model.CurrentMonth - 1);
+    int previousMonthYear  = (Model.CurrentMonth == 1 ? Model.CurrentYear - 1 : Model.CurrentYear);
+
+    int nextMonthMonth     = (Model.CurrentMonth == 12 ? 1 : Model.CurrentMonth + 1);
+    int nextMonthYear      = (Model.CurrentMonth == 12 ? Model.CurrentYear + 1 : Model.CurrentYear);
+
+    int previousWeekDay    = Model.Selected.Day - 7;
+    int previousWeekMonth  = Model.Selected.Month;
+    int previousWeekYear   = Model.Selected.Year;
+
+    if(previousWeekDay < 1)
+    {
+        previousWeekDay   += DateTime.DaysInMonth(previousMonthYear, previousMonthMonth);
+        previousWeekMonth  = previousMonthMonth;
+        previousWeekYear   = previousMonthYear;
+    }
+
+    int nextWeekDay        = Model.Selected.Day + 7;
+    int nextWeekMonth      = Model.Selected.Month;
+    int nextWeekYear       = Model.Selected.Year;
+
+    if(nextWeekDay > DateTime.DaysInMonth(Model.Selected.Year, Model.Selected.Month))
+    {
+        nextWeekDay       -= DateTime.DaysInMonth(Model.Selected.Year, Model.Selected.Month);
+        nextWeekMonth      = nextMonthMonth;
+        nextWeekYear       = nextMonthYear;
+    }
+
+    string Previous = "month="   + (fullSize ? previousMonthMonth : previousWeekMonth)
+        + "&year="               + (fullSize ? previousMonthYear : previousWeekYear)
+        + "&todayDay="           +  Model.Today.Day
+        + "&todayMonth="         +  Model.Today.Month
+        + "&todayYear="          +  Model.Today.Year
+        + "&selectedDay="        + (fullSize ? Model.Selected.Day : previousWeekDay)
+        + "&selectedMonth="      + (fullSize ? Model.Selected.Month : previousWeekMonth)
+        + "&selectedYear="       + (fullSize ? Model.Selected.Year : previousWeekYear)
+        + "&fullSize="           +  fullSize;
+
+    string Next = "month="       + (fullSize ? nextMonthMonth : nextWeekMonth)
+        + "&year="               + (fullSize ? nextMonthYear : nextWeekYear)
+        + "&todayDay="           +  Model.Today.Day
+        + "&todayMonth="         +  Model.Today.Month
+        + "&todayYear="          +  Model.Today.Year
+        + "&selectedDay="        + (fullSize ? Model.Selected.Day : nextWeekDay)
+        + "&selectedMonth="      + (fullSize ? Model.Selected.Month : nextWeekMonth)
+        + "&selectedYear="       + (fullSize ? Model.Selected.Year : nextWeekYear)
+        + "&fullSize="           +  fullSize;
+
+    string ToggleSize = "month=" +  Model.Selected.Month
+        + "&year="               +  Model.Selected.Year
+        + "&todayDay="           +  Model.Today.Day
+        + "&todayMonth="         +  Model.Today.Month
+        + "&todayYear="          +  Model.Today.Year
+        + "&selectedDay="        +  Model.Selected.Day
+        + "&selectedMonth="      +  Model.Selected.Month
+        + "&selectedYear="       +  Model.Selected.Year
+        + "&fullSize="           + !fullSize;
+}
+
+<div @(ViewData.ContainsKey("FullSize") ? "" : "class=calendar")>
+    <div class="space_between">
+        <b>@Model.Month @Model.CurrentYear</b>
+        <span class="chevron">
+            <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@Previous');">&#x2039;</a>
+            <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@Next');">&#x203A;</a>
+        </span>
+    </div>
+    <table>
+        <tr>
+            <th class="weekday">ma</th>
+            <th class="weekday">di</th>
+            <th class="weekday">wo</th>
+            <th class="weekday">do</th>
+            <th class="weekday">vr</th>
+            <th class="weekday">za</th>
+            <th class="weekday">zo</th>
+        </tr>
+        @if(fullSize)
+        {
+            int weekday = Model.FirstWeekdayOfMonth;
+            int weeks = 0;
+            int lastDay = 0;
+
+            for(int monthday = 1; monthday <= DateTime.DaysInMonth(Model.CurrentYear, Model.CurrentMonth);)
+            {
+                bool selectedWeek = false;
+
+                int day   = weekday != 1 ? (DateTime.DaysInMonth(previousMonthYear, previousMonthMonth) + 2 - weekday) : monthday;
+                int month = weekday != 1 ? previousMonthMonth : Model.CurrentMonth;
+                int year  = weekday != 1 ? previousMonthYear : Model.CurrentYear;
+
+                string week = "month="  + month
+                    + "&year="          + year
+                    + "&todayDay="      + Model.Today.Day
+                    + "&todayMonth="    + Model.Today.Month
+                    + "&todayYear="     + Model.Today.Year
+                    + "&selectedDay="   + day
+                    + "&selectedMonth=" + month
+                    + "&selectedYear="  + year
+                    + "&fullSize="      + fullSize;
+
+                <tr class="clickable" onclick="$('.calendar').load('/Mobile/InlineCalendar?@week');">
+                    @for(int i = 1; i < weekday; i++)
+                    {
+                        <td class="unselected">@(DateTime.DaysInMonth(previousMonthYear, previousMonthMonth) + 1 + i - weekday)</td>
+                    }
+
+                    @for(int i = weekday; i <= 7; i++)
+                    {
+                        if(monthday <= DateTime.DaysInMonth(Model.CurrentYear, Model.CurrentMonth))
+                        {
+                            string classes = "";
+
+                            if(Model.CurrentMonth == Model.Selected.Month && Model.CurrentYear == Model.Selected.Year && monthday + 1 - i == Model.Selected.Day)
+                            {
+                                classes = "selecteddate";
+                                selectedWeek = true;
+                            }
+
+                            if(Model.CurrentMonth == Model.Today.Month && Model.CurrentYear == Model.Today.Year && monthday == Model.Today.Day) classes += " today";
+
+                            <td class="@classes"><div>@(monthday++)</div></td>
+                        }
+                        else
+                        {
+                            string classes = "unselected";
+
+                            if(selectedWeek) classes += " selecteddate";
+
+                            <td class="@classes"><div>@(++lastDay)</div></td>
+                        }
+                    }
+                </tr>
+
+                weekday = 1;
+                weeks++;
+            }
+
+            for(int i = weeks; i < 6; i++)
+            {
+                int day   = lastDay + 1;
+                int month = nextMonthMonth;
+                int year  = nextMonthYear;
+
+                string week = "month="  + month
+                    + "&year="          + year
+                    + "&todayDay="      + Model.Today.Day
+                    + "&todayMonth="    + Model.Today.Month
+                    + "&todayYear="     + Model.Today.Year
+                    + "&selectedDay="   + day
+                    + "&selectedMonth=" + month
+                    + "&selectedYear="  + year
+                    + "&fullSize="      + fullSize;
+
+                string classes = "unselected";
+                if(nextMonthMonth == Model.Selected.Month && nextMonthYear == Model.Selected.Year && lastDay == Model.Selected.Day) classes += " selecteddate";
+                <tr class="clickable"onclick="$('.calendar').load('/Mobile/InlineCalendar?@week');">
+                    @for(int j = 0; j < 7; j++)
+                    {
+                        string daily_classes = classes;
+                        if(nextMonthMonth == Model.Today.Month && nextMonthYear == Model.Today.Year && lastDay == Model.Today.Day) daily_classes += " today";
+                        <td class="unselected">@(++lastDay)</td>
+                    }
+                </tr>
+            }
+        }
+        else
+        {
+            int day = Model.Selected.Day;
+            int month = Model.Selected.Month;
+            int year = Model.Selected.Year;
+
+            <tr>
+                @for(int i = 1; i <= 7; i++)
+                {
+                    string classes = "selecteddate";
+
+                    if(month == Model.Today.Month && year == Model.Today.Year && day == Model.Today.Day) classes += " today";
+
+                    <td class="@classes"><div>@(day++)</div></td>
+
+                    @if(day > DateTime.DaysInMonth(Model.CurrentYear, Model.CurrentMonth))
+                    {
+                        day = 1;
+                        month = nextWeekMonth;
+                        year = nextWeekMonth;
+                    }
+                }
+            </tr>
+        }
+    </table>
+    <b><a class="center" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@ToggleSize');">&mdash;&mdash;&mdash;</a></b>
+</div>

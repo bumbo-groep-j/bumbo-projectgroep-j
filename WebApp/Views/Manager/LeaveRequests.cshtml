@@ -1,1 +1,75 @@
-﻿
+﻿@{
+    ViewData["Stylesheet"] = "/css/manager.css";
+}
+<header>
+    <h1>Verlofaanvragen</h1>
+</header>
+<table>
+    <tr class="tr_bg">
+        <th>Naam</th>
+        <th width="20%">Duur</th>
+        <th>Status</th>
+        <th>Reden</th>
+        <th>Aanvraagdatum</th>
+        <th>Actie</th>
+    </tr>
+    <tr class="tr_bg">
+        <td>Kevin Schuren</td>
+        <td>
+            <b>23 nov 2022 &ndash; 27 nov 2022</b><br />
+            <i>5 dagen</i>
+        </td>
+        <td><span class="pending">Openstaand</span></td>
+        <td>Vakantie</td>
+        <td>6 nov 2022</td>
+        <td>
+            <button>Accepteren</button>
+            <button>Weigeren</button>
+        </td>
+    </tr>
+    <tr class="tr_bg">
+        <td>Katja Ryzhkova</td>
+        <td>
+            <b>22 nov 2022 &ndash; 24 nov 2022</b><br />
+            <i>3 dagen</i>
+        </td>
+        <td><span class="accepted">Goedgekeurd</span></td>
+        <td>Ziekte</td>
+        <td>2 nov 2022</td>
+        <td></td>
+    </tr>
+    <tr class="tr_bg">
+        <td>Chinook Walther</td>
+        <td>
+            <b>28 nov 2022 &ndash; 31 nov 2022</b><br />
+            <i>4 dagen</i>
+        </td>
+        <td><span class="rejected">Afgekeurd</span></td>
+        <td>Vakantie</td>
+        <td>10 jul 2022</td>
+        <td></td>
+    </tr>
+    <tr class="tr_bg">
+        <td>Thampie Anthonyrajah</td>
+        <td>
+            <b>9 nov 2022 &ndash; 31 nov 2022</b><br />
+            <i>23 dagen</i>
+        </td>
+        <td><span class="accepted">Goedgekeurd</span></td>
+        <td>Vakantie</td>
+        <td>8 jul 2022</td>
+        <td></td>
+    </tr>
+</table>
+<p class="align_right">
+    Pagina 1 van 1
+    <select>
+        <option>10 per pagina</option>
+        <option>25 per pagina</option>
+        <option>50 per pagina</option>
+    </select>
+</p>
+<p class="align_right">
+    <a asp-controller="Manager" asp-action="LeaveRequests" class="visible_link">Vorige pagina</a>
+    <a asp-controller="Manager" asp-action="LeaveRequests" class="visible_link">Volgende pagina</a>
+</p>

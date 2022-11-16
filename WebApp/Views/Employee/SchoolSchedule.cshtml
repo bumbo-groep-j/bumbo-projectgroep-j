@@ -1,1 +1,90 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Schoolrooster";
+}
+
+<div class="modal-body">
+    <div class="align-items-center" id="title">
+        <h1 class="text-center">SCHOOLROOSTER</h1>
+    </div>
+    <br />
+    <div class="container w-100"  >
+        <div class="row g-0 border-bottom pb-2 text-center">
+            <div class="col"></div>
+            <div class="col">07:00</div>
+            <div class="col">08:00</div>
+            <div class="col">09:00</div>
+            <div class="col">10:00</div>
+            <div class="col">11:00</div>
+            <div class="col">12:00</div>
+            <div class="col">13:00</div>
+            <div class="col">14:00</div>
+            <div class="col">16:00</div>
+            <div class="col">17:00</div>
+            <div class="col">18:00</div>
+            <div class="col">19:00</div>
+            <div class="col">20:00</div>
+            <div class="col">21:00</div>
+            <div class="col"></div>
+        </div>
+        <br />
+        <div class="row g-0 mb-3">
+            <div class="col col-lg-1 fw-bold"> Maandag</div>
+            <div class="col col-10 bg-black bg-opacity-10"> 
+              <div class="row">
+                    <div class="col col-1 pt-1  bg-info" style="height: 30px; width: 60%;  margin-left: 10px">
+                      <span styk>07:00 </span> <span style="float: right">16:00</span>
+                  </div>
+              </div>
+            </div>
+            <div class="col col-1 text-center">7:00 <input class="btn btn-outline-primary btn-sm" type="button" value="Edit"></div>
+        </div>
+        <div class="row g-0 mb-3">
+            <div class="col col-lg-1 fw-bold"> Dinsdag</div>
+            <div class="col col-10 bg-black bg-opacity-10">
+                <div class="row">
+                    <div class="col col-1 pt-1 bg-info" style="height: 30px; width: 30%;  margin-left: 9%">
+                        <span >08:00 </span> <span style="float: right">12:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-1 text-center">4:00 <input class="btn btn-outline-primary btn-sm" type="button" value="Edit"></div>
+        </div>
+        <div class="row g-0 mb-3">
+            <div class="col col-lg-1 fw-bold"> Woensdag</div>
+            <div class="col col-10 bg-black bg-opacity-10"></div>
+            <div class="col col-1 text-center">0:00 <input class="btn btn-outline-primary btn-sm"  type="button" value="Edit"></div>
+        </div>
+        <div class="row g-0 mb-3">
+            <div class="col col-lg-1 fw-bold"> Donderdag</div>
+            <div class="col col-10 bg-black bg-opacity-10"></div>
+            <div class="col col-1 text-center">0:00 <input class="btn btn-outline-primary btn-sm" type="button" value="Edit"></div>
+        </div>
+        <div class="row g-0 mb-3">
+            <div class="col col-lg-1 fw-bold"> Vrijdag</div>
+            <div class="col col-10 bg-black bg-opacity-10">
+                <div class="row">
+                    <div class="col col-1 pt-1 bg-info" style="height: 30px; width: 23%;  margin-left: 16%">
+                        <span styk>09:00 </span> <span style="float: right">12:00</span>
+                    </div>
+                    <div class="col col-1 pt-1 bg-info" style="height: 30px; width: 24%;  margin-left: 6%">
+                        <span styk>13:00 </span> <span style="float: right">17:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-1 text-center">7:00 <input class="btn btn-outline-primary btn-sm" type="button" value="Edit"> </div>
+        </div>
+        <div class="row g-0 mb-3">
+            <div class="col col-lg-1 fw-bold"> zaterdag</div>
+            <div class="col col-10 bg-black bg-opacity-10"></div>
+            <div class="col col-1 text-center">0:00 <input class="btn btn-outline-primary btn-sm" type="button" value="Edit"></div>
+        </div>
+        <div class="row g-0 mb-3">
+            <div class="col col-lg-1 fw-bold"> Zondag</div>
+            <div class="col col-10 bg-black bg-opacity-10"></div>
+            <div class="col col-1 text-center">0:00 <input class="btn btn-outline-primary btn-sm" type="button" value="Edit"></div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+        <button class="btn btn-primary" asp-action="DeleteAll">Verwijder Alles</button>
+    </div>
+</div>
