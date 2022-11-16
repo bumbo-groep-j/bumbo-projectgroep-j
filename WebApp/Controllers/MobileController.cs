@@ -11,6 +11,12 @@ namespace Bumbo.Controllers
             return View();
         }
 
+        public IActionResult EditAvailability()
+        {
+            ViewBag.IsMobile = true;
+            return View();
+        }
+
         public IActionResult RequestLeave()
         {
             ViewBag.IsMobile = true;

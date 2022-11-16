@@ -6,6 +6,7 @@
     --text-color: #000000;
     --unselected: #808080;
     --selected: #007aff;
+    --selected2: #003add;
 }
 
 body {
@@ -49,9 +50,37 @@ h1 {
     font-size: 2rem;
 }
 
+input[type="time"] {
+    padding-bottom: 4px;
+    font-size: 1.5rem;
+    color: var(--selected);
+    border: none;
+}
+
+input[type="time"]:focus {
+    outline: none;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator:focus {
+    display: none;
+}
+
 a {
     text-decoration: none;
     color: var(--text-color);
+}
+
+a:hover {
+    color: var(--selected2);
+}
+
+label {
+    color: grey;
+    padding-top: 24px;
 }
 
 footer > div {
@@ -99,7 +128,7 @@ footer img {
 }
 
 .inner_div {
-    background-color: white;
+    background-color: var(--focus-background);
     padding: 10px 20px;
     margin-top: 4px;
 }
@@ -120,7 +149,118 @@ footer img {
 
 .edit_availability {
     float: right;
-    color: #007aff;
+    color: var(--selected);
+}
+
+.back_button {
+    position: absolute;
+    color: var(--selected);
+    font-size: 14pt;
+    left: 16px;
+}
+
+.back_chevron {
+    position: relative;
+    font-size: 40pt;
+    top: 8px;
+}
+
+.ok_button {
+    position: absolute;
+    color: var(--selected);
+    font-size: 20pt;
+    width: 100%;
+    text-align: center;
+    bottom: 16px;
+}
+
+.padded_container {
+    padding: 20px;
+}
+
+.small_field {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--focus-background);
+    padding: 12px 20px;
+    margin: 2px 0;
+}
+
+.small_field:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.small_field:last-child {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.small_field > * {
+    padding-top: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.20);
+}
+
+#overlay > div {
+    position: absolute;
+    top: 50%;
+    left: calc(20% - 1px);
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.alert {
+    text-align: center;
+    background-color: var(--focus-background);
+    padding: 4vh;
+    width: calc(60% + 2px);
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 1px;
+}
+
+.confirm,
+.cancel {
+    text-align: center;
+    background-color: var(--focus-background);
+    width: 30%;
+    margin: 1px 0 0 0;
+    color: var(--selected);
+    border: 0;
+    padding: 16px 0;
+    display: inline-block;
+}
+
+.confirm:hover,
+.cancel:hover {
+    background-color: var(--background);
+    color: var(--selected2);
+}
+
+.confirm:active,
+.cancel:active {
+    background-color: var(--light-background);
+}
+
+.confirm {
+    border-radius: 0 0 8px 0;
+    margin-left: -1.25px;
+}
+
+.cancel {
+    border-radius: 0 0 0 8px;
+    margin-right: -1.25px;
 }
 
 @media(max-width: 350px) {
