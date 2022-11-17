@@ -35,6 +35,12 @@ namespace Bumbo.Controllers
             return View();
         }
 
+        public IActionResult EditSchoolSchedule()
+        {
+            ViewBag.IsMobile = true;
+            return View();
+        }
+
         public IActionResult WorkSchedule()
         {
             ViewBag.IsMobile = true;
