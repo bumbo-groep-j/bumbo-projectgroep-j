@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Verlof";
+    ViewData["Stylesheet"] = "/css/mobile.css";
+
+    int previousMonthMonth = (DateTime.Today.Month == 1 ? 12 : DateTime.Today.Month - 1);
+    int previousMonthYear  = (DateTime.Today.Month == 1 ? DateTime.Today.Year - 1 : DateTime.Today.Year);
+
+    int mondayDay   = DateTime.Today.Day;
+    int mondayMonth = DateTime.Today.Month;
+    int mondayYear  = DateTime.Today.Year;
+
+    switch(DateTime.Today.DayOfWeek)
+    {
+        case DayOfWeek.Tuesday: mondayDay -= 1; break;
+        case DayOfWeek.Wednesday: mondayDay -= 2; break;
+        case DayOfWeek.Thursday: mondayDay -= 3; break;
+        case DayOfWeek.Friday: mondayDay -= 4; break;
+        case DayOfWeek.Saturday: mondayDay -= 5; break;
+        case DayOfWeek.Sunday: mondayDay -= 6; break;
+    }
+
+    int firstWeekdayOfMonth = 1;
+
+    switch(new DateOnly(mondayYear, mondayMonth, 1).DayOfWeek)
+    {
+        case DayOfWeek.Tuesday: firstWeekdayOfMonth = 2; break;
+        case DayOfWeek.Wednesday: firstWeekdayOfMonth = 3; break;
+        case DayOfWeek.Thursday: firstWeekdayOfMonth = 4; break;
+        case DayOfWeek.Friday: firstWeekdayOfMonth = 5; break;
+        case DayOfWeek.Saturday: firstWeekdayOfMonth = 6; break;
+        case DayOfWeek.Sunday: firstWeekdayOfMonth = 7; break;
+    }
+
+    if(mondayDay < 1)
+    {
+        mondayDay  += DateTime.DaysInMonth(previousMonthYear, previousMonthMonth);
+        mondayMonth = previousMonthMonth;
+        mondayYear  = previousMonthYear;
+    }
+}
+
+<header>
+    <h1>Verlof<a asp-action="RequestLeave"><span class="add_button">+</span></a></h1>
+</header>
+<div class="content">
+    <partial name="InlineCalendar" model="new CalendarData {
+        CurrentMonth = mondayMonth,
+        CurrentYear = mondayYear,
+        FirstWeekdayOfMonth = firstWeekdayOfMonth,
+        Today = DateOnly.FromDateTime(DateTime.Today),
+        Selected = new DateOnly(mondayYear, mondayMonth, mondayDay)
+    };" />
+    <div class="inner_div">
+        <h5><b>donderdag </b><span class="date">26/09/2022</span></h5>
+        <b>08:00 - 13:00 </b><span class="department">Kassa</span><br />
+        <span class="accepted">Goedgekeurd</span>
+    </div>
+</div>

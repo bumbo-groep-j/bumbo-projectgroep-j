@@ -13,39 +13,15 @@
         <label>Tijd</label>
         <div>
             <div class="small_field">
-                <h4>Van</h4><input type="time" value="09:00" /></h4>
+                <h4>Van</h4><input type="time" value="09:00" />
             </div>
             <div class="small_field">
-                <h4>Tot</h4><input type="time" value="18:00" /></h4>
+                <h4>Tot</h4><input type="time" value="18:00" />
             </div>
         </div>
     </div>
     <a href="javascript:void(0)" class="ok_button" onclick="$('#overlay').removeClass('hidden');">OK</a>
 </div>
-<footer>
-    <div>
-        <a asp-action="WorkSchedule">
-            <img src="/img/schedule.svg" />
-            <p class="unselected">Rooster</p>
-        </a>
-    </div>
-    <div>
-        <img src="/img/availability_selected.svg" />
-        <p class="selected">Beschikbaarheid</p>
-    </div>
-    <div>
-        <a asp-action="RequestLeave">
-            <img src="/img/vacation.svg" />
-            <p class="unselected">Verlof</p>
-        </a>
-    </div>
-    <div>
-        <a asp-action="SchoolSchedule">
-            <img src="/img/school.svg" />
-            <p class="unselected">Schoolrooster</p>
-        </a>
-    </div>
-</footer>
 <div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
     <div>
         <div class="alert">

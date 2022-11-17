@@ -7,6 +7,12 @@
     --unselected: #808080;
     --selected: #007aff;
     --selected2: #003add;
+    --green: #7ad03a;
+}
+
+::-webkit-scrollbar {
+    position: relative;
+    width: 4px;
 }
 
 body {
@@ -50,23 +56,32 @@ h1 {
     font-size: 2rem;
 }
 
-input[type="time"] {
+input[type="time"],
+input[type="date"] {
     padding-bottom: 4px;
     font-size: 1.5rem;
     color: var(--selected);
     border: none;
+    position: relative;
+    top: -2px;
+    background-color: transparent;
 }
 
-input[type="time"]:focus {
+input[type="time"]:focus,
+input[type="date"]:focus,
+textarea:focus {
     outline: none;
 }
 
-input[type="time"]::-webkit-calendar-picker-indicator {
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator:focus,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator:focus {
     display: none;
 }
 
-input[type="time"]::-webkit-calendar-picker-indicator:focus {
-    display: none;
+input[type="date"] {
+    right: -34px;
 }
 
 a {
@@ -114,8 +129,10 @@ footer img {
 .content {
     position: absolute;
     top: 156px;
-    width: 100%;
+    left: 4px;
+    width: calc(100% - 4px);
     height: calc(100vh - 264px);
+    overflow-y: scroll;
 }
 
 .center {
@@ -165,13 +182,28 @@ footer img {
     top: 8px;
 }
 
-.ok_button {
+.add_button {
     position: absolute;
+    right: 16px;
+    bottom: 1.7vh;
+    font-size: 36pt;
+    color: var(--selected);
+}
+
+.accepted {
+    font-weight: bold;
+    color: var(--green);
+}
+
+.ok_button {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
     color: var(--selected);
     font-size: 20pt;
-    width: 100%;
     text-align: center;
-    bottom: 16px;
+    padding-bottom: 16px;
 }
 
 .padded_container {
@@ -198,6 +230,19 @@ footer img {
 
 .small_field > * {
     padding-top: 8px;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    height: 200px;
+    justify-content: space-between;
+    background-color: var(--focus-background);
+    padding: 12px 20px;
+    margin: 2px 0;
+    resize: none;
+    border: none;
+    border-radius: 8px;
 }
 
 .hidden {
