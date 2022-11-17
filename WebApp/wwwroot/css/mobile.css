@@ -10,6 +10,11 @@
     --green: #7ad03a;
 }
 
+::-webkit-scrollbar {
+    position: relative;
+    width: 4px;
+}
+
 body {
     background-color: var(--black-bars);
     display: flex;
@@ -51,47 +56,32 @@ h1 {
     font-size: 2rem;
 }
 
-input[type="time"] {
-    padding-bottom: 4px;
-    font-size: 1.5rem;
-    color: var(--selected);
-    border: none;
-    top: -2px;
-}
-
-input[type="time"]:focus {
-    outline: none;
-}
-
-input[type="time"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
-input[type="time"]::-webkit-calendar-picker-indicator:focus {
-    display: none;
-}
-
+input[type="time"],
 input[type="date"] {
     padding-bottom: 4px;
     font-size: 1.5rem;
     color: var(--selected);
     border: none;
     position: relative;
-    right: -34px;
     top: -2px;
     background-color: transparent;
 }
 
-input[type="date"]:focus {
+input[type="time"]:focus,
+input[type="date"]:focus,
+textarea:focus {
     outline: none;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator:focus,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator:focus {
     display: none;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator:focus {
-    display: none;
+input[type="date"] {
+    right: -34px;
 }
 
 a {
@@ -139,8 +129,10 @@ footer img {
 .content {
     position: absolute;
     top: 156px;
-    width: 100%;
+    left: 4px;
+    width: calc(100% - 4px);
     height: calc(100vh - 264px);
+    overflow-y: scroll;
 }
 
 .center {
@@ -193,7 +185,7 @@ footer img {
 .add_button {
     position: absolute;
     right: 16px;
-    top: 80px;
+    bottom: 1.7vh;
     font-size: 36pt;
     color: var(--selected);
 }
@@ -204,12 +196,14 @@ footer img {
 }
 
 .ok_button {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
     color: var(--selected);
     font-size: 20pt;
-    width: 100%;
     text-align: center;
-    bottom: 60px;
+    padding-bottom: 16px;
 }
 
 .padded_container {
