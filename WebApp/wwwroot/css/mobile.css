@@ -7,6 +7,7 @@
     --unselected: #808080;
     --selected: #007aff;
     --selected2: #003add;
+    --green: #7ad03a;
 }
 
 body {
@@ -163,6 +164,19 @@ footer img {
     position: relative;
     font-size: 40pt;
     top: 8px;
+}
+
+.add_button {
+    position: absolute;
+    right: 16px;
+    top: 82px;
+    font-size: 36pt;
+    color: var(--selected);
+}
+
+.accepted {
+    font-weight: bold;
+    color: var(--green);
 }
 
 .ok_button {
