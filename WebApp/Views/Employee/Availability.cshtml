@@ -3,10 +3,17 @@
     ViewData["Title"] = "Availability";
     ViewData["Stylesheet"] = "/css/employee.css";
 }
+
+<h1 class="current_page_title">Beschikbaarheid</h1>
+
+<div class="watermark_concept">
+    <p class="concept_text">CONCEPT</p>
+</div>
+
 <div class="availability_group">
     <form asp-action="Availability">
         <table>
-            <tr>
+            <tr class="availability_weekdays">
                 <td>&nbsp;</td>
                 <th>Maandag</th>
                 <th>Dinsdag</th>
@@ -108,7 +115,7 @@
                     </div>
                 </td>
             </tr>
-            <td> </td>
+            <td>&nbsp;</td>
             <!--Second input. For example if they can work between 8-10 and 18-22 -->
             <!--Start time input boxes-->
             <tr>

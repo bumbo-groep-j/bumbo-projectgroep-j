@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Verlof";
+    ViewData["Stylesheet"] = "/css/mobile.css";
+}
+
+<header>
+    <h1>Verlof aanvragen</h1>
+</header>
+<a asp-action="LeaveRequests" class="back_button"><span class="back_chevron">&#x2039;</span>Terug</a>
+<div class="content">
+    <div class="padded_container">
+        <div>
+            <div>
+                <div class="small_field">
+                    <h4>Datum</h4><input type="date" value="19 oktober 2022" />
+                </div>
+            </div>
+            <label>Tijd</label>
+            <div>
+                <div class="small_field">
+                    <h4>Van</h4><input type="time" value="09:00" />
+                </div>
+                <div class="small_field">
+                    <h4>Tot</h4><input type="time" value="18:00" />
+                </div>
+            </div>
+            <label>Reden</label>
+            <textarea class="large_field"></textarea>
+        </div>
+    </div>
+    <a asp-action="LeaveRequests" class="ok_button">OK</a>
+</div>
+<div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+    <div>
+        <div class="alert">
+            Deze wijziging gaat in over 3 weken.
+        </div>
+        <button class="cancel">Annuleren</button>
+        <a asp-action="Availability" class="confirm">OK</a>
+    </div>
+</div>
