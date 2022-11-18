@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "rooster";
     ViewData["Stylesheet"] = "/css/employee.css";
+
+    int dateNumber = 13;
 }
 
 <div class="modal-body">
@@ -9,9 +11,9 @@
             <button asp-action="PreviousDate" class="pre_next_input" size="20"><span class="btn_text">&#x2039</span></button>
             <span class="header_date_span">
                 ROOSTER:
-                @ViewBag.StartDate.ToString("dddd dd MMMM")
+                Maandag 14 novebmer
                 -
-                @ViewBag.EndDate.ToString("dddd dd MMMM")
+                Zondag 20 novebmer
             </span>
             <button asp-action="NextDate" class="pre_next_input"><span class="btn_text">&#x203A</span></button>
         </h1>
@@ -39,58 +41,59 @@
             <td style="color:white; font-size:0">00:00</td>
         </tr>
         <br>
-        @foreach (var item in ViewBag.DaysThisWeek)
+        @foreach (var item in ViewData["Days"] as List<string>)
         {   
              <tr>
-                <td class="day_div"><b>@item.ToString("dddd").Substring(0,1).ToUpper()@item.ToString("dddd").Substring(1, item.ToString("dddd").Length -1)</b></td>
-                <td>@item.ToString("dd")</td>
-                @switch(@item.ToString("dddd")){
-                    case "maandag":
+                <td class="day_div"><b>@item</b></td>
+                @{dateNumber++;}
+            <td>@dateNumber</td>
+                @switch(@item){
+                    case "Maandag":
                         <td class="length_hour" colspan="15">
-                            <div style="background-color: #007AFF; color: white; ;padding: 5px; width: 530px; margin-left: 90px; height: 32px">
+                            <div class="work_line" style="width: 530px; margin-left: 90px;">
                                 <span>08:00</span>
                                 <span style="float: right">16:00</span>
                             </div>
                         </td>
                         <td>09:00</td>
                         break;
-                    case "dinsdag":
+                    case "Dinsdag":
                         <td class="length_hour" colspan="15">
-                            <div style="background-color: #007AFF; color: white; ;padding: 5px; width: 530px; margin-left: 155px; height: 32px">
+                            <div class="work_line" style=";width: 530px; margin-left: 155px;">
                                 <span>09:00</span>
                                 <span style="float: right">17:00</span>
                             </div>
                         </td>
                         <td>08:00</td>
                         break;
-                    case "woensdag":
+                    case "Woensdag":
                         <td class="length_hour" colspan="15">
                            
                         </td>
                         <td>00:00</td>
                         break;
-                    case "donderdag":
+                    case "Donderdag":
                         <td class="length_hour" colspan="15">
                             
                         </td>
                         <td>00:00</td>
                         break;
-                    case "vrijdag":
+                    case "Vrijdag":
                         <td class="length_hour" colspan="15">
-                            <div style="background-color: #007AFF; color: white; ;padding: 5px; width: 330px; margin-left: 90px; height: 32px">
+                            <div class="work_line" style="width: 330px; margin-left: 90px;">
                                 <span>08:00</span>
                                 <span style="float: right">13:00</span>
                             </div>
                         </td>
                         <td>05:00</td>
                         break;
-                    case "zaterdag":
+                    case "Zaterdag":
                         <td class="length_hour" colspan="15">
                            
                         </td>
                         <td>00:00</td>
                         break;
-                    case "zondag":
+                    case "Zondag":
                         <td class="length_hour" colspan="15">
                          
                         </td>

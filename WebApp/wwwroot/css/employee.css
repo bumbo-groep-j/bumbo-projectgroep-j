@@ -71,3 +71,10 @@ span{
     text-align: center;
 }
 
+.work_line {
+    background-color: #007AFF;
+    color: white;
+    padding: 5px;
+    height: 32px
+}
+
