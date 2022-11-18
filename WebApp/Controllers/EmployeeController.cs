@@ -71,9 +71,8 @@ namespace Bumbo.Controllers
             DateTime endTime = dt.AddDays(end).Date;
             ViewBag.StartDate = beginTime;
             ViewBag.EndDate = endTime;
-     
-            if(IsMobile()) return RedirectToAction("WorkSchedule", "Mobile");
             ViewBag.EndDate = endTime;*/
+            if (IsMobile()) return RedirectToAction("WorkSchedule", "Mobile");
             ViewData["Days"] = listDays();
 
             return View();
