@@ -38,7 +38,8 @@ namespace Bumbo.Controllers
 
         public IActionResult SchoolSchedule()
         {
-            if(IsMobile()) return RedirectToAction("SchoolSchedule", "Mobile");
+            ViewData["Days"] = listDays();
+            if (IsMobile()) return RedirectToAction("SchoolSchedule", "Mobile");
             return View();
         }
 
