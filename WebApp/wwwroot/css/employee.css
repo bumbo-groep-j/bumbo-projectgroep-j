@@ -9,3 +9,65 @@
     max-width: 90px;
 }
 
+.pre_next_input {
+    border: solid;
+    border-radius: 20px;
+    border-color: #007AFF;
+    position: relative;
+    top: 15px;
+    width: 1em;
+    height: 1em;
+    font-size: 50px;
+    background-color: white;
+    color: #007AFF;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pre_next_input:hover {
+    position: relative;
+    background-color: #007AFF;
+    color: white;
+}
+
+.btn_text{
+    position: relative;
+    bottom: 15px;
+}
+
+h1{
+    margin-left: 55px;
+}
+
+table, tr, td {
+    border-collapse: separate;
+    border-spacing: 1em;
+}
+
+.row_hour {
+    border-collapse: collapse;
+    border-bottom: 1pt solid black
+}
+
+td {
+    padding: 5px;
+    text-align: center;
+}
+
+.day_div{
+    text-align: left;
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+
+}
+.length_hour{
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+    background-color: lightgrey;
+}
+
+span{
+    text-align: center;
+}
+
