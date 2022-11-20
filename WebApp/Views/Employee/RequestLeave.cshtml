@@ -4,7 +4,6 @@
     ViewData["Stylesheet"] = "/css/employee.css";
 }
 
-
 <h1 class="current_page_title">Verlof aanvragen</h1>
 
 <div class="watermark_concept">
@@ -14,59 +13,27 @@
 <!-- Values are hardcoded now, will be changed later-->
 <!-- Same for "form-asp-action" need to be changed later ons-->
 <div class="request_leave_group">
-    <div class="current_requests">
+    <div>
         <form asp-action="Requestleave">
-            <table>
-                <tr>
-                    <th class="request_leave_th">Huidige aanvragen</th>
-                </tr>
-                <tr>
-                    <td>Vrij aanvraag 1</td>
-                </tr>
-                <tr>
-                    <td>Begindatum: 29-09-2022 </td>
-                </tr>
-                <tr>
-                    <td>Einddatum: 30-09-2022</td>
-                </tr>
-                <tr>
-                    <td> <input type="checkbox">&nbsp; Annuleren </td>
-                </tr>
-            </table>
+            <h2>Huidige aanvragen</h2>
+            <p class="align_center">Vrij aanvraag 1</p>
+            <p class="align_center">Begindatum: 29-09-2022</p>
+            <p class="align_center">Einddatum: 30-09-2022</p>
+            <p class="align_center"><input type="checkbox">&nbsp; Annuleren</p>
             <br />
-            <table>
-                <tr>
-                    <td>Vrij aanvraag 2</td>
-                </tr>
-                <tr>
-                    <td>Begindatum: 01-10-2022 </td>
-                </tr>
-                <tr>
-                    <td>Einddatum: 10-10-2022</td>
-                </tr>
-                <tr>
-                    <td> <input type="checkbox">&nbsp; Annuleren </td>
-                </tr>
-            </table>
+            <p class="align_center">Vrij aanvraag 2</p>
+            <p class="align_center">Begindatum: 01-10-2022</p>
+            <p class="align_center">Einddatum: 10-10-2022</p>
+            <p class="align_center"><input type="checkbox">&nbsp; Annuleren</p>
         </form>
     </div>
-    <div class="new_request">
+    <div>
         <form asp-action="RequestLeave">
-            <table>
-                <tr>
-                    <th class="request_leave_th">Nieuwe aanvraag</th>
-                </tr>
-                <tr>
-                    <td>Begindatum: <input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Einddatum: <input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Opmerking: <input type="text" class="remark_input"></td>
-                </tr>
-            </table>
-            <div class="send_button">
+            <h2>Nieuwe aanvraag</h2>
+            <p class="align_center">Begindatum: <input type="date"></p>
+            <p class="align_center">Einddatum: <input type="date"></p>
+            <p class="align_center">Opmerking: <input type="text" class="remark_input"></p>
+            <div class="space_around">
                 <button>Verstuur</button>
             </div>
         </form>

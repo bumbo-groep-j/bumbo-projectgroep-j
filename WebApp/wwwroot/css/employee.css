@@ -1,4 +1,4 @@
-﻿/* Availability CSS*/
+﻿/* Availability CSS */
 .save_button {
     display: flex;
     justify-content: center;
@@ -24,50 +24,22 @@ input[type="text"]::placeholder {
     justify-content: center;
 }
 
-.watermark_concept {
-    min-height: 50%;
-    min-width: 50%;
-}
-
-.concept_text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(320deg);
-    z-index: 1;
-    font-size: 100px;
-    font-weight: 500;
-    opacity: 0.1;
-    color: red;
-    pointer-events: none;
-}
-
 .current_page_title {
     text-align: center;
 }
 
 /* Request leave CSS */
-.request_leave_th {
-    font-size: 30px;
-    font-weight: 500;
+.request_leave_group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.request_leave_group {
+.request_leave_group > div {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
-.new_request {
-    padding: 10px;
-    margin: 5px;
-    flex: 1;
-}
-
-.current_requests {
-    padding: 10px;
-    margin: 5px;
-    flex: 1;
-}
 .work_line {
     background-color: #007AFF;
     color: white;
@@ -75,36 +47,7 @@ input[type="text"]::placeholder {
     height: 32px
 }
 
-
-/*school and work schedule css*/
-.pre_next_input {
-    border: solid;
-    border-radius: 20px;
-    border-color: #007AFF;
-    position: relative;
-    top: 15px;
-    width: 1em;
-    height: 1em;
-    font-size: 50px;
-    background-color: white;
-    color: #007AFF;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.pre_next_input:hover {
-    position: relative;
-    background-color: #007AFF;
-    color: white;
-}
-
-.btn_text {
-    position: relative;
-    bottom: 15px;
-}
-
-h1 {
-    margin-left: 55px;
-}
+/* School and work schedule CSS */
 
 table, tr, td {
     border-collapse: separate;
@@ -134,7 +77,7 @@ span {
     text-align: center;
 }
 
-.extra_info{
+.extra_info {
     padding: 0px;
 }
 

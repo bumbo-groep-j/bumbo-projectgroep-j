@@ -2,11 +2,6 @@
     width: 100%;
 }
 
-a {
-    color: #000000;
-    text-decoration: none;
-}
-
 ul {
     list-style: none;
 }
@@ -21,17 +16,9 @@ tr {
     vertical-align: middle;
 }
 
-.align_right {
-    text-align: right;
-}
-
-.align_center {
-    text-align: center;
-}
-
 .seperator {
     height: 0;
-    border-bottom: 1px dotted #808080;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .content_container {
@@ -125,16 +112,6 @@ tr {
     text-decoration: underline;
 }
 
-.space_between {
-    display: flex;
-    justify-content: space-between;
-}
-
-.space_between > * {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
 .blue {
     color: #007aff;
 }
@@ -187,28 +164,6 @@ tr {
     color: #808080;
 }
 
-.watermark_concept {
-    min-height: 50%;
-    min-width: 50%;
-}
-
-.concept_text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(320deg);
-    z-index: 1;
-    font-size: 100px;
-    font-weight: 500;
-    opacity: 0.1;
-    color: red;
-    pointer-events: none;
-}
-
-hr {
-    border-top: 1px dotted #c0c0c0;
-}
-
 input[type=checkbox] {
     width: 18px;
     height: 18px;
@@ -247,14 +202,4 @@ input[type=checkbox]:checked {
 .prognosis_mismatch {
     color: red;
     font-size: 1.2rem;
-}
-
-.space_around {
-    display: flex;
-    justify-content: space-around;
-}
-
-.space_around > * {
-    margin-top: auto;
-    margin-bottom: auto;
 }
