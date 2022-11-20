@@ -17,7 +17,7 @@
     justify-content: center;
 } 
 
-/* Gives the error message the colour red */
+/* Gives the error message the color red */
 .field_validation_error {
     color: red;
 }

@@ -1,18 +1,131 @@
-﻿html {
-  font-size: 14px;
+﻿/* Basic styling */
+
+html {
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+/* Button styling */
+
+button,
+input[type=submit] {
+    border: 2px solid #007aff;
+    color: #007aff;
+    border-radius: 4px;
+    padding: 4px 8px 6px 8px;
+    background-color: transparent;
+    transition: border-color linear 0.2s;
+    transition: color linear 0.2s;
+}
+
+button:hover,
+input[type=submit]:hover {
+    border-color: #005abf;
+    color: #005abf;
+}
+
+.red_button {
+    border: 2px solid #ff3f3f;
+    color: #ff3f3f;
+}
+
+.red_button:hover {
+    border: 2px solid #df2f2f;
+    color: #df2f2f;
+}
+
+.green_button {
+    border: 2px solid #3f9f3f;
+    color: #3f9f3f;
+}
+
+.green_button:hover {
+    border: 2px solid #2f7f2f;
+    color: #2f7f2f;
+}
+
+.nav_button {
+    font-size: 48pt;
+    line-height: 0.21;
+    padding-bottom: 20px;
+    vertical-align: bottom;
+    margin-bottom: 2px;
+}
+
+.nav_button:hover {
+    background-color: #005abf;
+    color: #ffffff;
+}
+
+/* Concept watermark */
+
+.watermark_concept {
+    min-height: 50%;
+    min-width: 50%;
+}
+
+.concept_text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(320deg);
+    z-index: 1;
+    font-size: 100px;
+    font-weight: 500;
+    opacity: 0.1;
+    color: red;
+    pointer-events: none;
+}
+
+/* Links */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #003add;
+}
+
+/* Text alignment */
+
+.align_right {
+    text-align: right;
+}
+
+.align_center {
+    text-align: center;
+}
+
+/* Block alignment */
+
+.space_between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.space_around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.space_between > *,
+.space_around > * {
+    margin-top: auto;
+    margin-bottom: auto;
 }

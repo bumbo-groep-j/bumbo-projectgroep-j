@@ -84,15 +84,6 @@ input[type="date"] {
     right: -34px;
 }
 
-a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-a:hover {
-    color: var(--selected2);
-}
-
 label {
     color: grey;
     padding-top: 24px;

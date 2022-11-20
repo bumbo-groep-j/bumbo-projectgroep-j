@@ -1,6 +1,10 @@
 ﻿@{
     ViewData["Stylesheet"] = "/css/manager.css";
 }
+
+<div class="watermark_concept">
+    <p class="concept_text">CONCEPT</p>
+</div>
 <div class="content_container">
     <aside>
         <partial name="Calendar" model="new CalendarData {
@@ -22,9 +26,9 @@
     <div>
         <header>
             <h1 class="align_center">
-                <a asp-controller="Manager" asp-action="Scheduling">&#x2039;</a>
-                vrijdag 30 september
-                <a asp-controller="Manager" asp-action="Scheduling">&#x203A;</a>
+                <button class="nav_button" asp-controller="Manager" asp-action="Scheduling">&#x2039;</button>
+                Inroostering: Vrijdag 30 september
+                <button class="nav_button" asp-controller="Manager" asp-action="Scheduling">&#x203A;</button>
             </h1>
         </header>
         <table>
@@ -56,7 +60,7 @@
                 <td class="align_center">1/1</td>
                 <td class="align_center">1/1</td>
                 <td class="align_center">1/1</td>
-                <td class="align_center">2/1</td>
+                <td class="align_center prognosis_mismatch">2/1</td>
                 <td class="align_center">2/2</td>
                 <td class="align_center">2/2</td>
                 <td class="align_center">1/1</td>
@@ -64,9 +68,9 @@
                 <td class="align_center">1/1</td>
                 <td class="align_center">2/2</td>
                 <td class="align_center">2/2</td>
-                <td class="align_center">2/3</td>
+                <td class="align_center prognosis_mismatch">2/3</td>
                 <td class="align_center">4/4</td>
-                <td class="align_center">4/3</td>
+                <td class="align_center prognosis_mismatch">4/3</td>
                 <td class="align_center">2/2</td>
                 <td class="align_center">2/2</td>
                 <td class="align_center">1/1</td>
@@ -87,7 +91,7 @@
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
-                <td colspan="6">Deze werknemer is momenteel niet beschikbaar</td>
+                <td colspan="6" class="unavailable">Deze werknemer is momenteel niet beschikbaar</td>
             </tr>
             <tr>
                 <td class="align_right" colspan="2">Medewerker 2</td>
@@ -158,7 +162,7 @@
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
-                <td colspan="5">Deze werknemer is momenteel niet beschikbaar</td>
+                <td colspan="5" class="unavailable">Deze werknemer is momenteel niet beschikbaar</td>
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
@@ -173,7 +177,7 @@
                 <td class="align_right" colspan="2">Medewerker 6</td>
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
-                <td colspan="5">Deze werknemer is momenteel niet beschikbaar</td>
+                <td colspan="5" class="unavailable">Deze werknemer is momenteel niet beschikbaar</td>
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
                 <td class="align_center"><input type="checkbox" /></td>
@@ -187,5 +191,8 @@
                 <td class="align_center"><input type="checkbox" /></td>
             </tr>
         </table>
+        <div class="space_around">
+            <button>Opslaan</button>
+        </div>
     </div>
 </div>

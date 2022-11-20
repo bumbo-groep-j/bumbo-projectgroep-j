@@ -5,17 +5,15 @@
     int dateNumber = 13;
 }
 
+<div class="watermark_concept">
+    <p class="concept_text">CONCEPT</p>
+</div>
 <div class="modal-body">
     <div id="title">
-        <h1>
-            <button asp-action="PreviousDate" class="pre_next_input" size="20"><span class="btn_text">&#x2039</span></button>
-            <span class="header_date_span">
-                ROOSTER:
-                Maandag 14 november
-                -
-                Zondag 20 november
-            </span>
-            <button asp-action="NextDate" class="pre_next_input"><span class="btn_text">&#x203A</span></button>
+        <h1 class="align_center">
+            <button class="nav_button" asp-action="PreviousDate">&#x2039</button>
+            Rooster: Maandag 14 november - Zondag 20 november
+            <button class="nav_button" asp-action="NextDate">&#x203A</button>
         </h1>
     </div>
     <br />
