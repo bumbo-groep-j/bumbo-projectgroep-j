@@ -30,7 +30,7 @@ namespace Database
         {
 
 
-            #region Emloyees
+            #region Employees
             modelBuilder.Entity<Employee>().HasData(
                 new Employee { EmployeeId = 1, FirstName = "testUser1FirstName", Insertion = "", LastName = "testUser1LastName", Birthdate = new DateTime(2000, 12, 20), Email = "tester1@mail.com", NFCToken = "Token1" },
                 new Employee { EmployeeId = 2, FirstName = "testUser2FirstName", Insertion = "", LastName = "testUser2LastName", Birthdate = new DateTime(1999, 6, 10), Email = "tester2@mail.com", NFCToken = "Token2" },
@@ -60,7 +60,6 @@ namespace Database
                 new SchoolMoment { Id = 4, EmployeeId = 3, TotalHour = 20, date = new DateTime(2022, 11, 21) }
                 );
             #endregion
-
 
             #region Availablitity
             modelBuilder.Entity<Availability>().HasData(
