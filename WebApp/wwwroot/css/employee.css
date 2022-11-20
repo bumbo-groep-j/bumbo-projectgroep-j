@@ -112,15 +112,11 @@ h1 {
     margin-left: 55px;
 }
 
-table, tr, td {
+.table_style {
     border-collapse: separate;
     border-spacing: 1em;
 }
 
-td {
-    padding: 5px;
-    text-align: center;
-}
 
 .day_div {
     text-align: left;
@@ -136,9 +132,6 @@ td {
     background-color: lightgrey;
 }
 
-span {
-    text-align: center;
-}
 
 .extra_info{
     padding: 0px;
