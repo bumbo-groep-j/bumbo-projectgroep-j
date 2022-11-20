@@ -16,3 +16,40 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+button,
+input[type=submit] {
+    border: 2px solid #007aff;
+    color: #007aff;
+    border-radius: 4px;
+    padding: 4px 8px 6px 8px;
+    background-color: transparent;
+    transition: border-color linear 0.2s;
+    transition: color linear 0.2s;
+}
+
+button:hover,
+input[type=submit]:hover {
+    border-color: #005abf;
+    color: #005abf;
+}
+
+.red_button {
+    border: 2px solid #ff3f3f;
+    color: #ff3f3f;
+}
+
+.red_button:hover {
+    border: 2px solid #df2f2f;
+    color: #df2f2f;
+}
+
+.green_button {
+    border: 2px solid #3f9f3f;
+    color: #3f9f3f;
+}
+
+.green_button:hover {
+    border: 2px solid #2f7f2f;
+    color: #2f7f2f;
+}
