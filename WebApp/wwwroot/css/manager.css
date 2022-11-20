@@ -186,3 +186,21 @@ tr {
 .forbidden {
     color: #808080;
 }
+
+.watermark_concept {
+    min-height: 50%;
+    min-width: 50%;
+}
+
+.concept_text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(320deg);
+    z-index: 1;
+    font-size: 100px;
+    font-weight: 500;
+    opacity: 0.1;
+    color: red;
+    pointer-events: none;
+}
