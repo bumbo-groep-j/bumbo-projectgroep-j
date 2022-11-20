@@ -17,8 +17,8 @@
         </h1>
     </div>
     <br />
-    <table class="container">
-        <tr>
+    <table class="container table_style">
+        <tr class="tr_style">
             <td></td>
             <td></td>
             <td>07:00</td>
@@ -40,8 +40,8 @@
         </tr>
         <br>
         @foreach (var item in ViewData["Days"] as List<string>)
-        {   
-             <tr>
+        {
+            <tr class="tr_style">
                 <td class="day_div"><b>@item</b></td>
                 @{dateNumber++;}
             <td>@dateNumber</td>
