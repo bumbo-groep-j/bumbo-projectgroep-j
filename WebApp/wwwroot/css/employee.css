@@ -140,27 +140,3 @@ span {
 .extra_info{
     padding: 0px;
 }
-
-.edit_btn {
-    margin-left: 10px;
-    border: solid 2px #007AFF;
-    border-radius: 5px;
-    background-color: white;
-    color: #007AFF;
-    transition: background-color 0.5s, color 0.5s
-}
-
-.delete_btn   {
-    border: solid 2px #007AFF;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: white;
-    color: #007AFF;
-    transition: background-color 0.5s, color 0.5s
-}
-
-.delete_btn:hover, .edit_btn:hover {
-    border: solid 2px #007AFF;
-    background-color: #007AFF;
-    color: white;
-}

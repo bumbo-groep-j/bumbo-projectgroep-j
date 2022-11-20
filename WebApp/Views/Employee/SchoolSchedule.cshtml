@@ -45,7 +45,7 @@
                                 <span style="float: right">16:00</span>
                             </div>
                         </td>
-                        <td class="extra_info">9:00 <input class="edit_btn" type="submit" value="Edit" /></td>                       
+                        <td class="extra_info">9:00 <button>Edit</button></td>               
                         break;
                     case "Dinsdag":
                         <td class="length_hour" colspan="15">
@@ -54,17 +54,17 @@
                                 <span style="float: right">17:00</span>
                             </div>
                         </td>
-                        <td class="extra_info">8:00 <input class="edit_btn" type="submit" value="Edit" /></td>
+                        <td class="extra_info">8:00 <button>Edit</button></td>
                         break;
                     case "Woensdag":
                         <td class="length_hour" colspan="15">
                         </td>
-                        <td class="extra_info">0:00 <input class="edit_btn" type="submit" value="Edit" /></td>
+                        <td class="extra_info">0:00 <button>Edit</button></td>
                         break;
                     case "Donderdag":
                         <td class="length_hour" colspan="15">
                         </td>
-                        <td class="extra_info">0:00 <input class="edit_btn" type="submit" value="Edit" /></td>
+                        <td class="extra_info">0:00 <button>Edit</button></td>
                         break;
                     case "Vrijdag":
                         <td class="length_hour" colspan="15">
@@ -73,17 +73,17 @@
                                 <span style="float: right">13:00 </span>
                             </div>
                         </td>
-                        <td class="extra_info">5:00 <input class="edit_btn" type="submit" value="Edit" /></td>
+                        <td class="extra_info">5:00 <button>Edit</button></td>
                         break;
                     case "Zaterdag":
                         <td class="length_hour" colspan="15">
                         </td>
-                        <td class="extra_info">0:00 <input class="edit_btn" type="submit" value="Edit" /></td>
+                        <td class="extra_info">0:00 <button>Edit</button></td>
                         break;
                     case "Zondag":
                         <td class="length_hour" colspan="15">
                         </td>
-                        <td class="extra_info">0:00 <input class="edit_btn" type="submit" value="Edit" /></td>
+                        <td class="extra_info">0:00 <button>Edit</button></td>
                         break;
                 }
 
@@ -91,6 +91,6 @@
         }
     </table>
     <div class="d-flex justify-content-center mt-5">
-        <button class="delete_btn"  asp-action="DeleteAll">Verwijder Alles</button>
+        <button asp-action="DeleteAll">Verwijder Alles</button>
     </div>
 </div>
