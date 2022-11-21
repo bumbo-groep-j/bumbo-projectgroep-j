@@ -1,11 +1,5 @@
-﻿using Database;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WebApp.Domain
 {
@@ -20,6 +14,8 @@ namespace WebApp.Domain
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }
+
+        public WeekDays WeekDay { get; set; }
 
         [NotMapped]
         [RegularExpression("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$", ErrorMessage = "Incorrecte input (HH:MM)")]

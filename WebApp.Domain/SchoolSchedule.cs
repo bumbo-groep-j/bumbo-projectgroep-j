@@ -1,20 +1,21 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace WebApp.Domain
 {
-    public class Prognosis
+    public class SchoolSchedule
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public int TotalColli { get; set; }
+        [ForeignKey("EmployeeId")]
+        public int EmployeeId { get; set;}
         [Required]
-        public DateTime Date { get; set; }
+        public DateTime StartTime { get; set; }
         [Required]
-        public int TotalCustomers { get; set; }
+        public DateTime EndTime { get; set; }
         [Required]
-        [ForeignKey("Department")]
-        public string Department { get; set; }
+        public WeekDays WeekDay { get; set; }
     }
 }
