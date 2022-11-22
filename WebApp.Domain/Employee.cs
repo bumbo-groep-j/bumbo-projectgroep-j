@@ -7,19 +7,23 @@ namespace WebApp.Domain
     public class Employee
     {
         [Key]
-        public int EmployeeId { get; set; }
+        public int Id { get; set; }
+
         [Required]
         public string FirstName { get; set; }
-        public string? MiddelName { get; set; }
+
+        public string? MiddleName { get; set; }
+
         [Required]
         public string LastName { get; set; }
+
         [Required]
         [Column(TypeName = "Date")]
-        public DateTime Birthdate { get; set; }
+        public DateTime DateOfBirth { get; set; }
+
         public string NFCToken { get; set; }
+
         [Required]
-        public string Email { get; set; }
-        [Required]
-        public double HourSalary { get; set; } 
+        public double HourlyWage { get; set; } 
     }
 }

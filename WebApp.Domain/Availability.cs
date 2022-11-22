@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WebApp.Domain
 {
     [PrimaryKey("EmployeeId", "Weekday", "Id")]
-    public class SchoolSchedule
+    public class Availability
     {
         [Key]
         [ForeignKey("Employee")]
