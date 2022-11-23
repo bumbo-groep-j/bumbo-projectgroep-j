@@ -73,7 +73,7 @@ namespace WebApp.Domain
             {
                 if(!point.IsHoliday)
                 {
-                    MonthlyCurve[point.Date.Month] += point.Value;
+                    MonthlyCurve[point.Date.Month - 1] += point.Value;
                     WeeklyCurve[(int)point.Date.DayOfWeek] += point.Value;
                     YearlyTotal += point.Value;
                     countedDays++;
@@ -97,7 +97,7 @@ namespace WebApp.Domain
             {
                 if(point.IsHoliday)
                 {
-                    int predictedValue = (int)(YearlyTotal * MonthlyCurve[point.Date.Month] * WeeklyCurve[(int)point.Date.DayOfWeek] * 7.0 / DaysInMonth[point.Date.Month]);
+                    int predictedValue = (int)(YearlyTotal * MonthlyCurve[point.Date.Month - 1] * WeeklyCurve[(int)point.Date.DayOfWeek] * 7.0 / DaysInMonth[point.Date.Month - 1]);
                     HolidayFactor += (double)point.Value / predictedValue;
                     holidays++;
                 }
@@ -115,7 +115,7 @@ namespace WebApp.Domain
             // This gives us an estimate for how many customers will arrive on (for example) EVERY Monday in February. To get the amount of customers that will
             // arrive on one single Monday in February we then have to divide this number by the amount of weeks in the chosen month.
             // The amount of weeks in a month is simply the amount of days in that month divided by 7, as there are 7 days in a week.
-            int predictedValue = (int)(YearlyTotal * MonthlyCurve[Date.Month] * WeeklyCurve[(int)Date.DayOfWeek] * 7.0 / DaysInMonth[Date.Month]);
+            int predictedValue = (int)(YearlyTotal * MonthlyCurve[Date.Month - 1] * WeeklyCurve[(int)Date.DayOfWeek] * 7.0 / DaysInMonth[Date.Month - 1]);
 
             // If the chosen day is a holiday, multiply it by the holiday factor
             if(holiday) predictedValue = (int)(predictedValue * HolidayFactor);

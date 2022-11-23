@@ -1,5 +1,6 @@
 ﻿using Bumbo.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using WebApp.Domain;
 
 namespace Bumbo.Controllers
@@ -8,9 +9,16 @@ namespace Bumbo.Controllers
     {
         private BumboDbContext db = new BumboDbContext();
 
-        private void GetPrognosis(DateTime date, bool isHoliday, string departmentName)
-        {
+        private void GetPrognosis(DateTime date, bool isHoliday, string departmentName) {
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
+
+            // Hourly curve and data points are not loading automatically for some reason. TODO: fix
+            if(dataSet.HourlyCurve == null)
+                dataSet.HourlyCurve = (from HourlyPoint in db.HourlyPoints where HourlyPoint.DepartmentName == departmentName select HourlyPoint).ToList();
+
+            if(dataSet.DataPoints == null)
+                dataSet.DataPoints = (from DataPoint in db.DataPoints where DataPoint.DepartmentName == departmentName select DataPoint).ToList();
+
             Prognosis prognosis;
 
             try
