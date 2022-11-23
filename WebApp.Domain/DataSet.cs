@@ -28,10 +28,10 @@ namespace WebApp.Domain
         // The hourly curve for example indicates that at 8:00 there are usually around 8% of all the customers in an average day,
         // or that at 13:00 there are usually around 11% of the customers in a day.
         [Required]
-        public List<HourlyPoint> HourlyCurve { get; set; }
+        public ICollection<HourlyPoint> HourlyCurve { get; set; }
 
         [Required]
-        public List<DataPoint> DataPoints { get; set; }
+        public ICollection<DataPoint> DataPoints { get; set; }
 
         // The weekly curve is the distribution of customers / colli throughout a week, this is calculated from the entire data set.
         // The weekly curve for example indicates that on Monday there are usually around 10% of all the customers in an average week,
@@ -123,9 +123,11 @@ namespace WebApp.Domain
             return predictedValue;
         }
 
-        public int[] PredictHourlyValues(DateTime Date, bool holiday)
+        public int[] PredictHourlyValues(int predictedValue)
         {
-            int predictedValue = PredictValue(Date, holiday);
+            // Calculate weekly and monthly curve if they are still null
+            if(MonthlyCurve == null || WeeklyCurve == null) UpdateDataCurves();
+
             int[] hourlyValues = new int[24];
 
             // To predict the Values over the individual hours in a day we simply multiply our predicted Value for the day
@@ -142,8 +144,10 @@ namespace WebApp.Domain
         // customers are scheduled to arrive at any particular hour, this function calculates how many employees are
         // required for that set amount of customers. This is done by simply dividing the amount of customers at that
         // given hour by the EmployeeWorkload factor (i.e. how many customers one single cashier can service in an hour)
-        public int[] PredictHourlyEmployees(DateTime Date, bool holiday) {
-            int predictedValue = PredictValue(Date, holiday);
+        public int[] PredictHourlyEmployees(int predictedValue) {
+            // Calculate weekly and monthly curve if they are still null
+            if(MonthlyCurve == null || WeeklyCurve == null) UpdateDataCurves();
+
             int[] hourlyValues = new int[24];
 
             foreach(HourlyPoint p in HourlyCurve)

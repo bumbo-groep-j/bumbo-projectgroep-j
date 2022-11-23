@@ -1,10 +1,36 @@
 ﻿using Bumbo.Models;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Domain;
 
 namespace Bumbo.Controllers
 {
     public class ManagerController : Controller
     {
+        private BumboDbContext db = new BumboDbContext();
+
+        private void GetPrognosis(DateTime date, bool isHoliday, string departmentName)
+        {
+            DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
+            Prognosis prognosis;
+
+            try
+            {
+                prognosis = (from Prognosis in db.Prognosis where Prognosis.Date == date && Prognosis.DepartmentName == departmentName select Prognosis).First();
+            }
+            catch
+            { 
+                prognosis = new Prognosis();
+                prognosis.Date = date;
+                prognosis.DepartmentName = departmentName;
+                prognosis.Value = dataSet.PredictValue(date, isHoliday);
+
+                db.Prognosis.Add(prognosis);
+                db.SaveChanges();
+            }
+
+            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+        }
+
         public IActionResult LeaveRequests()
         {
             return View();
@@ -15,8 +41,37 @@ namespace Bumbo.Controllers
             return View();
         }
 
-        public IActionResult Scheduling()
+        public IActionResult Scheduling(string departmentName, int year, int month, int day)
         {
+            try
+            {
+                ViewBag.Date = new DateTime(year, month, day);
+            }
+            catch(Exception ex)
+            {
+                ViewBag.Date = DateTime.Today;
+            }
+
+            Department department;
+            
+            try
+            {
+                department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
+            }
+            catch(Exception ex)
+            {
+                department = (from Department in db.Departments select Department).First();
+            }
+
+            GetPrognosis(ViewBag.Date, false, department.Name);
+
+            ViewBag.Department = department;
+
+            ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
+            ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
+
+            ViewBag.Employees = (from Employee in db.Employees select Employee).ToList();
+
             return View();
         }
 
