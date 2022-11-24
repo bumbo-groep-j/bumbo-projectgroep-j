@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ScheduleForm
+@{
     ViewData["Stylesheet"] = "/css/manager.css";
 
     int weekday = 1;
@@ -52,39 +53,55 @@
                 <a class="button nav_button" asp-controller="Manager" asp-action="Scheduling" asp-route-departmentName="@ViewBag.Department.Name" asp-route-year="@ViewBag.Date.AddDays(1).Year" asp-route-month="@ViewBag.Date.AddDays(1).Month" asp-route-day="@ViewBag.Date.AddDays(1).Day">&#x203A;</a>
             </h1>
         </header>
-        <table>
-            <tr>
-                <td class="align_center"></td>
-                <td class="align_center"></td>
-                <td class="align_center"></td>
-                @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
-                {
-                    <td class="align_center">@hour:00</td>
-                }
-            </tr>
-            <tr class="seperator"></tr>
-            <tr>
-                <td class="align_right" colspan="3">Prognose</td>
-                @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
-                {
-                    <td class="align_center prognosis_mismatch" id="text_hour_@hour">0/@ViewBag.EmployeePrognosis[hour]</td>
-                }
-            </tr>
-            <tr class="seperator"></tr>
-            @foreach(var employee in ViewBag.Employees)
-            {
+        <form asp-action="Scheduling" enctype="multipart/form-data">
+            <input type="hidden" asp-for="DepartmentName" value="@ViewBag.Department.Name" />
+            <input type="hidden" asp-for="Day" value="@ViewBag.Date.Day" />
+            <input type="hidden" asp-for="Month" value="@ViewBag.Date.Month" />
+            <input type="hidden" asp-for="Year" value="@ViewBag.Date.Year" />
+            <table>
                 <tr>
-                    <td class="align_right" colspan="3">@employee.Name</td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
                     @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
                     {
-                        <td class="align_center"><input type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" /></td>
+                        <td class="align_center">@hour:00</td>
                     }
                 </tr>
-            }
-        </table>
-        <div class="space_around">
-            <button>Opslaan</button>
-        </div>
+                <tr class="seperator"></tr>
+                <tr>
+                    <td class="align_right" colspan="3">Prognose</td>
+                    @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                    {
+                        <td class="align_center prognosis_mismatch" id="text_hour_@hour">0/@ViewBag.EmployeePrognosis[hour]</td>
+                    }
+                </tr>
+                <tr class="seperator"></tr>
+                @{
+                    int i = 0;
+                }
+                @foreach(var employee in ViewBag.Employees)
+                {
+                    <tr>
+                        <td class="align_right" colspan="3">@employee.Name</td>
+                        @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                        {
+                            if(Model.IsChecked[i])
+                            {
+                                <td class="align_center"><input type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" checked /></td>
+                            }
+                            else
+                            {
+                                <td class="align_center"><input type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
+                            }
+                        }
+                    </tr>
+                }
+            </table>
+            <div class="space_around">
+                <button type="submit">Opslaan</button>
+            </div>
+        </form>
     </div>
 </div>
 <script>
@@ -101,4 +118,10 @@
         if(max == current) $("#text_hour_" + id).removeClass("prognosis_mismatch");
         else if(!$("#text_hour_" + id).hasClass("prognosis_mismatch")) $("#text_hour_" + id).addClass("prognosis_mismatch");
     }
+
+    $(document).ready(function() {
+        for(let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) { 
+            update_text(i);
+        }
+    });
 </script>

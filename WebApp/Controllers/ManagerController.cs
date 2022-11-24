@@ -52,15 +52,19 @@ namespace Bumbo.Controllers
 
         public IActionResult Scheduling(string departmentName, int year, int month, int day)
         {
+            DateTime date;
+
             try
             {
-                ViewBag.Date = new DateTime(year, month, day);
-                if(ViewBag.Date.Date < DateTime.Today.Date) ViewBag.Date = DateTime.Today;
+                date = new DateTime(year, month, day);
+                if(date.Date < DateTime.Today.Date) date = DateTime.Today;
             }
             catch(Exception ex)
             {
-                ViewBag.Date = DateTime.Today;
+                date = DateTime.Today;
             }
+
+            ViewBag.Date = date;
 
             Department department;
             
@@ -113,7 +117,85 @@ namespace Bumbo.Controllers
                 case 12: ViewBag.DutchDate += "December";  break;
             }
 
-            return View();
+            ScheduleForm model = new ScheduleForm();
+            
+            for(int i = 0; i < ViewBag.Employees.Count; i++)
+                for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                    model.IsChecked.Add(false);
+
+            var existingSchedule = (
+                from Schedule
+                in db.Schedules
+                where Schedule.StartTime.Day == date.Day && Schedule.StartTime.Month == date.Month
+                && Schedule.StartTime.Year == date.Year && Schedule.Department == departmentName
+                select Schedule
+            ).ToList();
+
+            int hours = ViewBag.EndHour - ViewBag.StartHour + 1;
+
+            foreach(var schedule in existingSchedule) 
+                for(int i = 0; i < ViewBag.Employees.Count; i++)
+                    if(ViewBag.Employees[i].Id == schedule.EmployeeId)
+                        for(int hour = schedule.StartTime.Hour; hour <= schedule.EndTime.Hour; hour++)
+                            model.IsChecked[i * hours + hour] = true;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Scheduling(ScheduleForm model)
+        {
+            try
+            {
+                var existingSchedule = (
+                    from Schedule
+                    in db.Schedules
+                    where Schedule.StartTime.Day == model.Day && Schedule.StartTime.Month == model.Month
+                    && Schedule.StartTime.Year == model.Year && Schedule.Department == model.DepartmentName
+                    select Schedule
+                ).ToList();
+
+                foreach(var s in existingSchedule) db.Schedules.Remove(s);
+
+                var employees = (from Employee in db.Employees select Employee).ToList();
+
+                Schedule? schedule = null;
+
+                int startHour = (from DataSet in db.DataSets where DataSet.DepartmentName == model.DepartmentName select DataSet.DepartmentStartHour).First();
+                int endHour = (from DataSet in db.DataSets where DataSet.DepartmentName == model.DepartmentName select DataSet.DepartmentEndHour).First();
+                int hours = endHour - startHour + 1;
+
+                for(int i = 0; i < model.IsChecked.Count; i++)
+                {
+                    int curHour = i % hours;
+
+                    if(model.IsChecked[i] && schedule == null)
+                    {
+                        schedule = new Schedule();
+                        schedule.StartTime = new DateTime(model.Year, model.Month, model.Day, curHour + startHour, 0, 0);
+                        schedule.EmployeeId = employees[i / hours].Id;
+                        schedule.Department = model.DepartmentName;
+                    }
+
+                    else if(schedule != null && (!model.IsChecked[i] || curHour == 0))
+                    {
+                        schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 0, 0);
+                        db.Schedules.Add(schedule);
+                        schedule = null;
+                    }
+                }
+
+                if(schedule != null)
+                {
+                    schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, endHour, 0, 0);
+                    db.Schedules.Add(schedule);
+                }
+
+                db.SaveChanges();
+            }
+            catch(Exception ex) { }
+
+            return Scheduling(model.DepartmentName, model.Year, model.Month, model.Day);
         }
 
         public IActionResult WorkedHours()
