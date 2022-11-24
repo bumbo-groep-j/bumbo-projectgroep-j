@@ -1,5 +1,16 @@
 ﻿@{
     ViewData["Stylesheet"] = "/css/manager.css";
+    int weekday = 1;
+    switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)
+    {
+        case DayOfWeek.Monday:    weekday = 1; break;
+        case DayOfWeek.Tuesday:   weekday = 2; break;
+        case DayOfWeek.Wednesday: weekday = 3; break;
+        case DayOfWeek.Thursday:  weekday = 4; break;
+        case DayOfWeek.Friday:    weekday = 5; break;
+        case DayOfWeek.Saturday:  weekday = 6; break;
+        case DayOfWeek.Sunday:    weekday = 7; break;
+    }
 }
 
 <div class="watermark_concept">
@@ -8,12 +19,12 @@
 <div class="content_container">
     <aside>
         <partial name="Calendar" model="new CalendarData {
-            CurrentMonth = 9,
-            CurrentYear = 2022,
-            FirstWeekdayOfMonth = 4,
-            Today = new DateOnly(2022, 9, 26),
-            Selected = new DateOnly(2022, 9, 30),
-            MinimumDay = new DateOnly(2022, 9, 27)
+            CurrentMonth = ViewBag.Date.Month,
+            CurrentYear = ViewBag.Date.Year,
+            FirstWeekdayOfMonth = weekday,
+            Today = DateOnly.FromDateTime(DateTime.Today),
+            Selected = DateOnly.FromDateTime(ViewBag.Date),
+            MinimumDay = DateOnly.FromDateTime(DateTime.Today)
         };" />
         <hr />
         <p>Afdeling</p>

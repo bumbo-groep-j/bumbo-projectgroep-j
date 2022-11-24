@@ -54,6 +54,7 @@ namespace Bumbo.Controllers
             try
             {
                 ViewBag.Date = new DateTime(year, month, day);
+                if(ViewBag.Date.Date < DateTime.Today.Date) ViewBag.Date = DateTime.Today;
             }
             catch(Exception ex)
             {
