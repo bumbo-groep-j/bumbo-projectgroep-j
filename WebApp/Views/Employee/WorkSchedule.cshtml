@@ -1,1 +1,105 @@
-﻿
+﻿@{
+    ViewData["Title"] = "rooster";
+    ViewData["Stylesheet"] = "/css/employee.css";
+
+    int dateNumber = 13;
+}
+
+<div class="watermark_concept">
+    <p class="concept_text">CONCEPT</p>
+</div>
+<div class="modal-body">
+    <div id="title">
+        <h1 class="align_center">
+            <button class="nav_button" asp-action="PreviousDate">&#x2039</button>
+            Rooster: Maandag 14 november - Zondag 20 november
+            <button class="nav_button" asp-action="NextDate">&#x203A</button>
+        </h1>
+    </div>
+    <br />
+    <table class="container table_style">
+        <tr class="tr_style">
+            <td></td>
+            <td></td>
+            <td>07:00</td>
+            <td>08:00</td>
+            <td>09:00</td>
+            <td>10:00</td>
+            <td>11:00</td>
+            <td>12:00</td>
+            <td>13:00</td>
+            <td>14:00</td>
+            <td>15:00</td>
+            <td>16:00</td>
+            <td>17:00</td>
+            <td>18:00</td>
+            <td>19:00</td>
+            <td>20:00</td>
+            <td>21:00</td>
+            <td style="color:white; font-size:0">00:00</td>
+        </tr>
+        <br>
+        @foreach (var item in ViewData["Days"] as List<string>)
+        {
+            <tr class="tr_style">
+                <td class="day_div"><b>@item</b></td>
+                @{dateNumber++;}
+            <td>@dateNumber</td>
+                @switch(@item){
+                    case "Maandag":
+                        <td class="length_hour" colspan="15">
+                            <div class="work_line" style="width: 530px; margin-left: 90px;">
+                                <span>08:00</span>
+                                <span style="float: right">16:00</span>
+                            </div>
+                        </td>
+                        <td>09:00</td>
+                        break;
+                    case "Dinsdag":
+                        <td class="length_hour" colspan="15">
+                            <div class="work_line" style=";width: 530px; margin-left: 155px;">
+                                <span>09:00</span>
+                                <span style="float: right">17:00</span>
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        break;
+                    case "Woensdag":
+                        <td class="length_hour" colspan="15">
+                           
+                        </td>
+                        <td>00:00</td>
+                        break;
+                    case "Donderdag":
+                        <td class="length_hour" colspan="15">
+                            
+                        </td>
+                        <td>00:00</td>
+                        break;
+                    case "Vrijdag":
+                        <td class="length_hour" colspan="15">
+                            <div class="work_line" style="width: 330px; margin-left: 90px;">
+                                <span>08:00</span>
+                                <span style="float: right">13:00</span>
+                            </div>
+                        </td>
+                        <td>05:00</td>
+                        break;
+                    case "Zaterdag":
+                        <td class="length_hour" colspan="15">
+                           
+                        </td>
+                        <td>00:00</td>
+                        break;
+                    case "Zondag":
+                        <td class="length_hour" colspan="15">
+                         
+                        </td>
+                        <td>00:00</td>
+                        break;
+                }
+                
+            </tr>
+        }
+    </table>
+</div>

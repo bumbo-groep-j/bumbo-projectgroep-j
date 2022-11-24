@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using bumbo_projectgroep_j.Models;
+using Bumbo.Models;
 
-namespace bumbo_projectgroep_j.Controllers;
+namespace Bumbo.Controllers;
 
 public class HomeController : Controller
 {

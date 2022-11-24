@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Schoolrooster";
+    ViewData["Stylesheet"] = "/css/mobile.css";
+}
+
+<header>
+    <h1>Schoolrooster</h1>
+</header>
+<div class="content">
+    <div class="inner_div">
+        <h5><b>Maandag</b></h5>
+        08:00 - 16:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
+    </div>
+    <div class="inner_div">
+        <h5><b>Dinsdag</b></h5>
+        09:00 - 18:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
+    </div>
+    <div class="inner_div">
+        <h5><b>Woensdag</b></h5>
+        07:00 - 12:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
+    </div>
+    <div class="inner_div">
+        <h5><b>Donderdag</b></h5>
+        09:00 - 15:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
+    </div>
+    <div class="inner_div">
+        <h5><b>Vrijdag</b></h5>
+        08:00 - 12:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
+    </div>
+    <div class="inner_div">
+        <h5><b>Zaterdag</b></h5>
+        Geen school<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
+    </div>
+    <div class="inner_div">
+        <h5><b>Zondag</b></h5>
+        Geen school<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿/* Availability CSS */
+.save_button {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 4px 2px;
+}
+
+.time_input {
+    max-width: 100px;
+    padding: 5px;
+}
+
+input[type="text"]::placeholder {
+    text-align: center;
+}
+
+.availability_weekdays {
+    text-align: center;
+}
+
+.availability_group {
+    display: flex;
+    justify-content: center;
+}
+
+.current_page_title {
+    text-align: center;
+}
+
+/* Request leave CSS */
+.request_leave_group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.request_leave_group > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.work_line {
+    background-color: #007AFF;
+    color: white;
+    padding: 5px;
+    height: 32px
+}
+
+/* School and work schedule CSS */
+
+.table_style {
+    border-collapse: separate;
+    border-spacing: 1em;
+}
+
+
+.day_div {
+    text-align: left;
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+}
+
+.length_hour {
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+    background-color: lightgrey;
+}
+
+
+.extra_info {
+    padding: 0px;
+}
+
+.edit_button {
+    padding: 2px 8px 4px 8px;
+}

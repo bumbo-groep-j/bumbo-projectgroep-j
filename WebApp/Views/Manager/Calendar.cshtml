@@ -1,0 +1,121 @@
+﻿@model CalendarData
+
+@{
+    string Previous = "month=" + (Model.CurrentMonth == 1 ? 12 : Model.CurrentMonth - 1)
+        + "&year="             + (Model.CurrentMonth == 1 ? Model.CurrentYear - 1 : Model.CurrentYear)
+        + "&todayDay="         +  Model.Today.Day
+        + "&todayMonth="       +  Model.Today.Month
+        + "&todayYear="        +  Model.Today.Year
+        + "&selectedDay="      +  Model.Selected.Day
+        + "&selectedMonth="    +  Model.Selected.Month
+        + "&selectedYear="     +  Model.Selected.Year
+        + "&minimumDay="       + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Day   : 0)
+        + "&minimumMonth="     + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Month : 0)
+        + "&minimumYear="      + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Year  : 0)
+        + "&maximumDay="       + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Day   : 0)
+        + "&maximumMonth="     + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
+        + "&maximumYear="      + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0)
+        + "&link="             + Model.EscapedLink;
+
+    string Next = "month="     + (Model.CurrentMonth == 12 ? 1 : Model.CurrentMonth + 1)
+        + "&year="             + (Model.CurrentMonth == 12 ? Model.CurrentYear + 1 : Model.CurrentYear)
+        + "&todayDay="         +  Model.Today.Day
+        + "&todayMonth="       +  Model.Today.Month
+        + "&todayYear="        +  Model.Today.Year
+        + "&selectedDay="      +  Model.Selected.Day
+        + "&selectedMonth="    +  Model.Selected.Month
+        + "&selectedYear="     +  Model.Selected.Year
+        + "&minimumDay="       + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Day   : 0)
+        + "&minimumMonth="     + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Month : 0)
+        + "&minimumYear="      + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Year  : 0)
+        + "&maximumDay="       + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Day   : 0)
+        + "&maximumMonth="     + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
+        + "&maximumYear="      + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0)
+        + "&link="             + Model.EscapedLink;
+}
+
+<div class="calendar">
+    <div class="space_between">
+        <b>@Model.Month @Model.CurrentYear</b>
+        <span class="chevron">
+            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Manager/Calendar?@Previous');">&#x2039;</a>
+            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Manager/Calendar?@Next');">&#x203A;</a>
+        </span>
+    </div>
+    <table>
+        <tr>
+            <th class="weekday">Ma</th>
+            <th class="weekday">Di</th>
+            <th class="weekday">Wo</th>
+            <th class="weekday">Do</th>
+            <th class="weekday">Vr</th>
+            <th class="weekday">Za</th>
+            <th class="weekday">Zo</th>
+        </tr>
+        @{
+            int weekday = Model.FirstWeekdayOfMonth;
+            int weeks = 0;
+
+            for(int monthday = 1; monthday <= DateTime.DaysInMonth(Model.CurrentYear, Model.CurrentMonth);)
+            {
+                <tr>
+                    @for(int i = 1; i < weekday; i++)
+                    {
+                        <td></td>
+                    }
+
+                    @for(int i = weekday; i <= 7 && monthday <= DateTime.DaysInMonth(Model.CurrentYear, Model.CurrentMonth); i++)
+                    {
+                        string classes = "";
+
+                        if(Model.CurrentMonth == Model.Selected.Month && Model.CurrentYear == Model.Selected.Year && monthday == Model.Selected.Day) classes = "selected";
+                        else if(Model.CurrentMonth == Model.Today.Month && Model.CurrentYear == Model.Today.Year && monthday == Model.Today.Day) classes = "today";
+
+                        bool allowed = true;
+
+                        if(Model.MinimumDay.HasValue)
+                        {
+                            if(Model.CurrentYear < Model.MinimumDay.Value.Year) allowed = false;
+                            if(Model.CurrentYear == Model.MinimumDay.Value.Year)
+                            {
+                                if(Model.CurrentMonth < Model.MinimumDay.Value.Month) allowed = false;
+                                if(Model.CurrentMonth == Model.MinimumDay.Value.Month && monthday < Model.MinimumDay.Value.Day) allowed = false;
+                            }
+                        }
+
+                        if(Model.MaximumDay.HasValue)
+                        {
+                            if(Model.CurrentYear > Model.MaximumDay.Value.Year) allowed = false;
+                            if(Model.CurrentYear == Model.MaximumDay.Value.Year)
+                            {
+                                if(Model.CurrentMonth > Model.MaximumDay.Value.Month) allowed = false;
+                                if(Model.CurrentMonth == Model.MaximumDay.Value.Month && monthday > Model.MaximumDay.Value.Day) allowed = false;
+                            }
+                        }
+
+                        if(!allowed)
+                        {
+                            if(classes != "") classes += " ";
+                            classes += "forbidden";
+
+                            <td class="@classes">@(monthday++)</td>
+                        }
+                        else if(Model.Link != null && Model.Link != "")
+                        {
+                            string link = Model.Link + "&year=" + Model.CurrentYear + "&month=" + Model.CurrentMonth + "&day=" + monthday;
+                            <td class="@classes"><a href="@link">@(monthday++)</a></td>
+                        }
+                    }
+                </tr>
+
+                weekday = 1;
+                weeks++;
+            }
+
+            for(int i = weeks; i < 6; i++)
+            {
+                <tr></tr>
+            }
+        }
+    </table>
+</div>

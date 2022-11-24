@@ -1,1 +1,41 @@
-﻿
+@{
+    ViewData["Title"] = "RequestLeave";
+    ViewData["Stylesheet"] = "/css/employee.css";
+}
+
+<h1 class="current_page_title">Verlof aanvragen</h1>
+
+<div class="watermark_concept">
+    <p class="concept_text">CONCEPT</p>
+</div>
+
+<!-- Values are hardcoded now, will be changed later-->
+<!-- Same for "form-asp-action" need to be changed later ons-->
+<div class="request_leave_group">
+    <div>
+        <form asp-action="Requestleave">
+            <h2>Huidige aanvragen</h2>
+            <p class="align_center">Vrij aanvraag 1</p>
+            <p class="align_center">Begindatum: 29-09-2022</p>
+            <p class="align_center">Einddatum: 30-09-2022</p>
+            <p class="align_center"><button class="red_button">Annuleren</button></p>
+            <br />
+            <p class="align_center">Vrij aanvraag 2</p>
+            <p class="align_center">Begindatum: 01-10-2022</p>
+            <p class="align_center">Einddatum: 10-10-2022</p>
+            <p class="align_center"><button class="red_button">Annuleren</button></p>
+
+        </form>
+    </div>
+    <div>
+        <form asp-action="RequestLeave">
+            <h2>Nieuwe aanvraag</h2>
+            <p class="align_center">Begindatum: <input type="date"></p>
+            <p class="align_center">Einddatum: <input type="date"></p>
+            <p class="align_center">Opmerking: <input type="text" class="remark_input"></p>
+            <div class="space_around">
+                <button>Verstuur</button>
+            </div>
+        </form>
+    </div>
+</div>
