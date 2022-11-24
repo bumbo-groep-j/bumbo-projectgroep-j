@@ -18,9 +18,15 @@
         <hr />
         <p>Afdeling</p>
         <ul>
-            <li><a asp-controller="Manager" asp-action="Scheduling">Kassa</a></li>
-            <li><a asp-controller="Manager" asp-action="Scheduling">Vers</a></li>
-            <li><a asp-controller="Manager" asp-action="Scheduling">VKK</a></li>
+            @foreach(var department in ViewBag.Departments)
+            {
+                var linkClasses = "";
+                @if(department.Name == ViewBag.Department.Name)
+                {
+                    linkClasses = "blue";
+                }
+                <li class="@linkClasses"><a asp-controller="Manager" asp-action="Scheduling" asp-route-departmentName="@department.Name" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day">@department.Name</a></li>
+            }
         </ul>
     </aside>
     <div>

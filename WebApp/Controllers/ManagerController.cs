@@ -75,6 +75,8 @@ namespace Bumbo.Controllers
 
             ViewBag.Department = department;
 
+            ViewBag.Departments = (from Department in db.Departments select Department).ToList();
+
             ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
             ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
 
