@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["Stylesheet"] = "/css/manager.css";
+
+    string link = "/Manager/WorkedHours?departmentName=" + ViewBag.DepartmentName;
 }
 
 <div class="watermark_concept">
@@ -13,7 +15,8 @@
             FirstWeekdayOfMonth = 4,
             Today = new DateOnly(2022, 9, 26),
             Selected = new DateOnly(2022, 9, 23),
-            MaximumDay = new DateOnly(2022, 9, 25)
+            MaximumDay = new DateOnly(2022, 9, 25),
+            Link = link
         };" />
         <hr />
         <p>Afdeling</p>

@@ -1,6 +1,7 @@
 ﻿using Bumbo.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Web;
 using WebApp.Domain;
 
 namespace Bumbo.Controllers
@@ -125,7 +126,8 @@ namespace Bumbo.Controllers
             int todayDay, int todayMonth, int todayYear,
             int selectedDay, int selectedMonth, int selectedYear,
             int minimumDay, int minimumMonth, int minimumYear,
-            int maximumDay, int maximumMonth, int maximumYear
+            int maximumDay, int maximumMonth, int maximumYear,
+            string link
         )
         {
             int weekday = 1;
@@ -151,6 +153,8 @@ namespace Bumbo.Controllers
 
             if(minimumDay != 0) data.MinimumDay = new DateOnly(minimumYear, minimumMonth, minimumDay);
             if(maximumDay != 0) data.MaximumDay = new DateOnly(maximumYear, maximumMonth, maximumDay);
+
+            data.Link = HttpUtility.UrlDecode(link);
 
             return PartialView(data);
         }

@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Stylesheet"] = "/css/manager.css";
+
     int weekday = 1;
     switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)
     {
@@ -11,6 +12,8 @@
         case DayOfWeek.Saturday:  weekday = 6; break;
         case DayOfWeek.Sunday:    weekday = 7; break;
     }
+
+    string link = "/Manager/Scheduling?departmentName=" + ViewBag.DepartmentName;
 }
 
 <div class="watermark_concept">
@@ -24,7 +27,8 @@
             FirstWeekdayOfMonth = weekday,
             Today = DateOnly.FromDateTime(DateTime.Today),
             Selected = DateOnly.FromDateTime(ViewBag.Date),
-            MinimumDay = DateOnly.FromDateTime(DateTime.Today)
+            MinimumDay = DateOnly.FromDateTime(DateTime.Today),
+            Link = link
         };" />
         <hr />
         <p>Afdeling</p>

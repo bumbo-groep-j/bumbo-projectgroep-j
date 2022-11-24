@@ -1,4 +1,6 @@
-﻿namespace Bumbo.Models
+﻿using System.Web;
+
+namespace Bumbo.Models
 {
     public class CalendarData
     {
@@ -11,6 +13,8 @@
 
         public DateOnly? MinimumDay;
         public DateOnly? MaximumDay;
+
+        public string? Link;
 
         public string Month
         {
@@ -32,6 +36,16 @@
                     case 12: return "December";
                     default: return "";
                 }
+            }
+        }
+
+        public string? EscapedLink
+        {
+            get
+            {
+                if(Link == null) return null;
+
+                return HttpUtility.UrlEncode(Link);
             }
         }
     }
