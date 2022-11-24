@@ -24,6 +24,15 @@ namespace WebApp.Domain
         public string NFCToken { get; set; }
 
         [Required]
-        public double HourlyWage { get; set; } 
+        public double HourlyWage { get; set; }
+
+        [NotMapped]
+        public string Name 
+        {
+            get
+            {
+                return FirstName + " " + (MiddleName != null ? MiddleName + " " : "") + LastName;
+            }
+        }
     }
 }

@@ -171,6 +171,7 @@ input[type=checkbox] {
     outline-offset: 2px;
     border-radius: 2px;
     -webkit-appearance: none;
+    cursor: pointer;
 }
 
 input[type=checkbox]:checked {

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Domain;
 
@@ -11,9 +12,11 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    partial class BumboDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221123160026_prognosis_dataset")]
+    partial class prognosisdataset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,8 +110,6 @@ namespace WebApp.Domain.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Date", "DepartmentName");
-
-                    b.HasIndex("DepartmentName");
 
                     b.ToTable("DataPoints");
 
@@ -8091,11 +8092,14 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DepartmentName")
+                    b.Property<string>("Department")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Value")
+                    b.Property<int>("TotalColli")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalCustomers")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -8321,26 +8325,13 @@ namespace WebApp.Domain.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("WebApp.Domain.DataPoint", b =>
-                {
-                    b.HasOne("WebApp.Domain.DataSet", "DataSet")
-                        .WithMany("DataPoints")
-                        .HasForeignKey("DepartmentName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DataSet");
-                });
-
             modelBuilder.Entity("WebApp.Domain.HourlyPoint", b =>
                 {
-                    b.HasOne("WebApp.Domain.DataSet", "DataSet")
+                    b.HasOne("WebApp.Domain.DataSet", null)
                         .WithMany("HourlyCurve")
                         .HasForeignKey("DepartmentName")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("DataSet");
                 });
 
             modelBuilder.Entity("WebApp.Domain.Schedule", b =>
@@ -8378,8 +8369,6 @@ namespace WebApp.Domain.Migrations
 
             modelBuilder.Entity("WebApp.Domain.DataSet", b =>
                 {
-                    b.Navigation("DataPoints");
-
                     b.Navigation("HourlyCurve");
                 });
 #pragma warning restore 612, 618

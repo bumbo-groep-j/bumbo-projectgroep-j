@@ -2,34 +2,36 @@
 
 @{
     string Previous = "month=" + (Model.CurrentMonth == 1 ? 12 : Model.CurrentMonth - 1)
-        + "&year=" + (Model.CurrentMonth == 1 ? Model.CurrentYear - 1 : Model.CurrentYear)
-        + "&todayDay="      +  Model.Today.Day
-        + "&todayMonth="    +  Model.Today.Month
-        + "&todayYear="     +  Model.Today.Year
-        + "&selectedDay="   +  Model.Selected.Day
-        + "&selectedMonth=" +  Model.Selected.Month
-        + "&selectedYear="  +  Model.Selected.Year
-        + "&minimumDay="    + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Day   : 0)
-        + "&minimumMonth="  + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Month : 0)
-        + "&minimumYear="   + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Year  : 0)
-        + "&maximumDay="    + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Day   : 0)
-        + "&maximumMonth="  + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
-        + "&maximumYear="   + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0);
+        + "&year="             + (Model.CurrentMonth == 1 ? Model.CurrentYear - 1 : Model.CurrentYear)
+        + "&todayDay="         +  Model.Today.Day
+        + "&todayMonth="       +  Model.Today.Month
+        + "&todayYear="        +  Model.Today.Year
+        + "&selectedDay="      +  Model.Selected.Day
+        + "&selectedMonth="    +  Model.Selected.Month
+        + "&selectedYear="     +  Model.Selected.Year
+        + "&minimumDay="       + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Day   : 0)
+        + "&minimumMonth="     + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Month : 0)
+        + "&minimumYear="      + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Year  : 0)
+        + "&maximumDay="       + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Day   : 0)
+        + "&maximumMonth="     + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
+        + "&maximumYear="      + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0)
+        + "&link="             + Model.EscapedLink;
 
-    string Next = "month=" + (Model.CurrentMonth == 12 ? 1 : Model.CurrentMonth + 1)
-        + "&year=" + (Model.CurrentMonth == 12 ? Model.CurrentYear + 1 : Model.CurrentYear)
-        + "&todayDay="      +  Model.Today.Day
-        + "&todayMonth="    +  Model.Today.Month
-        + "&todayYear="     +  Model.Today.Year
-        + "&selectedDay="   +  Model.Selected.Day
-        + "&selectedMonth=" +  Model.Selected.Month
-        + "&selectedYear="  +  Model.Selected.Year
-        + "&minimumDay="    + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Day   : 0)
-        + "&minimumMonth="  + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Month : 0)
-        + "&minimumYear="   + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Year  : 0)
-        + "&maximumDay="    + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Day   : 0)
-        + "&maximumMonth="  + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
-        + "&maximumYear="   + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0);
+    string Next = "month="     + (Model.CurrentMonth == 12 ? 1 : Model.CurrentMonth + 1)
+        + "&year="             + (Model.CurrentMonth == 12 ? Model.CurrentYear + 1 : Model.CurrentYear)
+        + "&todayDay="         +  Model.Today.Day
+        + "&todayMonth="       +  Model.Today.Month
+        + "&todayYear="        +  Model.Today.Year
+        + "&selectedDay="      +  Model.Selected.Day
+        + "&selectedMonth="    +  Model.Selected.Month
+        + "&selectedYear="     +  Model.Selected.Year
+        + "&minimumDay="       + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Day   : 0)
+        + "&minimumMonth="     + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Month : 0)
+        + "&minimumYear="      + (Model.MinimumDay.HasValue ? Model.MinimumDay.Value.Year  : 0)
+        + "&maximumDay="       + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Day   : 0)
+        + "&maximumMonth="     + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
+        + "&maximumYear="      + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0)
+        + "&link="             + Model.EscapedLink;
 }
 
 <div class="calendar">
@@ -95,9 +97,14 @@
                         {
                             if(classes != "") classes += " ";
                             classes += "forbidden";
-                        }
 
-                        <td class="@classes">@(monthday++)</td>
+                            <td class="@classes">@(monthday++)</td>
+                        }
+                        else if(Model.Link != null && Model.Link != "")
+                        {
+                            string link = Model.Link + "&year=" + Model.CurrentYear + "&month=" + Model.CurrentMonth + "&day=" + monthday;
+                            <td class="@classes"><a href="@link">@(monthday++)</a></td>
+                        }
                     }
                 </tr>
 
