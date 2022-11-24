@@ -88,12 +88,13 @@
                         {
                             if(Model.IsChecked[i])
                             {
-                                <td class="align_center"><input type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" checked /></td>
+                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" checked /></td>
                             }
                             else
                             {
-                                <td class="align_center"><input type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
+                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
                             }
+                            i++;
                         }
                     </tr>
                 }
@@ -119,9 +120,9 @@
         else if(!$("#text_hour_" + id).hasClass("prognosis_mismatch")) $("#text_hour_" + id).addClass("prognosis_mismatch");
     }
 
-    $(document).ready(function() {
+    window.onload = function () {
         for(let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) { 
             update_text(i);
         }
-    });
+    }
 </script>

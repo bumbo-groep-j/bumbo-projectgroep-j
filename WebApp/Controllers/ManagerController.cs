@@ -127,7 +127,7 @@ namespace Bumbo.Controllers
                 from Schedule
                 in db.Schedules
                 where Schedule.StartTime.Day == date.Day && Schedule.StartTime.Month == date.Month
-                && Schedule.StartTime.Year == date.Year && Schedule.Department == departmentName
+                && Schedule.StartTime.Year == date.Year && Schedule.Department == department.Name
                 select Schedule
             ).ToList();
 
@@ -137,7 +137,7 @@ namespace Bumbo.Controllers
                 for(int i = 0; i < ViewBag.Employees.Count; i++)
                     if(ViewBag.Employees[i].Id == schedule.EmployeeId)
                         for(int hour = schedule.StartTime.Hour; hour <= schedule.EndTime.Hour; hour++)
-                            model.IsChecked[i * hours + hour] = true;
+                            model.IsChecked[i * hours + hour - ViewBag.StartHour] = true;
 
             return View(model);
         }
@@ -179,7 +179,7 @@ namespace Bumbo.Controllers
 
                     else if(schedule != null && (!model.IsChecked[i] || curHour == 0))
                     {
-                        schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 0, 0);
+                        schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 59, 59);
                         db.Schedules.Add(schedule);
                         schedule = null;
                     }
@@ -187,7 +187,7 @@ namespace Bumbo.Controllers
 
                 if(schedule != null)
                 {
-                    schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, endHour, 0, 0);
+                    schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, endHour, 59, 59);
                     db.Schedules.Add(schedule);
                 }
 
