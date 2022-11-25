@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Bumbo.styles.css" asp-append-version="true" />
-    @if(ViewData.ContainsKey("Stylesheet"))
+    @if (ViewData.ContainsKey("Stylesheet"))
     {
         <link rel="stylesheet" href="@ViewData["Stylesheet"]" asp-append-version="true" />
     }
 </head>
 <body>
-    @if(ViewData.ContainsKey("IsMobile"))
+    @if (ViewData.ContainsKey("IsMobile"))
     {
         <main>
             <footer>
                 <div>
                     <a asp-action="WorkSchedule">
-                        @if(ViewData["Title"] == "Rooster")
+                        @if (ViewData["Title"] == "Rooster")
                         {
                             <img src="/img/schedule_selected.svg" />
                             <p class="selected">Rooster</p>
@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <a asp-action="Availability">
-                        @if(ViewData["Title"] == "Beschikbaarheid")
+                        @if (ViewData["Title"] == "Beschikbaarheid")
                         {
                             <img src="/img/availability_selected.svg" />
                             <p class="selected">Beschikbaarheid</p>
@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <a asp-action="LeaveRequests">
-                        @if(ViewData["Title"] == "Verlof")
+                        @if (ViewData["Title"] == "Verlof")
                         {
                             <img src="/img/vacation_selected.svg" />
                             <p class="selected">Verlof</p>
@@ -61,7 +61,7 @@
                 </div>
                 <div>
                     <a asp-action="SchoolSchedule">
-                        @if(ViewData["Title"] == "Schoolrooster")
+                        @if (ViewData["Title"] == "Schoolrooster")
                         {
                             <img src="/img/school_selected.svg" />
                             <p class="selected">Schoolrooster</p>
@@ -109,6 +109,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="LeaveRequests">Verlofaanvragen</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Manager_EmployeeCRUD" asp-action="Index">Medewerkers</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="WorkSchedule">Werkrooster</a>

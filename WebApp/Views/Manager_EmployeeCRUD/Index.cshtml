@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApp.Domain.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["Stylesheet"] = "/css/manager.css";
+}
+
+<div class="watermark_concept">
+    <p class="concept_text">CONCEPT</p>
+</div>
+
+<h1>Lijst of medewerkers</h1>
+
+<input type="button" value="Voeg medewerker toe" onclick="location.href='@Url.Action("Create", "Manager_EmployeeCRUD")'"/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.MiddleName) </th>
+            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.DateOfBirth)</th>
+            <th>@Html.DisplayNameFor(model => model.NFCToken)</th>
+            <th>@Html.DisplayNameFor(model => model.HourlyWage)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="tr_bg">
+                <td>@item.FirstName</td>
+                <td>@item.MiddleName</td>
+                <td>@item.LastName</td>
+                <td>@item.DateOfBirth</td>
+                <td>@item.NFCToken</td>
+                <td>@item.HourlyWage</td>
+                <td>
+                    <button onclick="location.href='@Url.Action("Edit", "Manager_EmployeeCRUD")'"> Bewerk</button>
+                    <!--Don't delete employee, but set them as inactive and put them in another tab in the Index.cshtml page -->
+                    <button class="red_button" onclick="location.href='@Url.Action("Delete", "Manager_EmployeeCRUD")'"> Inactief zetten </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
