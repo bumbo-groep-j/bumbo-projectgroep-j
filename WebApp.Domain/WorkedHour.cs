@@ -9,17 +9,16 @@ namespace WebApp.Domain
         public int Id { get; set; }
 
         [Required]
-        [ForeignKey("Employee")]
-        public int EmployeeId { get; set; }
+        [ForeignKey("Schedule")]
+        public int ScheduleId { get; set; }
 
-        public Employee Employee { get; set; }
+        public Schedule Schedule { get; set; }
 
         [Required]
         [ForeignKey("Department")]
         public string Department { get; set; }
 
-        [Required]
-        public DateTime ApprovalTime { get; set; }
+        public DateTime? ApprovalTime { get; set; }
 
         [Required]
         public DateTime ClockedTimeStart { get; set; }

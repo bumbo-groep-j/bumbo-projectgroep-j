@@ -64,16 +64,20 @@ namespace WebApp.Domain
                 new Schedule { Id = 1 ,EmployeeId = 1, Department = "VKK", StartTime = new DateTime(2022, 11, 24, 11, 0, 0), EndTime = new DateTime(2022, 11, 24, 17, 0, 0)},
                 new Schedule { Id = 2, EmployeeId = 1, Department = "Kassa", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0)},
                 new Schedule { Id = 3, EmployeeId = 2, Department = "Kassa", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new Schedule { Id = 4, EmployeeId = 3, Department = "Vers", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) }
+                new Schedule { Id = 4, EmployeeId = 3, Department = "Vers", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
+                new Schedule { Id = 5, EmployeeId = 1, Department = "Vers", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
+                new Schedule { Id = 6, EmployeeId = 1, Department = "Vers", StartTime = new DateTime(2022, 11, 24, 8, 30, 0), EndTime = new DateTime(2022, 11, 24, 17, 0, 0) },
+                new Schedule { Id = 7, EmployeeId = 2, Department = "Kassa", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
+                new Schedule { Id = 8, EmployeeId = 3, Department = "VKK", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) }
             );
             #endregion
 
             #region WorkedHours
             modelBuilder.Entity<WorkedHour>().HasData(
-                new WorkedHour { Id = 1, EmployeeId = 1, Department = "Vers", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new WorkedHour { Id = 2, EmployeeId = 1, Department = "Vers", ApprovalTime = new DateTime(2022, 11, 24, 11, 0, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 24, 17, 0, 0) },
-                new WorkedHour { Id = 3, EmployeeId = 2, Department = "Kassa", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new WorkedHour { Id = 4, EmployeeId = 3, Department = "VKK", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) }
+                new WorkedHour { Id = 1, ScheduleId = 5, Department = "Vers", ClockedTimeStart = new DateTime(2022, 11, 22, 8, 32, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 3, 0) },
+                new WorkedHour { Id = 2, ScheduleId = 6, Department = "Vers", ClockedTimeStart = new DateTime(2022, 11, 24, 8, 31, 0), ClockedTimeEnd = new DateTime(2022, 11, 24, 16, 53, 0) },
+                new WorkedHour { Id = 3, ScheduleId = 7, Department = "Kassa", ClockedTimeStart = new DateTime(2022, 11, 22, 8, 28, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 15, 59, 0) },
+                new WorkedHour { Id = 4, ScheduleId = 8, Department = "VKK", ClockedTimeStart = new DateTime(2022, 11, 22, 8, 34, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 1, 0) }
             );
             #endregion
 
