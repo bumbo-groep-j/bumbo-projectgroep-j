@@ -8,7 +8,7 @@ namespace WebApp.Domain
         public DbSet<Department> Departments { get; set;}
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<SchoolSchedule> SchoolSchedules { get; set; }  
-        public DbSet<WorkedHours> WorkedHours { get; set; }
+        public DbSet<WorkedHour> WorkedHours { get; set; }
         public DbSet<Prognosis> Prognosis { get; set; }
         public DbSet<Availability> Availabilities { get; set; }
         public DbSet<DataSet> DataSets { get; set; }
@@ -69,11 +69,11 @@ namespace WebApp.Domain
             #endregion
 
             #region WorkedHours
-            modelBuilder.Entity<WorkedHours>().HasData(
-                new WorkedHours { Id = 1, EmployeeId = 1, Department = "Vers", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new WorkedHours { Id = 2, EmployeeId = 1, Department = "Vers", ApprovalTime = new DateTime(2022, 11, 24, 11, 0, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 24, 17, 0, 0) },
-                new WorkedHours { Id = 3, EmployeeId = 2, Department = "Kassa", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new WorkedHours { Id = 4, EmployeeId = 3, Department = "VKK", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) }
+            modelBuilder.Entity<WorkedHour>().HasData(
+                new WorkedHour { Id = 1, EmployeeId = 1, Department = "Vers", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) },
+                new WorkedHour { Id = 2, EmployeeId = 1, Department = "Vers", ApprovalTime = new DateTime(2022, 11, 24, 11, 0, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 24, 17, 0, 0) },
+                new WorkedHour { Id = 3, EmployeeId = 2, Department = "Kassa", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) },
+                new WorkedHour { Id = 4, EmployeeId = 3, Department = "VKK", ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0) }
             );
             #endregion
 

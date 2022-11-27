@@ -102,7 +102,7 @@
                         }
                         else if(Model.Link != null && Model.Link != "")
                         {
-                            string link = Model.Link + "&year=" + Model.CurrentYear + "&month=" + Model.CurrentMonth + "&day=" + monthday;
+                            string link = Model.Link + "year=" + Model.CurrentYear + "&month=" + Model.CurrentMonth + "&day=" + monthday;
                             <td class="@classes"><a href="@link">@(monthday++)</a></td>
                         }
                     }

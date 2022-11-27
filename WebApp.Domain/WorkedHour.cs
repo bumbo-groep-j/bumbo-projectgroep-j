@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApp.Domain
 {
-    public class WorkedHours
+    public class WorkedHour
     {
         [Key]
         public int Id { get; set; }
