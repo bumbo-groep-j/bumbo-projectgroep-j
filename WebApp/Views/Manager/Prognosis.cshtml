@@ -1,52 +1,185 @@
-﻿@{
+﻿
+@{
     ViewData["Stylesheet"] = "/css/manager.css";
+    bool trueOrfalse = false;
 }
 <header>
     <h1 class="align_center">
-        <button class="nav_button" asp-controller="Manager" asp-action="Prognosis">&#x2039;</button>
-        Prognose: 26 September - 2 Oktober
-        <button class="nav_button" asp-controller="Manager" asp-action="Prognosis">&#x203A;</button>
+        <button type="button" class="nav_button" asp-controller="Manager" onclick="location.href='@Url.Action("SetNewDate", "Manager", new {oldDate = @ViewBag.CurrentDate, previousOrNext = "Previous"})'">&#x2039;</button>
+        Prognose: @ViewBag.StartDate.ToString("dddd dd MMMM") - @ViewBag.EndDate.ToString("dddd dd MMMM")
+        <button class="nav_button" asp-controller="Manager" onclick="location.href='@Url.Action("SetNewDate", "Manager", new {oldDate = @ViewBag.CurrentDate, previousOrNext = "Next"})'">&#x203A;</button>
     </h1>
 </header>
 <div class="watermark_concept">
     <p class="concept_text">CONCEPT</p>
 </div>
 <div class="grid4">
+     <div>
+        <h5>@ViewBag.Days[0].ToString("dd") @ViewBag.Days[0].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[0].ToString("ddd").Substring(1, 1) @ViewBag.Days[0].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[0].ToString("MMMM").Substring(1, @ViewBag.Days[0].ToString("MMMM").Length -1)</h5><br />
+        @foreach (var item in ViewBag.Data)
+        {
+            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[0].ToString("dd MM yyyy"))
+            {
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                trueOrfalse = true;
+                break;
+            }
+            else{
+                trueOrfalse = false;
+            }
+        }
+
+        @if(trueOrfalse == false){
+            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
+            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
+        }
+       
+     </div>
     <div>
-        <h5>Ma 26 September</h5><br />
-        <p>Aantal colli:<span>35</span></p>
-        <p>Verwachte bezoekers:<span>880</span></p>
+        <h5>@ViewBag.Days[1].ToString("dd") @ViewBag.Days[1].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[1].ToString("ddd").Substring(1, 1) @ViewBag.Days[1].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[1].ToString("MMMM").Substring(1, @ViewBag.Days[1].ToString("MMMM").Length -1)</h5><br />
+        @foreach (var item in ViewBag.Data)
+        {
+            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[1].ToString("dd MM yyyy"))
+            {
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                trueOrfalse = true;
+                break;
+            }
+            else
+            {
+                trueOrfalse = false;
+            }
+        }
+
+        @if (trueOrfalse == false)
+        {
+            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
+            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
+        }
+
     </div>
     <div>
-        <h5>Di 27 September</h5><br />
-        <p>Aantal colli:<span>48</span></p>
-        <p>Verwachte bezoekers:<span>770</span></p>
+        <h5>@ViewBag.Days[2].ToString("dd") @ViewBag.Days[2].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[2].ToString("ddd").Substring(1, 1) @ViewBag.Days[2].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[2].ToString("MMMM").Substring(1, @ViewBag.Days[2].ToString("MMMM").Length -1)</h5><br />
+        @foreach (var item in ViewBag.Data)
+        {
+            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[2].ToString("dd MM yyyy"))
+            {
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                trueOrfalse = true;
+                break;
+            }
+            else
+            {
+                trueOrfalse = false;
+            }
+        }
+
+        @if (trueOrfalse == false)
+        {
+            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
+            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
+        }
+
     </div>
     <div>
-        <h5>Wo 28 September</h5><br />
-        <p>Aantal colli:<span>32</span></p>
-        <p>Verwachte bezoekers:<span>750</span></p>
-    </div>
-    <div>
-        <h5>Do 29 September</h5><br />
-        <p>Aantal colli:<span>40</span></p>
-        <p>Verwachte bezoekers:<span>800</span></p>
+        <h5>@ViewBag.Days[3].ToString("dd") @ViewBag.Days[3].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[3].ToString("ddd").Substring(1, 1) @ViewBag.Days[3].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("MMMM").Substring(1, @ViewBag.Days[3].ToString("MMMM").Length -1)</h5><br />
+        @foreach (var item in ViewBag.Data)
+        {
+            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[3].ToString("dd MM yyyy"))
+            {
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                trueOrfalse = true;
+                break;
+            }
+            else
+            {
+                trueOrfalse = false;
+            }
+        }
+
+        @if (trueOrfalse == false)
+        {
+            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
+            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
+        }
+
     </div>
 </div>
 <div class="grid3">
     <div>
-        <h5>Vr 30 September</h5><br />
-        <p>Aantal colli:<span>36</span></p>
-        <p>Verwachte bezoekers:<span>980</span></p>
+        <h5>@ViewBag.Days[4].ToString("dd") @ViewBag.Days[4].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("ddd").Substring(1, 1) @ViewBag.Days[4].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("MMMM").Substring(1, @ViewBag.Days[4].ToString("MMMM").Length -1)</h5><br />
+        @foreach (var item in ViewBag.Data)
+        {
+            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[4].ToString("dd MM yyyy"))
+            {
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                trueOrfalse = true;
+                break;
+            }
+            else
+            {
+                trueOrfalse = false;
+            }
+        }
+
+        @if (trueOrfalse == false)
+        {
+            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
+            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
+        }
+
     </div>
     <div>
-        <h5>Za Oktober</h5><br />
-        <p>Aantal colli:<span>55</span></p>
-        <p>Verwachte bezoekers:<span>960</span></p>
+        <h5>@ViewBag.Days[5].ToString("dd") @ViewBag.Days[5].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[5].ToString("ddd").Substring(1, 1) @ViewBag.Days[5].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[5].ToString("MMMM").Substring(1, @ViewBag.Days[5].ToString("MMMM").Length -1)</h5><br />
+        @foreach (var item in ViewBag.Data)
+        {
+            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[5].ToString("dd MM yyyy"))
+            {
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                trueOrfalse = true;
+                break;
+            }
+            else
+            {
+                trueOrfalse = false;
+            }
+        }
+
+        @if (trueOrfalse == false)
+        {
+            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
+            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
+        }
+
     </div>
     <div>
-        <h5>Zo 2 Oktober</h5><br />
-        <p>Aantal colli:<span>29</span></p>
-        <p>Verwachte bezoekers:<span>670</span></p>
+        <h5>@ViewBag.Days[6].ToString("dd") @ViewBag.Days[6].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[6].ToString("ddd").Substring(1, 1) @ViewBag.Days[6].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[6].ToString("MMMM").Substring(1, @ViewBag.Days[6].ToString("MMMM").Length -1)</h5><br />
+        @foreach (var item in ViewBag.Data)
+        {
+            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[6].ToString("dd MM yyyy"))
+            {
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                trueOrfalse = true;
+                break;
+            }
+            else
+            {
+                trueOrfalse = false;
+            }
+        }
+
+        @if (trueOrfalse == false)
+        {
+            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
+            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
+        }
+
     </div>
 </div>
