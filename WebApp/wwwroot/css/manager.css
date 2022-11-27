@@ -116,6 +116,10 @@ tr {
     color: #007aff;
 }
 
+.green {
+    color: #3f9f3f;
+}
+
 .chevron {
     position: relative;
     top: -6px;

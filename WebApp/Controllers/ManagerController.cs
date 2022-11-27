@@ -329,7 +329,8 @@ namespace Bumbo.Controllers
             return PartialView(data);
         }
 
-        public IActionResult EditWorkedHours(int year, int month, int day, int id) {
+        public IActionResult EditWorkedHours(int year, int month, int day, int id) 
+        {
             ApprovedHoursForm data = (
                 from WorkedHour
                 in db.WorkedHours
@@ -343,8 +344,8 @@ namespace Bumbo.Controllers
                     Month = month,
                     Day = day,
                     WorkedHourId = WorkedHour.Id,
-                    StartTime = new TimeOnly((WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Hour, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Minute),
-                    EndTime = new TimeOnly((WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Hour, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Minute),
+                    StartTime = new DateTime(year, month, day, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Hour, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Minute, 0),
+                    EndTime = new DateTime(year, month, day, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Hour, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Minute, 0),
                 }
             ).First();
 
@@ -352,12 +353,43 @@ namespace Bumbo.Controllers
         }
 
         [HttpPost]
-        public void EditHours(ApprovedHoursForm form) {
-            // todo
+        public void EditHours(ApprovedHoursForm form) 
+        {
+            WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == form.WorkedHourId select WorkedHour).First();
+
+            value.ApprovedTimeStart = new DateTime(value.ClockedTimeStart.Year, value.ClockedTimeStart.Month, value.ClockedTimeStart.Day, form.StartTime.Hour, form.StartTime.Minute, form.StartTime.Second);
+            value.ApprovedTimeEnd = new DateTime(value.ClockedTimeEnd.Value.Year, value.ClockedTimeEnd.Value.Month, value.ClockedTimeEnd.Value.Day, form.EndTime.Hour, form.EndTime.Minute, form.EndTime.Second);
+
+            db.SaveChanges();
         }
 
-        public void ApproveHours(int id) {
-            // todo
+        public void ApproveHours(int id)
+        {
+            WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == id select WorkedHour).First();
+            value.ApprovalTime = DateTime.Now;
+
+            if(!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
+            if(!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
+
+            db.SaveChanges();
+        }
+
+        public void ApproveAllHours(int year, int month, int day)
+        {
+            var values = (from WorkedHour in db.WorkedHours where WorkedHour.ClockedTimeStart.Year == year && WorkedHour.ClockedTimeStart.Month == month && WorkedHour.ClockedTimeStart.Day == day select WorkedHour).ToList();
+
+            foreach(var value in values)
+            {
+                if(!value.ApprovalTime.HasValue)
+                {
+                    value.ApprovalTime = DateTime.Now;
+
+                    if(!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
+                    if(!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
+                }
+            }
+
+            db.SaveChanges(); 
         }
     }
 }
