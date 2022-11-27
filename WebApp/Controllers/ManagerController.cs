@@ -248,19 +248,43 @@ namespace Bumbo.Controllers
                 in db.WorkedHours
                 from Schedule
                 in db.Schedules
-                where Schedule.EmployeeId == WorkedHour.EmployeeId && Schedule.StartTime.Date == WorkedHour.ClockedTimeStart.Date
+                where Schedule.Id == WorkedHour.ScheduleId
                 where WorkedHour.ClockedTimeStart.Date == date
                 select new ClockedHour
                 {
-                    Name = WorkedHour.Employee.Name,
+                    Id = WorkedHour.Id,
+                    Name = Schedule.Employee.Name,
                     ScheduledStartTime = Schedule.StartTime,
                     ScheduledEndTime = Schedule.EndTime,
                     ClockedStartTime = WorkedHour.ClockedTimeStart,
                     ClockedEndTime = WorkedHour.ClockedTimeEnd,
                     ApprovedStartTime = WorkedHour.ApprovedTimeStart,
                     ApprovedEndTime = WorkedHour.ApprovedTimeEnd,
+                    ApprovalTime = WorkedHour.ApprovalTime,
                     WorkedHours = WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart,
-                    TimeDifference = (((WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart) - (Schedule.EndTime - Schedule.StartTime)).Value.Hours < 0 ? "" : "+") + ((WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart) - (Schedule.EndTime - Schedule.StartTime)).Value.Hours + ":" + (((WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart) - (Schedule.EndTime - Schedule.StartTime)).Value.Minutes < 10 ? "0" : "") + ((WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart) - (Schedule.EndTime - Schedule.StartTime)).Value.Minutes
+                    TimeDifference = (
+                        (
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Hours < 0
+                     || (
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Minutes < 0 ? "-" : "+"
+                    )
+                  + Math.Abs((
+                        (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                      - (Schedule.EndTime - Schedule.StartTime)
+                    ).Value.Hours) + ":"
+                  + (Math.Abs((
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Minutes) < 10 ? "0" : ""
+                    )
+                  + Math.Abs((
+                        (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                      - (Schedule.EndTime - Schedule.StartTime)
+                    ).Value.Minutes)
                 }
             ).ToList();
 
@@ -303,6 +327,37 @@ namespace Bumbo.Controllers
             data.Link = HttpUtility.UrlDecode(link);
 
             return PartialView(data);
+        }
+
+        public IActionResult EditWorkedHours(int year, int month, int day, int id) {
+            ApprovedHoursForm data = (
+                from WorkedHour
+                in db.WorkedHours
+                from Schedule
+                in db.Schedules
+                where Schedule.Id == WorkedHour.ScheduleId
+                where WorkedHour.Id == id
+                select new ApprovedHoursForm
+                {
+                    Year = year,
+                    Month = month,
+                    Day = day,
+                    WorkedHourId = WorkedHour.Id,
+                    StartTime = new TimeOnly((WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Hour, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Minute),
+                    EndTime = new TimeOnly((WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Hour, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Minute),
+                }
+            ).First();
+
+            return PartialView(data);
+        }
+
+        [HttpPost]
+        public void EditHours(ApprovedHoursForm form) {
+            // todo
+        }
+
+        public void ApproveHours(int id) {
+            // todo
         }
     }
 }

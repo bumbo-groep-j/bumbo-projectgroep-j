@@ -2,6 +2,8 @@
 {
     public class ClockedHour
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public DateTime ScheduledStartTime { get; set; }
@@ -17,6 +19,8 @@
         public DateTime? ApprovedEndTime { get; set; }
 
         public TimeSpan? WorkedHours { get; set; }
+
+        public DateTime? ApprovalTime { get; set; }
 
         public string TimeDifference { get; set; }
     }

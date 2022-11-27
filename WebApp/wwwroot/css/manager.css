@@ -204,3 +204,58 @@ input[type=checkbox]:checked {
     color: red;
     font-size: 1.2rem;
 }
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.20);
+}
+
+#overlay > form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 256px;
+    height: 196px;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 32px;
+    gap: 8px;
+}
+
+#overlay label {
+    padding-top: 6px;
+}
+
+#overlay input[type=time] {
+    border: 2px solid #007aff;
+    color: #007aff;
+    border-radius: 4px;
+    padding: 4px 8px 6px 8px;
+    background-color: transparent;
+    text-align: center;
+    float: right;
+    width: 112px;
+}
+
+#overlay input[type=time]:focus {
+    outline: none;
+    border-color: #005abf;
+    color: #005abf;
+}
+
+#overlay input[type="time"]::-webkit-calendar-picker-indicator,
+#overlay input[type="time"]::-webkit-calendar-picker-indicator:focus {
+    display: none;
+}
+
+#overlay input[type=submit] {
+    margin-top: 16px;
+}

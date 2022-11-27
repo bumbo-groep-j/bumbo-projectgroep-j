@@ -14,7 +14,7 @@
 
         public ScheduleForm()
         {
-            IsChecked= new List<bool>();
+            IsChecked = new List<bool>();
         }
     }
 }

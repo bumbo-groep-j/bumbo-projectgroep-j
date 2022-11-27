@@ -1,0 +1,35 @@
+﻿@model ApprovedHoursForm
+<form asp-action="EditHours" id="form">
+    <input type="hidden" asp-for="WorkedHourId" value="@Model.WorkedHourId" />
+    <div class="blue inline">
+        <label asp-for="StartTime">Starttijd: </label>
+        <input type="time" asp-for="StartTime" value="@Model.StartTime.ToString("HH:mm")" />
+    </div>
+    <div class="blue inline">
+        <label asp-for="EndTime">Endtijd: </label>
+        <input type="time" asp-for="EndTime" value="@Model.EndTime.ToString("HH:mm")" />
+    </div>
+    <input type="submit" id="submit" value="Save" />
+</form>
+
+<script>
+    // Submit data through AJAX, to avoid having the browser refresh the page
+    $("#submit").click(function(e) {
+        e.preventDefault();
+
+        $('#overlay').addClass('hidden');
+
+        var form = $("#form");
+        var actionUrl = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: actionUrl,
+            data: form.serialize(),
+            success: function (data) {
+                // Reload edited table row only
+                $("#@Model.WorkedHourId").load("/Manager/WorkedHours?year=@Model.Year&month=@Model.Month&day=@Model.Day #@Model.WorkedHourId > *");
+            }
+        });
+    });
+</script>
