@@ -16,11 +16,11 @@
 <div class="grid4">
      <div>
         <h5>@ViewBag.Days[0].ToString("dd") @ViewBag.Days[0].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[0].ToString("ddd").Substring(1, 1) @ViewBag.Days[0].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[0].ToString("MMMM").Substring(1, @ViewBag.Days[0].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.Data)
+        @foreach (var item in ViewBag.PrognosisData)
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[0].ToString("dd MM yyyy"))
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli" onkeypress="if(event.keyCode == 'Enter') {update()}"></p>
                 <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
                 trueOrfalse = true;
                 break;
@@ -38,7 +38,7 @@
      </div>
     <div>
         <h5>@ViewBag.Days[1].ToString("dd") @ViewBag.Days[1].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[1].ToString("ddd").Substring(1, 1) @ViewBag.Days[1].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[1].ToString("MMMM").Substring(1, @ViewBag.Days[1].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.Data)
+        @foreach (var item in ViewBag.PrognosisData)
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[1].ToString("dd MM yyyy"))
             {
@@ -62,7 +62,7 @@
     </div>
     <div>
         <h5>@ViewBag.Days[2].ToString("dd") @ViewBag.Days[2].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[2].ToString("ddd").Substring(1, 1) @ViewBag.Days[2].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[2].ToString("MMMM").Substring(1, @ViewBag.Days[2].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.Data)
+        @foreach (var item in ViewBag.PrognosisData)
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[2].ToString("dd MM yyyy"))
             {
@@ -86,7 +86,7 @@
     </div>
     <div>
         <h5>@ViewBag.Days[3].ToString("dd") @ViewBag.Days[3].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[3].ToString("ddd").Substring(1, 1) @ViewBag.Days[3].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("MMMM").Substring(1, @ViewBag.Days[3].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.Data)
+        @foreach (var item in ViewBag.PrognosisData)
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[3].ToString("dd MM yyyy"))
             {
@@ -112,7 +112,7 @@
 <div class="grid3">
     <div>
         <h5>@ViewBag.Days[4].ToString("dd") @ViewBag.Days[4].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("ddd").Substring(1, 1) @ViewBag.Days[4].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("MMMM").Substring(1, @ViewBag.Days[4].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.Data)
+        @foreach (var item in ViewBag.PrognosisData)
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[4].ToString("dd MM yyyy"))
             {
@@ -136,7 +136,7 @@
     </div>
     <div>
         <h5>@ViewBag.Days[5].ToString("dd") @ViewBag.Days[5].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[5].ToString("ddd").Substring(1, 1) @ViewBag.Days[5].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[5].ToString("MMMM").Substring(1, @ViewBag.Days[5].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.Data)
+        @foreach (var item in ViewBag.PrognosisData)
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[5].ToString("dd MM yyyy"))
             {
@@ -160,7 +160,7 @@
     </div>
     <div>
         <h5>@ViewBag.Days[6].ToString("dd") @ViewBag.Days[6].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[6].ToString("ddd").Substring(1, 1) @ViewBag.Days[6].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[6].ToString("MMMM").Substring(1, @ViewBag.Days[6].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.Data)
+        @foreach (var item in ViewBag.PrognosisData)
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[6].ToString("dd MM yyyy"))
             {
@@ -183,3 +183,8 @@
 
     </div>
 </div>
+<script type="text/javascript">
+    function update(){
+        console.log("hello world")
+    }
+</script>

@@ -30,17 +30,17 @@ namespace Bumbo.Controllers
        
         public IActionResult SetNewDate(DateTime oldDate, string previousOrNext)
         {
-            DateTime CurrentDate = new DateTime();
+            DateTime newDate = new DateTime();
             if (previousOrNext == "Next")
             {
-                CurrentDate = oldDate.AddDays(+(int)oldDate.DayOfWeek + 6);
+                newDate = oldDate.AddDays(+(int)oldDate.DayOfWeek + 6);
             }
             else if(previousOrNext == "Previous")
             {
-                CurrentDate = oldDate.AddDays(-(int)oldDate.DayOfWeek - 6);
+                newDate = oldDate.AddDays(-(int)oldDate.DayOfWeek - 6);
             }
         
-            return RedirectToAction("Prognosis", new { date = CurrentDate });
+            return RedirectToAction("Prognosis", new { date = newDate });
         }
 
         public void GetDaysOftheWeek(DateTime currentWeek)
@@ -84,7 +84,7 @@ namespace Bumbo.Controllers
                 }
             }
 
-            ViewBag.Data = listOfData;
+            ViewBag.PrognosisData = listOfData;
             ViewBag.Days = listOfDays;
         }
 
