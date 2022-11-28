@@ -198,9 +198,97 @@ namespace Bumbo.Controllers
             return Scheduling(model.DepartmentName, model.Year, model.Month, model.Day);
         }
 
-        public IActionResult WorkedHours()
+        public IActionResult WorkedHours(int year, int month, int day)
         {
-            return View();
+            DateTime date;
+
+            try
+            {
+                date = new DateTime(year, month, day);
+                if(date.Date > DateTime.Today.Date) date = DateTime.Today;
+            }
+            catch(Exception ex)
+            {
+                date = DateTime.Today;
+            }
+
+            ViewBag.Date = date;
+
+            switch(ViewBag.Date.DayOfWeek)
+            {
+                case DayOfWeek.Monday: ViewBag.DutchDate = "Maandag"; break;
+                case DayOfWeek.Tuesday: ViewBag.DutchDate = "Dinsdag"; break;
+                case DayOfWeek.Wednesday: ViewBag.DutchDate = "Woensdag"; break;
+                case DayOfWeek.Thursday: ViewBag.DutchDate = "Donderdag"; break;
+                case DayOfWeek.Friday: ViewBag.DutchDate = "Vrijdag"; break;
+                case DayOfWeek.Saturday: ViewBag.DutchDate = "Zaterdag"; break;
+                case DayOfWeek.Sunday: ViewBag.DutchDate = "Zondag"; break;
+            }
+
+            ViewBag.DutchDate += " " + ViewBag.Date.Day + " ";
+
+            switch(ViewBag.Date.Month)
+            {
+                case 1: ViewBag.DutchDate += "Januari"; break;
+                case 2: ViewBag.DutchDate += "Februari"; break;
+                case 3: ViewBag.DutchDate += "Maart"; break;
+                case 4: ViewBag.DutchDate += "April"; break;
+                case 5: ViewBag.DutchDate += "Mei"; break;
+                case 6: ViewBag.DutchDate += "Juni"; break;
+                case 7: ViewBag.DutchDate += "Juli"; break;
+                case 8: ViewBag.DutchDate += "Augustus"; break;
+                case 9: ViewBag.DutchDate += "September"; break;
+                case 10: ViewBag.DutchDate += "Oktober"; break;
+                case 11: ViewBag.DutchDate += "November"; break;
+                case 12: ViewBag.DutchDate += "December"; break;
+            }
+
+            List<ClockedHour> model = (
+                from WorkedHour
+                in db.WorkedHours
+                from Schedule
+                in db.Schedules
+                where Schedule.Id == WorkedHour.ScheduleId
+                where WorkedHour.ClockedTimeStart.Date == date
+                select new ClockedHour
+                {
+                    Id = WorkedHour.Id,
+                    Name = Schedule.Employee.Name,
+                    ScheduledStartTime = Schedule.StartTime,
+                    ScheduledEndTime = Schedule.EndTime,
+                    ClockedStartTime = WorkedHour.ClockedTimeStart,
+                    ClockedEndTime = WorkedHour.ClockedTimeEnd,
+                    ApprovedStartTime = WorkedHour.ApprovedTimeStart,
+                    ApprovedEndTime = WorkedHour.ApprovedTimeEnd,
+                    ApprovalTime = WorkedHour.ApprovalTime,
+                    WorkedHours = WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart,
+                    TimeDifference = (
+                        (
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Hours < 0
+                     || (
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Minutes < 0 ? "-" : "+"
+                    )
+                  + Math.Abs((
+                        (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                      - (Schedule.EndTime - Schedule.StartTime)
+                    ).Value.Hours) + ":"
+                  + (Math.Abs((
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Minutes) < 10 ? "0" : ""
+                    )
+                  + Math.Abs((
+                        (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                      - (Schedule.EndTime - Schedule.StartTime)
+                    ).Value.Minutes)
+                }
+            ).ToList();
+
+            return View(model);
         }
 
         public IActionResult Calendar(
@@ -239,6 +327,69 @@ namespace Bumbo.Controllers
             data.Link = HttpUtility.UrlDecode(link);
 
             return PartialView(data);
+        }
+
+        public IActionResult EditWorkedHours(int year, int month, int day, int id) 
+        {
+            ApprovedHoursForm data = (
+                from WorkedHour
+                in db.WorkedHours
+                from Schedule
+                in db.Schedules
+                where Schedule.Id == WorkedHour.ScheduleId
+                where WorkedHour.Id == id
+                select new ApprovedHoursForm
+                {
+                    Year = year,
+                    Month = month,
+                    Day = day,
+                    WorkedHourId = WorkedHour.Id,
+                    StartTime = new DateTime(year, month, day, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Hour, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Minute, 0),
+                    EndTime = new DateTime(year, month, day, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Hour, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Minute, 0),
+                }
+            ).First();
+
+            return PartialView(data);
+        }
+
+        [HttpPost]
+        public void EditHours(ApprovedHoursForm form) 
+        {
+            WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == form.WorkedHourId select WorkedHour).First();
+
+            value.ApprovedTimeStart = new DateTime(value.ClockedTimeStart.Year, value.ClockedTimeStart.Month, value.ClockedTimeStart.Day, form.StartTime.Hour, form.StartTime.Minute, form.StartTime.Second);
+            value.ApprovedTimeEnd = new DateTime(value.ClockedTimeEnd.Value.Year, value.ClockedTimeEnd.Value.Month, value.ClockedTimeEnd.Value.Day, form.EndTime.Hour, form.EndTime.Minute, form.EndTime.Second);
+
+            db.SaveChanges();
+        }
+
+        public void ApproveHours(int id)
+        {
+            WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == id select WorkedHour).First();
+            value.ApprovalTime = DateTime.Now;
+
+            if(!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
+            if(!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
+
+            db.SaveChanges();
+        }
+
+        public void ApproveAllHours(int year, int month, int day)
+        {
+            var values = (from WorkedHour in db.WorkedHours where WorkedHour.ClockedTimeStart.Year == year && WorkedHour.ClockedTimeStart.Month == month && WorkedHour.ClockedTimeStart.Day == day select WorkedHour).ToList();
+
+            foreach(var value in values)
+            {
+                if(!value.ApprovalTime.HasValue)
+                {
+                    value.ApprovalTime = DateTime.Now;
+
+                    if(!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
+                    if(!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
+                }
+            }
+
+            db.SaveChanges(); 
         }
     }
 }

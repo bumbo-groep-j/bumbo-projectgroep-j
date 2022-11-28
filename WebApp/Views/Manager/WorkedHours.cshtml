@@ -1,105 +1,92 @@
-﻿@{
+﻿@model IEnumerable<ClockedHour>
+@{
     ViewData["Stylesheet"] = "/css/manager.css";
 
-    string link = "/Manager/WorkedHours?departmentName=" + ViewBag.DepartmentName;
+    int weekday = 1;
+    switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)
+    {
+        case DayOfWeek.Monday: weekday = 1; break;
+        case DayOfWeek.Tuesday: weekday = 2; break;
+        case DayOfWeek.Wednesday: weekday = 3; break;
+        case DayOfWeek.Thursday: weekday = 4; break;
+        case DayOfWeek.Friday: weekday = 5; break;
+        case DayOfWeek.Saturday: weekday = 6; break;
+        case DayOfWeek.Sunday: weekday = 7; break;
+    }
+
+    string link = "/Manager/WorkedHours?";
 }
 
-<div class="watermark_concept">
-    <p class="concept_text">CONCEPT</p>
-</div>
 <div class="content_container">
     <aside>
         <partial name="Calendar" model="new CalendarData {
-            CurrentMonth = 9,
-            CurrentYear = 2022,
-            FirstWeekdayOfMonth = 4,
-            Today = new DateOnly(2022, 9, 26),
-            Selected = new DateOnly(2022, 9, 23),
-            MaximumDay = new DateOnly(2022, 9, 25),
+            CurrentMonth = ViewBag.Date.Month,
+            CurrentYear = ViewBag.Date.Year,
+            FirstWeekdayOfMonth = weekday,
+            Today = DateOnly.FromDateTime(DateTime.Today),
+            Selected = DateOnly.FromDateTime(ViewBag.Date),
+            MaximumDay = DateOnly.FromDateTime(DateTime.Today),
             Link = link
         };" />
-        <hr />
-        <p>Afdeling</p>
-        <ul>
-            <li><a asp-controller="Manager" asp-action="WorkedHours">Kassa</a></li>
-            <li><a asp-controller="Manager" asp-action="WorkedHours">Vers</a></li>
-            <li><a asp-controller="Manager" asp-action="WorkedHours">VKK</a></li>
-        </ul>
     </aside>
     <div>
         <header>
             <h1 class="align_center">
                 <button class="nav_button" asp-controller="Manager" asp-action="WorkedHours">&#x2039;</button>
-                Uren verlonen: Vrijdag 23 September
+                Uren verlonen: @ViewBag.DutchDate
                 <button class="nav_button" asp-controller="Manager" asp-action="WorkedHours">&#x203A;</button>
             </h1>
         </header>
-        <table>
+        <table id="worked_hours">
             <tr class="tr_bg">
                 <th width="20%">Naam</th>
-                <th>Starttijd</th>
-                <th>Eindtijd</th>
-                <th>Inkloktijd</th>
-                <th>Uitkloktijd</th>
-                <th width="12%">Gewerkte uren</th>
-                <th width="12%">Tijdsverschil</th>
-                <th width="20%">Actie</th>
+                <th class="align_center">Starttijd</th>
+                <th class="align_center">Eindtijd</th>
+                <th class="align_center">Inkloktijd</th>
+                <th class="align_center">Uitkloktijd</th>
+                <th class="align_center" width="12%">Gewerkte uren</th>
+                <th class="align_center" width="12%">Tijdsverschil</th>
+                <th class="align_center" width="20%">Actie</th>
             </tr>
-            <tr class="tr_bg">
-                <td>Kevin Schuren</td>
-                <td>07:00</td>
-                <td>09:00</td>
-                <td>07:01</td>
-                <td>08:49</td>
-                <td>1h 48min</td>
-                <td>-12 min</td>
-                <td>
-                    <button>Edit</button>
-                    <button class="green_button">Accepteren</button>
-                </td>
-            </tr>
-            <tr class="tr_bg">
-                <td>Katja Ryzhkova</td>
-                <td>08:00</td>
-                <td>14:00</td>
-                <td>07:47</td>
-                <td>14:13</td>
-                <td>6h 26min</td>
-                <td>+26 min</td>
-                <td>
-                    <button>Edit</button>
-                    <button class="green_button">Accepteren</button>
-                </td>
-            </tr>
-            <tr class="tr_bg">
-                <td>Chinook Walther</td>
-                <td>16:00</td>
-                <td>18:00</td>
-                <td>16:02</td>
-                <td>18:05</td>
-                <td>2h 3min</td>
-                <td>+3 min</td>
-                <td>
-                    <button>Edit</button>
-                    <button class="green_button">Accepteren</button>
-                </td>
-            </tr>
-            <tr class="tr_bg">
-                <td>Thampie Anthonyrajah</td>
-                <td>14:00</td>
-                <td>19:00</td>
-                <td>13:58</td>
-                <td>18:47</td>
-                <td>4h 49min</td>
-                <td>-11 min</td>
-                <td>
-                    <button>Edit</button>
-                    <button class="green_button">Accepteren</button>
-                </td>
-            </tr>
+            @foreach(var value in Model)
+            {
+                <tr class="tr_bg" id="@value.Id">
+                    <td>@value.Name</td>
+                    <td class="align_center">@value.ScheduledStartTime.ToString("HH:mm")</td>
+                    <td class="align_center">@value.ScheduledEndTime.ToString("HH:mm")</td>
+                    @if(value.ApprovedStartTime != null)
+                    {
+                        <td class="align_center">@value.ApprovedStartTime.Value.ToString("HH:mm")</td>
+                        <td class="align_center">@value.ApprovedEndTime.Value.ToString("HH:mm")</td>
+                    }
+                    else
+                    {
+                        <td class="align_center">@value.ClockedStartTime.ToString("HH:mm")</td>
+                        <td class="align_center">@value.ClockedEndTime.Value.ToString("HH:mm")</td>
+                    }
+                    <td class="align_center">
+                        @{
+                            var asDateTime = new DateTime(2022, 1, 1, value.WorkedHours.Value.Hours, value.WorkedHours.Value.Minutes, 0);
+                        }
+                        @asDateTime.ToString("HH:mm")
+                    </td>
+                    <td class="align_center">@value.TimeDifference</td>
+                    <td class="align_center">
+                        @if(value.ApprovalTime == null)
+                        {
+                            <button onclick="$('#overlay').removeClass('hidden'); $('#overlay').load('/Manager/EditWorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day&id=@value.Id');">Edit</button>
+                            <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveHours?id=@value.Id', success: function(data) { $('#@value.Id').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #@value.Id > *'); }});">Accorderen</button>
+                        }
+                        else
+                        {
+                            <span class="green">Geaccordeerd</span>
+                        }
+                    </td>
+                </tr>
+            }
         </table>
         <div class="space_between">
-            <button>Alles accorderen</button>
+            <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveAllHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day', success: function(data) { $('#worked_hours').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #worked_hours > *'); }});">Alle openstaande uren accorderen</button>
             <div>
                 <p class="align_right">
                     Pagina 1 van 1
@@ -117,3 +104,12 @@
         </div>
     </div>
 </div>
+<div class="hidden" id="overlay"></div>
+<script>
+    window.onload = function () {
+        $("#overlay").click(function(e) {
+            if(e.target != this) return;
+            $(this).addClass('hidden');
+        });
+    };
+</script>

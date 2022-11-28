@@ -236,10 +236,6 @@ textarea {
     border-radius: 8px;
 }
 
-.hidden {
-    display: none;
-}
-
 #overlay {
     position: absolute;
     top: 0;
