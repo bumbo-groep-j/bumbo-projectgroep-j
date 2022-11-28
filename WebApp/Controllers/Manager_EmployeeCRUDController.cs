@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApp.Domain;
 
 namespace Bumbo.Controllers
@@ -67,12 +68,10 @@ namespace Bumbo.Controllers
                 {
                     using (var context = new BumboDbContext())
                     {
-                        context.Attach(employee);
-                        context.Employees.Update(employee);
-                        context.Employees.Add(employee);
+                        context.Entry(employee).State = EntityState.Modified;
                         context.SaveChanges();
+                        return RedirectToAction(nameof(Index));
                     }
-                    return RedirectToAction(nameof(Index));
                 }
                 return View(employee);
             }

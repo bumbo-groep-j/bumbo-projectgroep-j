@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DateOfBirth" class="control-label"></label>
-                <input asp-for="DateOfBirth" class="form-control" />
+                <input asp-for="DateOfBirth" type="date" class="form-control" />
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,19 +43,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="HourlyWage" class="control-label"></label>
-                <input asp-for="HourlyWage" class="form-control" />
+                <input asp-for="HourlyWage" type="number" step="0.01" class="form-control" />
                 <span asp-validation-for="HourlyWage" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="button" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="blue">Back to List</a>
 </div>
 
 @section Scripts {

@@ -11,7 +11,7 @@
 
 <h1>Lijst of medewerkers</h1>
 
-<input type="button" value="Voeg medewerker toe" onclick="location.href='@Url.Action("Create", "Manager_EmployeeCRUD")'"/>
+<input type="button" value="Voeg medewerker toe" onclick="location.href='@Url.Action("Create", "Manager_EmployeeCRUD")'" />
 
 <table class="table">
     <thead>
@@ -32,13 +32,15 @@
                 <td>@item.FirstName</td>
                 <td>@item.MiddleName</td>
                 <td>@item.LastName</td>
-                <td>@item.DateOfBirth</td>
+                <td>@item.DateOfBirth.ToShortDateString()</td>
                 <td>@item.NFCToken</td>
                 <td>@item.HourlyWage</td>
                 <td>
-                    <button onclick="location.href='@Url.Action("Edit", "Manager_EmployeeCRUD")'"> Bewerk</button>
-                    <!--Don't delete employee, but set them as inactive and put them in another tab in the Index.cshtml page -->
-                    <button class="red_button" onclick="location.href='@Url.Action("Delete", "Manager_EmployeeCRUD")'"> Inactief zetten </button>
+                    <div class="index_links">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="button"> Edit </a>
+                        <!--Don't delete employee, but set them as inactive and put them in another tab in the Index.cshtml page -->
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="red_button"> Inactief </a>
+                    </div>
                 </td>
             </tr>
         }
