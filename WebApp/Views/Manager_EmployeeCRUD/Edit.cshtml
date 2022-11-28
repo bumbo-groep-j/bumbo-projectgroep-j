@@ -45,12 +45,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="HourlyWage" class="control-label"></label>
-                <input asp-for="HourlyWage" type="number" step="0.01" class="form-control" />
+                <input asp-for="HourlyWage" type="number" value="@Model.HourlyWage.ToString("n2")" step="0.01" class="form-control" />
                 <span asp-validation-for="HourlyWage" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Save" class="button" />
+                <input type="submit" value="Save" />
             </div>
         </form>
     </div>

@@ -34,12 +34,12 @@
                 <td>@item.LastName</td>
                 <td>@item.DateOfBirth.ToShortDateString()</td>
                 <td>@item.NFCToken</td>
-                <td>@item.HourlyWage</td>
+                <td>&euro;@item.HourlyWage.ToString("n2")</td>
                 <td>
                     <div class="index_links">
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="button"> Edit </a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="button">Edit</a>
                         <!--Don't delete employee, but set them as inactive and put them in another tab in the Index.cshtml page -->
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="red_button"> Inactief </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="button red_button">Inactief</a>
                     </div>
                 </td>
             </tr>
