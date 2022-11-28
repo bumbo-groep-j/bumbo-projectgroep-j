@@ -37,6 +37,9 @@
                 <button class="nav_button" asp-controller="Manager" asp-action="WorkedHours">&#x203A;</button>
             </h1>
         </header>
+        <div class="space_around">
+            <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveAllHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day', success: function(data) { $('#worked_hours').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #worked_hours > *'); }});">Alle openstaande uren accorderen</button>
+        </div>
         <table id="worked_hours">
             <tr class="tr_bg">
                 <th width="20%">Naam</th>
@@ -86,7 +89,7 @@
             }
         </table>
         <div class="space_between">
-            <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveAllHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day', success: function(data) { $('#worked_hours').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #worked_hours > *'); }});">Alle openstaande uren accorderen</button>
+            <div> </div>
             <div>
                 <p class="align_right">
                     Pagina 1 van 1
