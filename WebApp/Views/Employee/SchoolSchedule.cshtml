@@ -14,6 +14,7 @@
     <table class="container table_style">
         <tr >
             <td></td>
+            <td>Afdeling</td>
             <td>07:00</td>
             <td>08:00</td>
             <td>09:00</td>
@@ -35,21 +36,23 @@
         {
             <tr>
                 <td class="day_div"><b>@item</b></td>
-
+               
                 @switch (@item)
                 {
                     case "Maandag":
+                        <td></td>
                         <td class="length_hour" colspan="15">
-                            <div class="work_line" style="width: 530px; margin-left: 90px;">
+                            <div class="work_line" style="width: 490px; margin-left: 80px;">
                                 <span>08:00</span>
                                 <span style="float: right">16:00</span>
                             </div>
                         </td>
-                        <td class="extra_info">9:00 <button class="edit_button">Edit</button></td>               
+                        <td class="extra_info">8:00 <button class="edit_button">Edit</button></td>               
                         break;
                     case "Dinsdag":
+                        <td></td>
                         <td class="length_hour" colspan="15">
-                            <div class="work_line" style=";width: 530px; margin-left: 155px;">
+                            <div class="work_line" style=";width: 490px; margin-left: 140px;">
                                 <span>09:00</span>
                                 <span style="float: right">17:00</span>
                             </div>
@@ -57,18 +60,21 @@
                         <td class="extra_info">8:00 <button class="edit_button">Edit</button></td>
                         break;
                     case "Woensdag":
+                        <td>Kassa</td>
                         <td class="length_hour" colspan="15">
                         </td>
                         <td class="extra_info">0:00 <button class="edit_button">Edit</button></td>
                         break;
                     case "Donderdag":
+                        <td>VKK</td>
                         <td class="length_hour" colspan="15">
                         </td>
                         <td class="extra_info">0:00 <button class="edit_button">Edit</button></td>
                         break;
                     case "Vrijdag":
+                        <td></td>
                         <td class="length_hour" colspan="15">
-                            <div class="work_line" style="width: 330px; margin-left: 90px;">
+                            <div class="work_line" style="width: 310px; margin-left: 80px;">
                                 <span>08:00</span>
                                 <span style="float: right">13:00 </span>
                             </div>
@@ -76,11 +82,13 @@
                         <td class="extra_info">5:00 <button class="edit_button">Edit</button></td>
                         break;
                     case "Zaterdag":
+                        <td>Vers</td>
                         <td class="length_hour" colspan="15">
                         </td>
                         <td class="extra_info">0:00 <button class="edit_button">Edit</button></td>
                         break;
                     case "Zondag":
+                        <td></td>
                         <td class="length_hour" colspan="15">
                         </td>
                         <td class="extra_info">0:00 <button class="edit_button">Edit</button></td>
