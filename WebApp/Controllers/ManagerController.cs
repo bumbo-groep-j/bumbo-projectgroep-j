@@ -98,7 +98,8 @@ namespace Bumbo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Prognosis(string totalColli, string totalCustomers)
+        [ValidateAntiForgeryToken]
+        public IActionResult PrognosisUpdate(string? number)
         {
             
             return View();

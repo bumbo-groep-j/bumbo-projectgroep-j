@@ -20,8 +20,8 @@
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[0].ToString("dd MM yyyy"))
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli" onkeypress="if(event.keyCode == 'Enter') {update()}"></p>
-                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli" onkeypress="update(this)"></p>
+                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers" onkeypress="update(this)"></p>
                 trueOrfalse = true;
                 break;
             }
@@ -184,7 +184,22 @@
     </div>
 </div>
 <script type="text/javascript">
-    function update(){
-        console.log("hello world")
+    function update(ele){
+        if(event.key === 'Enter'){
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("PrognosisUpdate")",
+                data: {
+                    number: ele.value
+                },
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                success: function () {
+                    alert("We did it")
+                },
+                error: function () {
+
+                }
+            });
+        }
     }
 </script>
