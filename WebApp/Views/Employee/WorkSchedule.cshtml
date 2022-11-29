@@ -21,6 +21,7 @@
         <tr class="tr_style">
             <td></td>
             <td></td>
+            <td class="department_workschedule">Afdeling</td>
             <td>07:00</td>
             <td>08:00</td>
             <td>09:00</td>
@@ -47,15 +48,17 @@
             <td>@dateNumber</td>
                 @switch(@item){
                     case "Maandag":
+                        <td class="department_workschedule">Kassa</td>
                         <td class="length_hour" colspan="15">
                             <div class="work_line" style="width: 530px; margin-left: 90px;">
                                 <span>08:00</span>
                                 <span style="float: right">16:00</span>
                             </div>
                         </td>
-                        <td>09:00</td>
+                        <td>08:00</td>
                         break;
                     case "Dinsdag":
+                        <td class="department_workschedule"> Vers</td>
                         <td class="length_hour" colspan="15">
                             <div class="work_line" style=";width: 530px; margin-left: 155px;">
                                 <span>09:00</span>
@@ -65,18 +68,21 @@
                         <td>08:00</td>
                         break;
                     case "Woensdag":
+                        <td class="department_workschedule"></td>
                         <td class="length_hour" colspan="15">
                            
                         </td>
                         <td>00:00</td>
                         break;
                     case "Donderdag":
+                        <td class="department_workschedule"></td>
                         <td class="length_hour" colspan="15">
                             
                         </td>
                         <td>00:00</td>
                         break;
                     case "Vrijdag":
+                        <td class="department_workschedule">VKK</td>
                         <td class="length_hour" colspan="15">
                             <div class="work_line" style="width: 330px; margin-left: 90px;">
                                 <span>08:00</span>
@@ -86,12 +92,14 @@
                         <td>05:00</td>
                         break;
                     case "Zaterdag":
+                        <td class="department_workschedule"></td>
                         <td class="length_hour" colspan="15">
                            
                         </td>
                         <td>00:00</td>
                         break;
                     case "Zondag":
+                        <td class="department_workschedule"></td>
                         <td class="length_hour" colspan="15">
                          
                         </td>

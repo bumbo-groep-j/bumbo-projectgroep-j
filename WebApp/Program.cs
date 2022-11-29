@@ -8,8 +8,8 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-var db = new BumboDbContext();
-db.Database.Migrate();
+/*var db = new BumboDbContext();
+db.Database.Migrate();*/
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
