@@ -43,7 +43,7 @@ input[type="text"]::placeholder {
 .work_line {
     background-color: #007AFF;
     color: white;
-    padding: 5px;
+    padding: 0 5px;
     height: 32px
 }
 
