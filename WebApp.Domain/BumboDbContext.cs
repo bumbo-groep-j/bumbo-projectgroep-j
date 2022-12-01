@@ -1226,8 +1226,8 @@ namespace WebApp.Domain
 
             #region RequestLeave
             modelBuilder.Entity<RequestLeave>().HasData(
-                new RequestLeave { Id = 1, EmployeeId = 1, StartDate = new DateOnly(2022, 12, 25), EndDate = new DateOnly(2022, 12, 26), Comment = "Graag voor kerst vrij" },
-                new RequestLeave { Id = 2, EmployeeId = 1, StartDate = new DateOnly(2022, 12, 31), EndDate = new DateOnly(2023, 01, 01), Comment = "Jaarwisseling" }
+                new RequestLeave { Id = 1, EmployeeId = 1, StartDate = new DateTime(2022, 12, 25), EndDate = new DateTime(2022, 12, 26), Comment = "Graag voor kerst vrij" },
+                new RequestLeave { Id = 2, EmployeeId = 1, StartDate = new DateTime(2022, 12, 31), EndDate = new DateTime(2023, 01, 01), Comment = "Jaarwisseling" }
             );
             #endregion
         }

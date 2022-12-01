@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Domain;
 
@@ -11,9 +12,11 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    partial class BumboDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201114310_request-leave")]
+    partial class requestleave
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -8415,6 +8418,17 @@ namespace WebApp.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("DataSet");
+                });
+
+            modelBuilder.Entity("WebApp.Domain.RequestLeave", b =>
+                {
+                    b.HasOne("WebApp.Domain.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("WebApp.Domain.Schedule", b =>

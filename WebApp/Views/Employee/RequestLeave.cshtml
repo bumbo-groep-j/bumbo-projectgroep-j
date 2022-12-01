@@ -1,3 +1,5 @@
+@model WebApp.Domain.RequestLeave
+
 @{
     ViewData["Title"] = "RequestLeave";
     ViewData["Stylesheet"] = "/css/employee.css";
@@ -15,24 +17,48 @@
     <div>
         <form asp-action="Requestleave">
             <h2>Huidige aanvragen</h2>
-            <p class="align_center">Vrij aanvraag 1</p>
-            <p class="align_center">Begindatum: 29-09-2022</p>
-            <p class="align_center">Einddatum: 30-09-2022</p>
-            <p class="align_center"><button class="red_button">Annuleren</button></p>
-            <br />
-            <p class="align_center">Vrij aanvraag 2</p>
-            <p class="align_center">Begindatum: 01-10-2022</p>
-            <p class="align_center">Einddatum: 10-10-2022</p>
-            <p class="align_center"><button class="red_button">Annuleren</button></p>
 
+            <!-- if there are requests in the database, show them here -->
+            <!-- foreach leave request in database print startdate, enddate and number of request-->
+            @if (ViewBag.Requests != null)
+            {
+                foreach (var request in ViewBag.Requests)
+                {
+                    <p class="align_center">Vrij aanvraag @request.Id</p>
+                    <p class="align_center">Begindatum: @request.StartDate</p>
+                    <p class="align_center">Einddatum: @request.EndDate</p>
+                    <p class="align_center"><button class="red_button">Annuleren</button></p>
+                }
+            }
+            else
+            {
+                <p class="align_center">Er zijn geen aanvragen</p>
+            }
         </form>
     </div>
     <div>
         <form asp-action="RequestLeave">
             <h2>Nieuwe aanvraag</h2>
-            <p class="align_center">Begindatum: <input type="date"></p>
-            <p class="align_center">Einddatum: <input type="date"></p>
-            <p class="align_center">Opmerking: <input type="text" class="remark_input"></p>
+
+            <p class="align_center">
+                Begindatum: <input type="date" asp-for="StartDate"
+                                   min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")" required />
+            </p>
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+
+            <!-- Check if the for input asp-for EndDate is after the date in the StartDate input -->
+            <p class="align_center">
+                Einddatum: <input type="date" asp-for="EndDate"
+                                  min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")" 
+                                  required />
+            </p>
+            <span asp-validation-for="EndDate" class="text-danger"></span>
+            
+            <div class="align_center">
+                <p> Opmerking: <input asp-for="Comment" type="text" class="remark_input" /> </p>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+
             <div class="space_around">
                 <button>Verstuur</button>
             </div>

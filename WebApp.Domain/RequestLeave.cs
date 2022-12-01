@@ -18,14 +18,13 @@ namespace WebApp.Domain
         [Key]
         public int Id { get; set; }
 
-        [NotMapped]
         [Required(ErrorMessage = "Dit veld is verplicht")]
-        public DateOnly StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
-        [NotMapped]
         [Required(ErrorMessage = "Dit veld is verplicht")]
-        public DateOnly EndDate { get; set; }
-        public string Comment { get; set; }
+        public DateTime EndDate { get; set; }
+        
+        public string? Comment { get; set; }
 
     }
 }

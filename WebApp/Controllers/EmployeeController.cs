@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System;
 using Bumbo.Controllers;
 using Microsoft.AspNetCore.Mvc;
-
+using Azure.Core;
+using WebApp.Domain;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace Bumbo.Controllers
 {
     public class EmployeeController : Controller
     {
+
         private bool IsMobile()
         {
             var userAgent = Request.Headers["User-Agent"].ToString().ToLower();
 
-            if(userAgent == null) return false;
+            if (userAgent == null) return false;
 
             return userAgent.Contains("blackberry")
                 || userAgent.Contains("webos")
@@ -26,14 +29,35 @@ namespace Bumbo.Controllers
         }
         public IActionResult Availability()
         {
-            if(IsMobile()) return RedirectToAction("Availability", "Mobile");
+            if (IsMobile()) return RedirectToAction("Availability", "Mobile");
             return View();
         }
 
-        public IActionResult RequestLeave()
+
+        public IActionResult RequestLeave(RequestLeave requestLeave)
         {
-            if(IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
-            return View();
+            if (IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
+
+            // TODO: make it actually save the request to the database
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+
+                    using (BumboDbContext context = new BumboDbContext())
+                    {
+                        context.Requests.Add(requestLeave);
+                        context.SaveChanges();
+                    }
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(requestLeave);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
         }
 
         public IActionResult SchoolSchedule()
