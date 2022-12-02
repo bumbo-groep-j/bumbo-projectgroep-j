@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WebApp.Domain
 {
-    public class BumboDbContext :DbContext
+    public class BumboDbContext : IdentityDbContext<Account>
     {
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set;}
@@ -25,6 +26,8 @@ namespace WebApp.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             #region Employees
             modelBuilder.Entity<Employee>().HasData(
                 new Employee { Id = 1, FirstName = "testUser1FirstName", MiddleName = "", LastName = "testUser1LastName", DateOfBirth = new DateTime(2000, 12, 20), NFCToken = "Token1" },

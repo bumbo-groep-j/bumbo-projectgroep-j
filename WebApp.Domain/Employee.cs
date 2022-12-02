@@ -32,6 +32,9 @@ namespace WebApp.Domain
         [DisplayName("Uurloon")]
         public double HourlyWage { get; set; }
 
+        [ForeignKey("Account")]
+        public string? UserName { get; set; }
+
         [NotMapped]
         public string Name
         {
