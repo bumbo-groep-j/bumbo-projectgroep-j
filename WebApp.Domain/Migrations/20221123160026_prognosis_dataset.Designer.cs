@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Domain;
 
@@ -11,9 +12,11 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    partial class BumboDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221123160026_prognosis_dataset")]
+    partial class prognosisdataset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,8 +110,6 @@ namespace WebApp.Domain.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Date", "DepartmentName");
-
-                    b.HasIndex("DepartmentName");
 
                     b.ToTable("DataPoints");
 
@@ -7802,19 +7803,11 @@ namespace WebApp.Domain.Migrations
                         },
                         new
                         {
-
-                            Name = "Vers"
-                        },
-                        new
-                        {
-                            Name = "VKK"
-
                             Name = "VKK"
                         },
                         new
                         {
                             Name = "Vers"
-
                         });
                 });
 
@@ -8099,11 +8092,14 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DepartmentName")
+                    b.Property<string>("Department")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Value")
+                    b.Property<int>("TotalColli")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalCustomers")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -8167,38 +8163,6 @@ namespace WebApp.Domain.Migrations
                         {
                             Id = 4,
                             Department = "Vers",
-                            EmployeeId = 3,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Department = "Vers",
-                            EmployeeId = 1,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Department = "Vers",
-                            EmployeeId = 1,
-                            EndTime = new DateTime(2022, 11, 24, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 24, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Department = "Kassa",
-                            EmployeeId = 2,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Department = "VKK",
                             EmployeeId = 3,
                             EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
@@ -8275,7 +8239,7 @@ namespace WebApp.Domain.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WebApp.Domain.WorkedHour", b =>
+            modelBuilder.Entity("WebApp.Domain.WorkedHours", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -8283,7 +8247,7 @@ namespace WebApp.Domain.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("ApprovalTime")
+                    b.Property<DateTime>("ApprovalTime")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("ApprovedTimeEnd")
@@ -8302,12 +8266,12 @@ namespace WebApp.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ScheduleId")
+                    b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ScheduleId");
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("WorkedHours");
 
@@ -8315,34 +8279,38 @@ namespace WebApp.Domain.Migrations
                         new
                         {
                             Id = 1,
-                            ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 3, 0, 0, DateTimeKind.Unspecified),
-                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 32, 0, 0, DateTimeKind.Unspecified),
+                            ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified),
                             Department = "Vers",
-                            ScheduleId = 5
+                            EmployeeId = 1
                         },
                         new
                         {
                             Id = 2,
-                            ClockedTimeEnd = new DateTime(2022, 11, 24, 16, 53, 0, 0, DateTimeKind.Unspecified),
-                            ClockedTimeStart = new DateTime(2022, 11, 24, 8, 31, 0, 0, DateTimeKind.Unspecified),
+                            ApprovalTime = new DateTime(2022, 11, 24, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 11, 24, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified),
                             Department = "Vers",
-                            ScheduleId = 6
+                            EmployeeId = 1
                         },
                         new
                         {
                             Id = 3,
-                            ClockedTimeEnd = new DateTime(2022, 11, 22, 15, 59, 0, 0, DateTimeKind.Unspecified),
-                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 28, 0, 0, DateTimeKind.Unspecified),
+                            ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified),
                             Department = "Kassa",
-                            ScheduleId = 7
+                            EmployeeId = 2
                         },
                         new
                         {
                             Id = 4,
-                            ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 1, 0, 0, DateTimeKind.Unspecified),
-                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 34, 0, 0, DateTimeKind.Unspecified),
+                            ApprovalTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified),
                             Department = "VKK",
-                            ScheduleId = 8
+                            EmployeeId = 3
                         });
                 });
 
@@ -8357,26 +8325,13 @@ namespace WebApp.Domain.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("WebApp.Domain.DataPoint", b =>
-                {
-                    b.HasOne("WebApp.Domain.DataSet", "DataSet")
-                        .WithMany("DataPoints")
-                        .HasForeignKey("DepartmentName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DataSet");
-                });
-
             modelBuilder.Entity("WebApp.Domain.HourlyPoint", b =>
                 {
-                    b.HasOne("WebApp.Domain.DataSet", "DataSet")
+                    b.HasOne("WebApp.Domain.DataSet", null)
                         .WithMany("HourlyCurve")
                         .HasForeignKey("DepartmentName")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("DataSet");
                 });
 
             modelBuilder.Entity("WebApp.Domain.Schedule", b =>
@@ -8401,21 +8356,19 @@ namespace WebApp.Domain.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("WebApp.Domain.WorkedHour", b =>
+            modelBuilder.Entity("WebApp.Domain.WorkedHours", b =>
                 {
-                    b.HasOne("WebApp.Domain.Schedule", "Schedule")
+                    b.HasOne("WebApp.Domain.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("ScheduleId")
+                        .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Schedule");
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("WebApp.Domain.DataSet", b =>
                 {
-                    b.Navigation("DataPoints");
-
                     b.Navigation("HourlyCurve");
                 });
 #pragma warning restore 612, 618

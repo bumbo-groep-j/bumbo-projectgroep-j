@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApp.Domain
@@ -18,10 +18,16 @@ namespace WebApp.Domain
         
         [Required(ErrorMessage = "het veld is leeg")]
         public int TotalCustomers { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
+
+        [Required]
+        public int Value { get; set; }
+
 
 
         [Required(ErrorMessage = "het veld is leeg")]
         [ForeignKey("Department")]
-        public string Department { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

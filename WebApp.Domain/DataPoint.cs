@@ -19,5 +19,8 @@ namespace WebApp.Domain
 
         [Required]
         public int Value { get; set; }
+
+        public DataSet DataSet { get; set; }
+
     }
 }

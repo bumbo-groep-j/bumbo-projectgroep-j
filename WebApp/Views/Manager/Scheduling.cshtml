@@ -1,198 +1,125 @@
-﻿@{
+﻿@model ScheduleForm
+@{
     ViewData["Stylesheet"] = "/css/manager.css";
+
+    int weekday = 1;
+    switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)
+    {
+        case DayOfWeek.Monday:    weekday = 1; break;
+        case DayOfWeek.Tuesday:   weekday = 2; break;
+        case DayOfWeek.Wednesday: weekday = 3; break;
+        case DayOfWeek.Thursday:  weekday = 4; break;
+        case DayOfWeek.Friday:    weekday = 5; break;
+        case DayOfWeek.Saturday:  weekday = 6; break;
+        case DayOfWeek.Sunday:    weekday = 7; break;
+    }
+
+    string link = "/Manager/Scheduling?departmentName=" + ViewBag.DepartmentName + "&";
 }
 
-<div class="watermark_concept">
-    <p class="concept_text">CONCEPT</p>
-</div>
 <div class="content_container">
     <aside>
         <partial name="Calendar" model="new CalendarData {
-            CurrentMonth = 9,
-            CurrentYear = 2022,
-            FirstWeekdayOfMonth = 4,
-            Today = new DateOnly(2022, 9, 26),
-            Selected = new DateOnly(2022, 9, 30),
-            MinimumDay = new DateOnly(2022, 9, 27)
+            CurrentMonth = ViewBag.Date.Month,
+            CurrentYear = ViewBag.Date.Year,
+            FirstWeekdayOfMonth = weekday,
+            Today = DateOnly.FromDateTime(DateTime.Today),
+            Selected = DateOnly.FromDateTime(ViewBag.Date),
+            MinimumDay = DateOnly.FromDateTime(DateTime.Today),
+            Link = link
         };" />
         <hr />
         <p>Afdeling</p>
         <ul>
-            <li><a asp-controller="Manager" asp-action="Scheduling">Kassa</a></li>
-            <li><a asp-controller="Manager" asp-action="Scheduling">Vers</a></li>
-            <li><a asp-controller="Manager" asp-action="Scheduling">VKK</a></li>
+            @foreach(var department in ViewBag.Departments)
+            {
+                var linkClasses = "";
+                @if(department.Name == ViewBag.Department.Name)
+                {
+                    linkClasses = "blue";
+                }
+                <li class="@linkClasses"><a asp-controller="Manager" asp-action="Scheduling" asp-route-departmentName="@department.Name" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day">@department.Name</a></li>
+            }
         </ul>
     </aside>
     <div>
         <header>
             <h1 class="align_center">
-                <button class="nav_button" asp-controller="Manager" asp-action="Scheduling">&#x2039;</button>
-                Inroostering: Vrijdag 30 september
-                <button class="nav_button" asp-controller="Manager" asp-action="Scheduling">&#x203A;</button>
+                <a class="button nav_button" asp-controller="Manager" asp-action="Scheduling" asp-route-departmentName="@ViewBag.Department.Name" asp-route-year="@ViewBag.Date.AddDays(-1).Year" asp-route-month="@ViewBag.Date.AddDays(-1).Month" asp-route-day="@ViewBag.Date.AddDays(-1).Day">&#x2039;</a>
+                Inroostering: @ViewBag.DutchDate
+                <a class="button nav_button" asp-controller="Manager" asp-action="Scheduling" asp-route-departmentName="@ViewBag.Department.Name" asp-route-year="@ViewBag.Date.AddDays(1).Year" asp-route-month="@ViewBag.Date.AddDays(1).Month" asp-route-day="@ViewBag.Date.AddDays(1).Day">&#x203A;</a>
             </h1>
         </header>
-        <table>
-            <tr>
-                <td class="align_center"></td>
-                <td class="align_center"></td>
-                <td class="align_center">06:00</td>
-                <td class="align_center">07:00</td>
-                <td class="align_center">08:00</td>
-                <td class="align_center">09:00</td>
-                <td class="align_center">10:00</td>
-                <td class="align_center">11:00</td>
-                <td class="align_center">12:00</td>
-                <td class="align_center">13:00</td>
-                <td class="align_center">14:00</td>
-                <td class="align_center">15:00</td>
-                <td class="align_center">16:00</td>
-                <td class="align_center">17:00</td>
-                <td class="align_center">18:00</td>
-                <td class="align_center">19:00</td>
-                <td class="align_center">20:00</td>
-                <td class="align_center">21:00</td>
-                <td class="align_center">22:00</td>
-                <td class="align_center">23:00</td>
-            </tr>
-            <tr class="seperator"></tr>
-            <tr>
-                <td class="align_right" colspan="2">Prognose</td>
-                <td class="align_center">1/1</td>
-                <td class="align_center">1/1</td>
-                <td class="align_center">1/1</td>
-                <td class="align_center prognosis_mismatch">2/1</td>
-                <td class="align_center">2/2</td>
-                <td class="align_center">2/2</td>
-                <td class="align_center">1/1</td>
-                <td class="align_center">1/1</td>
-                <td class="align_center">1/1</td>
-                <td class="align_center">2/2</td>
-                <td class="align_center">2/2</td>
-                <td class="align_center prognosis_mismatch">2/3</td>
-                <td class="align_center">4/4</td>
-                <td class="align_center prognosis_mismatch">4/3</td>
-                <td class="align_center">2/2</td>
-                <td class="align_center">2/2</td>
-                <td class="align_center">1/1</td>
-                <td class="align_center">1/1</td>
-            </tr>
-            <tr class="seperator"></tr>
-            <tr>
-                <td class="align_right" colspan="2">Medewerker 1</td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td colspan="6" class="unavailable">Deze werknemer is momenteel niet beschikbaar</td>
-            </tr>
-            <tr>
-                <td class="align_right" colspan="2">Medewerker 2</td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-            </tr>
-            <tr>
-                <td class="align_right" colspan="2">Medewerker 3</td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-            </tr>
-            <tr>
-                <td class="align_right" colspan="2">Medewerker 4</td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-            </tr>
-            <tr>
-                <td class="align_right" colspan="2">Medewerker 5</td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td colspan="5" class="unavailable">Deze werknemer is momenteel niet beschikbaar</td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-            </tr>
-            <tr>
-                <td class="align_right" colspan="2">Medewerker 6</td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td colspan="5" class="unavailable">Deze werknemer is momenteel niet beschikbaar</td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-                <td class="align_center"><input type="checkbox" /></td>
-            </tr>
-        </table>
-        <div class="space_around">
-            <button>Opslaan</button>
-        </div>
+        <form asp-action="Scheduling" enctype="multipart/form-data">
+            <input type="hidden" asp-for="DepartmentName" value="@ViewBag.Department.Name" />
+            <input type="hidden" asp-for="Day" value="@ViewBag.Date.Day" />
+            <input type="hidden" asp-for="Month" value="@ViewBag.Date.Month" />
+            <input type="hidden" asp-for="Year" value="@ViewBag.Date.Year" />
+            <table>
+                <tr>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+                    @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                    {
+                        <td class="align_center">@hour:00</td>
+                    }
+                </tr>
+                <tr class="seperator"></tr>
+                <tr>
+                    <td class="align_right" colspan="3">Prognose</td>
+                    @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                    {
+                        <td class="align_center prognosis_mismatch" id="text_hour_@hour">0/@ViewBag.EmployeePrognosis[hour]</td>
+                    }
+                </tr>
+                <tr class="seperator"></tr>
+                @{
+                    int i = 0;
+                }
+                @foreach(var employee in ViewBag.Employees)
+                {
+                    <tr>
+                        <td class="align_right" colspan="3">@employee.Name</td>
+                        @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                        {
+                            if(Model.IsChecked[i])
+                            {
+                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" checked /></td>
+                            }
+                            else
+                            {
+                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
+                            }
+                            i++;
+                        }
+                    </tr>
+                }
+            </table>
+            <div class="space_around">
+                <button type="submit">Opslaan</button>
+            </div>
+        </form>
     </div>
 </div>
+<script>
+    function update_text(id) {
+        var max = $("#text_hour_" + id).text().split("/")[1];
+        var current = 0;
+
+        $(".checkbox_hour_" + id).each(function() {
+            if($(this).prop("checked")) current++;
+        })
+
+        $("#text_hour_" + id).text(current + "/" + max);
+
+        if(max == current) $("#text_hour_" + id).removeClass("prognosis_mismatch");
+        else if(!$("#text_hour_" + id).hasClass("prognosis_mismatch")) $("#text_hour_" + id).addClass("prognosis_mismatch");
+    }
+
+    window.onload = function () {
+        for(let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) { 
+            update_text(i);
+        }
+    }
+</script>

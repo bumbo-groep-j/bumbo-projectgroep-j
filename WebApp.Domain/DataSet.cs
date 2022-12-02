@@ -32,6 +32,10 @@ namespace WebApp.Domain
 
         [Required]
         public List<DataPoint> DataPoints { get; set; }
+        public ICollection<HourlyPoint> HourlyCurve { get; set; }
+
+        [Required]
+        public ICollection<DataPoint> DataPoints { get; set; }
 
         // The weekly curve is the distribution of customers / colli throughout a week, this is calculated from the entire data set.
         // The weekly curve for example indicates that on Monday there are usually around 10% of all the customers in an average week,
@@ -73,7 +77,9 @@ namespace WebApp.Domain
             {
                 if(!point.IsHoliday)
                 {
+
                     MonthlyCurve[point.Date.Month] += point.Value;
+                    MonthlyCurve[point.Date.Month - 1] += point.Value;
                     WeeklyCurve[(int)point.Date.DayOfWeek] += point.Value;
                     YearlyTotal += point.Value;
                     countedDays++;
@@ -97,7 +103,11 @@ namespace WebApp.Domain
             {
                 if(point.IsHoliday)
                 {
+
                     int predictedValue = (int)(YearlyTotal * MonthlyCurve[point.Date.Month] * WeeklyCurve[(int)point.Date.DayOfWeek] * 7.0 / DaysInMonth[point.Date.Month]);
+
+                    int predictedValue = (int)(YearlyTotal * MonthlyCurve[point.Date.Month - 1] * WeeklyCurve[(int)point.Date.DayOfWeek] * 7.0 / DaysInMonth[point.Date.Month - 1]);
+
                     HolidayFactor += (double)point.Value / predictedValue;
                     holidays++;
                 }
@@ -115,7 +125,10 @@ namespace WebApp.Domain
             // This gives us an estimate for how many customers will arrive on (for example) EVERY Monday in February. To get the amount of customers that will
             // arrive on one single Monday in February we then have to divide this number by the amount of weeks in the chosen month.
             // The amount of weeks in a month is simply the amount of days in that month divided by 7, as there are 7 days in a week.
+
             int predictedValue = (int)(YearlyTotal * MonthlyCurve[Date.Month] * WeeklyCurve[(int)Date.DayOfWeek] * 7.0 / DaysInMonth[Date.Month]);
+            int predictedValue = (int)(YearlyTotal * MonthlyCurve[Date.Month - 1] * WeeklyCurve[(int)Date.DayOfWeek] * 7.0 / DaysInMonth[Date.Month - 1]);
+
 
             // If the chosen day is a holiday, multiply it by the holiday factor
             if(holiday) predictedValue = (int)(predictedValue * HolidayFactor);
@@ -123,9 +136,16 @@ namespace WebApp.Domain
             return predictedValue;
         }
 
+
         public int[] PredictHourlyValues(DateTime Date, bool holiday)
         {
             int predictedValue = PredictValue(Date, holiday);
+
+        public int[] PredictHourlyValues(int predictedValue)
+        {
+            // Calculate weekly and monthly curve if they are still null
+            if(MonthlyCurve == null || WeeklyCurve == null) UpdateDataCurves();
+
             int[] hourlyValues = new int[24];
 
             // To predict the Values over the individual hours in a day we simply multiply our predicted Value for the day
@@ -142,8 +162,14 @@ namespace WebApp.Domain
         // customers are scheduled to arrive at any particular hour, this function calculates how many employees are
         // required for that set amount of customers. This is done by simply dividing the amount of customers at that
         // given hour by the EmployeeWorkload factor (i.e. how many customers one single cashier can service in an hour)
+
         public int[] PredictHourlyEmployees(DateTime Date, bool holiday) {
             int predictedValue = PredictValue(Date, holiday);
+
+        public int[] PredictHourlyEmployees(int predictedValue) {
+            // Calculate weekly and monthly curve if they are still null
+            if(MonthlyCurve == null || WeeklyCurve == null) UpdateDataCurves();
+
             int[] hourlyValues = new int[24];
 
             foreach(HourlyPoint p in HourlyCurve)

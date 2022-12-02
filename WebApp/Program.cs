@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Localization;
+
+using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+
+using Microsoft.EntityFrameworkCore;
+using WebApp.Domain;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+/*var db = new BumboDbContext();
+db.Database.Migrate();*/
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

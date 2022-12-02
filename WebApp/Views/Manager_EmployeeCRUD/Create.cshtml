@@ -1,0 +1,63 @@
+﻿@model WebApp.Domain.Employee
+
+@{
+    ViewData["Title"] = "Create";
+    ViewData["Stylesheet"] = "/css/manager.css";
+}
+
+<div class="watermark_concept">
+    <p class="concept_text">CONCEPT</p>
+</div>
+
+<h1>Medewerker toevoegen</h1>
+
+<hr />
+<div class="employee_createpage">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MiddleName" class="control-label"></label>
+                <input asp-for="MiddleName" class="form-control" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" type="date" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NFCToken" class="control-label"></label>
+                <input asp-for="NFCToken" class="form-control" />
+                <span asp-validation-for="NFCToken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HourlyWage" class="control-label"></label>
+                <input asp-for="HourlyWage" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="HourlyWage" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="blue">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
