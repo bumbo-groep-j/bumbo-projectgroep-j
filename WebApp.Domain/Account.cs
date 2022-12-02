@@ -7,6 +7,14 @@ namespace WebApp.Domain
     public class Account : IdentityUser
     {
         [NotMapped]
-        public string? Password { get; set; }
+        [Required]
+        [Display(Name = "Wachtwoord")]
+        public string Password { get; set; }
+
+        [NotMapped]
+        [Required]
+        [Display(Name = "Wachtwoord bevestigen")]
+        [Compare("Password", ErrorMessage = "De wachtwoorden matchen niet")]
+        public string PasswordConfirmation { get; set; }
     }
 }

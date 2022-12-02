@@ -10,7 +10,7 @@ builder.Services.AddDbContext<BumboDbContext>();
 builder.Services.AddIdentity<Account, IdentityRole>(
     options =>
     {
-        options.SignIn.RequireConfirmedAccount = true;
+        options.SignIn.RequireConfirmedAccount = false;
 
         options.Password.RequireDigit = false;
         options.Password.RequiredLength = 6;
@@ -47,5 +47,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+AccountSeeder.SeedData(app.Services);
 
 app.Run();
