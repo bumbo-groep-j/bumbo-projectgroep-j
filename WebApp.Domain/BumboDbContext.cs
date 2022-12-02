@@ -32,8 +32,9 @@ namespace WebApp.Domain
 
             #region Department
             modelBuilder.Entity<Department>().HasData(
-                new Department { Name = "Verkoop" },
-                new Department { Name = "Magazijn" }
+                new Department { Name = "Kassa" },
+                new Department { Name = "Vers" },
+                new Department { Name = "VKK" }
             );
             #endregion
 

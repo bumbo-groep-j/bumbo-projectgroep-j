@@ -8,16 +8,19 @@ namespace WebApp.Domain
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "het veld is leeg")]
         public int TotalColli { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "het veld is leeg")]
         public DateTime Date { get; set; }
 
-        [Required]
+        
+        [Required(ErrorMessage = "het veld is leeg")]
         public int TotalCustomers { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "het veld is leeg")]
         [ForeignKey("Department")]
         public string Department { get; set; }
     }

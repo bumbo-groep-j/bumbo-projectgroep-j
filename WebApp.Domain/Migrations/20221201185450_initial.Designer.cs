@@ -12,7 +12,7 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    [Migration("20221129091014_initial")]
+    [Migration("20221201185450_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -107,11 +107,15 @@ namespace WebApp.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Name = "Verkoop"
+                            Name = "Kassa"
                         },
                         new
                         {
-                            Name = "Magazijn"
+                            Name = "Vers"
+                        },
+                        new
+                        {
+                            Name = "VKK"
                         });
                 });
 

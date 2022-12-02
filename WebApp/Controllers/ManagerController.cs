@@ -1,5 +1,6 @@
 ﻿using Bumbo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApp.Domain;
 
 namespace Bumbo.Controllers
@@ -51,7 +52,7 @@ namespace Bumbo.Controllers
             var now = currentWeek;
             var currentDay = now.DayOfWeek;
             int days = (int)currentDay;
-            DateTime sunday = new DateTime();
+            DateTime sunday = new  DateTime();
 
             if (days == 0)
             {
@@ -82,6 +83,8 @@ namespace Bumbo.Controllers
                         }
                     }
                 }
+               var departments = ctx.Departments.Select(x => x.Name).ToList();
+               ViewBag.Departmants = new SelectList(departments, "Name");
             }
 
             ViewBag.PrognosisData = listOfData;
@@ -99,10 +102,30 @@ namespace Bumbo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PrognosisUpdate(string? number)
+        public IActionResult Prognosis(Prognosis prognosis)
         {
-            
-            return View();
+            try
+            {
+                using (var ctx = new BumboDbContext())
+                {
+                    if (prognosis.Id == 0)
+                    {
+                        ctx.Prognosis.Add(prognosis);
+                        ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        ctx.Attach(prognosis);
+                        ctx.Prognosis.Update(prognosis);
+                        ctx.SaveChanges();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+            return RedirectToAction("Prognosis", new { date = prognosis.Date });
         }
 
         public IActionResult Scheduling()

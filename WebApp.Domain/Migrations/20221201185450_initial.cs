@@ -156,8 +156,9 @@ namespace WebApp.Domain.Migrations
                 column: "Name",
                 values: new object[]
                 {
-                    "Magazijn",
-                    "Verkoop"
+                    "Kassa",
+                    "Vers",
+                    "VKK"
                 });
 
             migrationBuilder.InsertData(

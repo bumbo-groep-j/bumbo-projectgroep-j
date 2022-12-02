@@ -1,4 +1,4 @@
-﻿
+﻿@model WebApp.Domain.Prognosis;
 @{
     ViewData["Stylesheet"] = "/css/manager.css";
     bool trueOrfalse = false;
@@ -11,17 +11,29 @@
     </h1>
 </header>
 <div class="watermark_concept">
-    <p class="concept_text">CONCEPT</p>
+  
 </div>
 <div class="grid4">
      <div>
         <h5>@ViewBag.Days[0].ToString("dd") @ViewBag.Days[0].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[0].ToString("ddd").Substring(1, 1) @ViewBag.Days[0].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[0].ToString("MMMM").Substring(1, @ViewBag.Days[0].ToString("MMMM").Length -1)</h5><br />
+        <form method="post" asp-action="Prognosis">
         @foreach (var item in ViewBag.PrognosisData)
         {
             if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[0].ToString("dd MM yyyy"))
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli" onkeypress="update(this)"></p>
-                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers" onkeypress="update(this)"></p>
+                <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value="@item.TotalColli" ></p>
+                <span asp-validation-for="TotalColli" class="text-danger">  </span>
+                <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                    <p>Afdeling: 
+                        <select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">
+                            $(".select-add-placeholder").prepend("
+                            <option value="@item.Department " selected hidden data-default>@item.Department</option>")
+                        </select>
+                    </p>
+                <span asp-validation-for="Department" class="text-danger"></span>
+                <input type="hidden" asp-for="Date" value="@ViewBag.Days[0]" />
+                <input type="hidden" asp-for="Id" value="@item.Id" />             
                 trueOrfalse = true;
                 break;
             }
@@ -31,175 +43,288 @@
         }
 
         @if(trueOrfalse == false){
-            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
-            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
+                <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value=""></p>
+                <span asp-validation-for="TotalColli" class="text-danger"></span>
+                <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number"></p>
+                <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                <p>Afdeling:<select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">$(".select-add-placeholder").prepend(" <option value='' disabled selected>Select an option...</option>"); </select></p>
+                <span asp-validation-for="Department" class="text-danger"></span>
+                <input type="hidden" asp-for="Date" value="@ViewBag.Days[0]" />
         }
-       
+        <br />
+        <button type="submit">Opslaan</button>
+        </form>
      </div>
     <div>
         <h5>@ViewBag.Days[1].ToString("dd") @ViewBag.Days[1].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[1].ToString("ddd").Substring(1, 1) @ViewBag.Days[1].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[1].ToString("MMMM").Substring(1, @ViewBag.Days[1].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.PrognosisData)
-        {
-            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[1].ToString("dd MM yyyy"))
+        <form method="post" asp-action="Prognosis">
+            @foreach (var item in ViewBag.PrognosisData)
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
-                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
-                trueOrfalse = true;
-                break;
+                if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[1].ToString("dd MM yyyy"))
+                {
+                    <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                    <span asp-validation-for="TotalColli" class="text-danger"></span>
+                    <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                    <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                    <p>
+                        Afdeling:
+                        <select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">
+                            $(".select-add-placeholder").prepend("
+                            <option value="@item.Department " selected hidden data-default>@item.Department</option>")
+                        </select>
+                    </p>
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                    <input type="hidden" asp-for="Date" value="@ViewBag.Days[1]" />
+                    <input type="hidden" asp-for="Id" value="@item.Id" />
+                    trueOrfalse = true;
+                    break;
+                }
+                else
+                {
+                    trueOrfalse = false;
+                }
             }
-            else
+
+            @if (trueOrfalse == false)
             {
-                trueOrfalse = false;
+                <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value=""></p>
+                <span asp-validation-for="TotalColli" class="text-danger"></span>
+                <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number"></p>
+                <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                <p>Afdeling:<select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">$(".select-add-placeholder").prepend(" <option value='' disabled selected>Select an option...</option>"); </select></p>
+                <input type="hidden" asp-for="Date" value="@ViewBag.Days[1]" />
+                <span asp-validation-for="Department" class="text-danger"></span>
             }
-        }
-
-        @if (trueOrfalse == false)
-        {
-            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
-            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
-        }
-
+            <br />
+            <button type="submit">Opslaan</button>
+        </form>
     </div>
     <div>
         <h5>@ViewBag.Days[2].ToString("dd") @ViewBag.Days[2].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[2].ToString("ddd").Substring(1, 1) @ViewBag.Days[2].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[2].ToString("MMMM").Substring(1, @ViewBag.Days[2].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.PrognosisData)
-        {
-            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[2].ToString("dd MM yyyy"))
+        <form method="post" asp-action="Prognosis">
+            @foreach (var item in ViewBag.PrognosisData)
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
-                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
-                trueOrfalse = true;
-                break;
+                if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[2].ToString("dd MM yyyy"))
+                {
+                    <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                    <span asp-validation-for="TotalColli" class="text-danger"></span>
+                    <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                    <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                    <p>
+                        Afdeling:
+                        <select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">
+                            $(".select-add-placeholder").prepend("
+                            <option value="@item.Department " selected hidden data-default>@item.Department</option>")
+                        </select>
+                    </p>
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                    <input type="hidden" asp-for="Date" value="@ViewBag.Days[2]" />
+                    <input type="hidden" asp-for="Id" value="@item.Id" />
+                    trueOrfalse = true;
+                    break;
+                }
+                else
+                {
+                    trueOrfalse = false;
+                }
             }
-            else
+
+            @if (trueOrfalse == false)
             {
-                trueOrfalse = false;
+                <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value=""></p>
+                <span asp-validation-for="TotalColli" class="text-danger"></span>
+                <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number"></p>
+                <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                <p>Afdeling:<select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">$(".select-add-placeholder").prepend(" <option value='' disabled selected>Select an option...</option>"); </select></p>
+                <span asp-validation-for="Department" class="text-danger"></span>
+                <input type="hidden" asp-for="Date" value="@ViewBag.Days[2]" />
             }
-        }
-
-        @if (trueOrfalse == false)
-        {
-            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
-            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
-        }
-
+            <br />
+            <button type="submit">Opslaan</button>
+        </form>
     </div>
     <div>
         <h5>@ViewBag.Days[3].ToString("dd") @ViewBag.Days[3].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[3].ToString("ddd").Substring(1, 1) @ViewBag.Days[3].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("MMMM").Substring(1, @ViewBag.Days[3].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.PrognosisData)
-        {
-            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[3].ToString("dd MM yyyy"))
+        <form method="post" asp-action="Prognosis">
+            @foreach (var item in ViewBag.PrognosisData)
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
-                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
-                trueOrfalse = true;
-                break;
+                if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[3].ToString("dd MM yyyy"))
+                {
+                    <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                    <span asp-validation-for="TotalColli" class="text-danger"></span>
+                    <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                    <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                    <p>
+                        Afdeling:
+                        <select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">
+                            $(".select-add-placeholder").prepend("
+                            <option value="@item.Department " selected hidden data-default>@item.Department</option>")
+                        </select>
+                    </p>
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                    <input type="hidden" asp-for="Date" value="@ViewBag.Days[3]" />
+                    <input type="hidden" asp-for="Id" value="@item.Id" />
+                    trueOrfalse = true;
+                    break;
+                }
+                else
+                {
+                    trueOrfalse = false;
+                }
             }
-            else
+
+            @if (trueOrfalse == false)
             {
-                trueOrfalse = false;
+                <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value=""></p>
+                <span asp-validation-for="TotalColli" class="text-danger"></span>
+                <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number"></p>
+                <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                <p>Afdeling:<select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">$(".select-add-placeholder").prepend(" <option value='' disabled selected>Select an option...</option>"); </select></p>
+                <span asp-validation-for="Department" class="text-danger"></span>
+                <input type="hidden" asp-for="Date" value="@ViewBag.Days[3]" />
             }
-        }
-
-        @if (trueOrfalse == false)
-        {
-            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
-            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
-        }
-
+            <br />
+            <button type="submit">Opslaan</button>
+        </form>
     </div>
 </div>
 <div class="grid3">
     <div>
         <h5>@ViewBag.Days[4].ToString("dd") @ViewBag.Days[4].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("ddd").Substring(1, 1) @ViewBag.Days[4].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[4].ToString("MMMM").Substring(1, @ViewBag.Days[4].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.PrognosisData)
-        {
-            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[4].ToString("dd MM yyyy"))
+        <form method="post" asp-action="Prognosis">
+            @foreach (var item in ViewBag.PrognosisData)
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
-                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
-                trueOrfalse = true;
-                break;
+                if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[4].ToString("dd MM yyyy"))
+                {
+                    <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                    <span asp-validation-for="TotalColli" class="text-danger"></span>
+                    <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                    <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                    <p>
+                        Afdeling:
+                        <select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">
+                            $(".select-add-placeholder").prepend("
+                            <option value="@item.Department " selected hidden data-default>@item.Department</option>")
+                        </select>
+                    </p>
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                    <input type="hidden" asp-for="Date" value="@ViewBag.Days[4]" />
+                    <input type="hidden" asp-for="Id" value="@item.Id" />
+                    trueOrfalse = true;
+                    break;
+                }
+                else
+                {
+                    trueOrfalse = false;
+                }
             }
-            else
+
+            @if (trueOrfalse == false)
             {
-                trueOrfalse = false;
+                <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value=""></p>
+                <span asp-validation-for="TotalColli" class="text-danger"></span>
+                <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number"></p>
+                <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                <p>Afdeling:<select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">$(".select-add-placeholder").prepend(" <option value='' disabled selected>Select an option...</option>"); </select></p>
+                <input type="hidden" asp-for="Date" value="@ViewBag.Days[4]" />
+                <span asp-validation-for="Department" class="text-danger"></span>
             }
-        }
-
-        @if (trueOrfalse == false)
-        {
-            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
-            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
-        }
-
+            <br />
+            <button type="submit">Opslaan</button>
+        </form>
     </div>
     <div>
         <h5>@ViewBag.Days[5].ToString("dd") @ViewBag.Days[5].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[5].ToString("ddd").Substring(1, 1) @ViewBag.Days[5].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[5].ToString("MMMM").Substring(1, @ViewBag.Days[5].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.PrognosisData)
-        {
-            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[5].ToString("dd MM yyyy"))
+        <form method="post" asp-action="Prognosis">
+            @foreach (var item in ViewBag.PrognosisData)
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
-                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
-                trueOrfalse = true;
-                break;
+                if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[5].ToString("dd MM yyyy"))
+                {
+                    <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                    <span asp-validation-for="TotalColli" class="text-danger"></span>
+                    <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                    <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                    <p>
+                        Afdeling:
+                        <select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">
+                            $(".select-add-placeholder").prepend("
+                            <option value="@item.Department " selected hidden data-default>@item.Department</option>")
+                        </select>
+                    </p>
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                    <input type="hidden" asp-for="Date" value="@ViewBag.Days[5]" />
+                    <input type="hidden" asp-for="Id" value="@item.Id" />
+                    trueOrfalse = true;
+                    break;
+                }
+                else
+                {
+                    trueOrfalse = false;
+                }
             }
-            else
+
+            @if (trueOrfalse == false)
             {
-                trueOrfalse = false;
+                <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value=""></p>
+                <span asp-validation-for="TotalColli" class="text-danger"></span>
+                <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number"></p>
+                <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                <p>Afdeling:<select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">$(".select-add-placeholder").prepend(" <option value='' disabled selected>Select an option...</option>"); </select></p>
+                <span asp-validation-for="Department" class="text-danger"></span>
+                <input type="hidden" asp-for="Date" value="@ViewBag.Days[5]" />
             }
-        }
-
-        @if (trueOrfalse == false)
-        {
-            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
-            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
-        }
-
+            <br />
+            <button type="submit">Opslaan</button>
+        </form>
     </div>
     <div>
         <h5>@ViewBag.Days[6].ToString("dd") @ViewBag.Days[6].ToString("ddd").Substring(0, 1).ToUpper()@ViewBag.Days[6].ToString("ddd").Substring(1, 1) @ViewBag.Days[6].ToString("MMMM").Substring(0, 1).ToUpper()@ViewBag.Days[6].ToString("MMMM").Substring(1, @ViewBag.Days[6].ToString("MMMM").Length -1)</h5><br />
-        @foreach (var item in ViewBag.PrognosisData)
-        {
-            if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[6].ToString("dd MM yyyy"))
+        <form method="post" asp-action="Prognosis">
+            @foreach (var item in ViewBag.PrognosisData)
             {
-                <p>Aantal colli:<input class="prognosis_input" type="number" value="@item.TotalColli"></p>
-                <p>Verwachte bezoekers:<input class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
-                trueOrfalse = true;
-                break;
+                if (item.Date.ToString("dd MM yyyy") == ViewBag.Days[6].ToString("dd MM yyyy"))
+                {
+                    <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value="@item.TotalColli"></p>
+                    <span asp-validation-for="TotalColli" class="text-danger"></span>
+                    <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number" value="@item.TotalCustomers"></p>
+                    <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                    <p>
+                        Afdeling:
+                        <select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">
+                            $(".select-add-placeholder").prepend("
+                            <option value="@item.Department " selected hidden data-default>@item.Department</option>")
+                        </select>
+                    </p>
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                    <input type="hidden" asp-for="Date" value="@ViewBag.Days[6]" />
+                    <input type="hidden" asp-for="Id" value="@item.Id" />
+                    trueOrfalse = true;
+                    break;
+                }
+                else
+                {
+                    trueOrfalse = false;
+                }
             }
-            else
+
+            @if (trueOrfalse == false)
             {
-                trueOrfalse = false;
+                <p>Aantal colli:<input asp-for="TotalColli" class="prognosis_input" type="number" value=""></p>
+                <span asp-validation-for="TotalColli" class="text-danger"></span>
+                <p>Verwachte bezoekers:<input asp-for="TotalCustomers" class="prognosis_input" type="number"></p>
+                <span asp-validation-for="TotalCustomers" class="text-danger"></span>
+                <p>Afdeling:<select asp-for="Department" class="form-control" asp-items="@ViewBag.Departmants">$(".select-add-placeholder").prepend(" <option value='' disabled selected>Select an option...</option>"); </select></p>
+                <span asp-validation-for="Department" class="text-danger"></span>
+                <input type="hidden" asp-for="Date" value="@ViewBag.Days[6]" />
             }
-        }
-
-        @if (trueOrfalse == false)
-        {
-            <p>Aantal colli:<input class="prognosis_input" type="number" value=""></p>
-            <p>Verwachte bezoekers:<input class="prognosis_input" type="number"></p>
-        }
-
+            <br />
+            <button type="submit">Opslaan</button>
+        </form>
     </div>
 </div>
-<script type="text/javascript">
-    function update(ele){
-        if(event.key === 'Enter'){
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("PrognosisUpdate")",
-                data: {
-                    number: ele.value
-                },
-                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
-                success: function () {
-                    alert("We did it")
-                },
-                error: function () {
-
-                }
-            });
-        }
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-</script>
+}
+

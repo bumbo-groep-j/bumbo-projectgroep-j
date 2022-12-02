@@ -104,11 +104,15 @@ namespace WebApp.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Name = "Verkoop"
+                            Name = "Kassa"
                         },
                         new
                         {
-                            Name = "Magazijn"
+                            Name = "Vers"
+                        },
+                        new
+                        {
+                            Name = "VKK"
                         });
                 });
 
