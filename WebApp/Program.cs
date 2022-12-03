@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using WebApp.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -49,5 +50,15 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Use(async (context, next) => {
+    var currentThreadCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
+    currentThreadCulture.NumberFormat = NumberFormatInfo.InvariantInfo;
+
+    Thread.CurrentThread.CurrentCulture = currentThreadCulture;
+    Thread.CurrentThread.CurrentUICulture = currentThreadCulture;
+
+    await next();
+});
 
 app.Run();

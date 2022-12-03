@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Employee.DateOfBirth" class="control-label"></label>
-                    <input asp-for="Employee.DateOfBirth" min="1900-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")" type="date" class="form-control" />
+                    <input asp-for="Employee.DateOfBirth" min="1900-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")" lang="nl" type="date" class="form-control" title="Geboortedatum is ongeldig" />
                     <span asp-validation-for="Employee.DateOfBirth" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Employee.HourlyWage" class="control-label"></label>
-                    <input asp-for="Employee.HourlyWage" type="number" step="0.01" class="form-control" />
+                    <input asp-for="Employee.HourlyWage" type="number" step="0.01" class="form-control" data-val-number="Het Uurloon moet een nummer zijn" title="Uurloon is ongeldig" />
                     <span asp-validation-for="Employee.HourlyWage" class="text-danger"></span>
                 </div>
             </div>
