@@ -1,0 +1,27 @@
+﻿@model WebApp.Domain.Account
+@{
+    ViewData["Title"] = "Medewerker verwijderen";
+    ViewData["Stylesheet"] = "/css/manager.css";
+}
+
+<h1>Weet u zeker dat u deze manager wilt verwijderen?</h1>
+<hr />
+<div class="employee_createpage">
+    <div class="col-md-4">
+        <form asp-action="DeleteManager">
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" disabled />
+                <input asp-for="UserName" class="form-control" type="hidden" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" class="red_button" value="Verwijderen" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListEmployees" class="blue">Back to List</a>
+</div>

@@ -1,6 +1,10 @@
 ﻿using Bumbo.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 using System.Web;
 using WebApp.Domain;
 
@@ -9,6 +13,10 @@ namespace Bumbo.Controllers
     public class ManagerController : Controller
     {
         private BumboDbContext db = new BumboDbContext();
+        private UserManager<Account> userManager;
+        public ManagerController(UserManager<Account> user) {
+            userManager = user;
+        }
 
         private void GetPrognosis(DateTime date, bool isHoliday, string departmentName) {
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
@@ -400,6 +408,152 @@ namespace Bumbo.Controllers
             }
 
             db.SaveChanges(); 
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult ListEmployees()
+        {
+            return View((
+                from Account
+                in db.Users
+                select new EmployeeAccount
+                {
+                    Account = Account,
+                    Employee = (from Employee in db.Employees where Employee.UserName == Account.UserName select Employee).First(),
+                    Role = userManager.GetRolesAsync(Account).Result.FirstOrDefault()
+                }
+            ));
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult CreateEmployee()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> CreateEmployee(EmployeeAccount model)
+        {
+            if(model.Role == "Employee")
+                model.Employee.UserName = model.Account.Username;
+            else
+                model.Employee = null;
+
+            model.Account.UserName  = model.Account.Username;
+            ModelState.Clear();
+            TryValidateModel(model);
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var result = await userManager.CreateAsync(model.Account, model.Account.Password);
+
+                    if(result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(model.Account, model.Role);
+
+                        if(model.Role == "Employee")
+                        {
+                            db.Employees.Add(model.Employee);
+                            db.SaveChanges();
+                        }
+
+                        return RedirectToAction("ListEmployees");
+                    }
+
+                    foreach(var error in result.Errors)
+                        ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+            catch { }
+
+            return View(model);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult EditEmployee(string userName)
+        {
+            try
+            {
+                return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
+            }
+            catch { }
+
+            return RedirectToAction("ListEmployees");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public IActionResult EditEmployee(Employee model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var employee = (from Employee in db.Employees where Employee.UserName == model.UserName select Employee).First();
+
+                    employee.FirstName = model.FirstName;
+                    employee.MiddleName = model.MiddleName;
+                    employee.LastName = model.LastName;
+                    employee.DateOfBirth = model.DateOfBirth;
+                    employee.NFCToken = model.NFCToken;
+                    employee.HourlyWage = model.HourlyWage;
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("ListEmployees");
+                }
+            }
+            catch { }
+
+            return View(model);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult DeleteEmployee(string userName) {
+            try {
+                return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
+            } catch { }
+
+            return RedirectToAction("ListEmployees");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public IActionResult DeleteEmployee(Employee model) {
+            try {
+                var employee = (from Employee in db.Employees where Employee.UserName == model.UserName select Employee).First();
+
+                employee.Inactive = true;
+
+                db.SaveChanges();
+
+                return RedirectToAction("ListEmployees");
+            } catch { }
+
+            return View(model);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> DeleteManager(string userName) {
+            try {
+                return View(await userManager.FindByNameAsync(userName));
+            } catch { }
+
+            return RedirectToAction("ListEmployees");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> DeleteManager(Account model) {
+            try {
+                await userManager.DeleteAsync(await userManager.FindByNameAsync(model.UserName));
+
+                return RedirectToAction("ListEmployees");
+            } catch { }
+
+            return View(model);
         }
     }
 }
