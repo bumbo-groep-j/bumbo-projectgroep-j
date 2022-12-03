@@ -11,12 +11,14 @@ namespace Bumbo.Controllers
     {
         private BumboDbContext db;
         private UserManager<Account> userManager;
-        public ManagerController(UserManager<Account> user, BumboDbContext dbContext) {
+        public ManagerController(UserManager<Account> user, BumboDbContext dbContext)
+        {
             userManager = user;
             db = dbContext;
         }
 
-        private void GetPrognosis(DateTime date, bool isHoliday, string departmentName) {
+        private void GetPrognosis(DateTime date, bool isHoliday, string departmentName)
+        {
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
 
             // Hourly curve and data points are not loading automatically for some reason. TODO: fix

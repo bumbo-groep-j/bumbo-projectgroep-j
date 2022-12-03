@@ -20,22 +20,6 @@ namespace WebApp.Domain
                     {
                         await roleManager.CreateAsync(new IdentityRole { Name = role });
                     }
-
-                // create admin account
-                var admin = new Account
-                {
-                    UserName = "admin",
-                    Password = "admin123"
-                };
-
-                var userManager = scope.ServiceProvider.GetService<UserManager<Account>>();
-
-                if(userManager.FindByNameAsync(admin.UserName).Result == null)
-                {
-                    IdentityResult result = userManager.CreateAsync(admin, admin.Password).Result;
-
-                    if(result.Succeeded) userManager.AddToRoleAsync(admin, "Manager").Wait();
-                }
             }
         }
     }

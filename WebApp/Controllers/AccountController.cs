@@ -8,21 +8,26 @@ namespace Bumbo.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
+        private BumboDbContext db;
         private SignInManager<Account> signInManager;
 
-        public AccountController(SignInManager<Account> manager)
+        public AccountController(SignInManager<Account> manager, BumboDbContext dbContext)
         {
             signInManager = manager;
+            db = dbContext;
         }
 
         public ActionResult Login()
         {
+            if(db.Users.Count() == 0) return RedirectToAction("Index", "Setup");
             return View();
         }
 
         [HttpPost]
         public async Task<ActionResult> Login(Account model)
         {
+            if(db.Users.Count() == 0) return RedirectToAction("Index", "Setup");
+
             model.PasswordConfirmation = model.Password;
             ModelState.Clear();
             TryValidateModel(model);
