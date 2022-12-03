@@ -7,27 +7,22 @@
 
 <h1 class="current_page_title">Verlof aanvragen</h1>
 
-<div class="watermark_concept">
-    <p class="concept_text">CONCEPT</p>
-</div>
-
-<!-- Values are hardcoded now, will be changed later-->
-<!-- Same for "form-asp-action" need to be changed later ons-->
 <div class="request_leave_group">
     <div>
         <form asp-action="Requestleave">
             <h2>Huidige aanvragen</h2>
-
-            <!-- if there are requests in the database, show them here -->
-            <!-- foreach leave request in database print startdate, enddate and number of request-->
-            @if (ViewBag.Requests != null)
+            <br />
+            @if (ViewBag.isEmpty == false)
             {
                 foreach (var request in ViewBag.Requests)
                 {
-                    <p class="align_center">Vrij aanvraag @request.Id</p>
-                    <p class="align_center">Begindatum: @request.StartDate</p>
-                    <p class="align_center">Einddatum: @request.EndDate</p>
-                    <p class="align_center"><button class="red_button">Annuleren</button></p>
+                    <h5 class="align_center">Vrij aanvraag @request.Id</h5>
+                    <p class="align_center">Begindatum: @request.StartDate.ToShortDateString()</p>
+                    <p class="align_center">Einddatum: @request.EndDate.ToShortDateString()</p>
+                    <p class="align_center">Opmerking: @request.Comment</p>
+                    <p class="align_center">
+                        <button class="red_button"> <a asp-action="DeleteRequest" asp-route-id="@request.Id"> Annuleren </a></button>
+                    </p>
                 }
             }
             else
@@ -46,22 +41,23 @@
             </p>
             <span asp-validation-for="StartDate" class="text-danger"></span>
 
-            <!-- Check if the for input asp-for EndDate is after the date in the StartDate input -->
             <p class="align_center">
                 Einddatum: <input type="date" asp-for="EndDate"
-                                  min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")" 
+                                  min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")"
                                   required />
             </p>
             <span asp-validation-for="EndDate" class="text-danger"></span>
-            
+
             <div class="align_center">
                 <p> Opmerking: <input asp-for="Comment" type="text" class="remark_input" /> </p>
                 <span asp-validation-for="Comment" class="text-danger"></span>
             </div>
 
+            <!--fix: disable button if StartDate is after EndDate-->
             <div class="space_around">
-                <button>Verstuur</button>
+                <button type="submit">Verstuur</button>
             </div>
+
         </form>
     </div>
 </div>

@@ -1,11 +1,9 @@
+using Bumbo.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System;
-using Bumbo.Controllers;
-using Microsoft.AspNetCore.Mvc;
-using Azure.Core;
+using System.Linq;
+using System.Net;
+using System.Web;
 using WebApp.Domain;
-using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace Bumbo.Controllers
 {
@@ -33,31 +31,59 @@ namespace Bumbo.Controllers
             return View();
         }
 
+        public IActionResult DeleteRequest(int id)
+        {
+            // delete request
+            using (var context = new BumboDbContext())
+            {
+                var request = context.Requests.FirstOrDefault(r => r.Id == id);
+                if (request != null)
+                {
+                    context.Requests.Remove(request);
+                    context.SaveChanges();
+                }
+            }
+            return RedirectToAction("RequestLeave");
+        }
 
-        public IActionResult RequestLeave(RequestLeave requestLeave)
+        public IActionResult RequestLeave()
+        {
+            using (var context = new BumboDbContext())
+            {
+                bool isEmpty = false;
+
+                if (!context.Requests.Any())
+                {
+                    isEmpty = true;
+                    ViewBag.isEmpty = isEmpty;
+                } else
+                {
+                    isEmpty = false;
+                    ViewBag.isEmpty = isEmpty;
+                }
+
+                ViewBag.Requests = context.Requests.ToList();
+                return View();
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult RequestLeave(RequestLeave request)
         {
             if (IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
 
-            // TODO: make it actually save the request to the database
-
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                using (var context = new BumboDbContext())
                 {
-
-                    using (BumboDbContext context = new BumboDbContext())
-                    {
-                        context.Requests.Add(requestLeave);
-                        context.SaveChanges();
-                    }
-                    return RedirectToAction(nameof(Index));
+                    //ViewBag.Requests = context.Requests.ToList
+                    context.Requests.Add(request);
+                    context.SaveChanges();
                 }
-                return View(requestLeave);
+                return RedirectToAction("RequestLeave");
             }
-            catch (Exception e)
-            {
-                return View();
-            }
+            return View(request);
         }
 
         public IActionResult SchoolSchedule()

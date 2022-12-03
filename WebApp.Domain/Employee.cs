@@ -23,9 +23,10 @@ namespace WebApp.Domain
 
         [Required(ErrorMessage = "Dit veld is verplicht")]
         [Column(TypeName = "Date")]
-        [DisplayName("Geboortedag")]
+        [DisplayName("Geboortedatum")]
         public DateTime DateOfBirth { get; set; }
 
+        [DisplayName("NFC-Token")]
         public string NFCToken { get; set; }
 
         [Required(ErrorMessage = "Dit veld is verplicht")]

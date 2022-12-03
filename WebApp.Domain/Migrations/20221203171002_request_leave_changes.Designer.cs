@@ -12,8 +12,8 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    [Migration("20221201114310_request-leave")]
-    partial class requestleave
+    [Migration("20221203171002_request_leave_changes")]
+    partial class requestleavechanges
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -8114,8 +8114,10 @@ namespace WebApp.Domain.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Approved")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Comment")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EmployeeId")
@@ -8129,14 +8131,13 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId");
-
                     b.ToTable("Requests");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            Approved = false,
                             Comment = "Graag voor kerst vrij",
                             EmployeeId = 1,
                             EndDate = new DateTime(2022, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8145,6 +8146,7 @@ namespace WebApp.Domain.Migrations
                         new
                         {
                             Id = 2,
+                            Approved = false,
                             Comment = "Jaarwisseling",
                             EmployeeId = 1,
                             EndDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8418,17 +8420,6 @@ namespace WebApp.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("DataSet");
-                });
-
-            modelBuilder.Entity("WebApp.Domain.RequestLeave", b =>
-                {
-                    b.HasOne("WebApp.Domain.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("WebApp.Domain.Schedule", b =>

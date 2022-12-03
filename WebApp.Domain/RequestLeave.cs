@@ -13,8 +13,6 @@ namespace WebApp.Domain
         [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
 
-        public Employee Employee { get; set; }
-
         [Key]
         public int Id { get; set; }
 
@@ -25,6 +23,8 @@ namespace WebApp.Domain
         public DateTime EndDate { get; set; }
         
         public string? Comment { get; set; }
+
+        public bool Approved { get; set; }
 
     }
 }
