@@ -55,6 +55,7 @@ namespace Bumbo.Controllers
 
                 if(result.Succeeded)
                 {
+                    await userManager.AddToRoleAsync(model, "Employee");
                     await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, false);
                     return LocalRedirect("~/");
                 }
@@ -71,6 +72,11 @@ namespace Bumbo.Controllers
         public async Task<ActionResult> Logout()
         {
             await signInManager.SignOutAsync();
+            return LocalRedirect("~/");
+        }
+
+        public ActionResult AccessDenied()
+        {
             return LocalRedirect("~/");
         }
     }

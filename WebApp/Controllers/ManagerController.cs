@@ -1,6 +1,6 @@
 ﻿using Bumbo.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Web;
 using WebApp.Domain;
 
@@ -40,16 +40,19 @@ namespace Bumbo.Controllers
             ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
         }
 
+        [Authorize(Roles = "Manager")]
         public IActionResult LeaveRequests()
         {
             return View();
         }
 
+        [Authorize(Roles = "Manager")]
         public IActionResult Prognosis()
         {
             return View();
         }
 
+        [Authorize(Roles = "Manager")]
         public IActionResult Scheduling(string departmentName, int year, int month, int day)
         {
             DateTime date;
@@ -143,6 +146,7 @@ namespace Bumbo.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Scheduling(ScheduleForm model)
         {
             try
@@ -198,6 +202,7 @@ namespace Bumbo.Controllers
             return Scheduling(model.DepartmentName, model.Year, model.Month, model.Day);
         }
 
+        [Authorize(Roles = "Manager")]
         public IActionResult WorkedHours(int year, int month, int day)
         {
             DateTime date;
@@ -291,6 +296,7 @@ namespace Bumbo.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Manager")]
         public IActionResult Calendar(
             int month, int year,
             int todayDay, int todayMonth, int todayYear,
@@ -329,6 +335,7 @@ namespace Bumbo.Controllers
             return PartialView(data);
         }
 
+        [Authorize(Roles = "Manager")]
         public IActionResult EditWorkedHours(int year, int month, int day, int id) 
         {
             ApprovedHoursForm data = (
@@ -353,6 +360,7 @@ namespace Bumbo.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public void EditHours(ApprovedHoursForm form) 
         {
             WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == form.WorkedHourId select WorkedHour).First();
@@ -363,6 +371,7 @@ namespace Bumbo.Controllers
             db.SaveChanges();
         }
 
+        [Authorize(Roles = "Manager")]
         public void ApproveHours(int id)
         {
             WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == id select WorkedHour).First();
@@ -374,6 +383,7 @@ namespace Bumbo.Controllers
             db.SaveChanges();
         }
 
+        [Authorize(Roles = "Manager")]
         public void ApproveAllHours(int year, int month, int day)
         {
             var values = (from WorkedHour in db.WorkedHours where WorkedHour.ClockedTimeStart.Year == year && WorkedHour.ClockedTimeStart.Month == month && WorkedHour.ClockedTimeStart.Day == day select WorkedHour).ToList();
