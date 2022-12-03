@@ -30,6 +30,7 @@ namespace WebApp.Domain
 
         [Required(ErrorMessage = "Dit veld is verplicht")]
         [DisplayName("Uurloon")]
+        [Range(0.0, Double.MaxValue)]
         public double HourlyWage { get; set; }
 
         [ForeignKey("Account")]

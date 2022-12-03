@@ -23,8 +23,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var employee in Model) {
-            if(employee.Role == "Employee" && !employee.Employee.Inactive) {
+        @foreach(var employee in Model)
+        {
+            if(employee.Role == "Employee" && !employee.Employee.Inactive)
+            {
                 <tr>
                     <td>@employee.Account.UserName</td>
                     <td>@employee.Employee.FirstName</td>
@@ -38,6 +40,29 @@
                             <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
                             <!--Don't delete employee, but set them as inactive and put them in another tab in the Index.cshtml page -->
                             <a asp-action="DeleteEmployee" asp-route-username="@employee.Account.UserName" class="button red_button">Inactief</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+
+        @foreach(var employee in Model) 
+        {
+            if(employee.Role == "Employee" && employee.Employee.Inactive)
+            {
+                <tr>
+                    <td>@employee.Account.UserName</td>
+                    <td>@employee.Employee.FirstName</td>
+                    <td>@employee.Employee.MiddleName</td>
+                    <td>@employee.Employee.LastName</td>
+                    <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
+                    <td>@employee.Employee.NFCToken</td>
+                    <td>&euro;@employee.Employee.HourlyWage.ToString("n2")</td>
+                    <td>
+                        <div class="index_links">
+                            <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
+                            <!--Don't delete employee, but set them as inactive and put them in another tab in the Index.cshtml page -->
+                            <a asp-action="ReactivateEmployee" asp-route-username="@employee.Account.UserName" class="button green_button">Actief</a>
                         </div>
                     </td>
                 </tr>
@@ -61,8 +86,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var employee in Model) {
-            if(employee.Role == "Manager") {
+        @foreach(var employee in Model)
+        {
+            if(employee.Role == "Manager")
+            {
                 <tr>
                     <td>@employee.Account.UserName</td>
                     <td></td>

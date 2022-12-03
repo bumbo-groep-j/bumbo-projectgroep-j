@@ -95,7 +95,7 @@ namespace Bumbo.Controllers
             ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
             ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
 
-            ViewBag.Employees = (from Employee in db.Employees select Employee).ToList();
+            ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
 
             switch(ViewBag.Date.DayOfWeek)
             {
@@ -167,7 +167,7 @@ namespace Bumbo.Controllers
 
                 foreach(var s in existingSchedule) db.Schedules.Remove(s);
 
-                var employees = (from Employee in db.Employees select Employee).ToList();
+                var employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
 
                 Schedule? schedule = null;
 
@@ -531,6 +531,19 @@ namespace Bumbo.Controllers
             } catch { }
 
             return View(model);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult ReactivateEmployee(string userName) {
+            try {
+                var employee = (from Employee in db.Employees where Employee.UserName == userName select Employee).First();
+
+                employee.Inactive = false;
+
+                db.SaveChanges();
+            } catch { }
+
+            return RedirectToAction("ListEmployees");
         }
 
         [Authorize(Roles = "Manager")]
