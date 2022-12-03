@@ -41,34 +41,6 @@ namespace Bumbo.Controllers
             return View();
         }
 
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> Register(Account model)
-        {
-            if(ModelState.IsValid)
-            {
-                var result = await userManager.CreateAsync(model, model.Password);
-
-                if(result.Succeeded)
-                {
-                    await userManager.AddToRoleAsync(model, "Employee");
-                    await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, false);
-                    return LocalRedirect("~/");
-                }
-
-                foreach(var error in result.Errors)
-                    ModelState.AddModelError(string.Empty, error.Description);
-            }
-
-            return View();
-        }
-
-        [HttpGet]
-        [HttpPost]
         public async Task<ActionResult> Logout()
         {
             await signInManager.SignOutAsync();
@@ -77,7 +49,7 @@ namespace Bumbo.Controllers
 
         public ActionResult AccessDenied()
         {
-            return LocalRedirect("~/");
+            return RedirectToAction("Login");
         }
     }
 }
