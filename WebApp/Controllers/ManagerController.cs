@@ -2,9 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel;
 using System.Web;
 using WebApp.Domain;
 
@@ -12,10 +9,11 @@ namespace Bumbo.Controllers
 {
     public class ManagerController : Controller
     {
-        private BumboDbContext db = new BumboDbContext();
+        private BumboDbContext db;
         private UserManager<Account> userManager;
-        public ManagerController(UserManager<Account> user) {
+        public ManagerController(UserManager<Account> user, BumboDbContext dbContext) {
             userManager = user;
+            db = dbContext;
         }
 
         private void GetPrognosis(DateTime date, bool isHoliday, string departmentName) {

@@ -9,12 +9,10 @@ namespace Bumbo.Controllers
     public class AccountController : Controller
     {
         private SignInManager<Account> signInManager;
-        private UserManager<Account> userManager;
 
-        public AccountController(SignInManager<Account> signIn, UserManager<Account> user)
+        public AccountController(SignInManager<Account> manager)
         {
-            signInManager = signIn;
-            userManager = user;
+            signInManager = manager;
         }
 
         public ActionResult Login()
