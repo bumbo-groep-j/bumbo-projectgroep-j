@@ -42,12 +42,12 @@ app.UseRouting();
 
 app.UseAuthentication();
 
+AccountSeeder.SeedData(app.Services);
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-AccountSeeder.SeedData(app.Services);
 
 app.Run();

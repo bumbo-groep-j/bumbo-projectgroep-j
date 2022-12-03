@@ -11,36 +11,30 @@ namespace WebApp.Domain
             using(var scope = serviceProvider.CreateScope())
             {
                 var db = scope.ServiceProvider.GetService<BumboDbContext>();
+                var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
 
                 string[] roles = new string[] { "Manager", "Employee" };
 
-                var roleStore = new RoleStore<IdentityRole>(db);
-
                 foreach(string role in roles)
-                    if(!db.Roles.Any(r => r.Name == role))
+                    if(!roleManager.RoleExistsAsync(role).Result) 
                     {
-                        await roleStore.CreateAsync(new IdentityRole(role));
+                        await roleManager.CreateAsync(new IdentityRole { Name = role });
                     }
-
-                db.SaveChanges();
 
                 // create admin account
                 var admin = new Account
                 {
                     UserName = "admin",
-                    Password = "admin"
+                    Password = "admin123"
                 };
 
                 var userManager = scope.ServiceProvider.GetService<UserManager<Account>>();
 
-                if(!db.Users.Any(u => u.UserName == admin.UserName))
+                if(userManager.FindByNameAsync(admin.UserName).Result == null)
                 {
-                    string[] adminRoles = new string[] { roles[0] };
+                    IdentityResult result = userManager.CreateAsync(admin, admin.Password).Result;
 
-                    await userManager.CreateAsync(admin, admin.Password);
-                    //await userManager.AddToRolesAsync(admin, adminRoles);
-
-                    db.SaveChanges();
+                    if(result.Succeeded) userManager.AddToRoleAsync(admin, "Manager").Wait();
                 }
             }
         }
