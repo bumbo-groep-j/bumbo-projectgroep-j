@@ -2,26 +2,16 @@
 @{
 	ViewData["Title"] = "Login";
 	ViewData["Stylesheet"] = "/css/login.css";
+	ViewData["HideNavBar"] = true; // hide nav bar
 }
 
-<div class="watermark_concept">
-	<p class="concept_text">CONCEPT</p>
-</div>
 <div class="login_group">
 	<form asp-action="Login">
-		<h1 style="text-align:center">Inloggen</h1>
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-		<div class="login_input_bars">
-			<p>
-				<input asp-for="UserName" class="form-control" placeholder="Gebruikersnaam" />
-				<span asp-validation-for="UserName" class="text-danger"></span>
-			</p>
-			<p>
-				<input asp-for="Password" class="form-control" placeholder="Wachtwoord" type="password" />
-				<span asp-validation-for="Password" class="text-danger"></span>
-			</p>
-		</div>
-		<div class="login_button">
+		<h1>Inloggen</h1>
+		<input asp-for="UserName" class="form-control" placeholder="Gebruikersnaam" />
+		<input asp-for="Password" class="form-control" placeholder="Wachtwoord" type="password" />
+		<div asp-validation-summary="All" class="text-danger"></div>
+		<div class="space_around">
 			<button type="submit">Inloggen</button>
 		</div>
 	</form>

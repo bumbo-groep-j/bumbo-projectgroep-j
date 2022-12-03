@@ -1,21 +1,23 @@
 ﻿.login_group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    border: 2px solid #ccc;
-    padding: 10px;
 }
 
-.login_input_bars {
-    padding: 0px;
-    margin: 0px;
-    line-height: 0px;
+input {
+    height: 34px;
+    margin: 8px auto;
+    width: 192px !important;
 }
 
-.login_button {
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-} 
+h1 {
+    text-align: center;
+    font-size: 28pt;
+}
 
 /* Gives the error message the color red */
 .field_validation_error {
