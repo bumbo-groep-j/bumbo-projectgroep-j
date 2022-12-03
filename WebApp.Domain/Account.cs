@@ -8,6 +8,11 @@ namespace WebApp.Domain
     {
         [NotMapped]
         [Required]
+        [Display(Name = "Gebruikersnaam")]
+        public string Username { get; set; }
+
+        [NotMapped]
+        [Required]
         [Display(Name = "Wachtwoord")]
         public string Password { get; set; }
 

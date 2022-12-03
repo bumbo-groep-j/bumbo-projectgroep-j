@@ -33,7 +33,10 @@ namespace WebApp.Domain
         public double HourlyWage { get; set; }
 
         [ForeignKey("Account")]
-        public string? UserName { get; set; }
+        [DisplayName("Gebruikersnaam")]
+        public string UserName { get; set; }
+
+        public bool Inactive { get; set; }
 
         [NotMapped]
         public string Name
