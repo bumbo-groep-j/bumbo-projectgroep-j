@@ -21,9 +21,9 @@ namespace WebApp.Domain
         [DisplayName("Achternaam")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Het Geboortedag veld is verplicht")]
+        [Required(ErrorMessage = "Het Geboortedatum veld is verplicht")]
         [Column(TypeName = "Date")]
-        [DisplayName("Geboortedag")]
+        [DisplayName("Geboortedatum")]
         public DateTime DateOfBirth { get; set; }
 
         [Required(ErrorMessage = "Het NFCToken veld is verplicht")]
