@@ -60,6 +60,36 @@ namespace Bumbo.Controllers
             return View();
         }
 
+        private void GetDutchDate()
+        {
+            switch(ViewBag.Date.DayOfWeek) {
+                case DayOfWeek.Monday:    ViewBag.DutchDate = "Maandag";   break;
+                case DayOfWeek.Tuesday:   ViewBag.DutchDate = "Dinsdag";   break;
+                case DayOfWeek.Wednesday: ViewBag.DutchDate = "Woensdag";  break;
+                case DayOfWeek.Thursday:  ViewBag.DutchDate = "Donderdag"; break;
+                case DayOfWeek.Friday:    ViewBag.DutchDate = "Vrijdag";   break;
+                case DayOfWeek.Saturday:  ViewBag.DutchDate = "Zaterdag";  break;
+                case DayOfWeek.Sunday:    ViewBag.DutchDate = "Zondag";    break;
+            }
+
+            ViewBag.DutchDate += " " + ViewBag.Date.Day + " ";
+
+            switch(ViewBag.Date.Month) {
+                case  1: ViewBag.DutchDate += "Januari";   break;
+                case  2: ViewBag.DutchDate += "Februari";  break;
+                case  3: ViewBag.DutchDate += "Maart";     break;
+                case  4: ViewBag.DutchDate += "April";     break;
+                case  5: ViewBag.DutchDate += "Mei";       break;
+                case  6: ViewBag.DutchDate += "Juni";      break;
+                case  7: ViewBag.DutchDate += "Juli";      break;
+                case  8: ViewBag.DutchDate += "Augustus";  break;
+                case  9: ViewBag.DutchDate += "September"; break;
+                case 10: ViewBag.DutchDate += "Oktober";   break;
+                case 11: ViewBag.DutchDate += "November";  break;
+                case 12: ViewBag.DutchDate += "December";  break;
+            }
+        }
+
         [Authorize(Roles = "Manager")]
         public IActionResult Scheduling(string departmentName, int year, int month, int day)
         {
@@ -76,6 +106,8 @@ namespace Bumbo.Controllers
             }
 
             ViewBag.Date = date;
+
+            GetDutchDate();
 
             Department department;
             
@@ -98,35 +130,6 @@ namespace Bumbo.Controllers
             ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
 
             ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
-
-            switch(ViewBag.Date.DayOfWeek)
-            {
-                case DayOfWeek.Monday:    ViewBag.DutchDate = "Maandag";   break;
-                case DayOfWeek.Tuesday:   ViewBag.DutchDate = "Dinsdag";   break;
-                case DayOfWeek.Wednesday: ViewBag.DutchDate = "Woensdag";  break;
-                case DayOfWeek.Thursday:  ViewBag.DutchDate = "Donderdag"; break;
-                case DayOfWeek.Friday:    ViewBag.DutchDate = "Vrijdag";   break;
-                case DayOfWeek.Saturday:  ViewBag.DutchDate = "Zaterdag";  break;
-                case DayOfWeek.Sunday:    ViewBag.DutchDate = "Zondag";    break;
-            }
-
-            ViewBag.DutchDate += " " + ViewBag.Date.Day + " ";
-
-            switch(ViewBag.Date.Month)
-            {
-                case  1: ViewBag.DutchDate += "Januari";   break;
-                case  2: ViewBag.DutchDate += "Februari";  break;
-                case  3: ViewBag.DutchDate += "Maart";     break;
-                case  4: ViewBag.DutchDate += "April";     break;
-                case  5: ViewBag.DutchDate += "Mei";       break;
-                case  6: ViewBag.DutchDate += "Juni";      break;
-                case  7: ViewBag.DutchDate += "Juli";      break;
-                case  8: ViewBag.DutchDate += "Augustus";  break;
-                case  9: ViewBag.DutchDate += "September"; break;
-                case 10: ViewBag.DutchDate += "Oktober";   break;
-                case 11: ViewBag.DutchDate += "November";  break;
-                case 12: ViewBag.DutchDate += "December";  break;
-            }
 
             ScheduleForm model = new ScheduleForm();
             
@@ -227,34 +230,7 @@ namespace Bumbo.Controllers
 
             ViewBag.Date = date;
 
-            switch(ViewBag.Date.DayOfWeek)
-            {
-                case DayOfWeek.Monday: ViewBag.DutchDate = "Maandag"; break;
-                case DayOfWeek.Tuesday: ViewBag.DutchDate = "Dinsdag"; break;
-                case DayOfWeek.Wednesday: ViewBag.DutchDate = "Woensdag"; break;
-                case DayOfWeek.Thursday: ViewBag.DutchDate = "Donderdag"; break;
-                case DayOfWeek.Friday: ViewBag.DutchDate = "Vrijdag"; break;
-                case DayOfWeek.Saturday: ViewBag.DutchDate = "Zaterdag"; break;
-                case DayOfWeek.Sunday: ViewBag.DutchDate = "Zondag"; break;
-            }
-
-            ViewBag.DutchDate += " " + ViewBag.Date.Day + " ";
-
-            switch(ViewBag.Date.Month)
-            {
-                case 1: ViewBag.DutchDate += "Januari"; break;
-                case 2: ViewBag.DutchDate += "Februari"; break;
-                case 3: ViewBag.DutchDate += "Maart"; break;
-                case 4: ViewBag.DutchDate += "April"; break;
-                case 5: ViewBag.DutchDate += "Mei"; break;
-                case 6: ViewBag.DutchDate += "Juni"; break;
-                case 7: ViewBag.DutchDate += "Juli"; break;
-                case 8: ViewBag.DutchDate += "Augustus"; break;
-                case 9: ViewBag.DutchDate += "September"; break;
-                case 10: ViewBag.DutchDate += "Oktober"; break;
-                case 11: ViewBag.DutchDate += "November"; break;
-                case 12: ViewBag.DutchDate += "December"; break;
-            }
+            GetDutchDate();
 
             List<ClockedHour> model = (
                 from WorkedHour
