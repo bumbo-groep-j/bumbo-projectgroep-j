@@ -33,6 +33,11 @@ namespace WebApp.Domain
         [Required]
         public ICollection<DataPoint> DataPoints { get; set; }
 
+        // Whether the value should be estimated. This is set to false for values that are well known ahead of time, i.e. colli,
+        // and true for values that have to be estimated, i.e. customers.
+        [Required]
+        public bool ShouldEstimateValue { get; set; }
+
         // The weekly curve is the distribution of customers / colli throughout a week, this is calculated from the entire data set.
         // The weekly curve for example indicates that on Monday there are usually around 10% of all the customers in an average week,
         // or that on Sunday there are usually around 15% of the customers in a week.

@@ -17,7 +17,7 @@ namespace Bumbo.Controllers
             db = dbContext;
         }
 
-        private void GetPrognosis(DateTime date, bool isHoliday, string departmentName)
+        private Prognosis GetPrognosis(DateTime date, bool isHoliday, string departmentName)
         {
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
 
@@ -39,13 +39,15 @@ namespace Bumbo.Controllers
                 prognosis = new Prognosis();
                 prognosis.Date = date;
                 prognosis.DepartmentName = departmentName;
-                prognosis.Value = dataSet.PredictValue(date, isHoliday);
+                prognosis.Value = dataSet.ShouldEstimateValue ? dataSet.PredictValue(date, isHoliday) : 0;
 
                 db.Prognosis.Add(prognosis);
                 db.SaveChanges();
             }
 
             ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+
+            return prognosis;
         }
 
         [Authorize(Roles = "Manager")]
