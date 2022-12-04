@@ -36,10 +36,10 @@ namespace Bumbo.Controllers
             // delete request
             using (var context = new BumboDbContext())
             {
-                var request = context.Requests.FirstOrDefault(r => r.Id == id);
+                var request = context.LeaveRequests.FirstOrDefault(r => r.Id == id);
                 if (request != null)
                 {
-                    context.Requests.Remove(request);
+                    context.LeaveRequests.Remove(request);
                     context.SaveChanges();
                 }
             }
@@ -53,7 +53,7 @@ namespace Bumbo.Controllers
             {
                 bool isEmpty = false;
 
-                if (!context.Requests.Any())
+                if (!context.LeaveRequests.Any())
                 {
                     isEmpty = true;
                     ViewBag.isEmpty = isEmpty;
@@ -63,14 +63,14 @@ namespace Bumbo.Controllers
                     ViewBag.isEmpty = isEmpty;
                 }
 
-                ViewBag.Requests = context.Requests.ToList();
+                ViewBag.Requests = context.LeaveRequests.ToList();
                 return View();
             }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult RequestLeave(RequestLeave request)
+        public IActionResult RequestLeave(LeaveRequest request)
         {
             if (IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
 
@@ -78,8 +78,8 @@ namespace Bumbo.Controllers
             {
                 using (var context = new BumboDbContext())
                 {
-                    //ViewBag.Requests = context.Requests.ToList
-                    context.Requests.Add(request);
+                    //ViewBag.LeaveRequests = context.LeaveRequests.ToList
+                    context.LeaveRequests.Add(request);
                     context.SaveChanges();
                 }
                 return RedirectToAction("RequestLeave");

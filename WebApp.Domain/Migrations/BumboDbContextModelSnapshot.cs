@@ -8211,30 +8211,7 @@ namespace WebApp.Domain.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WebApp.Domain.Prognosis", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DepartmentName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Prognosis");
-                });
-
-            modelBuilder.Entity("WebApp.Domain.RequestLeave", b =>
+            modelBuilder.Entity("WebApp.Domain.LeaveRequest", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -8259,27 +8236,30 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Requests");
+                    b.ToTable("LeaveRequests");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Approved = false,
-                            Comment = "Graag voor kerst vrij",
-                            EmployeeId = 1,
-                            EndDate = new DateTime(2022, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(2022, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Approved = false,
-                            Comment = "Jaarwisseling",
-                            EmployeeId = 1,
-                            EndDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
+            modelBuilder.Entity("WebApp.Domain.Prognosis", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DepartmentName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Prognosis");
                 });
 
             modelBuilder.Entity("WebApp.Domain.Schedule", b =>

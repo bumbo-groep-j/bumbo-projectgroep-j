@@ -15,7 +15,7 @@ namespace WebApp.Domain
         public DbSet<DataSet> DataSets { get; set; }
         public DbSet<DataPoint> DataPoints { get; set; }
         public DbSet<HourlyPoint> HourlyPoints { get; set; }
-        public DbSet<RequestLeave> Requests { get; set; }
+        public DbSet<LeaveRequest> LeaveRequests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
@@ -1200,10 +1200,7 @@ namespace WebApp.Domain
             #endregion
 
             #region RequestLeave
-            modelBuilder.Entity<RequestLeave>().HasData(
-                new RequestLeave { Id = 1, EmployeeId = 1, StartDate = new DateTime(2022, 12, 25), EndDate = new DateTime(2022, 12, 26), Comment = "Graag voor kerst vrij" },
-                new RequestLeave { Id = 2, EmployeeId = 1, StartDate = new DateTime(2022, 12, 31), EndDate = new DateTime(2023, 01, 01), Comment = "Jaarwisseling" }
-            );
+            
             #endregion
         }
     }

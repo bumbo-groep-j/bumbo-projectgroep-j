@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WebApp.Domain
 {
-    public class RequestLeave
+    public class LeaveRequest
     {
         [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
