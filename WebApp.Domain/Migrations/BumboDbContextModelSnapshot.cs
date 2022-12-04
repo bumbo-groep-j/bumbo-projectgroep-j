@@ -8226,6 +8226,12 @@ namespace WebApp.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TotalColli")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalCustomers")
+                        .HasColumnType("int");
+
                     b.Property<int>("Value")
                         .HasColumnType("int");
 

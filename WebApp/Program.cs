@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using WebApp.Domain;
@@ -35,6 +36,16 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("nl-NL"),
+    // Formatting numbers, dates, etc.
+    SupportedCultures = new[]
+    {
+        new CultureInfo("nl-NL"),
+    }
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

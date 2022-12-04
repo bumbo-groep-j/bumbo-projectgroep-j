@@ -209,6 +209,21 @@ input[type=checkbox]:checked {
     font-size: 1.2rem;
 }
 
+.prognosis_input {
+    border: 0px;
+    border-radius: 5px;
+    float: right;
+    width: 40px;
+    height: 30px;
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 #overlay {
     position: absolute;
     top: 0;

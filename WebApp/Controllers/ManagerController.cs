@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Web;
 using WebApp.Domain;
 
@@ -54,10 +55,120 @@ namespace Bumbo.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
-        public IActionResult Prognosis()
+        public void GetDate(DateTime date)
         {
+            //Get the current day
+            var dt = date;
+            //Get first and last day of the week
+            int begin = (7 + (dt.DayOfWeek - DayOfWeek.Monday)) % 7;
+            int end = (7 + (DayOfWeek.Sunday - dt.DayOfWeek)) % 7;
+
+            DateTime monday = dt.AddDays(-1 * begin).Date;
+            DateTime sunday = dt.AddDays(end).Date;
+
+            ViewBag.CurrentDate = dt;
+            ViewBag.StartDate = monday;
+            ViewBag.EndDate = sunday;
+        }
+
+
+        public IActionResult SetNewDate(DateTime oldDate, string previousOrNext)
+        {
+            DateTime newDate = new DateTime();
+            if (previousOrNext == "Next")
+            {
+                newDate = oldDate.AddDays(+(int)oldDate.DayOfWeek + 6);
+            }
+            else if (previousOrNext == "Previous")
+            {
+                newDate = oldDate.AddDays(-(int)oldDate.DayOfWeek - 6);
+            }
+
+            return RedirectToAction("Prognosis", new { date = newDate });
+        }
+
+        public void GetDaysOftheWeek(DateTime currentWeek)
+        {
+            List<DateTime> listOfDays = new List<DateTime>();
+            List<Prognosis> listOfData = new List<Prognosis>();
+
+            var now = currentWeek;
+            var currentDay = now.DayOfWeek;
+            int days = (int)currentDay;
+            DateTime sunday = new DateTime();
+
+            if (days == 0)
+            {
+                days = 7;
+                sunday = now.AddDays(-days);
+            }
+            else
+            {
+                sunday = now.AddDays(-days);
+            }
+
+            listOfDays = Enumerable.Range(1, 7)
+                           .Select(d => sunday.AddDays(d))
+                           .ToList();
+
+            using (var ctx = new BumboDbContext())
+            {
+                var prognoses = ctx.Prognosis;
+
+                foreach (var data in prognoses)
+                {
+                    DateTime dbDate = data.Date;
+                    foreach (DateTime date in listOfDays)
+                    {
+                        if (dbDate.Date == date.Date)
+                        {
+                            listOfData.Add(data);
+                        }
+                    }
+                }
+                var departments = ctx.Departments.Select(x => x.Name).ToList();
+                ViewBag.Departmants = new SelectList(departments, "Name");
+            }
+
+            ViewBag.PrognosisData = listOfData;
+            ViewBag.Days = listOfDays;
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult Prognosis(DateTime? date)
+        {
+            DateTime dateTime = new DateTime();
+            dateTime = (!date.HasValue) ? DateTime.Now : date.Value;
+            GetDate(dateTime);
+            GetDaysOftheWeek(dateTime);
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Prognosis(Prognosis prognosis)
+        {
+            try
+            {
+                using (var ctx = new BumboDbContext())
+                {
+                    if (prognosis.Id == 0)
+                    {
+                        ctx.Prognosis.Add(prognosis);
+                        ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        ctx.Attach(prognosis);
+                        ctx.Prognosis.Update(prognosis);
+                        ctx.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return RedirectToAction("Prognosis", new { date = prognosis.Date });
         }
 
         [Authorize(Roles = "Manager")]
