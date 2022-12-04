@@ -6,6 +6,9 @@ namespace Bumbo.Controllers
 {
     public class EmployeeController : Controller
     {
+        private BumboDbContext db;
+
+        public EmployeeController(BumboDbContext dbContext) { db = dbContext; }
 
         private bool IsMobile()
         {
@@ -33,65 +36,50 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Employee")]
         public IActionResult DeleteRequest(int id)
         {
-            // delete request
-            using (var context = new BumboDbContext())
+            var request = db.LeaveRequests.FirstOrDefault(r => r.Id == id);
+            if (request != null)
             {
-                var request = context.LeaveRequests.FirstOrDefault(r => r.Id == id);
-                if (request != null)
-                {
-                    context.LeaveRequests.Remove(request);
-                    context.SaveChanges();
-                }
+                db.LeaveRequests.Remove(request);
+                db.SaveChanges();
             }
+
             return RedirectToAction("RequestLeave");
         }
 
         [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave()
         {
-            using (var context = new BumboDbContext())
-            {
-                bool isEmpty = false;
+            if(IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
 
-                if (!context.LeaveRequests.Any())
-                {
-                    isEmpty = true;
-                    ViewBag.isEmpty = isEmpty;
-                } else
-                {
-                    isEmpty = false;
-                    ViewBag.isEmpty = isEmpty;
-                }
+            ViewBag.IsEmpty = !db.LeaveRequests.Any();
+            ViewBag.Requests = db.LeaveRequests.ToList();
 
-                ViewBag.Requests = context.LeaveRequests.ToList();
-                return View();
-            }
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave(LeaveRequest request)
         {
-            if (IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
-
             if (ModelState.IsValid)
             {
-                using (var context = new BumboDbContext())
-                {
-                    //ViewBag.LeaveRequests = context.LeaveRequests.ToList
-                    context.LeaveRequests.Add(request);
-                    context.SaveChanges();
-                }
+                if(request.EndDate < request.StartDate) (request.StartDate, request.EndDate) = (request.EndDate, request.StartDate);
+
+                db.LeaveRequests.Add(request);
+                db.SaveChanges();
+
                 return RedirectToAction("RequestLeave");
             }
+
             return View(request);
         }
 
         [Authorize(Roles = "Employee")]
         public IActionResult SchoolSchedule()
         {
-            ViewData["Days"] = listDays();
             if (IsMobile()) return RedirectToAction("SchoolSchedule", "Mobile");
+            ViewData["Days"] = listDays();
             return View();
         }
 
