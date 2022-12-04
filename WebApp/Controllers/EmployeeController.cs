@@ -1,15 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Domain;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Bumbo.Controllers
 {
     public class EmployeeController : Controller
     {
+        private BumboDbContext db;
+
+        public EmployeeController(BumboDbContext dbContext) { db = dbContext; }
+
         private bool IsMobile()
         {
             var userAgent = Request.Headers["User-Agent"].ToString().ToLower();
 
-            if(userAgent == null) return false;
+            if (userAgent == null) return false;
 
             return userAgent.Contains("blackberry")
                 || userAgent.Contains("webos")
@@ -24,22 +29,57 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Employee")]
         public IActionResult Availability()
         {
-            if(IsMobile()) return RedirectToAction("Availability", "Mobile");
+            if (IsMobile()) return RedirectToAction("Availability", "Mobile");
             return View();
+        }
+
+        [Authorize(Roles = "Employee")]
+        public IActionResult DeleteRequest(int id)
+        {
+            var request = db.LeaveRequests.FirstOrDefault(r => r.Id == id);
+            if (request != null)
+            {
+                db.LeaveRequests.Remove(request);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("RequestLeave");
         }
 
         [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave()
         {
             if(IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
+
+            ViewBag.IsEmpty = !db.LeaveRequests.Any();
+            ViewBag.Requests = db.LeaveRequests.ToList();
+
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Employee")]
+        public IActionResult RequestLeave(LeaveRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                if(request.EndDate < request.StartDate) (request.StartDate, request.EndDate) = (request.EndDate, request.StartDate);
+
+                db.LeaveRequests.Add(request);
+                db.SaveChanges();
+
+                return RedirectToAction("RequestLeave");
+            }
+
+            return View(request);
         }
 
         [Authorize(Roles = "Employee")]
         public IActionResult SchoolSchedule()
         {
-            ViewData["Days"] = listDays();
             if (IsMobile()) return RedirectToAction("SchoolSchedule", "Mobile");
+            ViewData["Days"] = listDays();
             return View();
         }
 

@@ -26,6 +26,7 @@ namespace WebApp.Domain
         [DisplayName("Geboortedatum")]
         public DateTime DateOfBirth { get; set; }
 
+        [DisplayName("NFC-Token")]
         [Required(ErrorMessage = "Het NFCToken veld is verplicht")]
         public string NFCToken { get; set; }
 

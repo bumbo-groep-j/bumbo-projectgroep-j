@@ -15,6 +15,7 @@ namespace WebApp.Domain
         public DbSet<DataSet> DataSets { get; set; }
         public DbSet<DataPoint> DataPoints { get; set; }
         public DbSet<HourlyPoint> HourlyPoints { get; set; }
+        public DbSet<LeaveRequest> LeaveRequests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
@@ -1196,6 +1197,10 @@ namespace WebApp.Domain
                 new HourlyPoint { DepartmentName = "Vers",  Hour = 19, Value = 0.11 },
                 new HourlyPoint { DepartmentName = "Vers",  Hour = 20, Value = 0.09 }
             );
+            #endregion
+
+            #region RequestLeave
+            
             #endregion
         }
     }
