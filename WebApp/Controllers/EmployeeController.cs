@@ -1,9 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System;
-using Bumbo.Controllers;
-using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bumbo.Controllers
 {
@@ -24,18 +20,22 @@ namespace Bumbo.Controllers
                 || userAgent.Contains("ipad")
                 || userAgent.Contains("ipod");
         }
+
+        [Authorize(Roles = "Employee")]
         public IActionResult Availability()
         {
             if(IsMobile()) return RedirectToAction("Availability", "Mobile");
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave()
         {
             if(IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult SchoolSchedule()
         {
             ViewData["Days"] = listDays();
@@ -43,6 +43,7 @@ namespace Bumbo.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public List<string> listDays()
         {
             List<string> listOfDays = new List<string>();
@@ -57,8 +58,7 @@ namespace Bumbo.Controllers
             return listOfDays;
         }
 
-
-
+        [Authorize(Roles = "Employee")]
         public IActionResult WorkSchedule()
         {
 
@@ -78,10 +78,11 @@ namespace Bumbo.Controllers
 
             return View();
         }
+
+        [Authorize(Roles = "Employee")]
         public IActionResult Index()
         {
             return RedirectToAction("WorkSchedule");
         }
-
     }
 }

@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WebApp.Domain
 {
-    public class BumboDbContext :DbContext
+    public class BumboDbContext : IdentityDbContext<Account>
     {
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set;}
@@ -19,18 +20,16 @@ namespace WebApp.Domain
         {
             if (!optionBuilder.IsConfigured)
             {
-                optionBuilder.UseSqlServer("Server=.;Database=BumboDB;Trusted_Connection=True;Encrypt=False");
+                optionBuilder.UseSqlServer("Server=.;Database=BumboDB;Trusted_Connection=True;Encrypt=False;MultipleActiveResultSets=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             #region Employees
-            modelBuilder.Entity<Employee>().HasData(
-                new Employee { Id = 1, FirstName = "testUser1FirstName", MiddleName = "", LastName = "testUser1LastName", DateOfBirth = new DateTime(2000, 12, 20), NFCToken = "Token1" },
-                new Employee { Id = 2, FirstName = "testUser2FirstName", MiddleName = "", LastName = "testUser2LastName", DateOfBirth = new DateTime(1999, 6, 10), NFCToken = "Token2" },
-                new Employee { Id = 3, FirstName = "testUser3FirstName", MiddleName = "testUser3MiddelName", LastName = "testUser3LastName", DateOfBirth = new DateTime(1985, 8, 2), NFCToken = "Token3" }
-            );
+
             #endregion
 
             #region Department
@@ -42,43 +41,19 @@ namespace WebApp.Domain
             #endregion
 
             #region SchoolSchedule
-            modelBuilder.Entity<SchoolSchedule>().HasData(
-                new SchoolSchedule { Id = 1, EmployeeId = 1,  Weekday = Weekday.Monday, StartTime = new DateTime(2022, 11, 21, 8, 30, 0), EndTime = new DateTime(2022, 11, 21, 13, 0, 0) },
-                new SchoolSchedule { Id = 2, EmployeeId = 1,  Weekday = Weekday.Wednesday, StartTime = new DateTime(2022, 11, 22, 13, 0, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new SchoolSchedule { Id = 3, EmployeeId = 2,  Weekday = Weekday.Friday, StartTime = new DateTime(2022, 11, 25, 8, 30, 0), EndTime = new DateTime(2022, 11, 25, 16, 0, 0) },
-                new SchoolSchedule { Id = 4, EmployeeId = 3,  Weekday = Weekday.Tuesday, StartTime = new DateTime(2022, 11, 24, 8, 30, 0), EndTime = new DateTime(2022, 11, 24, 16, 0, 0) }
-            );
+
             #endregion
 
             #region Availability
-            modelBuilder.Entity<Availability>().HasData(
-                new Availability { Id = 1, EmployeeId = 1, Weekday = Weekday.Monday, StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0)},
-                new Availability { Id = 2, EmployeeId = 1, Weekday = Weekday.Thursday, StartTime = new DateTime(2022, 11, 24, 11, 0, 0), EndTime = new DateTime(2022, 11, 24, 17, 0, 0)},
-                new Availability { Id = 3, EmployeeId = 2, Weekday = Weekday.Tuesday ,StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0)},
-                new Availability { Id = 4, EmployeeId = 3, Weekday = Weekday.Tuesday, StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0)}
-            );
+
             #endregion
 
             #region Schedule
-            modelBuilder.Entity<Schedule>().HasData(
-                new Schedule { Id = 1 ,EmployeeId = 1, Department = "VKK", StartTime = new DateTime(2022, 11, 24, 11, 0, 0), EndTime = new DateTime(2022, 11, 24, 17, 0, 0)},
-                new Schedule { Id = 2, EmployeeId = 1, Department = "Kassa", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0)},
-                new Schedule { Id = 3, EmployeeId = 2, Department = "Kassa", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new Schedule { Id = 4, EmployeeId = 3, Department = "Vers", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new Schedule { Id = 5, EmployeeId = 1, Department = "Vers", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new Schedule { Id = 6, EmployeeId = 1, Department = "Vers", StartTime = new DateTime(2022, 11, 24, 8, 30, 0), EndTime = new DateTime(2022, 11, 24, 17, 0, 0) },
-                new Schedule { Id = 7, EmployeeId = 2, Department = "Kassa", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) },
-                new Schedule { Id = 8, EmployeeId = 3, Department = "VKK", StartTime = new DateTime(2022, 11, 22, 8, 30, 0), EndTime = new DateTime(2022, 11, 22, 16, 0, 0) }
-            );
+
             #endregion
 
             #region WorkedHours
-            modelBuilder.Entity<WorkedHour>().HasData(
-                new WorkedHour { Id = 1, ScheduleId = 5, Department = "Vers", ClockedTimeStart = new DateTime(2022, 11, 22, 8, 32, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 3, 0) },
-                new WorkedHour { Id = 2, ScheduleId = 6, Department = "Vers", ClockedTimeStart = new DateTime(2022, 11, 24, 8, 31, 0), ClockedTimeEnd = new DateTime(2022, 11, 24, 16, 53, 0) },
-                new WorkedHour { Id = 3, ScheduleId = 7, Department = "Kassa", ClockedTimeStart = new DateTime(2022, 11, 22, 8, 28, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 15, 59, 0) },
-                new WorkedHour { Id = 4, ScheduleId = 8, Department = "VKK", ClockedTimeStart = new DateTime(2022, 11, 22, 8, 34, 0), ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 1, 0) }
-            );
+
             #endregion
 
             #region DataSet

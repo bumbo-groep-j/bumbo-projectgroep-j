@@ -1,0 +1,25 @@
+﻿@model WebApp.Domain.Account
+@{
+    ViewData["Title"] = "Opstelling";
+    ViewData["Stylesheet"] = "/css/login.css";
+    ViewData["HideNavBar"] = true; // hide nav bar
+}
+
+<div class="login_group">
+    <form asp-action="Index">
+        <h1>Nog geen account?</h1>
+        <h2>Nieuw account aanmaken</h2>
+        <hr />
+        <input asp-for="Username" placeholder="Gebruikersnaam" class="form-control" />
+        <input asp-for="Password" placeholder="Wachtwoord" class="form-control" type="password" />
+        <input asp-for="PasswordConfirmation" placeholder="Wachtwoord bevestigen" class="form-control" type="password" />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="space_around">
+            <button type="submit">Aanmaken</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
