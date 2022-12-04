@@ -1,23 +1,19 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Bumbo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bumbo.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
-
+    [Authorize(Roles = "Manager, Employee")]
     public IActionResult Index()
     {
         return View();
     }
 
+    [Authorize(Roles = "Manager, Employee")]
     public IActionResult Privacy()
     {
         return View();

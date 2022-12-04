@@ -1,0 +1,113 @@
+﻿@model IEnumerable<EmployeeAccount>
+@{
+    ViewData["Title"] = "Medewerkers";
+    ViewData["Stylesheet"] = "/css/manager.css";
+}
+
+<h1>Lijst van medewerkers</h1>
+
+<a class="button" asp-action="CreateEmployee">Voeg medewerker toe</a>
+
+<h2>Medewerkers</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Gebruikersnaam</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.MiddleName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.DateOfBirth)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.NFCToken)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.HourlyWage)</th>
+            <th width="15%">Actie</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var employee in Model)
+        {
+            if(employee.Role == "Employee" && !employee.Employee.Inactive)
+            {
+                <tr>
+                    <td>@employee.Account.UserName</td>
+                    <td>@employee.Employee.FirstName</td>
+                    <td>@employee.Employee.MiddleName</td>
+                    <td>@employee.Employee.LastName</td>
+                    <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
+                    <td>@employee.Employee.NFCToken</td>
+                    <td>&euro;@employee.Employee.HourlyWage.ToString("n2")</td>
+                    <td>
+                        <div class="index_links">
+                            <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
+                            <!--Don't delete employee, but set them as inactive and put them in another tab in the Index.cshtml page -->
+                            <a asp-action="DeleteEmployee" asp-route-username="@employee.Account.UserName" class="button red_button">Inactief</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+
+        @foreach(var employee in Model) 
+        {
+            if(employee.Role == "Employee" && employee.Employee.Inactive)
+            {
+                <tr>
+                    <td>@employee.Account.UserName</td>
+                    <td>@employee.Employee.FirstName</td>
+                    <td>@employee.Employee.MiddleName</td>
+                    <td>@employee.Employee.LastName</td>
+                    <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
+                    <td>@employee.Employee.NFCToken</td>
+                    <td>&euro;@employee.Employee.HourlyWage.ToString("n2")</td>
+                    <td>
+                        <div class="index_links">
+                            <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
+                            <!--Don't delete employee, but set them as inactive and put them in another tab in the Index.cshtml page -->
+                            <a asp-action="ReactivateEmployee" asp-route-username="@employee.Account.UserName" class="button green_button">Actief</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<h2>Managers</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Gebruikersnaam</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th width="15%">Actie</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var employee in Model)
+        {
+            if(employee.Role == "Manager")
+            {
+                <tr>
+                    <td>@employee.Account.UserName</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="index_links">
+                            @if(employee.Account.UserName != User.Identity.Name)
+                            {
+                                <a asp-action="DeleteManager" asp-route-username="@employee.Account.UserName" class="button red_button">Verwijderen</a>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

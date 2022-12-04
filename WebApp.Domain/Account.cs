@@ -1,25 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApp.Domain
 {
-    public class Account
+    public class Account : IdentityUser
     {
-        public int UserId { get; set; }
-        
-        [Required(ErrorMessage = "This field is required")]
+        [NotMapped]
+        [Required(ErrorMessage = "Het Gebruikersnaam veld is verplicht")]
+        [Display(Name = "Gebruikersnaam")]
         public string Username { get; set; }
 
-        [DataType(DataType.Password)]  // Changes the input from normal characters to dots
-        [RegularExpression ("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]){8,}$")]  // checks if there are a minimum of 8 characters consisting of at least 1 Capital letter and 1 Number
-        [Required(ErrorMessage = "This field is required")]
-        public string Password { get; set; } // Public for now for the database generation
+        [NotMapped]
+        [Required(ErrorMessage = "Het Wachtwoord veld is verplicht")]
+        [Display(Name = "Wachtwoord")]
+        public string Password { get; set; }
 
-        public Account() { }
-
-        public Account(string username, string password)
-        {
-            Username = username;
-            Password = password;
-        }
+        [NotMapped]
+        [Required(ErrorMessage = "Het Wachtwoord bevestigen veld is verplicht")]
+        [Display(Name = "Wachtwoord bevestigen")]
+        [Compare("Password", ErrorMessage = "De wachtwoorden matchen niet")]
+        public string PasswordConfirmation { get; set; }
     }
 }

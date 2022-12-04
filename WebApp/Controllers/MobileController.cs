@@ -1,52 +1,61 @@
 ﻿using Bumbo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bumbo.Controllers
 {
     public class MobileController : Controller
     {
+        [Authorize(Roles = "Employee")]
         public IActionResult Availability()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult EditAvailability()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult LeaveRequests()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult SchoolSchedule()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult EditSchoolSchedule()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult WorkSchedule()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult InlineCalendar(
             int month, int year,
             int todayDay, int todayMonth, int todayYear,
@@ -80,6 +89,7 @@ namespace Bumbo.Controllers
             return PartialView(data);
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult Index()
         {
             return RedirectToAction("WorkSchedule");

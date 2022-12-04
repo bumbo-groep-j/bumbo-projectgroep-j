@@ -1,9 +1,6 @@
-using Bumbo.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Net;
-using System.Web;
 using WebApp.Domain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bumbo.Controllers
 {
@@ -25,12 +22,15 @@ namespace Bumbo.Controllers
                 || userAgent.Contains("ipad")
                 || userAgent.Contains("ipod");
         }
+
+        [Authorize(Roles = "Employee")]
         public IActionResult Availability()
         {
             if (IsMobile()) return RedirectToAction("Availability", "Mobile");
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult DeleteRequest(int id)
         {
             // delete request
@@ -46,6 +46,7 @@ namespace Bumbo.Controllers
             return RedirectToAction("RequestLeave");
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave()
         {
             using (var context = new BumboDbContext())
@@ -86,6 +87,7 @@ namespace Bumbo.Controllers
             return View(request);
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult SchoolSchedule()
         {
             ViewData["Days"] = listDays();
@@ -93,6 +95,7 @@ namespace Bumbo.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public List<string> listDays()
         {
             List<string> listOfDays = new List<string>();
@@ -107,8 +110,7 @@ namespace Bumbo.Controllers
             return listOfDays;
         }
 
-
-
+        [Authorize(Roles = "Employee")]
         public IActionResult WorkSchedule()
         {
 
@@ -128,10 +130,11 @@ namespace Bumbo.Controllers
 
             return View();
         }
+
+        [Authorize(Roles = "Employee")]
         public IActionResult Index()
         {
             return RedirectToAction("WorkSchedule");
         }
-
     }
 }

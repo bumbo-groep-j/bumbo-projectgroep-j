@@ -2,6 +2,7 @@
 
 html {
     font-size: 14px;
+    background-color: #efeff4;
 }
 
 @media (min-width: 768px) {
@@ -16,7 +17,7 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
+    background-color: #efeff4;
 }
 
 /* Button styling */
@@ -44,13 +45,13 @@ input[type=button]:hover,
 }
 
 .red_button {
-    border: 2px solid #ff3f3f;
-    color: #ff3f3f;
+    border: 2px solid #ff3f3f !important;
+    color: #ff3f3f !important;
 }
 
 .red_button:hover {
-    border: 2px solid #df2f2f;
-    color: #df2f2f;
+    border: 2px solid #df2f2f !important;
+    color: #df2f2f !important;
 }
 
 .green_button {
@@ -141,4 +142,14 @@ a:hover {
 
 .hidden {
     display: none;
+}
+
+/* Account colors */
+
+.employee_color {
+    color: #007aff !important;
+}
+
+.manager_color {
+    color: #ff3f00 !important;
 }

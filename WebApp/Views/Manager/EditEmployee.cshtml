@@ -1,21 +1,17 @@
 ﻿@model WebApp.Domain.Employee
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Medewerker bewerken";
     ViewData["Stylesheet"] = "/css/manager.css";
 }
 
-<div class="watermark_concept">
-    <p class="concept_text">CONCEPT</p>
-</div>
-
-<h1>Medewerker toevoegen</h1>
+<h1>Medewerker bewerken</h1>
 
 <hr />
 <div class="employee_createpage">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="EditEmployee">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="UserName" class="form-control" type="hidden" />
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
@@ -33,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DateOfBirth" class="control-label"></label>
-                <input asp-for="DateOfBirth" type="date" class="form-control" />
+                <input asp-for="DateOfBirth" min="1900-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")" lang="nl" type="date" class="form-control" title="Geboortedatum is ongeldig" />
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,19 +39,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="HourlyWage" class="control-label"></label>
-                <input asp-for="HourlyWage" type="number" step="0.01" class="form-control" />
+                <input asp-for="HourlyWage" type="number" step="0.01" class="form-control" data-val-number="Het Uurloon moet een nummer zijn" title="Uurloon is ongeldig" />
                 <span asp-validation-for="HourlyWage" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Maak aan" />
+                <input type="submit" value="Opslaan" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index" class="blue">Back to List</a>
+    <a asp-action="ListEmployees" class="blue">Terug</a>
 </div>
 
 @section Scripts {
