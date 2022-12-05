@@ -17,7 +17,7 @@ namespace Bumbo.Controllers
             db = dbContext;
         }
 
-        private void GetPrognosis(DateTime date, bool isHoliday, string departmentName)
+        private Prognosis GetPrognosis(DateTime date, bool isHoliday, string departmentName, bool getEmployeePrognosis = false)
         {
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
 
@@ -39,13 +39,16 @@ namespace Bumbo.Controllers
                 prognosis = new Prognosis();
                 prognosis.Date = date;
                 prognosis.DepartmentName = departmentName;
-                prognosis.Value = dataSet.PredictValue(date, isHoliday);
+                prognosis.Value = dataSet.ShouldEstimateValue ? dataSet.PredictValue(date, isHoliday) : 0;
 
                 db.Prognosis.Add(prognosis);
                 db.SaveChanges();
             }
 
-            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+            if(getEmployeePrognosis)
+                ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+
+            return prognosis;
         }
 
         [Authorize(Roles = "Manager")]
@@ -54,51 +57,8 @@ namespace Bumbo.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
-        public IActionResult Prognosis()
+        private void GetDutchDate()
         {
-            return View();
-        }
-
-        [Authorize(Roles = "Manager")]
-        public IActionResult Scheduling(string departmentName, int year, int month, int day)
-        {
-            DateTime date;
-
-            try
-            {
-                date = new DateTime(year, month, day);
-                if(date.Date < DateTime.Today.Date) date = DateTime.Today;
-            }
-            catch(Exception ex)
-            {
-                date = DateTime.Today;
-            }
-
-            ViewBag.Date = date;
-
-            Department department;
-            
-            try
-            {
-                department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
-            }
-            catch(Exception ex)
-            {
-                department = (from Department in db.Departments select Department).First();
-            }
-
-            GetPrognosis(ViewBag.Date, false, department.Name);
-
-            ViewBag.Department = department;
-
-            ViewBag.Departments = (from Department in db.Departments select Department).ToList();
-
-            ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
-            ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
-
-            ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
-
             switch(ViewBag.Date.DayOfWeek)
             {
                 case DayOfWeek.Monday:    ViewBag.DutchDate = "Maandag";   break;
@@ -127,6 +87,150 @@ namespace Bumbo.Controllers
                 case 11: ViewBag.DutchDate += "November";  break;
                 case 12: ViewBag.DutchDate += "December";  break;
             }
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult Prognosis(string departmentName, int year, int month, int day) {
+            DateTime date;
+
+            try
+            {
+                date = new DateTime(year, month, day);
+            }
+            catch(Exception ex)
+            {
+                date = DateTime.Today;
+            }
+
+            date = date.AddDays(1 - (int)date.DayOfWeek);
+
+            ViewBag.Date = date;
+
+            GetDutchDate();
+
+            ViewBag.StartDate      = ViewBag.Date;
+            ViewBag.StartDutchDate = ViewBag.DutchDate;
+
+            ViewBag.Date = date.AddDays(6);
+
+            GetDutchDate();
+
+            ViewBag.EndDate      = date;
+            ViewBag.EndDutchDate = ViewBag.DutchDate;
+
+            var model = new PrognosisForm();
+            model.Prognoses = new Prognosis[7];
+
+            ViewBag.Dates      = new DateTime[7];
+            ViewBag.DutchDates = new string[7];
+
+            Department department;
+            
+            try
+            {
+                department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
+            }
+            catch(Exception ex)
+            {
+                department = (from Department in db.Departments select Department).First();
+            }
+
+            ViewBag.Department = department;
+
+            ViewBag.Departments = (from Department in db.Departments select Department).ToList();
+
+            for(int i = 0; i < 7; i++) {
+                ViewBag.Dates[i] = date.AddDays(i);
+                model.Prognoses[i] = GetPrognosis(ViewBag.Dates[i], false, department.Name);
+
+                switch(ViewBag.Dates[i].DayOfWeek)
+                {
+                    case DayOfWeek.Monday:    ViewBag.DutchDates[i] = "Ma"; break;
+                    case DayOfWeek.Tuesday:   ViewBag.DutchDates[i] = "Di"; break;
+                    case DayOfWeek.Wednesday: ViewBag.DutchDates[i] = "Wo"; break;
+                    case DayOfWeek.Thursday:  ViewBag.DutchDates[i] = "Do"; break;
+                    case DayOfWeek.Friday:    ViewBag.DutchDates[i] = "Vr"; break;
+                    case DayOfWeek.Saturday:  ViewBag.DutchDates[i] = "Za"; break;
+                    case DayOfWeek.Sunday:    ViewBag.DutchDates[i] = "Zo"; break;
+                }
+
+                ViewBag.DutchDates[i] += " " + ViewBag.Dates[i].Day + " ";
+
+                switch(ViewBag.Dates[i].Month)
+                {
+                    case  1: ViewBag.DutchDates[i] += "Januari";   break;
+                    case  2: ViewBag.DutchDates[i] += "Februari";  break;
+                    case  3: ViewBag.DutchDates[i] += "Maart";     break;
+                    case  4: ViewBag.DutchDates[i] += "April";     break;
+                    case  5: ViewBag.DutchDates[i] += "Mei";       break;
+                    case  6: ViewBag.DutchDates[i] += "Juni";      break;
+                    case  7: ViewBag.DutchDates[i] += "Juli";      break;
+                    case  8: ViewBag.DutchDates[i] += "Augustus";  break;
+                    case  9: ViewBag.DutchDates[i] += "September"; break;
+                    case 10: ViewBag.DutchDates[i] += "Oktober";   break;
+                    case 11: ViewBag.DutchDates[i] += "November";  break;
+                    case 12: ViewBag.DutchDates[i] += "December";  break;
+                }
+            }
+
+            ViewBag.ValueName = (from Department in db.Departments where Department.Name == department.Name select Department.PredictionValueName).First();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public IActionResult Prognosis(PrognosisForm model) {
+            foreach(var prognosis in model.Prognoses)
+            {
+                var dbPrognosis = (from Prognosis in db.Prognosis where Prognosis.Id == prognosis.Id select Prognosis).First();
+                dbPrognosis.Value = prognosis.Value;
+            }
+            db.SaveChanges();
+
+            return Prognosis(model.Prognoses[0].DepartmentName, model.Prognoses[0].Date.Year, model.Prognoses[0].Date.Month, model.Prognoses[0].Date.Day);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult Scheduling(string departmentName, int year, int month, int day)
+        {
+            DateTime date;
+
+            try
+            {
+                date = new DateTime(year, month, day);
+                if(date.Date < DateTime.Today.Date) date = DateTime.Today;
+            }
+            catch(Exception ex)
+            {
+                date = DateTime.Today;
+            }
+
+            ViewBag.Date = date;
+
+            GetDutchDate();
+
+            Department department;
+            
+            try
+            {
+                department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
+            }
+            catch(Exception ex)
+            {
+                department = (from Department in db.Departments select Department).First();
+            }
+
+            GetPrognosis(ViewBag.Date, false, department.Name, true);
+
+            ViewBag.Department = department;
+
+            ViewBag.Departments = (from Department in db.Departments select Department).ToList();
+
+            ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
+            ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
+
+            ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
 
             ScheduleForm model = new ScheduleForm();
             
@@ -227,34 +331,7 @@ namespace Bumbo.Controllers
 
             ViewBag.Date = date;
 
-            switch(ViewBag.Date.DayOfWeek)
-            {
-                case DayOfWeek.Monday: ViewBag.DutchDate = "Maandag"; break;
-                case DayOfWeek.Tuesday: ViewBag.DutchDate = "Dinsdag"; break;
-                case DayOfWeek.Wednesday: ViewBag.DutchDate = "Woensdag"; break;
-                case DayOfWeek.Thursday: ViewBag.DutchDate = "Donderdag"; break;
-                case DayOfWeek.Friday: ViewBag.DutchDate = "Vrijdag"; break;
-                case DayOfWeek.Saturday: ViewBag.DutchDate = "Zaterdag"; break;
-                case DayOfWeek.Sunday: ViewBag.DutchDate = "Zondag"; break;
-            }
-
-            ViewBag.DutchDate += " " + ViewBag.Date.Day + " ";
-
-            switch(ViewBag.Date.Month)
-            {
-                case 1: ViewBag.DutchDate += "Januari"; break;
-                case 2: ViewBag.DutchDate += "Februari"; break;
-                case 3: ViewBag.DutchDate += "Maart"; break;
-                case 4: ViewBag.DutchDate += "April"; break;
-                case 5: ViewBag.DutchDate += "Mei"; break;
-                case 6: ViewBag.DutchDate += "Juni"; break;
-                case 7: ViewBag.DutchDate += "Juli"; break;
-                case 8: ViewBag.DutchDate += "Augustus"; break;
-                case 9: ViewBag.DutchDate += "September"; break;
-                case 10: ViewBag.DutchDate += "Oktober"; break;
-                case 11: ViewBag.DutchDate += "November"; break;
-                case 12: ViewBag.DutchDate += "December"; break;
-            }
+            GetDutchDate();
 
             List<ClockedHour> model = (
                 from WorkedHour

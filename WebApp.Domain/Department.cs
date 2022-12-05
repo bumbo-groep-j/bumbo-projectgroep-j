@@ -6,5 +6,8 @@ namespace WebApp.Domain
     {   
         [Key]
         public string Name { get; set; }
+
+        [Required]
+        public string PredictionValueName { get; set; }
     }
 }

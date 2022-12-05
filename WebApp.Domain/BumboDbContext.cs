@@ -35,9 +35,9 @@ namespace WebApp.Domain
 
             #region Department
             modelBuilder.Entity<Department>().HasData(
-                new Department { Name = "Kassa" },
-                new Department { Name = "VKK" },
-                new Department { Name = "Vers" }
+                new Department { Name = "Kassa", PredictionValueName = "Bezoekers" },
+                new Department { Name = "VKK",   PredictionValueName = "Colli" },
+                new Department { Name = "Vers",  PredictionValueName = "Colli" }
             );
             #endregion
 
@@ -59,9 +59,9 @@ namespace WebApp.Domain
 
             #region DataSet
             modelBuilder.Entity<DataSet>().HasData(
-                new DataSet { DepartmentName = "Kassa", MinimumEmployees = 2, DepartmentStartHour = 8, DepartmentEndHour = 22, EmployeeWorkLoad = 25 },
-                new DataSet { DepartmentName = "VKK",   MinimumEmployees = 2, DepartmentStartHour = 7, DepartmentEndHour = 22, EmployeeWorkLoad = 2  },
-                new DataSet { DepartmentName = "Vers",  MinimumEmployees = 2, DepartmentStartHour = 6, DepartmentEndHour = 22, EmployeeWorkLoad = 1  }
+                new DataSet { DepartmentName = "Kassa", MinimumEmployees = 2, DepartmentStartHour = 8, DepartmentEndHour = 22, EmployeeWorkLoad = 25, ShouldEstimateValue = true  },
+                new DataSet { DepartmentName = "VKK",   MinimumEmployees = 2, DepartmentStartHour = 7, DepartmentEndHour = 22, EmployeeWorkLoad = 2,  ShouldEstimateValue = false },
+                new DataSet { DepartmentName = "Vers",  MinimumEmployees = 2, DepartmentStartHour = 6, DepartmentEndHour = 22, EmployeeWorkLoad = 1,  ShouldEstimateValue = false }
             );
             #endregion
 

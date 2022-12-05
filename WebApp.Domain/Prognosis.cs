@@ -12,6 +12,7 @@ namespace WebApp.Domain
         public DateTime Date { get; set; }
 
         [Required]
+        [Range(0, Double.MaxValue, ErrorMessage = "Het Waarde moet meer dan 0 zijn")]
         public int Value { get; set; }
 
         [Required]
