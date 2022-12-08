@@ -1,23 +1,15 @@
-﻿@{
+﻿@using WebApp.Domain
+@model IEnumerable<Schedule>
+@{
     ViewData["Title"] = "Rooster";
     ViewData["Stylesheet"] = "/css/mobile.css";
 
-    int previousMonthMonth = (DateTime.Today.Month == 1 ? 12 : DateTime.Today.Month - 1);
-    int previousMonthYear  = (DateTime.Today.Month == 1 ? DateTime.Today.Year - 1 : DateTime.Today.Year);
+    int previousMonthMonth = (ViewBag.Date.Month == 1 ? 12 : ViewBag.Date.Month - 1);
+    int previousMonthYear  = (ViewBag.Date.Month == 1 ? ViewBag.Date.Year - 1 : ViewBag.Date.Year);
 
-    int mondayDay   = DateTime.Today.Day;
-    int mondayMonth = DateTime.Today.Month;
-    int mondayYear  = DateTime.Today.Year;
-
-    switch(DateTime.Today.DayOfWeek)
-    {
-        case DayOfWeek.Tuesday:   mondayDay -= 1; break;
-        case DayOfWeek.Wednesday: mondayDay -= 2; break;
-        case DayOfWeek.Thursday:  mondayDay -= 3; break;
-        case DayOfWeek.Friday:    mondayDay -= 4; break;
-        case DayOfWeek.Saturday:  mondayDay -= 5; break;
-        case DayOfWeek.Sunday:    mondayDay -= 6; break;
-    }
+    int mondayDay   = ViewBag.Date.Day;
+    int mondayMonth = ViewBag.Date.Month;
+    int mondayYear  = ViewBag.Date.Year;
 
     int firstWeekdayOfMonth = 1;
 
@@ -37,6 +29,8 @@
         mondayMonth = previousMonthMonth;
         mondayYear  = previousMonthYear;
     }
+
+    string link = "/Mobile/WorkSchedule?";
 }
 
 <header>
@@ -48,27 +42,28 @@
         CurrentYear = mondayYear,
         FirstWeekdayOfMonth = firstWeekdayOfMonth,
         Today = DateOnly.FromDateTime(DateTime.Today),
-        Selected = new DateOnly(mondayYear, mondayMonth, mondayDay)
+        Selected = new DateOnly(mondayYear, mondayMonth, mondayDay),
+        Link = link,
+        FullSize = ViewBag.FullSize
     };" />
-    <div class="outer_div">
-        <div class="inner_div">
-            <h5><b>Maandag </b><span class="date">26/09/2022</span></h5>
-            <b>09:00 - 12:00 </b><span class="department">Kassa</span>
-        </div>
-        <div class="inner_div">
-            <b>15:00 - 20:00 </b><span class="department">Kassa</span>
-        </div>
-    </div>
-    <div class="outer_div">
-        <div class="inner_div">
-            <h5><b>Woensdag </b><span class="date">28/09/2022</span></h5>
-            <b>13:00 - 17:00 </b><span class="department">Kassa</span> 
-        </div>
-    </div>
-    <div class="outer_div">
-        <div class="inner_div">
-            <h5><b>Vrijdag </b><span class="date">30/09/2022</span></h5>
-            <b>09:00 - 15:00 </b><span class="department">Kassa</span>
-        </div>
-    </div>
+    @for(int i = 0; i < 7; i++)
+    {
+        @if(Model.Any(schedule => schedule.StartTime.Date == ViewBag.Date.AddDays(i)))
+        {
+            bool hasDate = false;
+            <div class="outer_div">
+                @foreach(var schedule in Model.Where(schedule => schedule.StartTime.Date == ViewBag.Date.AddDays(i)))
+                {
+                    <div class="inner_div">
+                        @if(!hasDate)
+                        {
+                            hasDate = true;
+                            <h5><b>@schedule.StartTime.ToString("dddd") </b><span class="date">@schedule.StartTime.ToShortDateString()</span></h5>
+                        }
+                        <b>@schedule.StartTime.ToString("HH:mm") - @schedule.EndTime.AddMinutes(1).ToString("HH:mm")</b><span class="department"> @schedule.Department</span>
+                    </div>
+                }
+            </div>
+        }
+    }
 </div>
