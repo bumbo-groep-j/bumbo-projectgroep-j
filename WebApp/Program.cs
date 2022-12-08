@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using WebApp.Domain;
@@ -59,6 +60,15 @@ app.Use(async (context, next) => {
     Thread.CurrentThread.CurrentUICulture = currentThreadCulture;
 
     await next();
+});
+
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("nl-NL"),
+    SupportedCultures = new[]
+    {
+        new CultureInfo("nl-NL")
+    }
 });
 
 app.Run();

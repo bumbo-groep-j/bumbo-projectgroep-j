@@ -16,6 +16,8 @@ namespace Bumbo.Models
 
         public string? Link;
 
+        public bool? FullSize;
+
         public string Month
         {
             get
