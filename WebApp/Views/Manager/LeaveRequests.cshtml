@@ -16,6 +16,44 @@
         <th>Aanvraagdatum</th>
         <th>Actie</th>
     </tr>
+
+    @if (!ViewBag.IsEmpty)
+    {
+        foreach (var request in ViewBag.Requests)
+
+        {
+            <tr class="tr_bg">
+                <td>Verlofaanvraag van: @request.EmployeeId</td>
+                <td>
+                    <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
+                    <i></i>
+                </td>
+                if(@request.Status = "Approved")
+                {
+                <td><span class="accepted">Goedgekeurd</span></td>
+                }
+                else if(@request.Status = "Declined")
+                {
+                <td><span class="rejected">Afgewezen</span></td>
+                }
+                else
+                {
+                <td><span class="pending">In afwachting</span></td>
+                }
+                <td>@request.Comment</td>
+                <!--Something like request.DateInsert or whatever -->
+                <td> </td>
+
+                <!-- if request has not been approved or declined yet show the buttons-->
+
+                <td>
+                    <button class="red_button" asp-action="DeclineLeaveRequest">Weigeren</button>
+                    <button class="green_button" asp-action="AcceptLeaveRequest">Accepteren</button>
+                </td>
+            </tr>
+        }
+    }
+
     <tr class="tr_bg">
         <td>Kevin Schuren</td>
         <td>

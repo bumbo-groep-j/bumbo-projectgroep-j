@@ -21,7 +21,7 @@ namespace WebApp.Domain
         
         public string? Comment { get; set; }
 
-        public bool Approved { get; set; }
+        public string? Status { get; set; }
 
     }
 }

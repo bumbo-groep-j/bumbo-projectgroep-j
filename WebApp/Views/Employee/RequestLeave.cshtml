@@ -20,6 +20,7 @@
                     <p class="align_center">Begindatum: @request.StartDate.ToShortDateString()</p>
                     <p class="align_center">Einddatum: @request.EndDate.ToShortDateString()</p>
                     <p class="align_center">Opmerking: @request.Comment</p>
+                    <p class="align_center">Status: @request.Status</p>
                     <p class="align_center">
                         <a class="button red_button" asp-action="DeleteRequest" asp-route-id="@request.Id">Annuleren</a>
                     </p>

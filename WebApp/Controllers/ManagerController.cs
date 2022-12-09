@@ -54,6 +54,31 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public IActionResult LeaveRequests()
         {
+            ViewBag.IsEmpty = !db.LeaveRequests.Any();
+            ViewBag.Requests = db.LeaveRequests.ToList();
+            
+            return View();
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult DeclineLeaveRequest(LeaveRequest leaveRequest)
+        {
+            if (leaveRequest != null)
+            {
+                leaveRequest.Status = "Declined";
+                db.SaveChanges();
+            }   
+            return View();
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult AcceptLeaveRequest(LeaveRequest leaveRequest)
+        {
+            if (leaveRequest != null)
+            {
+                leaveRequest.Status = "Accepted";
+                db.SaveChanges();
+            }
             return View();
         }
 
