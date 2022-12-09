@@ -1,7 +1,7 @@
 ﻿@model CalendarData
 
 @{
-    bool fullSize = ViewData.ContainsKey("FullSize") && ViewBag.FullSize;
+    bool fullSize = (ViewData.ContainsKey("FullSize") && ViewBag.FullSize) || (Model.FullSize.HasValue && Model.FullSize.Value);
 
     int previousMonthMonth = (Model.CurrentMonth == 1 ? 12 : Model.CurrentMonth - 1);
     int previousMonthYear  = (Model.CurrentMonth == 1 ? Model.CurrentYear - 1 : Model.CurrentYear);
@@ -39,7 +39,8 @@
         + "&selectedDay="        + (fullSize ? Model.Selected.Day : previousWeekDay)
         + "&selectedMonth="      + (fullSize ? Model.Selected.Month : previousWeekMonth)
         + "&selectedYear="       + (fullSize ? Model.Selected.Year : previousWeekYear)
-        + "&fullSize="           +  fullSize;
+        + "&fullSize="           +  fullSize
+        + "&link="               +  Model.EscapedLink;
 
     string Next = "month="       + (fullSize ? nextMonthMonth : nextWeekMonth)
         + "&year="               + (fullSize ? nextMonthYear : nextWeekYear)
@@ -49,7 +50,8 @@
         + "&selectedDay="        + (fullSize ? Model.Selected.Day : nextWeekDay)
         + "&selectedMonth="      + (fullSize ? Model.Selected.Month : nextWeekMonth)
         + "&selectedYear="       + (fullSize ? Model.Selected.Year : nextWeekYear)
-        + "&fullSize="           +  fullSize;
+        + "&fullSize="           +  fullSize
+        + "&link="               +  Model.EscapedLink;
 
     string ToggleSize = "month=" +  Model.Selected.Month
         + "&year="               +  Model.Selected.Year
@@ -59,15 +61,27 @@
         + "&selectedDay="        +  Model.Selected.Day
         + "&selectedMonth="      +  Model.Selected.Month
         + "&selectedYear="       +  Model.Selected.Year
-        + "&fullSize="           + !fullSize;
+        + "&fullSize="           + !fullSize
+        + "&link="               +  Model.EscapedLink;
+
+    string PreviousLink = Model.Link + "year=" + previousWeekYear + "&month=" + previousWeekMonth + "&day=" + previousWeekDay;
+    string NextLink = Model.Link + "year=" + nextWeekYear + "&month=" + nextWeekMonth + "&day=" + nextWeekDay;
 }
 
-<div @(ViewData.ContainsKey("FullSize") ? "" : "class=calendar")>
+<div class="calendar">
     <div class="space_between">
         <b>@Model.Month @Model.CurrentYear</b>
         <span class="chevron">
-            <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@Previous');">&#x2039;</a>
-            <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@Next');">&#x203A;</a>
+            @if(fullSize)
+            {
+                <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@Previous .calendar > *');">&#x2039;</a>
+                <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@Next .calendar > *');">&#x203A;</a>
+            }
+            else
+            {
+                <a class="selected" href="@PreviousLink">&#x2039;</a>
+                <a class="selected" href="@NextLink">&#x203A;</a>
+            }
         </span>
     </div>
     <table>
@@ -94,17 +108,9 @@
                 int month = weekday != 1 ? previousMonthMonth : Model.CurrentMonth;
                 int year  = weekday != 1 ? previousMonthYear : Model.CurrentYear;
 
-                string week = "month="  + month
-                    + "&year="          + year
-                    + "&todayDay="      + Model.Today.Day
-                    + "&todayMonth="    + Model.Today.Month
-                    + "&todayYear="     + Model.Today.Year
-                    + "&selectedDay="   + day
-                    + "&selectedMonth=" + month
-                    + "&selectedYear="  + year
-                    + "&fullSize="      + fullSize;
+                string week = Model.Link + "day=" + day + "&month=" + month + "&year=" + year + "&fullSize=" + fullSize;
 
-                <tr class="clickable" onclick="$('.calendar').load('/Mobile/InlineCalendar?@week');">
+                <tr class="clickable" onclick="window.location.replace('@week');">
                     @for(int i = 1; i < weekday; i++)
                     {
                         <td class="unselected">@(DateTime.DaysInMonth(previousMonthYear, previousMonthMonth) + 1 + i - weekday)</td>
@@ -147,19 +153,11 @@
                 int month = nextMonthMonth;
                 int year  = nextMonthYear;
 
-                string week = "month="  + month
-                    + "&year="          + year
-                    + "&todayDay="      + Model.Today.Day
-                    + "&todayMonth="    + Model.Today.Month
-                    + "&todayYear="     + Model.Today.Year
-                    + "&selectedDay="   + day
-                    + "&selectedMonth=" + month
-                    + "&selectedYear="  + year
-                    + "&fullSize="      + fullSize;
+                string week = Model.Link + "day=" + day + "&month=" + month + "&year=" + year + "&fullSize=" + fullSize;
 
                 string classes = "unselected";
                 if(nextMonthMonth == Model.Selected.Month && nextMonthYear == Model.Selected.Year && lastDay == Model.Selected.Day) classes += " selecteddate";
-                <tr class="clickable"onclick="$('.calendar').load('/Mobile/InlineCalendar?@week');">
+                <tr class="clickable" onclick="window.location.replace('@week');">
                     @for(int j = 0; j < 7; j++)
                     {
                         string daily_classes = classes;

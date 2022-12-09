@@ -1,57 +1,100 @@
 ﻿using Bumbo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using WebApp.Domain;
+using Microsoft.AspNetCore.Identity;
+using System.Web;
 
 namespace Bumbo.Controllers
 {
     public class MobileController : Controller
     {
+        private BumboDbContext db;
+        private UserManager<Account> userManager;
+        public MobileController(UserManager<Account> user, BumboDbContext dbContext)
+        {
+            userManager = user;
+            db = dbContext;
+        }
+
+        [Authorize(Roles = "Employee")]
         public IActionResult Availability()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult EditAvailability()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult LeaveRequests()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult SchoolSchedule()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult EditSchoolSchedule()
         {
             ViewBag.IsMobile = true;
             return View();
         }
 
-        public IActionResult WorkSchedule()
+        [Authorize(Roles = "Employee")]
+        public IActionResult WorkSchedule(int year, int month, int day, bool fullSize)
         {
             ViewBag.IsMobile = true;
-            return View();
+
+            DateTime date;
+
+            try
+            {
+                date = new DateTime(year, month, day);
+            }
+            catch(Exception ex)
+            {
+                date = DateTime.Today;
+            }
+
+            date = date.AddDays(1 - (int)date.DayOfWeek);
+
+            ViewBag.Date = date;
+            ViewBag.FullSize = fullSize;
+
+            return View((
+                from Schedule in db.Schedules
+                join Employee in db.Employees
+                on Schedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) && Schedule.StartTime.Date >= date && Schedule.EndTime.Date < date.AddDays(7)
+                select Schedule
+            ).ToList().OrderBy(schedule => schedule.StartTime));
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult InlineCalendar(
             int month, int year,
             int todayDay, int todayMonth, int todayYear,
             int selectedDay, int selectedMonth, int selectedYear,
-            bool fullSize
+            bool fullSize, string link
         )
         {
             int weekday = 1;
@@ -77,9 +120,12 @@ namespace Bumbo.Controllers
 
             ViewBag.FullSize = fullSize;
 
+            data.Link = HttpUtility.UrlDecode(link);
+
             return PartialView(data);
         }
 
+        [Authorize(Roles = "Employee")]
         public IActionResult Index()
         {
             return RedirectToAction("WorkSchedule");

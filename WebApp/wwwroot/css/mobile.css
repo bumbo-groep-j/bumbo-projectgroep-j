@@ -15,6 +15,10 @@
     width: 4px;
 }
 
+html {
+    background-color: var(--black-bars);
+}
+
 body {
     background-color: var(--black-bars);
     display: flex;
@@ -234,10 +238,6 @@ textarea {
     resize: none;
     border: none;
     border-radius: 8px;
-}
-
-.hidden {
-    display: none;
 }
 
 #overlay {

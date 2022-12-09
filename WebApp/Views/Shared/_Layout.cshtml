@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Bumbo.styles.css" asp-append-version="true" />
-    @if(ViewData.ContainsKey("Stylesheet"))
+    @if (ViewData.ContainsKey("Stylesheet"))
     {
         <link rel="stylesheet" href="@ViewData["Stylesheet"]" asp-append-version="true" />
     }
 </head>
 <body>
-    @if(ViewData.ContainsKey("IsMobile"))
+    @if (ViewData.ContainsKey("IsMobile"))
     {
         <main>
             <footer>
                 <div>
                     <a asp-action="WorkSchedule">
-                        @if(ViewData["Title"] == "Rooster")
+                        @if (ViewData["Title"] == "Rooster")
                         {
                             <img src="/img/schedule_selected.svg" />
                             <p class="selected">Rooster</p>
@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <a asp-action="Availability">
-                        @if(ViewData["Title"] == "Beschikbaarheid")
+                        @if (ViewData["Title"] == "Beschikbaarheid")
                         {
                             <img src="/img/availability_selected.svg" />
                             <p class="selected">Beschikbaarheid</p>
@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <a asp-action="LeaveRequests">
-                        @if(ViewData["Title"] == "Verlof")
+                        @if (ViewData["Title"] == "Verlof")
                         {
                             <img src="/img/vacation_selected.svg" />
                             <p class="selected">Verlof</p>
@@ -61,7 +61,7 @@
                 </div>
                 <div>
                     <a asp-action="SchoolSchedule">
-                        @if(ViewData["Title"] == "Schoolrooster")
+                        @if (ViewData["Title"] == "Schoolrooster")
                         {
                             <img src="/img/school_selected.svg" />
                             <p class="selected">Schoolrooster</p>
@@ -82,68 +82,28 @@
     }
     else
     {
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container-fluid">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Bumbo</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="Scheduling">Inroostering</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="Prognosis">Prognose</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="WorkedHours">Uren verlonen</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="LeaveRequests">Verlofaanvragen</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="WorkSchedule">Werkrooster</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="SchoolSchedule">Schoolrooster</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Availability">Beschikbaarheid</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="RequestLeave">Verlof</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">TempViewLogin</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Mobile" asp-action="Index">Mobile</a>
-                            </li>
-                        </ul>
+        if(!ViewData.ContainsKey("HideNavBar"))
+        {
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Bumbo</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                            <partial name="_LinksPartial" />
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </header>
+                </nav>
+            </header>
+        }
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
         </div>
-
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2022 - Bumbo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </footer>
     }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

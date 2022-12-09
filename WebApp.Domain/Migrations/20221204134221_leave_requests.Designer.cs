@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Domain;
 
@@ -11,9 +12,11 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    partial class BumboDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221204134221_leave_requests")]
+    partial class leaverequests
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -7911,9 +7914,6 @@ namespace WebApp.Domain.Migrations
                     b.Property<int>("MinimumEmployees")
                         .HasColumnType("int");
 
-                    b.Property<bool>("ShouldEstimateValue")
-                        .HasColumnType("bit");
-
                     b.HasKey("DepartmentName");
 
                     b.ToTable("DataSets");
@@ -7925,8 +7925,7 @@ namespace WebApp.Domain.Migrations
                             DepartmentEndHour = 22,
                             DepartmentStartHour = 8,
                             EmployeeWorkLoad = 25,
-                            MinimumEmployees = 2,
-                            ShouldEstimateValue = true
+                            MinimumEmployees = 2
                         },
                         new
                         {
@@ -7934,8 +7933,7 @@ namespace WebApp.Domain.Migrations
                             DepartmentEndHour = 22,
                             DepartmentStartHour = 7,
                             EmployeeWorkLoad = 2,
-                            MinimumEmployees = 2,
-                            ShouldEstimateValue = false
+                            MinimumEmployees = 2
                         },
                         new
                         {
@@ -7943,8 +7941,7 @@ namespace WebApp.Domain.Migrations
                             DepartmentEndHour = 22,
                             DepartmentStartHour = 6,
                             EmployeeWorkLoad = 1,
-                            MinimumEmployees = 2,
-                            ShouldEstimateValue = false
+                            MinimumEmployees = 2
                         });
                 });
 
@@ -7953,10 +7950,6 @@ namespace WebApp.Domain.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("PredictionValueName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Name");
 
                     b.ToTable("Departments");
@@ -7964,18 +7957,15 @@ namespace WebApp.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Name = "Kassa",
-                            PredictionValueName = "Bezoekers"
+                            Name = "Kassa"
                         },
                         new
                         {
-                            Name = "VKK",
-                            PredictionValueName = "Colli"
+                            Name = "VKK"
                         },
                         new
                         {
-                            Name = "Vers",
-                            PredictionValueName = "Colli"
+                            Name = "Vers"
                         });
                 });
 

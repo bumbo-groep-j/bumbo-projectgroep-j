@@ -1,0 +1,93 @@
+﻿@model EmployeeAccount
+@{
+    ViewData["Title"] = "Medewerker toevoegen";
+    ViewData["Stylesheet"] = "/css/manager.css";
+}
+
+<h1>Medewerker toevoegen</h1>
+
+<hr />
+<div class="employee_createpage">
+    <div class="col-md-4">
+        <form asp-action="CreateEmployee">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label><br />
+                <input asp-for="Role" type="radio" id="employeeradio" value="Employee" checked />
+                <label>Medewerker</label>
+                <input asp-for="Role" type="radio" id="managerradio" value="Manager" />
+                <label>Manager</label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Username" class="control-label"></label>
+                <input asp-for="Account.Username" class="form-control" />
+                <span asp-validation-for="Account.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.Password" class="control-label"></label>
+                <input asp-for="Account.Password" class="form-control" type="password" />
+                <span asp-validation-for="Account.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account.PasswordConfirmation" class="control-label"></label>
+                <input asp-for="Account.PasswordConfirmation" class="form-control" type="password" />
+                <span asp-validation-for="Account.PasswordConfirmation" class="text-danger"></span>
+            </div>
+            <div id="employeefields">
+                <div class="form-group">
+                    <label asp-for="Employee.FirstName" class="control-label"></label>
+                    <input asp-for="Employee.FirstName" class="form-control" />
+                    <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.MiddleName" class="control-label"></label>
+                    <input asp-for="Employee.MiddleName" class="form-control" />
+                    <span asp-validation-for="Employee.MiddleName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.LastName" class="control-label"></label>
+                    <input asp-for="Employee.LastName" class="form-control" />
+                    <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.DateOfBirth" class="control-label"></label>
+                    <input asp-for="Employee.DateOfBirth" min="1900-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")" lang="nl" type="date" class="form-control" title="Geboortedatum is ongeldig" />
+                    <span asp-validation-for="Employee.DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.NFCToken" class="control-label"></label>
+                    <input asp-for="Employee.NFCToken" class="form-control" />
+                    <span asp-validation-for="Employee.NFCToken" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.HourlyWage" class="control-label"></label>
+                    <input asp-for="Employee.HourlyWage" type="number" step="0.01" class="form-control" data-val-number="Het Uurloon moet een nummer zijn" title="Uurloon is ongeldig" />
+                    <span asp-validation-for="Employee.HourlyWage" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Toevoegen" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListEmployees" class="blue">Terug</a>
+</div>
+
+<script>
+    window.onload = function() {
+        $('input[type=radio]').change(function() {
+            if($("#employeeradio").prop("checked"))
+                $("#employeefields").removeClass("hidden");
+            else
+                $("#employeefields").addClass("hidden");
+        });
+    };
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

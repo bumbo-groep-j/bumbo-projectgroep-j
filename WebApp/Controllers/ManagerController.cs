@@ -1,6 +1,7 @@
 ﻿using Bumbo.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Web;
 using WebApp.Domain;
 
@@ -8,9 +9,16 @@ namespace Bumbo.Controllers
 {
     public class ManagerController : Controller
     {
-        private BumboDbContext db = new BumboDbContext();
+        private BumboDbContext db;
+        private UserManager<Account> userManager;
+        public ManagerController(UserManager<Account> user, BumboDbContext dbContext)
+        {
+            userManager = user;
+            db = dbContext;
+        }
 
-        private void GetPrognosis(DateTime date, bool isHoliday, string departmentName) {
+        private Prognosis GetPrognosis(DateTime date, bool isHoliday, string departmentName, bool getEmployeePrognosis = false)
+        {
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
 
             // Hourly curve and data points are not loading automatically for some reason. TODO: fix
@@ -31,63 +39,26 @@ namespace Bumbo.Controllers
                 prognosis = new Prognosis();
                 prognosis.Date = date;
                 prognosis.DepartmentName = departmentName;
-                prognosis.Value = dataSet.PredictValue(date, isHoliday);
+                prognosis.Value = dataSet.ShouldEstimateValue ? dataSet.PredictValue(date, isHoliday) : 0;
 
                 db.Prognosis.Add(prognosis);
                 db.SaveChanges();
             }
 
-            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+            if(getEmployeePrognosis)
+                ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+
+            return prognosis;
         }
 
+        [Authorize(Roles = "Manager")]
         public IActionResult LeaveRequests()
         {
             return View();
         }
 
-        public IActionResult Prognosis()
+        private void GetDutchDate()
         {
-            return View();
-        }
-
-        public IActionResult Scheduling(string departmentName, int year, int month, int day)
-        {
-            DateTime date;
-
-            try
-            {
-                date = new DateTime(year, month, day);
-                if(date.Date < DateTime.Today.Date) date = DateTime.Today;
-            }
-            catch(Exception ex)
-            {
-                date = DateTime.Today;
-            }
-
-            ViewBag.Date = date;
-
-            Department department;
-            
-            try
-            {
-                department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
-            }
-            catch(Exception ex)
-            {
-                department = (from Department in db.Departments select Department).First();
-            }
-
-            GetPrognosis(ViewBag.Date, false, department.Name);
-
-            ViewBag.Department = department;
-
-            ViewBag.Departments = (from Department in db.Departments select Department).ToList();
-
-            ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
-            ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
-
-            ViewBag.Employees = (from Employee in db.Employees select Employee).ToList();
-
             switch(ViewBag.Date.DayOfWeek)
             {
                 case DayOfWeek.Monday:    ViewBag.DutchDate = "Maandag";   break;
@@ -116,6 +87,150 @@ namespace Bumbo.Controllers
                 case 11: ViewBag.DutchDate += "November";  break;
                 case 12: ViewBag.DutchDate += "December";  break;
             }
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult Prognosis(string departmentName, int year, int month, int day) {
+            DateTime date;
+
+            try
+            {
+                date = new DateTime(year, month, day);
+            }
+            catch(Exception ex)
+            {
+                date = DateTime.Today;
+            }
+
+            date = date.AddDays(1 - (int)date.DayOfWeek);
+
+            ViewBag.Date = date;
+
+            GetDutchDate();
+
+            ViewBag.StartDate      = ViewBag.Date;
+            ViewBag.StartDutchDate = ViewBag.DutchDate;
+
+            ViewBag.Date = date.AddDays(6);
+
+            GetDutchDate();
+
+            ViewBag.EndDate      = date;
+            ViewBag.EndDutchDate = ViewBag.DutchDate;
+
+            var model = new PrognosisForm();
+            model.Prognoses = new Prognosis[7];
+
+            ViewBag.Dates      = new DateTime[7];
+            ViewBag.DutchDates = new string[7];
+
+            Department department;
+            
+            try
+            {
+                department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
+            }
+            catch(Exception ex)
+            {
+                department = (from Department in db.Departments select Department).First();
+            }
+
+            ViewBag.Department = department;
+
+            ViewBag.Departments = (from Department in db.Departments select Department).ToList();
+
+            for(int i = 0; i < 7; i++) {
+                ViewBag.Dates[i] = date.AddDays(i);
+                model.Prognoses[i] = GetPrognosis(ViewBag.Dates[i], false, department.Name);
+
+                switch(ViewBag.Dates[i].DayOfWeek)
+                {
+                    case DayOfWeek.Monday:    ViewBag.DutchDates[i] = "Ma"; break;
+                    case DayOfWeek.Tuesday:   ViewBag.DutchDates[i] = "Di"; break;
+                    case DayOfWeek.Wednesday: ViewBag.DutchDates[i] = "Wo"; break;
+                    case DayOfWeek.Thursday:  ViewBag.DutchDates[i] = "Do"; break;
+                    case DayOfWeek.Friday:    ViewBag.DutchDates[i] = "Vr"; break;
+                    case DayOfWeek.Saturday:  ViewBag.DutchDates[i] = "Za"; break;
+                    case DayOfWeek.Sunday:    ViewBag.DutchDates[i] = "Zo"; break;
+                }
+
+                ViewBag.DutchDates[i] += " " + ViewBag.Dates[i].Day + " ";
+
+                switch(ViewBag.Dates[i].Month)
+                {
+                    case  1: ViewBag.DutchDates[i] += "Januari";   break;
+                    case  2: ViewBag.DutchDates[i] += "Februari";  break;
+                    case  3: ViewBag.DutchDates[i] += "Maart";     break;
+                    case  4: ViewBag.DutchDates[i] += "April";     break;
+                    case  5: ViewBag.DutchDates[i] += "Mei";       break;
+                    case  6: ViewBag.DutchDates[i] += "Juni";      break;
+                    case  7: ViewBag.DutchDates[i] += "Juli";      break;
+                    case  8: ViewBag.DutchDates[i] += "Augustus";  break;
+                    case  9: ViewBag.DutchDates[i] += "September"; break;
+                    case 10: ViewBag.DutchDates[i] += "Oktober";   break;
+                    case 11: ViewBag.DutchDates[i] += "November";  break;
+                    case 12: ViewBag.DutchDates[i] += "December";  break;
+                }
+            }
+
+            ViewBag.ValueName = (from Department in db.Departments where Department.Name == department.Name select Department.PredictionValueName).First();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public IActionResult Prognosis(PrognosisForm model) {
+            foreach(var prognosis in model.Prognoses)
+            {
+                var dbPrognosis = (from Prognosis in db.Prognosis where Prognosis.Id == prognosis.Id select Prognosis).First();
+                dbPrognosis.Value = prognosis.Value;
+            }
+            db.SaveChanges();
+
+            return Prognosis(model.Prognoses[0].DepartmentName, model.Prognoses[0].Date.Year, model.Prognoses[0].Date.Month, model.Prognoses[0].Date.Day);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult Scheduling(string departmentName, int year, int month, int day)
+        {
+            DateTime date;
+
+            try
+            {
+                date = new DateTime(year, month, day);
+                if(date.Date < DateTime.Today.Date) date = DateTime.Today;
+            }
+            catch(Exception ex)
+            {
+                date = DateTime.Today;
+            }
+
+            ViewBag.Date = date;
+
+            GetDutchDate();
+
+            Department department;
+            
+            try
+            {
+                department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
+            }
+            catch(Exception ex)
+            {
+                department = (from Department in db.Departments select Department).First();
+            }
+
+            GetPrognosis(ViewBag.Date, false, department.Name, true);
+
+            ViewBag.Department = department;
+
+            ViewBag.Departments = (from Department in db.Departments select Department).ToList();
+
+            ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
+            ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
+
+            ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
 
             ScheduleForm model = new ScheduleForm();
             
@@ -143,6 +258,7 @@ namespace Bumbo.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Scheduling(ScheduleForm model)
         {
             try
@@ -157,7 +273,7 @@ namespace Bumbo.Controllers
 
                 foreach(var s in existingSchedule) db.Schedules.Remove(s);
 
-                var employees = (from Employee in db.Employees select Employee).ToList();
+                var employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
 
                 Schedule? schedule = null;
 
@@ -198,11 +314,74 @@ namespace Bumbo.Controllers
             return Scheduling(model.DepartmentName, model.Year, model.Month, model.Day);
         }
 
-        public IActionResult WorkedHours()
+        [Authorize(Roles = "Manager")]
+        public IActionResult WorkedHours(int year, int month, int day)
         {
-            return View();
+            DateTime date;
+
+            try
+            {
+                date = new DateTime(year, month, day);
+                if(date.Date > DateTime.Today.Date) date = DateTime.Today;
+            }
+            catch(Exception ex)
+            {
+                date = DateTime.Today;
+            }
+
+            ViewBag.Date = date;
+
+            GetDutchDate();
+
+            List<ClockedHour> model = (
+                from WorkedHour
+                in db.WorkedHours
+                from Schedule
+                in db.Schedules
+                where Schedule.Id == WorkedHour.ScheduleId
+                where WorkedHour.ClockedTimeStart.Date == date
+                select new ClockedHour
+                {
+                    Id = WorkedHour.Id,
+                    Name = Schedule.Employee.Name,
+                    ScheduledStartTime = Schedule.StartTime,
+                    ScheduledEndTime = Schedule.EndTime,
+                    ClockedStartTime = WorkedHour.ClockedTimeStart,
+                    ClockedEndTime = WorkedHour.ClockedTimeEnd,
+                    ApprovedStartTime = WorkedHour.ApprovedTimeStart,
+                    ApprovedEndTime = WorkedHour.ApprovedTimeEnd,
+                    ApprovalTime = WorkedHour.ApprovalTime,
+                    WorkedHours = WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart,
+                    TimeDifference = (
+                        (
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Hours < 0
+                     || (
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Minutes < 0 ? "-" : "+"
+                    )
+                  + Math.Abs((
+                        (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                      - (Schedule.EndTime - Schedule.StartTime)
+                    ).Value.Hours) + ":"
+                  + (Math.Abs((
+                            (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                          - (Schedule.EndTime - Schedule.StartTime)
+                        ).Value.Minutes) < 10 ? "0" : ""
+                    )
+                  + Math.Abs((
+                        (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
+                      - (Schedule.EndTime - Schedule.StartTime)
+                    ).Value.Minutes)
+                }
+            ).ToList();
+
+            return View(model);
         }
 
+        [Authorize(Roles = "Manager")]
         public IActionResult Calendar(
             int month, int year,
             int todayDay, int todayMonth, int todayYear,
@@ -239,6 +418,232 @@ namespace Bumbo.Controllers
             data.Link = HttpUtility.UrlDecode(link);
 
             return PartialView(data);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult EditWorkedHours(int year, int month, int day, int id) 
+        {
+            ApprovedHoursForm data = (
+                from WorkedHour
+                in db.WorkedHours
+                from Schedule
+                in db.Schedules
+                where Schedule.Id == WorkedHour.ScheduleId
+                where WorkedHour.Id == id
+                select new ApprovedHoursForm
+                {
+                    Year = year,
+                    Month = month,
+                    Day = day,
+                    WorkedHourId = WorkedHour.Id,
+                    StartTime = new DateTime(year, month, day, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Hour, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Minute, 0),
+                    EndTime = new DateTime(year, month, day, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Hour, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Minute, 0),
+                }
+            ).First();
+
+            return PartialView(data);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public void EditHours(ApprovedHoursForm form) 
+        {
+            WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == form.WorkedHourId select WorkedHour).First();
+
+            value.ApprovedTimeStart = new DateTime(value.ClockedTimeStart.Year, value.ClockedTimeStart.Month, value.ClockedTimeStart.Day, form.StartTime.Hour, form.StartTime.Minute, form.StartTime.Second);
+            value.ApprovedTimeEnd = new DateTime(value.ClockedTimeEnd.Value.Year, value.ClockedTimeEnd.Value.Month, value.ClockedTimeEnd.Value.Day, form.EndTime.Hour, form.EndTime.Minute, form.EndTime.Second);
+
+            db.SaveChanges();
+        }
+
+        [Authorize(Roles = "Manager")]
+        public void ApproveHours(int id)
+        {
+            WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == id select WorkedHour).First();
+            value.ApprovalTime = DateTime.Now;
+
+            if(!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
+            if(!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
+
+            db.SaveChanges();
+        }
+
+        [Authorize(Roles = "Manager")]
+        public void ApproveAllHours(int year, int month, int day)
+        {
+            var values = (from WorkedHour in db.WorkedHours where WorkedHour.ClockedTimeStart.Year == year && WorkedHour.ClockedTimeStart.Month == month && WorkedHour.ClockedTimeStart.Day == day select WorkedHour).ToList();
+
+            foreach(var value in values)
+            {
+                if(!value.ApprovalTime.HasValue)
+                {
+                    value.ApprovalTime = DateTime.Now;
+
+                    if(!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
+                    if(!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
+                }
+            }
+
+            db.SaveChanges(); 
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult ListEmployees()
+        {
+            return View((
+                from Account
+                in db.Users
+                select new EmployeeAccount
+                {
+                    Account = Account,
+                    Employee = (from Employee in db.Employees where Employee.UserName == Account.UserName select Employee).First(),
+                    Role = userManager.GetRolesAsync(Account).Result.FirstOrDefault()
+                }
+            ));
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult CreateEmployee()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> CreateEmployee(EmployeeAccount model)
+        {
+            if(model.Role == "Employee")
+                model.Employee.UserName = model.Account.Username;
+            else
+                model.Employee = null;
+
+            model.Account.UserName  = model.Account.Username;
+            ModelState.Clear();
+            TryValidateModel(model);
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var result = await userManager.CreateAsync(model.Account, model.Account.Password);
+
+                    if(result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(model.Account, model.Role);
+
+                        if(model.Role == "Employee")
+                        {
+                            db.Employees.Add(model.Employee);
+                            db.SaveChanges();
+                        }
+
+                        return RedirectToAction("ListEmployees");
+                    }
+
+                    foreach(var error in result.Errors)
+                        ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+            catch { }
+
+            return View(model);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult EditEmployee(string userName)
+        {
+            try
+            {
+                return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
+            }
+            catch { }
+
+            return RedirectToAction("ListEmployees");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public IActionResult EditEmployee(Employee model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var employee = (from Employee in db.Employees where Employee.UserName == model.UserName select Employee).First();
+
+                    employee.FirstName = model.FirstName;
+                    employee.MiddleName = model.MiddleName;
+                    employee.LastName = model.LastName;
+                    employee.DateOfBirth = model.DateOfBirth;
+                    employee.NFCToken = model.NFCToken;
+                    employee.HourlyWage = model.HourlyWage;
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("ListEmployees");
+                }
+            }
+            catch { }
+
+            return View(model);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult DeleteEmployee(string userName) {
+            try {
+                return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
+            } catch { }
+
+            return RedirectToAction("ListEmployees");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public IActionResult DeleteEmployee(Employee model) {
+            try {
+                var employee = (from Employee in db.Employees where Employee.UserName == model.UserName select Employee).First();
+
+                employee.Inactive = true;
+
+                db.SaveChanges();
+
+                return RedirectToAction("ListEmployees");
+            } catch { }
+
+            return View(model);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult ReactivateEmployee(string userName) {
+            try {
+                var employee = (from Employee in db.Employees where Employee.UserName == userName select Employee).First();
+
+                employee.Inactive = false;
+
+                db.SaveChanges();
+            } catch { }
+
+            return RedirectToAction("ListEmployees");
+        }
+
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> DeleteManager(string userName) {
+            try {
+                return View(await userManager.FindByNameAsync(userName));
+            } catch { }
+
+            return RedirectToAction("ListEmployees");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> DeleteManager(Account model) {
+            try {
+                await userManager.DeleteAsync(await userManager.FindByNameAsync(model.UserName));
+
+                return RedirectToAction("ListEmployees");
+            } catch { }
+
+            return View(model);
         }
     }
 }
