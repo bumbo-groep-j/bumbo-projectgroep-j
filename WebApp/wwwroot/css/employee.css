@@ -40,6 +40,21 @@ input[type="text"]::placeholder {
     justify-content: center;
 }
 
+.accepted {
+    font-weight: bold;
+    color: #7ad03a;
+}
+
+.rejected {
+    font-weight: bold;
+    color: indianred;
+}
+
+.pending {
+    font-weight: bold;
+    color: #f3ad28;
+}
+
 .work_line {
     background-color: #007AFF;
     color: white;

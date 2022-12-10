@@ -16,10 +16,10 @@
                 <label>Datum</label>
                 <div>
                     <div class="small_field">
-                        <h4>Van</h4><input type="date" asp-for="StartDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.AddYears(5).ToString("yyyy-MM-dd")" />
+                        <h4>Van</h4><input type="date" asp-for="StartDate" min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")" max="@DateTime.Now.AddYears(5).ToString("yyyy-MM-dd")" />
                     </div>
                     <div class="small_field">
-                        <h4>Tot</h4><input type="date" asp-for="EndDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.AddYears(5).ToString("yyyy-MM-dd")" />
+                        <h4>Tot</h4><input type="date" asp-for="EndDate" min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")" max="@DateTime.Now.AddYears(5).ToString("yyyy-MM-dd")" />
                     </div>
                 </div>
                 <label>Reden</label>

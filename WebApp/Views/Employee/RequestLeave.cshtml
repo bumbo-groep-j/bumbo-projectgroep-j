@@ -12,7 +12,7 @@
         <form asp-action="Requestleave">
             <h2>Huidige aanvragen</h2>
             <br />
-            @if(!ViewBag.IsEmpty)
+            @if(ViewBag.Requests.Count > 0)
             {
                 foreach (var request in ViewBag.Requests)
                 {
@@ -21,7 +21,19 @@
                     <p class="align_center">Einddatum: @request.EndDate.ToShortDateString()</p>
                     <p class="align_center">Opmerking: @request.Comment</p>
                     <p class="align_center">
-                        <a class="button red_button" asp-action="DeleteRequest" asp-route-id="@request.Id">Annuleren</a>
+                        @if(request.Approved)
+                        {
+                            <span class="accepted">Goedgekeurd</span>
+                        }
+                        else if(request.Rejected)
+                        {
+                            <span class="rejected">Afgekeurd</span>
+                        }
+                        else
+                        {
+                            <span class="pending">Openstaand</span> <br />
+                            <a class="button red_button" asp-action="DeleteRequest" asp-route-id="@request.Id">Annuleren</a>
+                        }
                     </p>
                 }
             }
@@ -37,14 +49,15 @@
 
             <p class="align_center">
                 Begindatum: <input type="date" asp-for="StartDate"
-                                   min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")" required />
+                                   min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")"
+                                   max="@DateTime.Now.AddYears(5).ToString("yyyy-MM-dd")" />
             </p>
             <span asp-validation-for="StartDate" class="text-danger"></span>
 
             <p class="align_center">
                 Einddatum: <input type="date" asp-for="EndDate"
                                   min="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")"
-                                  required />
+                                  max="@DateTime.Now.AddYears(5).ToString("yyyy-MM-dd")" />
             </p>
             <span asp-validation-for="EndDate" class="text-danger"></span>
 
