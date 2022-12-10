@@ -35,21 +35,44 @@ namespace Bumbo.Controllers
         public IActionResult LeaveRequests()
         {
             ViewBag.IsMobile = true;
-            return View();
+
+            return View((
+                from LeaveRequest in db.LeaveRequests
+                join Employee in db.Employees
+                on LeaveRequest.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User)
+                select LeaveRequest
+            ).ToList());
         }
 
         [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave()
         {
             ViewBag.IsMobile = true;
+
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee")]
-        public IActionResult SchoolSchedule()
+        public IActionResult RequestLeave(LeaveRequest request)
         {
             ViewBag.IsMobile = true;
-            return View();
+
+            if(ModelState.IsValid)
+            {
+                if(request.EndDate < request.StartDate) (request.StartDate, request.EndDate) = (request.EndDate, request.StartDate);
+
+                request.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
+
+                db.LeaveRequests.Add(request);
+                db.SaveChanges();
+
+                return RedirectToAction("LeaveRequests");
+            }
+
+            return View(request);
         }
 
         [Authorize(Roles = "Employee")]

@@ -8,6 +8,8 @@
     --selected: #007aff;
     --selected2: #003add;
     --green: #7ad03a;
+    --red: indianred;
+    --yellow: #f3ad28;
 }
 
 ::-webkit-scrollbar {
@@ -190,15 +192,23 @@ footer img {
     color: var(--green);
 }
 
+.rejected {
+    font-weight: bold;
+    color: var(--red);
+}
+
+.pending {
+    font-weight: bold;
+    color: var(--yellow);
+}
+
 .ok_button {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
     color: var(--selected);
     font-size: 20pt;
+    padding: 0 0 16px 0 !important;
+    border: none !important;
     text-align: center;
-    padding-bottom: 16px;
+    width: 100%;
 }
 
 .padded_container {
