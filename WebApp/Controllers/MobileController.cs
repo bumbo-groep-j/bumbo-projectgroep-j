@@ -21,11 +21,20 @@ namespace Bumbo.Controllers
         public IActionResult Availability()
         {
             ViewBag.IsMobile = true;
-            return View();
+
+            return View((
+                from Availability in db.Availabilities
+                join Employee in db.Employees
+                on Availability.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) 
+                && Availability.StartDate <= DateTime.Today 
+                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                select Availability
+            ).ToList());
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult EditAvailability()
+        public IActionResult EditAvailability(Weekday weekday)
         {
             ViewBag.IsMobile = true;
             return View();
