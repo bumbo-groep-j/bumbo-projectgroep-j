@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using WebApp.Domain;
 using Microsoft.AspNetCore.Identity;
 using System.Web;
+using Azure.Core;
 
 namespace Bumbo.Controllers
 {
@@ -37,17 +38,82 @@ namespace Bumbo.Controllers
         public IActionResult EditAvailability(Weekday weekday)
         {
             ViewBag.IsMobile = true;
-            return View();
+
+            AvailabilityForm form = new AvailabilityForm();
+            form.Weekday = weekday;
+
+            var availability = (from Availability in db.Availabilities
+                join Employee in db.Employees
+                on Availability.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) 
+                && Availability.StartDate <= DateTime.Today 
+                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                && Availability.Weekday == weekday
+                select Availability
+            ).ToList();
+
+            form.HasAvailability1 = availability.Count > 0;
+            form.HasAvailability2 = availability.Count == 2;
+            
+            if(form.HasAvailability1) form.Availability1 = availability[0];
+            if(form.HasAvailability2) form.Availability2 = availability[1];
+
+            return View(form);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Employee")]
+        public IActionResult EditAvailability(AvailabilityForm form)
+        {
+            ViewBag.IsMobile = true;
+
+            if(form.HasAvailability1 && form.Availability1.EndTime < form.Availability1.StartTime) 
+                (form.Availability1.EndTime, form.Availability1.StartTime) = (form.Availability1.StartTime, form.Availability1.EndTime);
+
+            if(form.HasAvailability2 && form.Availability2.EndTime < form.Availability2.StartTime)
+                (form.Availability2.EndTime, form.Availability2.StartTime) = (form.Availability2.StartTime, form.Availability2.EndTime);
+
+                var oldAvailability = (from Availability in db.Availabilities
+                join Employee in db.Employees
+                on Availability.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) 
+                && Availability.StartDate <= DateTime.Today 
+                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                && Availability.Weekday == form.Weekday
+                select Availability
+            ).ToList();
+
+            if(form.HasAvailability1)
+            {
+                form.Availability1.StartDate = DateTime.Today.AddDays(21);
+                form.Availability1.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
+
+                db.Availabilities.Add(form.Availability1);
+            }
+
+            if(form.HasAvailability2)
+            {
+                form.Availability2.StartDate = DateTime.Today.AddDays(21);
+                form.Availability2.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
+
+                db.Availabilities.Add(form.Availability2);
+            }
+
+            if(oldAvailability.Count > 0) oldAvailability[0].EndDate = DateTime.Today.AddDays(21);
+            if(oldAvailability.Count > 1) oldAvailability[1].EndDate = DateTime.Today.AddDays(21);
+
+            db.SaveChanges();
+            return RedirectToAction("Availability");
         }
 
         [Authorize(Roles = "Employee")]
         public IActionResult LeaveRequests()
         {
             ViewBag.IsMobile = true;
-
             return View((
-                from LeaveRequest in db.LeaveRequests
-                join Employee in db.Employees
+            from LeaveRequest in db.LeaveRequests
+            join Employee in db.Employees
                 on LeaveRequest.EmployeeId equals Employee.Id
                 where Employee.UserName == userManager.GetUserName(User)
                 select LeaveRequest

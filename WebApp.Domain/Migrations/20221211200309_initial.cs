@@ -8,20 +8,236 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebApp.Domain.Migrations
 {
     /// <inheritdoc />
-    public partial class prognosisdataset : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Departments",
-                keyColumn: "Name",
-                keyValue: "Magazijn");
+            migrationBuilder.CreateTable(
+                name: "AspNetRoles",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
 
-            migrationBuilder.DeleteData(
-                table: "Departments",
-                keyColumn: "Name",
-                keyValue: "Verkoop");
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DataSets",
+                columns: table => new
+                {
+                    DepartmentName = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MinimumEmployees = table.Column<int>(type: "int", nullable: false),
+                    DepartmentStartHour = table.Column<int>(type: "int", nullable: false),
+                    DepartmentEndHour = table.Column<int>(type: "int", nullable: false),
+                    EmployeeWorkLoad = table.Column<int>(type: "int", nullable: false),
+                    ShouldEstimateValue = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DataSets", x => x.DepartmentName);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Departments",
+                columns: table => new
+                {
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PredictionValueName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departments", x => x.Name);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Employees",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "Date", nullable: false),
+                    NFCToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HourlyWage = table.Column<double>(type: "float", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Inactive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Employees", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LeaveRequests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Approved = table.Column<bool>(type: "bit", nullable: false),
+                    Rejected = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LeaveRequests", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Prognosis",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Value = table.Column<int>(type: "int", nullable: false),
+                    DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Prognosis", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetRoleClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserLogins",
+                columns: table => new
+                {
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserTokens",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.CreateTable(
                 name: "DataPoints",
@@ -35,21 +251,12 @@ namespace WebApp.Domain.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DataPoints", x => new { x.Date, x.DepartmentName });
-                });
-
-            migrationBuilder.CreateTable(
-                name: "DataSets",
-                columns: table => new
-                {
-                    DepartmentName = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    MinimumEmployees = table.Column<int>(type: "int", nullable: false),
-                    DepartmentStartHour = table.Column<int>(type: "int", nullable: false),
-                    DepartmentEndHour = table.Column<int>(type: "int", nullable: false),
-                    EmployeeWorkLoad = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DataSets", x => x.DepartmentName);
+                    table.ForeignKey(
+                        name: "FK_DataPoints_DataSets_DepartmentName",
+                        column: x => x.DepartmentName,
+                        principalTable: "DataSets",
+                        principalColumn: "DepartmentName",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,6 +276,120 @@ namespace WebApp.Domain.Migrations
                         principalTable: "DataSets",
                         principalColumn: "DepartmentName",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Availabilities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    Weekday = table.Column<int>(type: "int", nullable: false),
+                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Availabilities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Availabilities_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "Employees",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Schedules",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    Department = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Schedules", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Schedules_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "Employees",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SchoolSchedules",
+                columns: table => new
+                {
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    Weekday = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SchoolSchedules", x => new { x.EmployeeId, x.Weekday, x.Id });
+                    table.ForeignKey(
+                        name: "FK_SchoolSchedules_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "Employees",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WorkedHours",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ScheduleId = table.Column<int>(type: "int", nullable: false),
+                    Department = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ApprovalTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ClockedTimeStart = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ClockedTimeEnd = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ApprovedTimeStart = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ApprovedTimeEnd = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkedHours", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WorkedHours_Schedules_ScheduleId",
+                        column: x => x.ScheduleId,
+                        principalTable: "Schedules",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "DataSets",
+                columns: new[] { "DepartmentName", "DepartmentEndHour", "DepartmentStartHour", "EmployeeWorkLoad", "MinimumEmployees", "ShouldEstimateValue" },
+                values: new object[,]
+                {
+                    { "Kassa", 22, 8, 25, 2, true },
+                    { "Vers", 22, 6, 1, 2, false },
+                    { "VKK", 22, 7, 2, 2, false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Departments",
+                columns: new[] { "Name", "PredictionValueName" },
+                values: new object[,]
+                {
+                    { "Kassa", "Bezoekers" },
+                    { "Vers", "Colli" },
+                    { "VKK", "Colli" }
                 });
 
             migrationBuilder.InsertData(
@@ -1168,82 +1489,6 @@ namespace WebApp.Domain.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "DataSets",
-                columns: new[] { "DepartmentName", "DepartmentEndHour", "DepartmentStartHour", "EmployeeWorkLoad", "MinimumEmployees" },
-                values: new object[,]
-                {
-                    { "Kassa", 22, 8, 25, 2 },
-                    { "Vers", 22, 6, 1, 2 },
-                    { "VKK", 22, 7, 2, 2 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Departments",
-                column: "Name",
-                values: new object[]
-                {
-                    "Kassa",
-                    "Vers",
-                    "VKK"
-                });
-
-            migrationBuilder.UpdateData(
-                table: "Schedules",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "Department",
-                value: "VKK");
-
-            migrationBuilder.UpdateData(
-                table: "Schedules",
-                keyColumn: "Id",
-                keyValue: 2,
-                column: "Department",
-                value: "Kassa");
-
-            migrationBuilder.UpdateData(
-                table: "Schedules",
-                keyColumn: "Id",
-                keyValue: 3,
-                column: "Department",
-                value: "Kassa");
-
-            migrationBuilder.UpdateData(
-                table: "Schedules",
-                keyColumn: "Id",
-                keyValue: 4,
-                column: "Department",
-                value: "Vers");
-
-            migrationBuilder.UpdateData(
-                table: "WorkedHours",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "Department",
-                value: "Vers");
-
-            migrationBuilder.UpdateData(
-                table: "WorkedHours",
-                keyColumn: "Id",
-                keyValue: 2,
-                column: "Department",
-                value: "Vers");
-
-            migrationBuilder.UpdateData(
-                table: "WorkedHours",
-                keyColumn: "Id",
-                keyValue: 3,
-                column: "Department",
-                value: "Kassa");
-
-            migrationBuilder.UpdateData(
-                table: "WorkedHours",
-                keyColumn: "Id",
-                keyValue: 4,
-                column: "Department",
-                value: "VKK");
-
-            migrationBuilder.InsertData(
                 table: "HourlyPoints",
                 columns: new[] { "DepartmentName", "Hour", "Value" },
                 values: new object[,]
@@ -1280,99 +1525,123 @@ namespace WebApp.Domain.Migrations
                     { "VKK", 20, 0.14999999999999999 },
                     { "VKK", 21, 0.14999999999999999 }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "RoleNameIndex",
+                table: "AspNetRoles",
+                column: "NormalizedName",
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserClaims_UserId",
+                table: "AspNetUserClaims",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserLogins_UserId",
+                table: "AspNetUserLogins",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_RoleId",
+                table: "AspNetUserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                table: "AspNetUsers",
+                column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Availabilities_EmployeeId",
+                table: "Availabilities",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DataPoints_DepartmentName",
+                table: "DataPoints",
+                column: "DepartmentName");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Schedules_EmployeeId",
+                table: "Schedules",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WorkedHours_ScheduleId",
+                table: "WorkedHours",
+                column: "ScheduleId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AspNetRoleClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserLogins");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Availabilities");
+
+            migrationBuilder.DropTable(
                 name: "DataPoints");
+
+            migrationBuilder.DropTable(
+                name: "Departments");
 
             migrationBuilder.DropTable(
                 name: "HourlyPoints");
 
             migrationBuilder.DropTable(
+                name: "LeaveRequests");
+
+            migrationBuilder.DropTable(
+                name: "Prognosis");
+
+            migrationBuilder.DropTable(
+                name: "SchoolSchedules");
+
+            migrationBuilder.DropTable(
+                name: "WorkedHours");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
                 name: "DataSets");
 
-            migrationBuilder.DeleteData(
-                table: "Departments",
-                keyColumn: "Name",
-                keyValue: "Kassa");
+            migrationBuilder.DropTable(
+                name: "Schedules");
 
-            migrationBuilder.DeleteData(
-                table: "Departments",
-                keyColumn: "Name",
-                keyValue: "Vers");
-
-            migrationBuilder.DeleteData(
-                table: "Departments",
-                keyColumn: "Name",
-                keyValue: "VKK");
-
-            migrationBuilder.InsertData(
-                table: "Departments",
-                column: "Name",
-                values: new object[]
-                {
-                    "Magazijn",
-                    "Verkoop"
-                });
-
-            migrationBuilder.UpdateData(
-                table: "Schedules",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "Department",
-                value: "Magazijn");
-
-            migrationBuilder.UpdateData(
-                table: "Schedules",
-                keyColumn: "Id",
-                keyValue: 2,
-                column: "Department",
-                value: "Verkoop");
-
-            migrationBuilder.UpdateData(
-                table: "Schedules",
-                keyColumn: "Id",
-                keyValue: 3,
-                column: "Department",
-                value: "Verkoop");
-
-            migrationBuilder.UpdateData(
-                table: "Schedules",
-                keyColumn: "Id",
-                keyValue: 4,
-                column: "Department",
-                value: "Magazijn");
-
-            migrationBuilder.UpdateData(
-                table: "WorkedHours",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "Department",
-                value: "Magazijn");
-
-            migrationBuilder.UpdateData(
-                table: "WorkedHours",
-                keyColumn: "Id",
-                keyValue: 2,
-                column: "Department",
-                value: "Verkoop");
-
-            migrationBuilder.UpdateData(
-                table: "WorkedHours",
-                keyColumn: "Id",
-                keyValue: 3,
-                column: "Department",
-                value: "Verkoop");
-
-            migrationBuilder.UpdateData(
-                table: "WorkedHours",
-                keyColumn: "Id",
-                keyValue: 4,
-                column: "Department",
-                value: "Magazijn");
+            migrationBuilder.DropTable(
+                name: "Employees");
         }
     }
 }

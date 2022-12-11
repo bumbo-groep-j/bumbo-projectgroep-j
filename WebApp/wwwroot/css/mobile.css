@@ -209,6 +209,7 @@ footer img {
     border: none !important;
     text-align: center;
     width: 100%;
+    display: inline-block;
 }
 
 .padded_container {
@@ -235,6 +236,10 @@ footer img {
 
 .small_field > * {
     padding-top: 8px;
+}
+
+.disabled_form {
+    background-color: var(--light-background) !important;
 }
 
 textarea {

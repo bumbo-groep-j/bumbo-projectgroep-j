@@ -1,4 +1,7 @@
-﻿@{
+﻿@using WebApp.Domain
+@model AvailabilityForm
+
+@{
     ViewData["Title"] = "Beschikbaarheid";
     ViewData["Stylesheet"] = "/css/mobile.css";
 }
@@ -7,27 +10,66 @@
     <h1>Beschikbaarheid</h1>
 </header>
 <a asp-action="Availability" class="back_button"><span class="back_chevron">&#x2039;</span>Terug</a>
-<div class="content">
-    <div class="padded_container">
-        <h4>Dinsdag</h4>
-        <label>Tijd</label>
-        <div>
-            <div class="small_field">
-                <h4>Van</h4><input type="time" value="09:00" />
-            </div>
-            <div class="small_field">
-                <h4>Tot</h4><input type="time" value="18:00" />
+<form asp-action="EditAvailability" id="edit_availability_form">
+    <input type="hidden" asp-for="Weekday">
+    <div class="content">
+        <div class="padded_container">
+            <h4>@Weekdays.GetName(Model.Weekday)</h4>
+            <label>
+                <input type="checkbox" asp-for="HasAvailability1" id="availability1checkbox" onclick="toggleAvailability(1);" />
+                Beschikbaar
+            </label>
+            <br />
+            <label>Tijd</label>
+            <div id="availability1">
+                <div class="small_field">
+                    <h4>Van</h4><input type="time" asp-for="Availability1.StartTime" />
+                </div>
+                <div class="small_field">
+                    <h4>Tot</h4><input type="time" asp-for="Availability1.EndTime" />
+                </div>
             </div>
         </div>
+        <div class="padded_container">
+            <label>
+                <input type="checkbox" asp-for="HasAvailability2" id="availability2checkbox" onclick="toggleAvailability(2);" />
+                Beschikbaar
+            </label>
+            <br />
+            <label>Tijd</label>
+            <div id="availability2">
+                <div class="small_field">
+                    <h4>Van</h4><input type="time" asp-for="Availability2.StartTime" />
+                </div>
+                <div class="small_field">
+                    <h4>Tot</h4><input type="time" asp-for="Availability2.EndTime" />
+                </div>
+            </div>
+        </div>
+        <a href="javascript:void(0)" class="ok_button" onclick="$('#overlay').removeClass('hidden');">OK</a>
     </div>
-    <a href="javascript:void(0)" class="ok_button" onclick="$('#overlay').removeClass('hidden');">OK</a>
-</div>
+</form>
 <div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
     <div>
         <div class="alert">
             Deze wijziging gaat in over 3 weken.
         </div>
         <button class="cancel">Annuleren</button>
-        <a asp-action="Availability" class="confirm">OK</a>
+        <button type="submit" class="confirm" form="edit_availability_form">OK</button>
     </div>
 </div>
+<script>
+    function toggleAvailability(id) {
+        if(!$("#availability" + id + "checkbox").prop("checked")) {
+            $("#availability" + id + " > * > input").prop("disabled", true);
+            $("#availability" + id + " > *").addClass("disabled_form");
+        } else {
+            $("#availability" + id + " > * > input").prop("disabled", false);
+            $("#availability" + id + " > *").removeClass("disabled_form");
+        }
+    }
+    window.onload = function() {
+        toggleAvailability(1);
+        toggleAvailability(2);
+    }
+</script>
