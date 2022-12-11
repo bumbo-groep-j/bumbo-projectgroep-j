@@ -1,4 +1,7 @@
-﻿@{
+﻿@model WebApp.Domain.LeaveRequest
+
+@{
+    ViewData["Title"] = "RequestLeave";
     ViewData["Stylesheet"] = "/css/manager.css";
 }
 <header>
@@ -17,41 +20,55 @@
         <th>Actie</th>
     </tr>
 
-    @if (!ViewBag.IsEmpty)
-    {
-        foreach (var request in ViewBag.Requests)
 
-        {
-            <tr class="tr_bg">
-                <td>Verlofaanvraag van: @request.EmployeeId</td>
+    @foreach (var request in ViewBag.Requests)
+    {
+        <form>
+        <tr class="tr_bg">
+            <!--Show the Employee name-->
+            <td>@request.EmployeeId</td>
+            <td>
+                <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
+                <i>@request.EndDate.Subtract(request.StartDate)</i>
+            </td>
+
+            <td>
+                    @if (ViewBag.Status.Equals("Approved"))
+                    {
+                    <span class="accepted"> @request.LeaveRequestStatus </span>
+                    }
+                    else if (ViewBag.Status.Equals("Rejected"))
+                    {
+                    <span class="rejected"> @request.LeaveRequestStatus </span>
+                    }
+                    else if (ViewBag.Status.Equals("Pending"))
+                    {
+                    <span class="pending"> @request.LeaveRequestStatus </span>
+                    }
+            </td>
+
+            <td>@request.Comment</td>
+
+            <!-- Fix, saying 1-1-0001 which is not correct -->
+            <td>@request.InsertDate.ToShortDateString()</td>
+
+            <!-- if the status is pending, show the buttons -->
+                @if (!ViewBag.Status.Equals("Pending"))
+                {
                 <td>
-                    <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
-                    <i></i>
+                    <!--use the RejectLeaveRequest in the controller-->
+                    <button class="red_button" asp-action="RejectLeaveRequest" asp-route-id="@request.Id">Weigeren</button>
+                    <button class="green_button" asp-action="ApproveLeaveRequest" asp-route-id="@request.Id">Accepteren</button>
                 </td>
-                if(@request.Status = "Approved")
-                {
-                <td><span class="accepted">Goedgekeurd</span></td>
-                }
-                else if(@request.Status = "Declined")
-                {
-                <td><span class="rejected">Afgewezen</span></td>
                 }
                 else
                 {
-                <td><span class="pending">In afwachting</span></td>
+                <!--Here for not a random empty place in the table-->
+                <td></td>
                 }
-                <td>@request.Comment</td>
-                <!--Something like request.DateInsert or whatever -->
-                <td> </td>
+        </tr>
+        </form>
 
-                <!-- if request has not been approved or declined yet show the buttons-->
-
-                <td>
-                    <button class="red_button" asp-action="DeclineLeaveRequest">Weigeren</button>
-                    <button class="green_button" asp-action="AcceptLeaveRequest">Accepteren</button>
-                </td>
-            </tr>
-        }
     }
 
     <tr class="tr_bg">

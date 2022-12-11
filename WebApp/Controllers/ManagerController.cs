@@ -22,10 +22,10 @@ namespace Bumbo.Controllers
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
 
             // Hourly curve and data points are not loading automatically for some reason. TODO: fix
-            if(dataSet.HourlyCurve == null)
+            if (dataSet.HourlyCurve == null)
                 dataSet.HourlyCurve = (from HourlyPoint in db.HourlyPoints where HourlyPoint.DepartmentName == departmentName select HourlyPoint).ToList();
 
-            if(dataSet.DataPoints == null)
+            if (dataSet.DataPoints == null)
                 dataSet.DataPoints = (from DataPoint in db.DataPoints where DataPoint.DepartmentName == departmentName select DataPoint).ToList();
 
             Prognosis prognosis;
@@ -35,7 +35,7 @@ namespace Bumbo.Controllers
                 prognosis = (from Prognosis in db.Prognosis where Prognosis.Date == date && Prognosis.DepartmentName == departmentName select Prognosis).First();
             }
             catch
-            { 
+            {
                 prognosis = new Prognosis();
                 prognosis.Date = date;
                 prognosis.DepartmentName = departmentName;
@@ -45,7 +45,7 @@ namespace Bumbo.Controllers
                 db.SaveChanges();
             }
 
-            if(getEmployeePrognosis)
+            if (getEmployeePrognosis)
                 ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
 
             return prognosis;
@@ -56,73 +56,93 @@ namespace Bumbo.Controllers
         {
             ViewBag.IsEmpty = !db.LeaveRequests.Any();
             ViewBag.Requests = db.LeaveRequests.ToList();
-            
+            ViewBag.Status = new LeaveRequest().LeaveRequestStatus;
+
             return View();
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult DeclineLeaveRequest(LeaveRequest leaveRequest)
+        public IActionResult ApproveLeaveRequest(int id)
         {
-            if (leaveRequest != null)
+            // get the request from the database
+            var request = db.LeaveRequests.FirstOrDefault(r => r.Id == id);
+            // check if the request is not null
+            if (request != null)
             {
-                leaveRequest.Status = "Declined";
+                // set the request to rejected from pending from the enum in the model class
+                request.LeaveRequestStatus = LeaveRequest.Status.Approved;
+                // add the status change to a viewbag so we can display it in the view
+                ViewBag.Status = request.LeaveRequestStatus;
+                // save the changes to the database
                 db.SaveChanges();
-            }   
-            return View();
-        }
 
-        [Authorize(Roles = "Manager")]
-        public IActionResult AcceptLeaveRequest(LeaveRequest leaveRequest)
-        {
-            if (leaveRequest != null)
-            {
-                leaveRequest.Status = "Accepted";
-                db.SaveChanges();
+                return RedirectToAction("LeaveRequests");
             }
-            return View();
+            return View(request);
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult RejectLeaveRequest(int id)
+        {
+            // get the request from the database
+            var request = db.LeaveRequests.FirstOrDefault(r => r.Id == id);
+            // check if the request is not null
+            if (request != null)
+            {
+                // set the request to rejected from pending from the enum in the model class
+                request.LeaveRequestStatus = LeaveRequest.Status.Rejected;
+                // add the status change to a viewbag so we can display it in the view
+                ViewBag.Status = request.LeaveRequestStatus;
+                // save the changes to the database
+                db.SaveChanges();
+
+                return RedirectToAction("LeaveRequests");
+            }
+            return View(request);
         }
 
         private void GetDutchDate()
         {
-            switch(ViewBag.Date.DayOfWeek)
+            switch (ViewBag.Date.DayOfWeek)
             {
-                case DayOfWeek.Monday:    ViewBag.DutchDate = "Maandag";   break;
-                case DayOfWeek.Tuesday:   ViewBag.DutchDate = "Dinsdag";   break;
-                case DayOfWeek.Wednesday: ViewBag.DutchDate = "Woensdag";  break;
-                case DayOfWeek.Thursday:  ViewBag.DutchDate = "Donderdag"; break;
-                case DayOfWeek.Friday:    ViewBag.DutchDate = "Vrijdag";   break;
-                case DayOfWeek.Saturday:  ViewBag.DutchDate = "Zaterdag";  break;
-                case DayOfWeek.Sunday:    ViewBag.DutchDate = "Zondag";    break;
+                case DayOfWeek.Monday: ViewBag.DutchDate = "Maandag"; break;
+                case DayOfWeek.Tuesday: ViewBag.DutchDate = "Dinsdag"; break;
+                case DayOfWeek.Wednesday: ViewBag.DutchDate = "Woensdag"; break;
+                case DayOfWeek.Thursday: ViewBag.DutchDate = "Donderdag"; break;
+                case DayOfWeek.Friday: ViewBag.DutchDate = "Vrijdag"; break;
+                case DayOfWeek.Saturday: ViewBag.DutchDate = "Zaterdag"; break;
+                case DayOfWeek.Sunday: ViewBag.DutchDate = "Zondag"; break;
             }
 
             ViewBag.DutchDate += " " + ViewBag.Date.Day + " ";
 
-            switch(ViewBag.Date.Month)
+            switch (ViewBag.Date.Month)
             {
-                case  1: ViewBag.DutchDate += "Januari";   break;
-                case  2: ViewBag.DutchDate += "Februari";  break;
-                case  3: ViewBag.DutchDate += "Maart";     break;
-                case  4: ViewBag.DutchDate += "April";     break;
-                case  5: ViewBag.DutchDate += "Mei";       break;
-                case  6: ViewBag.DutchDate += "Juni";      break;
-                case  7: ViewBag.DutchDate += "Juli";      break;
-                case  8: ViewBag.DutchDate += "Augustus";  break;
-                case  9: ViewBag.DutchDate += "September"; break;
-                case 10: ViewBag.DutchDate += "Oktober";   break;
-                case 11: ViewBag.DutchDate += "November";  break;
-                case 12: ViewBag.DutchDate += "December";  break;
+                case 1: ViewBag.DutchDate += "Januari"; break;
+                case 2: ViewBag.DutchDate += "Februari"; break;
+                case 3: ViewBag.DutchDate += "Maart"; break;
+                case 4: ViewBag.DutchDate += "April"; break;
+                case 5: ViewBag.DutchDate += "Mei"; break;
+                case 6: ViewBag.DutchDate += "Juni"; break;
+                case 7: ViewBag.DutchDate += "Juli"; break;
+                case 8: ViewBag.DutchDate += "Augustus"; break;
+                case 9: ViewBag.DutchDate += "September"; break;
+                case 10: ViewBag.DutchDate += "Oktober"; break;
+                case 11: ViewBag.DutchDate += "November"; break;
+                case 12: ViewBag.DutchDate += "December"; break;
             }
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult Prognosis(string departmentName, int year, int month, int day) {
+        public IActionResult Prognosis(string departmentName, int year, int month, int day)
+        {
             DateTime date;
 
             try
             {
                 date = new DateTime(year, month, day);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 date = DateTime.Today;
             }
@@ -133,29 +153,29 @@ namespace Bumbo.Controllers
 
             GetDutchDate();
 
-            ViewBag.StartDate      = ViewBag.Date;
+            ViewBag.StartDate = ViewBag.Date;
             ViewBag.StartDutchDate = ViewBag.DutchDate;
 
             ViewBag.Date = date.AddDays(6);
 
             GetDutchDate();
 
-            ViewBag.EndDate      = date;
+            ViewBag.EndDate = date;
             ViewBag.EndDutchDate = ViewBag.DutchDate;
 
             var model = new PrognosisForm();
             model.Prognoses = new Prognosis[7];
 
-            ViewBag.Dates      = new DateTime[7];
+            ViewBag.Dates = new DateTime[7];
             ViewBag.DutchDates = new string[7];
 
             Department department;
-            
+
             try
             {
                 department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 department = (from Department in db.Departments select Department).First();
             }
@@ -164,37 +184,38 @@ namespace Bumbo.Controllers
 
             ViewBag.Departments = (from Department in db.Departments select Department).ToList();
 
-            for(int i = 0; i < 7; i++) {
+            for (int i = 0; i < 7; i++)
+            {
                 ViewBag.Dates[i] = date.AddDays(i);
                 model.Prognoses[i] = GetPrognosis(ViewBag.Dates[i], false, department.Name);
 
-                switch(ViewBag.Dates[i].DayOfWeek)
+                switch (ViewBag.Dates[i].DayOfWeek)
                 {
-                    case DayOfWeek.Monday:    ViewBag.DutchDates[i] = "Ma"; break;
-                    case DayOfWeek.Tuesday:   ViewBag.DutchDates[i] = "Di"; break;
+                    case DayOfWeek.Monday: ViewBag.DutchDates[i] = "Ma"; break;
+                    case DayOfWeek.Tuesday: ViewBag.DutchDates[i] = "Di"; break;
                     case DayOfWeek.Wednesday: ViewBag.DutchDates[i] = "Wo"; break;
-                    case DayOfWeek.Thursday:  ViewBag.DutchDates[i] = "Do"; break;
-                    case DayOfWeek.Friday:    ViewBag.DutchDates[i] = "Vr"; break;
-                    case DayOfWeek.Saturday:  ViewBag.DutchDates[i] = "Za"; break;
-                    case DayOfWeek.Sunday:    ViewBag.DutchDates[i] = "Zo"; break;
+                    case DayOfWeek.Thursday: ViewBag.DutchDates[i] = "Do"; break;
+                    case DayOfWeek.Friday: ViewBag.DutchDates[i] = "Vr"; break;
+                    case DayOfWeek.Saturday: ViewBag.DutchDates[i] = "Za"; break;
+                    case DayOfWeek.Sunday: ViewBag.DutchDates[i] = "Zo"; break;
                 }
 
                 ViewBag.DutchDates[i] += " " + ViewBag.Dates[i].Day + " ";
 
-                switch(ViewBag.Dates[i].Month)
+                switch (ViewBag.Dates[i].Month)
                 {
-                    case  1: ViewBag.DutchDates[i] += "Januari";   break;
-                    case  2: ViewBag.DutchDates[i] += "Februari";  break;
-                    case  3: ViewBag.DutchDates[i] += "Maart";     break;
-                    case  4: ViewBag.DutchDates[i] += "April";     break;
-                    case  5: ViewBag.DutchDates[i] += "Mei";       break;
-                    case  6: ViewBag.DutchDates[i] += "Juni";      break;
-                    case  7: ViewBag.DutchDates[i] += "Juli";      break;
-                    case  8: ViewBag.DutchDates[i] += "Augustus";  break;
-                    case  9: ViewBag.DutchDates[i] += "September"; break;
-                    case 10: ViewBag.DutchDates[i] += "Oktober";   break;
-                    case 11: ViewBag.DutchDates[i] += "November";  break;
-                    case 12: ViewBag.DutchDates[i] += "December";  break;
+                    case 1: ViewBag.DutchDates[i] += "Januari"; break;
+                    case 2: ViewBag.DutchDates[i] += "Februari"; break;
+                    case 3: ViewBag.DutchDates[i] += "Maart"; break;
+                    case 4: ViewBag.DutchDates[i] += "April"; break;
+                    case 5: ViewBag.DutchDates[i] += "Mei"; break;
+                    case 6: ViewBag.DutchDates[i] += "Juni"; break;
+                    case 7: ViewBag.DutchDates[i] += "Juli"; break;
+                    case 8: ViewBag.DutchDates[i] += "Augustus"; break;
+                    case 9: ViewBag.DutchDates[i] += "September"; break;
+                    case 10: ViewBag.DutchDates[i] += "Oktober"; break;
+                    case 11: ViewBag.DutchDates[i] += "November"; break;
+                    case 12: ViewBag.DutchDates[i] += "December"; break;
                 }
             }
 
@@ -205,8 +226,9 @@ namespace Bumbo.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Manager")]
-        public IActionResult Prognosis(PrognosisForm model) {
-            foreach(var prognosis in model.Prognoses)
+        public IActionResult Prognosis(PrognosisForm model)
+        {
+            foreach (var prognosis in model.Prognoses)
             {
                 var dbPrognosis = (from Prognosis in db.Prognosis where Prognosis.Id == prognosis.Id select Prognosis).First();
                 dbPrognosis.Value = prognosis.Value;
@@ -224,9 +246,9 @@ namespace Bumbo.Controllers
             try
             {
                 date = new DateTime(year, month, day);
-                if(date.Date < DateTime.Today.Date) date = DateTime.Today;
+                if (date.Date < DateTime.Today.Date) date = DateTime.Today;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 date = DateTime.Today;
             }
@@ -236,12 +258,12 @@ namespace Bumbo.Controllers
             GetDutchDate();
 
             Department department;
-            
+
             try
             {
                 department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 department = (from Department in db.Departments select Department).First();
             }
@@ -258,9 +280,9 @@ namespace Bumbo.Controllers
             ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
 
             ScheduleForm model = new ScheduleForm();
-            
-            for(int i = 0; i < ViewBag.Employees.Count; i++)
-                for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+
+            for (int i = 0; i < ViewBag.Employees.Count; i++)
+                for (int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
                     model.IsChecked.Add(false);
 
             var existingSchedule = (
@@ -273,10 +295,10 @@ namespace Bumbo.Controllers
 
             int hours = ViewBag.EndHour - ViewBag.StartHour + 1;
 
-            foreach(var schedule in existingSchedule) 
-                for(int i = 0; i < ViewBag.Employees.Count; i++)
-                    if(ViewBag.Employees[i].Id == schedule.EmployeeId)
-                        for(int hour = schedule.StartTime.Hour; hour <= schedule.EndTime.Hour; hour++)
+            foreach (var schedule in existingSchedule)
+                for (int i = 0; i < ViewBag.Employees.Count; i++)
+                    if (ViewBag.Employees[i].Id == schedule.EmployeeId)
+                        for (int hour = schedule.StartTime.Hour; hour <= schedule.EndTime.Hour; hour++)
                             model.IsChecked[i * hours + hour - ViewBag.StartHour] = true;
 
             return View(model);
@@ -296,7 +318,7 @@ namespace Bumbo.Controllers
                     select Schedule
                 ).ToList();
 
-                foreach(var s in existingSchedule) db.Schedules.Remove(s);
+                foreach (var s in existingSchedule) db.Schedules.Remove(s);
 
                 var employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
 
@@ -306,11 +328,11 @@ namespace Bumbo.Controllers
                 int endHour = (from DataSet in db.DataSets where DataSet.DepartmentName == model.DepartmentName select DataSet.DepartmentEndHour).First();
                 int hours = endHour - startHour + 1;
 
-                for(int i = 0; i < model.IsChecked.Count; i++)
+                for (int i = 0; i < model.IsChecked.Count; i++)
                 {
                     int curHour = i % hours;
 
-                    if(model.IsChecked[i] && schedule == null)
+                    if (model.IsChecked[i] && schedule == null)
                     {
                         schedule = new Schedule();
                         schedule.StartTime = new DateTime(model.Year, model.Month, model.Day, curHour + startHour, 0, 0);
@@ -318,7 +340,7 @@ namespace Bumbo.Controllers
                         schedule.Department = model.DepartmentName;
                     }
 
-                    else if(schedule != null && (!model.IsChecked[i] || curHour == 0))
+                    else if (schedule != null && (!model.IsChecked[i] || curHour == 0))
                     {
                         schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 59, 59);
                         db.Schedules.Add(schedule);
@@ -326,7 +348,7 @@ namespace Bumbo.Controllers
                     }
                 }
 
-                if(schedule != null)
+                if (schedule != null)
                 {
                     schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, endHour, 59, 59);
                     db.Schedules.Add(schedule);
@@ -334,7 +356,7 @@ namespace Bumbo.Controllers
 
                 db.SaveChanges();
             }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
 
             return Scheduling(model.DepartmentName, model.Year, model.Month, model.Day);
         }
@@ -347,9 +369,9 @@ namespace Bumbo.Controllers
             try
             {
                 date = new DateTime(year, month, day);
-                if(date.Date > DateTime.Today.Date) date = DateTime.Today;
+                if (date.Date > DateTime.Today.Date) date = DateTime.Today;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 date = DateTime.Today;
             }
@@ -417,7 +439,7 @@ namespace Bumbo.Controllers
         )
         {
             int weekday = 1;
-            switch(new DateOnly(year, month, 1).DayOfWeek)
+            switch (new DateOnly(year, month, 1).DayOfWeek)
             {
                 case DayOfWeek.Monday: weekday = 1; break;
                 case DayOfWeek.Tuesday: weekday = 2; break;
@@ -437,8 +459,8 @@ namespace Bumbo.Controllers
                 Selected = new DateOnly(selectedYear, selectedMonth, selectedDay)
             };
 
-            if(minimumDay != 0) data.MinimumDay = new DateOnly(minimumYear, minimumMonth, minimumDay);
-            if(maximumDay != 0) data.MaximumDay = new DateOnly(maximumYear, maximumMonth, maximumDay);
+            if (minimumDay != 0) data.MinimumDay = new DateOnly(minimumYear, minimumMonth, minimumDay);
+            if (maximumDay != 0) data.MaximumDay = new DateOnly(maximumYear, maximumMonth, maximumDay);
 
             data.Link = HttpUtility.UrlDecode(link);
 
@@ -446,7 +468,7 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult EditWorkedHours(int year, int month, int day, int id) 
+        public IActionResult EditWorkedHours(int year, int month, int day, int id)
         {
             ApprovedHoursForm data = (
                 from WorkedHour
@@ -471,7 +493,7 @@ namespace Bumbo.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Manager")]
-        public void EditHours(ApprovedHoursForm form) 
+        public void EditHours(ApprovedHoursForm form)
         {
             WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == form.WorkedHourId select WorkedHour).First();
 
@@ -487,8 +509,8 @@ namespace Bumbo.Controllers
             WorkedHour value = (from WorkedHour in db.WorkedHours where WorkedHour.Id == id select WorkedHour).First();
             value.ApprovalTime = DateTime.Now;
 
-            if(!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
-            if(!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
+            if (!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
+            if (!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
 
             db.SaveChanges();
         }
@@ -498,18 +520,18 @@ namespace Bumbo.Controllers
         {
             var values = (from WorkedHour in db.WorkedHours where WorkedHour.ClockedTimeStart.Year == year && WorkedHour.ClockedTimeStart.Month == month && WorkedHour.ClockedTimeStart.Day == day select WorkedHour).ToList();
 
-            foreach(var value in values)
+            foreach (var value in values)
             {
-                if(!value.ApprovalTime.HasValue)
+                if (!value.ApprovalTime.HasValue)
                 {
                     value.ApprovalTime = DateTime.Now;
 
-                    if(!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
-                    if(!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
+                    if (!value.ApprovedTimeStart.HasValue) value.ApprovedTimeStart = value.ClockedTimeStart;
+                    if (!value.ApprovedTimeEnd.HasValue) value.ApprovedTimeEnd = value.ClockedTimeEnd.Value;
                 }
             }
 
-            db.SaveChanges(); 
+            db.SaveChanges();
         }
 
         [Authorize(Roles = "Manager")]
@@ -537,12 +559,12 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public async Task<IActionResult> CreateEmployee(EmployeeAccount model)
         {
-            if(model.Role == "Employee")
+            if (model.Role == "Employee")
                 model.Employee.UserName = model.Account.Username;
             else
                 model.Employee = null;
 
-            model.Account.UserName  = model.Account.Username;
+            model.Account.UserName = model.Account.Username;
             ModelState.Clear();
             TryValidateModel(model);
             try
@@ -551,11 +573,11 @@ namespace Bumbo.Controllers
                 {
                     var result = await userManager.CreateAsync(model.Account, model.Account.Password);
 
-                    if(result.Succeeded)
+                    if (result.Succeeded)
                     {
                         await userManager.AddToRoleAsync(model.Account, model.Role);
 
-                        if(model.Role == "Employee")
+                        if (model.Role == "Employee")
                         {
                             db.Employees.Add(model.Employee);
                             db.SaveChanges();
@@ -564,7 +586,7 @@ namespace Bumbo.Controllers
                         return RedirectToAction("ListEmployees");
                     }
 
-                    foreach(var error in result.Errors)
+                    foreach (var error in result.Errors)
                         ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
@@ -613,18 +635,23 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult DeleteEmployee(string userName) {
-            try {
+        public IActionResult DeleteEmployee(string userName)
+        {
+            try
+            {
                 return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
-            } catch { }
+            }
+            catch { }
 
             return RedirectToAction("ListEmployees");
         }
 
         [HttpPost]
         [Authorize(Roles = "Manager")]
-        public IActionResult DeleteEmployee(Employee model) {
-            try {
+        public IActionResult DeleteEmployee(Employee model)
+        {
+            try
+            {
                 var employee = (from Employee in db.Employees where Employee.UserName == model.UserName select Employee).First();
 
                 employee.Inactive = true;
@@ -632,41 +659,51 @@ namespace Bumbo.Controllers
                 db.SaveChanges();
 
                 return RedirectToAction("ListEmployees");
-            } catch { }
+            }
+            catch { }
 
             return View(model);
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult ReactivateEmployee(string userName) {
-            try {
+        public IActionResult ReactivateEmployee(string userName)
+        {
+            try
+            {
                 var employee = (from Employee in db.Employees where Employee.UserName == userName select Employee).First();
 
                 employee.Inactive = false;
 
                 db.SaveChanges();
-            } catch { }
+            }
+            catch { }
 
             return RedirectToAction("ListEmployees");
         }
 
         [Authorize(Roles = "Manager")]
-        public async Task<IActionResult> DeleteManager(string userName) {
-            try {
+        public async Task<IActionResult> DeleteManager(string userName)
+        {
+            try
+            {
                 return View(await userManager.FindByNameAsync(userName));
-            } catch { }
+            }
+            catch { }
 
             return RedirectToAction("ListEmployees");
         }
 
         [HttpPost]
         [Authorize(Roles = "Manager")]
-        public async Task<IActionResult> DeleteManager(Account model) {
-            try {
+        public async Task<IActionResult> DeleteManager(Account model)
+        {
+            try
+            {
                 await userManager.DeleteAsync(await userManager.FindByNameAsync(model.UserName));
 
                 return RedirectToAction("ListEmployees");
-            } catch { }
+            }
+            catch { }
 
             return View(model);
         }
