@@ -189,10 +189,91 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult EditSchoolSchedule()
+        public IActionResult SchoolSchedule()
         {
             ViewBag.IsMobile = true;
-            return View();
+
+            return View((
+                from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) && SchoolSchedule.StartDate <= DateTime.Today && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                select SchoolSchedule
+            ).ToList().OrderBy(schedule => schedule.StartTime));
+        }
+
+        [Authorize(Roles = "Employee")]
+        public IActionResult EditSchoolSchedule(Weekday weekday)
+        {
+            ViewBag.IsMobile = true;
+
+            ViewBag.CanCreateInstantly = !(from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) 
+                && SchoolSchedule.Weekday == weekday
+                select SchoolSchedule
+            ).Any();
+
+            ViewBag.Weekday = weekday;
+
+            return View((from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) 
+                && SchoolSchedule.StartDate <= DateTime.Today 
+                && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                && SchoolSchedule.Weekday == weekday
+                select SchoolSchedule
+            ).FirstOrDefault());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Employee")]
+        public IActionResult EditSchoolSchedule(SchoolSchedule schedule)
+        {
+            ViewBag.IsMobile = true;
+
+            if(schedule.EndTime < schedule.StartTime) 
+                (schedule.EndTime, schedule.StartTime) = (schedule.StartTime, schedule.EndTime);
+
+            var oldSchedule = (from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) 
+                && SchoolSchedule.StartDate <= DateTime.Today 
+                && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                && SchoolSchedule.Weekday == schedule.Weekday
+                select SchoolSchedule
+            ).ToList();
+
+            bool canCreateInstantly = !(from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) 
+                && SchoolSchedule.Weekday == schedule.Weekday
+                select SchoolSchedule
+            ).Any();
+
+            if(canCreateInstantly) schedule.StartDate = DateTime.Today;
+            else schedule.StartDate = DateTime.Today.AddDays(21);
+
+            schedule.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
+
+            // Round down start time and round up end time
+            if(schedule.StartTime.Minute != 0)
+                schedule.StartTime = schedule.StartTime.AddMinutes(-schedule.StartTime.Minute);
+
+            if(schedule.EndTime.Minute != 0)
+                schedule.EndTime = schedule.EndTime.AddHours(1).AddMinutes(-schedule.EndTime.Minute);
+
+            db.SchoolSchedules.Add(schedule);
+
+            if(oldSchedule.Count > 0) oldSchedule[0].EndDate = DateTime.Today.AddDays(21);
+
+            db.SaveChanges();
+            return RedirectToAction("SchoolSchedule");
         }
 
         [Authorize(Roles = "Employee")]
