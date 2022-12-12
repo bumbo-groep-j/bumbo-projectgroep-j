@@ -289,7 +289,7 @@ namespace WebApp.Domain.Migrations
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -328,17 +328,18 @@ namespace WebApp.Domain.Migrations
                 name: "SchoolSchedules",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     EmployeeId = table.Column<int>(type: "int", nullable: false),
                     Weekday = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SchoolSchedules", x => new { x.EmployeeId, x.Weekday, x.Id });
+                    table.PrimaryKey("PK_SchoolSchedules", x => x.Id);
                     table.ForeignKey(
                         name: "FK_SchoolSchedules_Employees_EmployeeId",
                         column: x => x.EmployeeId,
@@ -1578,6 +1579,11 @@ namespace WebApp.Domain.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Schedules_EmployeeId",
                 table: "Schedules",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SchoolSchedules_EmployeeId",
+                table: "SchoolSchedules",
                 column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
