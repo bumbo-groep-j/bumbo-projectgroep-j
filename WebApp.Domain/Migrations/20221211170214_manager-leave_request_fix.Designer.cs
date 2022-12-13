@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Domain;
 
@@ -11,9 +12,11 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    partial class BumboDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221211170214_manager-leave_request_fix")]
+    partial class managerleaverequestfix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -8232,9 +8235,6 @@ namespace WebApp.Domain.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Approved")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
@@ -8247,8 +8247,8 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("Rejected")
-                        .HasColumnType("bit");
+                    b.Property<int>("LeaveRequestStatus")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");

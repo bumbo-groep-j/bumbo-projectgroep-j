@@ -1,4 +1,7 @@
-﻿@{
+﻿@model WebApp.Domain.LeaveRequest
+
+@{
+    ViewData["Title"] = "RequestLeave";
     ViewData["Stylesheet"] = "/css/manager.css";
 }
 <header>
@@ -16,6 +19,61 @@
         <th>Aanvraagdatum</th>
         <th>Actie</th>
     </tr>
+
+    @if (!ViewBag.IsEmpty)
+    {
+        foreach (var request in ViewBag.Requests)
+        {
+            <form>
+            <tr class="tr_bg">
+
+                <!-- show the EmployeeName viewbag values-->
+                <td> @ViewBag.EmployeeName </td>
+
+                <td>
+                    <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
+                    <i>@request.EndDate.Subtract(request.StartDate)</i>
+                </td>
+
+                <td>
+                        @if (request.Approved)
+                        {
+                        <span class="accepted">Goedgekeurd</span>
+                        }
+                        else if (request.Rejected)
+                        {
+                        <span class="rejected">afgekeurd</span>
+                        }
+                        else
+                        {
+                        <span class="pending">Openstaand</span>
+                        }
+                </td>
+
+                <td>@request.Comment</td>
+                <td>@request.InsertDate.ToShortDateString()</td>
+
+                    @if (!request.Approved && !request.Rejected)
+                    {
+                    <td>
+                        <button class="red_button" asp-action="RejectLeaveRequest" asp-route-id="@request.Id">Weigeren</button>
+                        <button class="green_button" asp-action="ApproveLeaveRequest" asp-route-id="@request.Id">Accepteren</button>
+                    </td>
+                    }
+                    else
+                    {
+                    <!--Here for not a random empty place in the table-->
+                    <td></td>
+                    }
+            </tr>
+            </form>
+        }
+    }
+    else
+    {
+        <tr class="align_center">Er zijn geen aanvragen</tr>
+    }
+
     <tr class="tr_bg">
         <td>Kevin Schuren</td>
         <td>

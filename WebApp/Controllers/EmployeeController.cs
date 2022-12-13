@@ -66,6 +66,8 @@ namespace Bumbo.Controllers
             {
                 if(request.EndDate < request.StartDate) (request.StartDate, request.EndDate) = (request.EndDate, request.StartDate);
 
+                request.InsertDate = DateTime.Now;
+
                 db.LeaveRequests.Add(request);
                 db.SaveChanges();
 
