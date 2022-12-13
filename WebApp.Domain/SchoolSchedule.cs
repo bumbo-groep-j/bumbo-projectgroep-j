@@ -4,18 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApp.Domain
 {
-    [PrimaryKey("EmployeeId", "Weekday", "Id")]
     public class SchoolSchedule
     {
         [Key]
+        public int Id { get; set; }
+
         [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
 
-        [Key]
         public Weekday Weekday { get; set; }
-
-        [Key]
-        public int Id { get; set; }
 
         public Employee Employee { get; set; }
 
@@ -28,7 +25,6 @@ namespace WebApp.Domain
         [Required]
         public DateTime StartDate { get; set; }
 
-        [Required]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }
