@@ -23,9 +23,9 @@ namespace WebApp.Domain
 
         public DateTime InsertDate { get; set; }
 
-        public Status LeaveRequestStatus { get; set; }
+        public bool Approved { get; set; }
 
-        public enum Status { Pending = 0, Approved = 1, Rejected = 2 } 
+        public bool Rejected { get; set; }
 
     }
 }

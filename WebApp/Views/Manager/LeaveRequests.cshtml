@@ -20,55 +20,56 @@
         <th>Actie</th>
     </tr>
 
-
-    @foreach (var request in ViewBag.Requests)
+    @if (!ViewBag.IsEmpty)
     {
-        <form>
-        <tr class="tr_bg">
-            <!--Show the Employee name-->
-            <td>@request.EmployeeId</td>
-            <td>
-                <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
-                <i>@request.EndDate.Subtract(request.StartDate)</i>
-            </td>
-
-            <td>
-                    @if (ViewBag.Status.Equals("Approved"))
-                    {
-                    <span class="accepted"> @request.LeaveRequestStatus </span>
-                    }
-                    else if (ViewBag.Status.Equals("Rejected"))
-                    {
-                    <span class="rejected"> @request.LeaveRequestStatus </span>
-                    }
-                    else if (ViewBag.Status.Equals("Pending"))
-                    {
-                    <span class="pending"> @request.LeaveRequestStatus </span>
-                    }
-            </td>
-
-            <td>@request.Comment</td>
-
-            <!-- Fix, saying 1-1-0001 which is not correct -->
-            <td>@request.InsertDate.ToShortDateString()</td>
-
-            <!-- if the status is pending, show the buttons -->
-                @if (!ViewBag.Status.Equals("Pending"))
-                {
+        foreach (var request in ViewBag.Requests)
+        {
+            <form>
+            <tr class="tr_bg">
+                <!--Show the Employee name-->
+                <td>ViewBag.EmployeeName</td>
                 <td>
-                    <!--use the RejectLeaveRequest in the controller-->
-                    <button class="red_button" asp-action="RejectLeaveRequest" asp-route-id="@request.Id">Weigeren</button>
-                    <button class="green_button" asp-action="ApproveLeaveRequest" asp-route-id="@request.Id">Accepteren</button>
+                    <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
+                    <i>@request.EndDate.Subtract(request.StartDate)</i>
                 </td>
+
+                <td>
+                    @if (request.Approved)
+                    {
+                        <span class="accepted">Goedgekeurd</span>
+                    }
+                    else if (request.Rejected)
+                    {
+                        <span class="rejected">afgekeurd</span>
+                    }
+                    else
+                    {
+                        <span class="pending">Openstaand</span>
+                    }
+                </td>
+
+                <td>@request.Comment</td>
+                <td>@request.InsertDate.ToShortDateString()</td>
+
+                @if (!request.Approved && !request.Rejected)
+                {
+                    <td>
+                        <button class="red_button" asp-action="RejectLeaveRequest" asp-route-id="@request.Id">Weigeren</button>
+                        <button class="green_button" asp-action="ApproveLeaveRequest" asp-route-id="@request.Id">Accepteren</button>
+                    </td>
                 }
                 else
                 {
-                <!--Here for not a random empty place in the table-->
-                <td></td>
+                    <!--Here for not a random empty place in the table-->
+                    <td></td>
                 }
-        </tr>
-        </form>
-
+            </tr>
+            </form>
+        } 
+    }
+    else
+    {
+        <tr class="align_center">Er zijn geen aanvragen</tr>
     }
 
     <tr class="tr_bg">

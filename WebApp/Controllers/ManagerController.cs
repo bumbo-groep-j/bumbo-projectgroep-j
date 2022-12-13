@@ -56,7 +56,6 @@ namespace Bumbo.Controllers
         {
             ViewBag.IsEmpty = !db.LeaveRequests.Any();
             ViewBag.Requests = db.LeaveRequests.ToList();
-            ViewBag.Status = new LeaveRequest().LeaveRequestStatus;
 
             return View();
         }
@@ -64,16 +63,11 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public IActionResult ApproveLeaveRequest(int id)
         {
-            // get the request from the database
             var request = db.LeaveRequests.FirstOrDefault(r => r.Id == id);
-            // check if the request is not null
+
             if (request != null)
             {
-                // set the request to rejected from pending from the enum in the model class
-                request.LeaveRequestStatus = LeaveRequest.Status.Approved;
-                // add the status change to a viewbag so we can display it in the view
-                ViewBag.Status = request.LeaveRequestStatus;
-                // save the changes to the database
+                request.Approved = true;
                 db.SaveChanges();
 
                 return RedirectToAction("LeaveRequests");
@@ -84,18 +78,13 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public IActionResult RejectLeaveRequest(int id)
         {
-            // get the request from the database
+
             var request = db.LeaveRequests.FirstOrDefault(r => r.Id == id);
-            // check if the request is not null
+
             if (request != null)
             {
-                // set the request to rejected from pending from the enum in the model class
-                request.LeaveRequestStatus = LeaveRequest.Status.Rejected;
-                // add the status change to a viewbag so we can display it in the view
-                ViewBag.Status = request.LeaveRequestStatus;
-                // save the changes to the database
+                request.Rejected = true;
                 db.SaveChanges();
-
                 return RedirectToAction("LeaveRequests");
             }
             return View(request);
