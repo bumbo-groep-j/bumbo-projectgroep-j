@@ -1,4 +1,6 @@
-﻿@{
+﻿@using WebApp.Domain;
+@model IEnumerable<SchoolSchedule>
+@{
     ViewData["Title"] = "Schoolrooster";
     ViewData["Stylesheet"] = "/css/mobile.css";
 }
@@ -7,32 +9,16 @@
     <h1>Schoolrooster</h1>
 </header>
 <div class="content">
-    <div class="inner_div">
-        <h5><b>Maandag</b></h5>
-        08:00 - 16:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
-    </div>
-    <div class="inner_div">
-        <h5><b>Dinsdag</b></h5>
-        09:00 - 18:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
-    </div>
-    <div class="inner_div">
-        <h5><b>Woensdag</b></h5>
-        07:00 - 12:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
-    </div>
-    <div class="inner_div">
-        <h5><b>Donderdag</b></h5>
-        09:00 - 15:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
-    </div>
-    <div class="inner_div">
-        <h5><b>Vrijdag</b></h5>
-        08:00 - 12:00<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
-    </div>
-    <div class="inner_div">
-        <h5><b>Zaterdag</b></h5>
-        Geen school<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
-    </div>
-    <div class="inner_div">
-        <h5><b>Zondag</b></h5>
-        Geen school<a asp-action="EditSchoolSchedule"><span class="edit_availability">Wijzigen</span></a>
-    </div>
+    @foreach(var weekday in Enum.GetValues<Weekday>()) {
+        <div class="inner_div">
+            <h5><b>@Weekdays.GetName(weekday)</b></h5> @* Change this with whatever function we made on her branch *@
+            @if(!Model.Any(schedule => schedule.Weekday == weekday)) {
+                <span>Geen school</span>
+            } else {
+                var schedule = Model.First(schedule => schedule.Weekday == weekday);
+                <span>@schedule.StartTime.ToString("HH-mm") - @schedule.EndTime.ToString("HH-mm")</span>
+            }
+            <a asp-action="EditSchoolSchedule" asp-route-weekday="@weekday"><span class="edit_availability">Wijzigen</span></a>
+        </div>
+    }
 </div>

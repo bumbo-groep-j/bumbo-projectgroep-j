@@ -26,6 +26,5 @@ namespace WebApp.Domain
         public bool Approved { get; set; }
 
         public bool Rejected { get; set; }
-
     }
 }

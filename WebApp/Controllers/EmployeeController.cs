@@ -1,14 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Domain;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Bumbo.Controllers
 {
     public class EmployeeController : Controller
     {
         private BumboDbContext db;
+        private UserManager<Account> userManager;
 
-        public EmployeeController(BumboDbContext dbContext) { db = dbContext; }
+        public EmployeeController(BumboDbContext dbContext, UserManager<Account> user) { db = dbContext; userManager = user; }
 
         private bool IsMobile()
         {
@@ -51,8 +53,13 @@ namespace Bumbo.Controllers
         {
             if(IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
 
-            ViewBag.IsEmpty = !db.LeaveRequests.Any();
-            ViewBag.Requests = db.LeaveRequests.ToList();
+            ViewBag.Requests = (
+                from LeaveRequest in db.LeaveRequests
+                join Employee in db.Employees
+                on LeaveRequest.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User)
+                select LeaveRequest
+            ).ToList();
 
             return View();
         }
@@ -67,6 +74,7 @@ namespace Bumbo.Controllers
                 if(request.EndDate < request.StartDate) (request.StartDate, request.EndDate) = (request.EndDate, request.StartDate);
 
                 request.InsertDate = DateTime.Now;
+                request.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
 
                 db.LeaveRequests.Add(request);
                 db.SaveChanges();

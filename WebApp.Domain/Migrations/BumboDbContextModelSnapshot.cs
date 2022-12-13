@@ -222,16 +222,16 @@ namespace WebApp.Domain.Migrations
 
             modelBuilder.Entity("WebApp.Domain.Availability", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Weekday")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndTime")
@@ -243,7 +243,12 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EmployeeId", "Weekday", "Id");
+                    b.Property<int>("Weekday")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("Availabilities");
                 });
@@ -8244,9 +8249,6 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("InsertDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool>("Rejected")
                         .HasColumnType("bit");
 
@@ -8311,16 +8313,16 @@ namespace WebApp.Domain.Migrations
 
             modelBuilder.Entity("WebApp.Domain.SchoolSchedule", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Weekday")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndTime")
@@ -8332,7 +8334,12 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EmployeeId", "Weekday", "Id");
+                    b.Property<int>("Weekday")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("SchoolSchedules");
                 });
