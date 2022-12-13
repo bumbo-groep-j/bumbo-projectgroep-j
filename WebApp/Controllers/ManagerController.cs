@@ -51,12 +51,27 @@ namespace Bumbo.Controllers
             return prognosis;
         }
 
+
         [Authorize(Roles = "Manager")]
-        public IActionResult LeaveRequests()
+        public IActionResult LeaveRequests(int id)
         {
             ViewBag.IsEmpty = !db.LeaveRequests.Any();
             ViewBag.Requests = db.LeaveRequests.ToList();
 
+
+            // get the leave request join with the employee
+            // get the employee that is linked to the leave request
+            // put the employee name in the viewbag 
+
+            var leaveRequest = db.LeaveRequests.Where(x => x.Id == id).FirstOrDefault();
+            if (leaveRequest != null)
+            {
+                var employee = db.Employees.Where(x => x.Id == leaveRequest.EmployeeId).FirstOrDefault();
+                if (employee != null)
+                {
+                    ViewBag.EmployeeName = employee.Name;
+                }
+            }
             return View();
         }
 

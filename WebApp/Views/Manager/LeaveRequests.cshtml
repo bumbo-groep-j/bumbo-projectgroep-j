@@ -26,46 +26,48 @@
         {
             <form>
             <tr class="tr_bg">
-                <!--Show the Employee name-->
-                <td>ViewBag.EmployeeName</td>
+
+                <!-- show the EmployeeName viewbag values-->
+                <td> @ViewBag.EmployeeName </td>
+
                 <td>
                     <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
                     <i>@request.EndDate.Subtract(request.StartDate)</i>
                 </td>
 
                 <td>
-                    @if (request.Approved)
-                    {
+                        @if (request.Approved)
+                        {
                         <span class="accepted">Goedgekeurd</span>
-                    }
-                    else if (request.Rejected)
-                    {
+                        }
+                        else if (request.Rejected)
+                        {
                         <span class="rejected">afgekeurd</span>
-                    }
-                    else
-                    {
+                        }
+                        else
+                        {
                         <span class="pending">Openstaand</span>
-                    }
+                        }
                 </td>
 
                 <td>@request.Comment</td>
                 <td>@request.InsertDate.ToShortDateString()</td>
 
-                @if (!request.Approved && !request.Rejected)
-                {
+                    @if (!request.Approved && !request.Rejected)
+                    {
                     <td>
                         <button class="red_button" asp-action="RejectLeaveRequest" asp-route-id="@request.Id">Weigeren</button>
                         <button class="green_button" asp-action="ApproveLeaveRequest" asp-route-id="@request.Id">Accepteren</button>
                     </td>
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     <!--Here for not a random empty place in the table-->
                     <td></td>
-                }
+                    }
             </tr>
             </form>
-        } 
+        }
     }
     else
     {
