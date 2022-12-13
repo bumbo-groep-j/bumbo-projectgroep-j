@@ -6,28 +6,17 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebApp.Domain.Migrations
 {
     /// <inheritdoc />
-    public partial class managerleaverequestfix : Migration
+    public partial class leaverequests : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Approved",
-                table: "LeaveRequests");
-
             migrationBuilder.AddColumn<DateTime>(
                 name: "InsertDate",
                 table: "LeaveRequests",
                 type: "datetime2",
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-            migrationBuilder.AddColumn<int>(
-                name: "LeaveRequestStatus",
-                table: "LeaveRequests",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
         }
 
         /// <inheritdoc />
@@ -36,17 +25,6 @@ namespace WebApp.Domain.Migrations
             migrationBuilder.DropColumn(
                 name: "InsertDate",
                 table: "LeaveRequests");
-
-            migrationBuilder.DropColumn(
-                name: "LeaveRequestStatus",
-                table: "LeaveRequests");
-
-            migrationBuilder.AddColumn<bool>(
-                name: "Approved",
-                table: "LeaveRequests",
-                type: "bit",
-                nullable: false,
-                defaultValue: false);
         }
     }
 }

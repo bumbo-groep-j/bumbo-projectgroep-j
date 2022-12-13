@@ -8249,6 +8249,9 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("Rejected")
                         .HasColumnType("bit");
 
