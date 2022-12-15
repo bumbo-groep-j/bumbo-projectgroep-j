@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApp.Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Bumbo.Models;
 
 namespace Bumbo.Controllers
 {
@@ -32,7 +33,99 @@ namespace Bumbo.Controllers
         public IActionResult Availability()
         {
             if (IsMobile()) return RedirectToAction("Availability", "Mobile");
-            return View();
+
+            WeeklyAvailabilityForm form = new WeeklyAvailabilityForm();
+
+            form.Availability = new List<Availability>();
+            form.HasAvailability = new List<bool>();
+            form.CanCreateInstantly = new List<bool>();
+
+            var availabilities = (from Availability in db.Availabilities
+                join Employee in db.Employees
+                on Availability.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) 
+                && Availability.StartDate <= DateTime.Today 
+                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                select Availability
+            ).ToList();
+
+            for(int i = 0; i < 14; i++)
+            {
+                form.HasAvailability.Add(availabilities.Count(availability => availability.Weekday == (Weekday)(i % 7)) > i / 7);
+
+                if(form.HasAvailability[i])
+                    form.Availability.Add(availabilities.Where(availability => availability.Weekday == (Weekday)(i % 7)).ToList()[i / 7]);
+                else
+                    form.Availability.Add(new Availability());
+            }
+
+            for(int i = 0; i < 7; i++) 
+                form.CanCreateInstantly.Add(!(from Availability in db.Availabilities
+                    join Employee in db.Employees
+                    on Availability.EmployeeId equals Employee.Id
+                    where Employee.UserName == userManager.GetUserName(User) 
+                    && Availability.Weekday == (Weekday)i
+                    select Availability
+                ).Any());
+
+            return View(form);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Employee")]
+        public IActionResult Availability(WeeklyAvailabilityForm form) 
+        {
+            List<Availability>[] oldAvailability = new List<Availability>[7];
+            bool[] canCreateInstantly = new bool[7];
+
+            for(int i = 0; i < 7; i++)
+            {
+                oldAvailability[i] = (from Availability in db.Availabilities
+                    join Employee in db.Employees
+                    on Availability.EmployeeId equals Employee.Id
+                    where Employee.UserName == userManager.GetUserName(User) 
+                    && Availability.StartDate <= DateTime.Today 
+                    && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                    && Availability.Weekday == (Weekday)i
+                    select Availability
+                ).ToList();
+
+                canCreateInstantly[i] = !(from Availability in db.Availabilities
+                    join Employee in db.Employees
+                    on Availability.EmployeeId equals Employee.Id
+                    where Employee.UserName == userManager.GetUserName(User) 
+                    && Availability.Weekday == (Weekday)i
+                    select Availability
+                ).Any();
+            }
+
+            for(int i = 0; i < 14; i++)
+            {
+                if(form.HasAvailability[i])
+                {
+                    if(form.Availability[i].EndTime < form.Availability[i].StartTime)
+                        (form.Availability[i].EndTime, form.Availability[i].StartTime) = (form.Availability[i].StartTime, form.Availability[i].EndTime);
+
+                    if(canCreateInstantly[i % 7]) form.Availability[i].StartDate = DateTime.Today;
+                    else form.Availability[i].StartDate = DateTime.Today.AddDays(21);
+
+                    form.Availability[i].EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
+
+                    // Round up start time and round down end time
+                    if(form.Availability[i].StartTime.Minute != 0)
+                        form.Availability[i].StartTime = form.Availability[i].StartTime.AddHours(1).AddMinutes(-form.Availability[i].StartTime.Minute);
+
+                    if(form.Availability[i].EndTime.Minute != 0)
+                        form.Availability[i].EndTime = form.Availability[i].EndTime.AddMinutes(-form.Availability[i].EndTime.Minute);
+
+                    db.Availabilities.Add(form.Availability[i]);
+                }
+
+                if(oldAvailability[i % 7].Count > i / 7) oldAvailability[i % 7][i / 7].EndDate = DateTime.Today.AddDays(21);
+            }
+
+            db.SaveChanges();
+            return RedirectToAction("Availability");
         }
 
         [Authorize(Roles = "Employee")]

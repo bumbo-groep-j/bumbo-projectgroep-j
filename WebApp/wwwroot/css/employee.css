@@ -96,3 +96,27 @@ input[type="text"]::placeholder {
 .department_workschedule{
     text-align:center;
 }
+
+input[type="time"],
+input[type="date"] {
+    padding-bottom: 4px;
+    position: relative;
+    top: -2px;
+}
+
+input[type="time"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+    outline: none;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator:focus,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator:focus {
+    display: none;
+}
+
+input[type="date"] {
+    right: -34px;
+}

@@ -1,4 +1,5 @@
-﻿@model WebApp.Domain.Availability
+﻿@using WebApp.Domain;
+@model WeeklyAvailabilityForm
 @{
     ViewData["Title"] = "Availability";
     ViewData["Stylesheet"] = "/css/employee.css";
@@ -25,193 +26,82 @@
             </tr>
             <!--Start time input boxes-->
             <tr>
-                <td> Starttijd</td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
+                <td>Starttijd</td>
+                @for(int i = 0; i < 7; i++)
+                {
+                    var checkboxId = "checkbox" + i;
+                    var startTimeId = "starttime" + i;
+                    <td>
+                        <div class="time_input">
+                            <input asp-for="Availability[i].Weekday" value="@((Weekday)(i % 7))" type="hidden" />
+                            <input type="checkbox" asp-for="HasAvailability[i]" id="@checkboxId" onclick="toggleAvailability(@i);"/>
+                            <input asp-for="Availability[i].StartTime" type="time" class="form-control" id="@startTimeId"/>
+                        </div>
+                    </td>
+                }
             </tr>
             <!--End time input boxes-->
             <tr>
-                <td> Eindtijd </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm" />
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm" />
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm" />
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm "/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm "/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm" />
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm" />
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
+                <td>Eindtijd</td>
+                @for(int i = 0; i < 7; i++)
+                {
+                    var endTimeId = "endtime" + i;
+                    <td>
+                        <div class="time_input">
+                            <input asp-for="Availability[i].EndTime" type="time" class="form-control" id="@endTimeId"/>
+                        </div>
+                    </td>
+                }
             </tr>
-            <td>&nbsp;</td>
             <!--Second input. For example if they can work between 8-10 and 18-22 -->
             <!--Start time input boxes-->
             <tr>
-                <td> Starttijd</td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="StartTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="StartTime" class="text-danger"> </span>
-                    </div>
-                </td>
+                <td>Starttijd</td>
+                @for(int i = 7; i < 14; i++)
+                {
+                    var checkboxId = "checkbox" + i;
+                    var startTimeId = "starttime" + i;
+                    <td>
+                        <div class="time_input">
+                            <input asp-for="Availability[i].Weekday" value="@((Weekday)(i % 7))" type="hidden" />
+                            <input type="checkbox" asp-for="HasAvailability[i]" id="@checkboxId" onclick="toggleAvailability(@i);"/>
+                            <input asp-for="Availability[i].StartTime" type="time" class="form-control" id="@startTimeId"/>
+                        </div>
+                    </td>
+                }
             </tr>
             <!--End time input boxes-->
             <tr>
-                <td> Eindtijd </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="time_input">
-                        <input asp-for="EndTime" type="time" class="form-control" placeholder="hh:mm"/>
-                        <span asp-validation-for="EndTime" class="text-danger"> </span>
-                    </div>
-                </td>
+                <td>Eindtijd</td>
+                @for(int i = 7; i < 14; i++)
+                {
+                    var endTimeId = "endtime" + i;
+                    <td>
+                        <div class="time_input">
+                            <input asp-for="Availability[i].EndTime" type="time" class="form-control" id="@endTimeId" />
+                        </div>
+                    </td>
+                }
             </tr>
         </table>
         <div class="save_button">
-            <button>Opslaan</button>
+            <button type="submit">Opslaan</button>
         </div>
     </form>
 </div>
+<script>
+    function toggleAvailability(id) {
+        if(!$("#checkbox" + id).prop("checked")) {
+            $("#starttime" + id).prop("disabled", true);
+            $("#endtime" + id).prop("disabled", true);
+        } else {
+            $("#starttime" + id).prop("disabled", false);
+            $("#endtime" + id).prop("disabled", false);
+        }
+    }
+    window.onload = function() {
+        for(let i = 0; i < 14; i++) {
+            toggleAvailability(i);
+        }
+    }
+</script>

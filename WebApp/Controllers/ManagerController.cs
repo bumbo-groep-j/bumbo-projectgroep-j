@@ -285,6 +285,21 @@ namespace Bumbo.Controllers
 
             ScheduleForm model = new ScheduleForm();
 
+            model.Availabilities = (
+                from Availability in db.Availabilities
+                where Availability.StartDate <= DateTime.Today
+                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                && Availability.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
+                select Availability
+            ).ToList();
+
+            model.Schedules = (
+                from Schedule in db.Schedules
+                where Schedule.StartTime.Date == date
+                && Schedule.Department != department.Name
+                select Schedule
+            ).ToList();
+
             for (int i = 0; i < ViewBag.Employees.Count; i++)
                 for (int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
                     model.IsChecked.Add(false);
