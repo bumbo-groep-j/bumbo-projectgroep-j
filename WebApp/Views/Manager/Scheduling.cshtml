@@ -86,7 +86,7 @@
                             if(!Model.Availabilities.Any(availability => availability.StartTime.Hour <= hour && availability.EndTime.Hour > hour && availability.EmployeeId == employee.Id)
                             || Model.Schedules.Any(schedule => schedule.StartTime.Hour <= hour && schedule.EndTime.Hour >= hour && schedule.EmployeeId == employee.Id))
                             {
-                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour hidden" onclick="update_text(@hour);" asp-for="IsChecked[i]" disabled /></td>
+                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" disabled /></td>
                             }
                             else
                             {

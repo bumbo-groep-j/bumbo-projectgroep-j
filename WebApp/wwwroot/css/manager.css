@@ -175,6 +175,41 @@ input[type=checkbox]:checked {
     background-color: #b1b2b5;
 }
 
+input[type=checkbox]:disabled {
+    outline-color: rgba(255, 0, 0, 0.25);
+    position: relative;
+}
+
+input[type=checkbox]:disabled:hover::before {
+    position: absolute;
+    top: 24px;
+    width: 340px;
+    content: "Deze medewerker is niet beschikbaar";
+    color: black;
+    font-size: 13pt;
+    padding-top: 10px;
+    padding-left: 48px;
+    left: -4px;
+    background-color: #ffe0e8;
+    height: 48px;
+}
+
+input[type=checkbox]:disabled:hover::after {
+    position: absolute;
+    top: 32px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    border: 2px solid red;
+    content: "!"; 
+    line-height: 1.07;
+    padding-left: 10px;
+    font-size: 18pt;
+    font-weight: bold;
+    color: red;
+}
+
 .unavailable {
     position: relative;
     background-color: #ffe5e5;
