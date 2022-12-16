@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using WebApp.Domain.CSV;
 
 namespace WebApp.Domain
 {
     public class BumboDbContext : IdentityDbContext<Account>
     {
+        CsvReader csvReader = new CsvReader();
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set;}
         public DbSet<Schedule> Schedules { get; set; }
@@ -30,7 +32,11 @@ namespace WebApp.Domain
             base.OnModelCreating(modelBuilder);
 
             #region Employees
-
+            csvReader.getEmployeesExport();
+            List<Employee> employees = csvReader.GetEmployeesFromCSV();
+            modelBuilder.Entity<Employee>().HasData(
+                employees
+            );
             #endregion
 
             #region Department
@@ -50,11 +56,19 @@ namespace WebApp.Domain
             #endregion
 
             #region Schedule
-
+            csvReader.getHoursExport();
+            List<Schedule> schedules = csvReader.GetSchedulesFromCSV(employees);
+            modelBuilder.Entity<Schedule>().HasData(
+                schedules
+            );
             #endregion
 
             #region WorkedHours
-
+            csvReader.getHoursExport();
+            List<WorkedHour> hours = csvReader.GetHoursFromCSV(schedules, employees);
+            modelBuilder.Entity<WorkedHour>().HasData(
+                hours
+            );
             #endregion
 
             #region DataSet
