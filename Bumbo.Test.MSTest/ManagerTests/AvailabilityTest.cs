@@ -10,7 +10,7 @@ namespace Bumbo.Test.MSTest.ManagerTests
     public class AvailabilityTest
     {
         [TestMethod]
-        public void AvaiabilityInput_Succes()
+        public void AvaiabilityInputSuccess()
         {
 
         }

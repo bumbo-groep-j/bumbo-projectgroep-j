@@ -14,7 +14,7 @@ namespace Bumbo.Test.MSTest.ManagerTests
     public class RequestLeaveTest
     {
         [TestMethod]
-        public void RequestLeaveStatusChange_Succes()
+        public void RequestLeaveStatusChangeSuccess()
         {
 
         }

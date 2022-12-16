@@ -4,7 +4,7 @@ namespace Bumbo.Test.MSTest.General
     public class LoginTest
     {
         [TestMethod]
-        public void Login_Succes()
+        public void LoginSuccess()
         {
 
         }

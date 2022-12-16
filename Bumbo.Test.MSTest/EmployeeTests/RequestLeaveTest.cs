@@ -18,7 +18,7 @@ namespace Bumbo.Test.MSTest.EmployeeTests
         // No idea, if this is good for testing
         
         [TestMethod]
-        public void RequestLeaveSavedToDB_Succes()
+        public void RequestLeaveSavedToDBSuccess()
         {
             // Arrange
             var leaveRequest = new LeaveRequest
@@ -44,7 +44,7 @@ namespace Bumbo.Test.MSTest.EmployeeTests
         }
 
         [TestMethod]
-        public void RequestLeaveLinkedUser_Succes()
+        public void RequestLeaveLinkedUserSuccess()
         {
             // Arrange
             var leaveRequest = new LeaveRequest
