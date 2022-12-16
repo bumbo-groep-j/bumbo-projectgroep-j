@@ -16,7 +16,7 @@ namespace Bumbo.Test.MSTest.EmployeeTests
     public class RequestLeaveTest
     {
         [TestMethod]
-        public void RequestLeaveSavedToDB_Good()
+        public void RequestLeaveSavedToDB_Succes()
         {
             // Arrange
             var leaveRequest = new LeaveRequest
