@@ -642,6 +642,7 @@ namespace Bumbo.Controllers
                     employee.DateOfBirth = model.DateOfBirth;
                     employee.NFCToken = model.NFCToken;
                     employee.HourlyWage = model.HourlyWage;
+                    employee.Inactive = model.Inactive;
 
                     db.SaveChanges();
 
@@ -651,53 +652,6 @@ namespace Bumbo.Controllers
             catch { }
 
             return View(model);
-        }
-
-        [Authorize(Roles = "Manager")]
-        public IActionResult DeleteEmployee(string userName)
-        {
-            try
-            {
-                return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
-            }
-            catch { }
-
-            return RedirectToAction("ListEmployees");
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "Manager")]
-        public IActionResult DeleteEmployee(Employee model)
-        {
-            try
-            {
-                var employee = (from Employee in db.Employees where Employee.UserName == model.UserName select Employee).First();
-
-                employee.Inactive = true;
-
-                db.SaveChanges();
-
-                return RedirectToAction("ListEmployees");
-            }
-            catch { }
-
-            return View(model);
-        }
-
-        [Authorize(Roles = "Manager")]
-        public IActionResult ReactivateEmployee(string userName)
-        {
-            try
-            {
-                var employee = (from Employee in db.Employees where Employee.UserName == userName select Employee).First();
-
-                employee.Inactive = false;
-
-                db.SaveChanges();
-            }
-            catch { }
-
-            return RedirectToAction("ListEmployees");
         }
 
         [Authorize(Roles = "Manager")]

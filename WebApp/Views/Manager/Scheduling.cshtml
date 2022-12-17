@@ -55,6 +55,9 @@
             <input type="hidden" asp-for="Day" value="@ViewBag.Date.Day" />
             <input type="hidden" asp-for="Month" value="@ViewBag.Date.Month" />
             <input type="hidden" asp-for="Year" value="@ViewBag.Date.Year" />
+            <div class="space_around">
+                <button type="submit">Opslaan</button>
+            </div>
             <table>
                 <tr>
                     <td class="align_center"></td>
@@ -86,20 +89,17 @@
                             if(!Model.Availabilities.Any(availability => availability.StartTime.Hour <= hour && availability.EndTime.Hour > hour && availability.EmployeeId == employee.Id)
                             || Model.Schedules.Any(schedule => schedule.StartTime.Hour <= hour && schedule.EndTime.Hour >= hour && schedule.EmployeeId == employee.Id))
                             {
-                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" disabled /></td>
+                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour scheduling_checkbox" onclick="update_text(@hour);" asp-for="IsChecked[i]" disabled /></td>
                             }
                             else
                             {
-                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
+                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour scheduling_checkbox" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
                             }
                             i++;
                         }
                     </tr>
                 }
             </table>
-            <div class="space_around">
-                <button type="submit">Opslaan</button>
-            </div>
         </form>
     </div>
 </div>
