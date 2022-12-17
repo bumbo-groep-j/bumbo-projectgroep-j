@@ -49,5 +49,8 @@ namespace WebApp.Domain
                 return FirstName + " " + (MiddleName != null ? MiddleName + " " : "") + LastName;
             }
         }
+
+        [NotMapped]
+        public bool OldEnough { get; set; }
     }
 }

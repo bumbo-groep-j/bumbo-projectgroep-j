@@ -84,18 +84,21 @@
                 {
                     <tr>
                         <td class="align_right" colspan="3">@employee.Name</td>
-                        @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                        @if(employee.OldEnough)
                         {
-                            if(!Model.Availabilities.Any(availability => availability.StartTime.Hour <= hour && availability.EndTime.Hour > hour && availability.EmployeeId == employee.Id)
-                            || Model.Schedules.Any(schedule => schedule.StartTime.Hour <= hour && schedule.EndTime.Hour >= hour && schedule.EmployeeId == employee.Id))
+                            for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
                             {
-                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour scheduling_checkbox" onclick="update_text(@hour);" asp-for="IsChecked[i]" disabled /></td>
+                                if(!Model.Availabilities.Any(availability => availability.StartTime.Hour <= hour && availability.EndTime.Hour > hour && availability.EmployeeId == employee.Id)
+                                || Model.Schedules.Any(schedule => schedule.StartTime.Hour <= hour && schedule.EndTime.Hour >= hour && schedule.EmployeeId == employee.Id))
+                                {
+                                    <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour scheduling_checkbox" onclick="update_text(@hour);" asp-for="IsChecked[i]" disabled /></td>
+                                }
+                                else
+                                {
+                                    <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour scheduling_checkbox" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
+                                }
+                                i++;
                             }
-                            else
-                            {
-                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour scheduling_checkbox" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
-                            }
-                            i++;
                         }
                     </tr>
                 }

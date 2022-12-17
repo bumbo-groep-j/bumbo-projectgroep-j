@@ -320,6 +320,9 @@ namespace Bumbo.Controllers
                         for (int hour = schedule.StartTime.Hour; hour <= schedule.EndTime.Hour; hour++)
                             model.IsChecked[i * hours + hour - ViewBag.StartHour] = true;
 
+            foreach(Employee employee in ViewBag.Employees)
+                employee.OldEnough = employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today;
+
             return View(model);
         }
 
