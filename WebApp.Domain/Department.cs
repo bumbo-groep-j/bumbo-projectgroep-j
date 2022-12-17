@@ -9,5 +9,8 @@ namespace WebApp.Domain
 
         [Required]
         public string PredictionValueName { get; set; }
+
+        [Required]
+        public int MinimumAge { get; set; }
     }
 }

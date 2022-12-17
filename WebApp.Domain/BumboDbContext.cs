@@ -47,9 +47,9 @@ namespace WebApp.Domain
 
             #region Department
             modelBuilder.Entity<Department>().HasData(
-                new Department { Name = "Kassa", PredictionValueName = "Bezoekers" },
-                new Department { Name = "VKK",   PredictionValueName = "Colli" },
-                new Department { Name = "Vers",  PredictionValueName = "Colli" }
+                new Department { Name = "Kassa", PredictionValueName = "Bezoekers", MinimumAge = 16},
+                new Department { Name = "VKK",   PredictionValueName = "Colli", MinimumAge = 13 },
+                new Department { Name = "Vers",  PredictionValueName = "Colli", MinimumAge = 16 }
             );
             #endregion
 
