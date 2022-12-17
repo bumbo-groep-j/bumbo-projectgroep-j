@@ -6,16 +6,28 @@ namespace WebApp.Domain
     public class BumboDbContext : IdentityDbContext<Account>
     {
         public DbSet<Employee> Employees { get; set; }
+
         public DbSet<Department> Departments { get; set;}
+
         public DbSet<Schedule> Schedules { get; set; }
-        public DbSet<SchoolSchedule> SchoolSchedules { get; set; }  
+
+        public DbSet<SchoolSchedule> SchoolSchedules { get; set; }
+
         public DbSet<WorkedHour> WorkedHours { get; set; }
+
         public DbSet<Prognosis> Prognosis { get; set; }
+
         public DbSet<Availability> Availabilities { get; set; }
+
         public DbSet<DataSet> DataSets { get; set; }
+
         public DbSet<DataPoint> DataPoints { get; set; }
+
         public DbSet<HourlyPoint> HourlyPoints { get; set; }
+
         public DbSet<LeaveRequest> LeaveRequests { get; set; }
+
+        public DbSet<CAORegulation> CAORegulations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
@@ -38,6 +50,14 @@ namespace WebApp.Domain
                 new Department { Name = "Kassa", PredictionValueName = "Bezoekers" },
                 new Department { Name = "VKK",   PredictionValueName = "Colli" },
                 new Department { Name = "Vers",  PredictionValueName = "Colli" }
+            );
+            #endregion
+
+            #region CAORegulation
+            modelBuilder.Entity<CAORegulation>().HasData(
+                new CAORegulation { Age = 13, AllowedHoursSchoolDay = 2, AllowedHoursSchoolWeek = 12, AllowedHoursNotSchoolDay = 7, AllowedHoursNotSchoolWeek = 35, AllowedHours4Weeks = 140 },
+                new CAORegulation { Age = 15, AllowedHoursSchoolDay = 2, AllowedHoursSchoolWeek = 12, AllowedHoursNotSchoolDay = 8, AllowedHoursNotSchoolWeek = 40, AllowedHours4Weeks = 160 },
+                new CAORegulation { Age = 16, AllowedHoursSchoolDay = 9, AllowedHoursSchoolWeek = 45, AllowedHoursNotSchoolDay = 9, AllowedHoursNotSchoolWeek = 45, AllowedHours4Weeks = 160 }
             );
             #endregion
 
