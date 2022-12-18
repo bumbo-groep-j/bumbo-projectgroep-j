@@ -29,6 +29,8 @@ namespace WebApp.Domain
 
         public DbSet<CAORegulation> CAORegulations { get; set; }
 
+        public DbSet<SchoolHoliday> SchoolHolidays { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
             if (!optionBuilder.IsConfigured)
@@ -58,6 +60,16 @@ namespace WebApp.Domain
                 new CAORegulation { Age = 13, AllowedHoursSchoolDay = 2, AllowedHoursSchoolWeek = 12, AllowedHoursNotSchoolDay = 7, AllowedHoursNotSchoolWeek = 35, AllowedHours4Weeks = 140 },
                 new CAORegulation { Age = 15, AllowedHoursSchoolDay = 2, AllowedHoursSchoolWeek = 12, AllowedHoursNotSchoolDay = 8, AllowedHoursNotSchoolWeek = 40, AllowedHours4Weeks = 160 },
                 new CAORegulation { Age = 16, AllowedHoursSchoolDay = 9, AllowedHoursSchoolWeek = 45, AllowedHoursNotSchoolDay = 9, AllowedHoursNotSchoolWeek = 45, AllowedHours4Weeks = 160 }
+            );
+            #endregion
+
+            #region SchoolHoliday
+            modelBuilder.Entity<SchoolHoliday>().HasData(
+                new SchoolHoliday { Id = 1, StartDate = new DateTime(2022, 10, 22), EndDate = new DateTime(2022, 10, 30) },
+                new SchoolHoliday { Id = 2, StartDate = new DateTime(2022, 12, 24), EndDate = new DateTime(2023, 1, 8) },
+                new SchoolHoliday { Id = 3, StartDate = new DateTime(2023, 2, 18), EndDate = new DateTime(2023, 2, 26) },
+                new SchoolHoliday { Id = 4, StartDate = new DateTime(2023, 4, 29), EndDate = new DateTime(2023, 5, 7) },
+                new SchoolHoliday { Id = 5, StartDate = new DateTime(2023, 6, 15), EndDate = new DateTime(2023, 7, 27) }
             );
             #endregion
 

@@ -51,6 +51,15 @@ namespace WebApp.Domain
         }
 
         [NotMapped]
-        public bool OldEnough { get; set; }
+        public bool CanWork { get; set; }
+
+        [NotMapped]
+        public int AllowedHoursToday { get; set; }
+
+        [NotMapped]
+        public int AllowedHoursWeek { get; set; }
+
+        [NotMapped]
+        public int AllowedHours4Weeks { get; set; }
     }
 }
