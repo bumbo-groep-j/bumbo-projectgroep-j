@@ -307,8 +307,8 @@ namespace Bumbo.Controllers
             var existingSchedule = (
                 from Schedule
                 in db.Schedules
-                where Schedule.StartTime.Day == date.Day && Schedule.StartTime.Month == date.Month
-                && Schedule.StartTime.Year == date.Year && Schedule.Department == department.Name
+                where Schedule.StartTime.Date == date
+                && Schedule.Department == department.Name
                 select Schedule
             ).ToList();
 
@@ -319,6 +319,121 @@ namespace Bumbo.Controllers
                     if (ViewBag.Employees[i].Id == schedule.EmployeeId)
                         for (int hour = schedule.StartTime.Hour; hour <= schedule.EndTime.Hour; hour++)
                             model.IsChecked[i * hours + hour - ViewBag.StartHour] = true;
+
+            var regulations = (from CAORegulation in db.CAORegulations orderby CAORegulation.Age descending select CAORegulation).ToList();
+
+            ViewBag.EmployeeIds = (from Employee in db.Employees where !Employee.Inactive select Employee.Id).ToList();
+
+            foreach(Employee employee in ViewBag.Employees)
+            {
+                employee.CanWork = employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today && !(
+                    from LeaveRequest
+                    in db.LeaveRequests
+                    where LeaveRequest.EmployeeId == employee.Id
+                    && LeaveRequest.StartDate <= date
+                    && LeaveRequest.EndDate >= date
+                    select LeaveRequest
+                ).Any();
+
+                if(employee.DateOfBirth.AddYears(18) <= DateTime.Today)
+                {
+                    employee.AllowedHoursToday  =  24;
+                    employee.AllowedHoursWeek   = 168;
+                    employee.AllowedHours4Weeks = 672;
+                }
+                else
+                {
+                    employee.AllowedHoursToday  = 0;
+                    employee.AllowedHoursWeek   = 0;
+                    employee.AllowedHours4Weeks = 0;
+
+                    int workedHoursToday  = 0;
+                    int workedHoursWeek   = 0;
+                    int workedHours4Weeks = 0;
+
+                    foreach(var schedule in (
+                        from Schedule
+                        in db.Schedules
+                        where Schedule.StartTime.Date == date
+                        && Schedule.EmployeeId == employee.Id
+                        select Schedule
+                    )) if(!existingSchedule.Contains(schedule)) workedHoursToday += schedule.EndTime.Hour - schedule.StartTime.Hour;
+
+                    foreach(var schedule in (
+                        from Schedule
+                        in db.Schedules
+                        where Schedule.StartTime.Date >= date.AddDays(1 - (int)date.DayOfWeek)
+                        && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
+                        && Schedule.EmployeeId == employee.Id
+                        select Schedule
+                    )) if(!existingSchedule.Contains(schedule)) workedHoursWeek += schedule.EndTime.Hour - schedule.StartTime.Hour;
+
+                    foreach(var schedule in (
+                        from Schedule
+                        in db.Schedules
+                        where Schedule.StartTime.Date >= date.AddDays(-20 - (int)date.DayOfWeek)
+                        && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
+                        && Schedule.EmployeeId == employee.Id
+                        select Schedule
+                    )) if(!existingSchedule.Contains(schedule)) workedHours4Weeks += schedule.EndTime.Hour - schedule.StartTime.Hour;
+
+                    bool schoolDay = !(
+                        from SchoolHoliday
+                        in db.SchoolHolidays
+                        where SchoolHoliday.StartDate <= date
+                        && SchoolHoliday.EndDate > date
+                        select SchoolHoliday
+                    ).Any() && (
+                        from SchoolSchedule
+                        in db.SchoolSchedules
+                        where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
+                        && SchoolSchedule.StartDate <= date
+                        && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
+                        && SchoolSchedule.EmployeeId == employee.Id
+                        select SchoolSchedule
+                    ).Any();
+
+                    bool schoolWeek = !(
+                        from SchoolHoliday
+                        in db.SchoolHolidays
+                        where SchoolHoliday.StartDate <= date
+                        && SchoolHoliday.EndDate > date
+                        select SchoolHoliday
+                    ).Any() && (
+                        from SchoolSchedule
+                        in db.SchoolSchedules
+                        where SchoolSchedule.StartDate <= date
+                        && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
+                        && SchoolSchedule.EmployeeId == employee.Id
+                        select SchoolSchedule
+                    ).Any();
+
+                    foreach(var regulation in regulations)
+                    {
+                        if(employee.DateOfBirth.AddYears(regulation.Age) <= DateTime.Today)
+                        {
+                            if(schoolDay)
+                            {
+                                employee.AllowedHoursToday = regulation.AllowedHoursSchoolDay;
+                                employee.AllowedHoursWeek  = regulation.AllowedHoursSchoolWeek;
+                            }
+                            else
+                            {
+                                employee.AllowedHoursToday = regulation.AllowedHoursNotSchoolDay;
+                                employee.AllowedHoursWeek  = regulation.AllowedHoursNotSchoolWeek;
+                            }
+
+                            employee.AllowedHours4Weeks  = regulation.AllowedHours4Weeks;
+
+                            employee.AllowedHoursToday  -= workedHoursToday;
+                            employee.AllowedHoursWeek   -= workedHoursWeek;
+                            employee.AllowedHours4Weeks -= workedHours4Weeks;
+
+                            break;
+                        }
+                    }
+                }
+            }
 
             return View(model);
         }
@@ -642,6 +757,7 @@ namespace Bumbo.Controllers
                     employee.DateOfBirth = model.DateOfBirth;
                     employee.NFCToken = model.NFCToken;
                     employee.HourlyWage = model.HourlyWage;
+                    employee.Inactive = model.Inactive;
 
                     db.SaveChanges();
 
@@ -651,53 +767,6 @@ namespace Bumbo.Controllers
             catch { }
 
             return View(model);
-        }
-
-        [Authorize(Roles = "Manager")]
-        public IActionResult DeleteEmployee(string userName)
-        {
-            try
-            {
-                return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
-            }
-            catch { }
-
-            return RedirectToAction("ListEmployees");
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "Manager")]
-        public IActionResult DeleteEmployee(Employee model)
-        {
-            try
-            {
-                var employee = (from Employee in db.Employees where Employee.UserName == model.UserName select Employee).First();
-
-                employee.Inactive = true;
-
-                db.SaveChanges();
-
-                return RedirectToAction("ListEmployees");
-            }
-            catch { }
-
-            return View(model);
-        }
-
-        [Authorize(Roles = "Manager")]
-        public IActionResult ReactivateEmployee(string userName)
-        {
-            try
-            {
-                var employee = (from Employee in db.Employees where Employee.UserName == userName select Employee).First();
-
-                employee.Inactive = false;
-
-                db.SaveChanges();
-            }
-            catch { }
-
-            return RedirectToAction("ListEmployees");
         }
 
         [Authorize(Roles = "Manager")]
