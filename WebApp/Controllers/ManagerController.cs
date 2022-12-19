@@ -53,26 +53,18 @@ namespace Bumbo.Controllers
 
 
         [Authorize(Roles = "Manager")]
-        public IActionResult LeaveRequests(int id)
+        public IActionResult LeaveRequests()
         {
+
             ViewBag.IsEmpty = !db.LeaveRequests.Any();
-            ViewBag.Requests = db.LeaveRequests.ToList();
 
+            ViewBag.Requests = (from LeaveRequest in db.LeaveRequests
+                                join Employee in db.Employees
+                                on LeaveRequest.EmployeeId equals Employee.Id
+                                select Tuple.Create(LeaveRequest, Employee)).ToList();
 
-            // get the leave request join with the employee
-            // get the employee that is linked to the leave request
-            // put the employee name in the viewbag 
-
-            var leaveRequest = db.LeaveRequests.Where(x => x.Id == id).FirstOrDefault();
-            if (leaveRequest != null)
-            {
-                var employee = db.Employees.Where(x => x.Id == leaveRequest.EmployeeId).FirstOrDefault();
-                if (employee != null)
-                {
-                    ViewBag.EmployeeName = employee.Name;
-                }
-            }
             return View();
+
         }
 
         [Authorize(Roles = "Manager")]

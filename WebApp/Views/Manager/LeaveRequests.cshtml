@@ -20,10 +20,17 @@
         <th>Actie</th>
     </tr>
 
+    <!-- for each request show the following: the employee name, the start and endate in shortdatestring,
+            if the request is approved, rejected or pending, the comment of the leave request, the date it got inserted and the buttons if
+            the leave request hasn't been accepted or rejecteed-->
     @if (!ViewBag.IsEmpty)
     {
-        foreach (var request in ViewBag.Requests)
+        @foreach (var request in ViewBag.Requests)
         {
+            <!-- for each request show the following: the employee name, the start and endate in shortdatestring,
+            if the request is approved, rejected or pending, the comment of the leave request, the date it got inserted and the buttons if
+            the leave request hasn't been accepted or rejecteed-->
+
             <form>
             <tr class="tr_bg">
 
@@ -73,54 +80,6 @@
     {
         <tr class="align_center">Er zijn geen aanvragen</tr>
     }
-
-    <tr class="tr_bg">
-        <td>Kevin Schuren</td>
-        <td>
-            <b>23 Nov 2022 &ndash; 27 Nov 2022</b><br />
-            <i>5 dagen</i>
-        </td>
-        <td><span class="pending">Openstaand</span></td>
-        <td>Vakantie</td>
-        <td>6 Nov 2022</td>
-        <td>
-            <button class="red_button">Weigeren</button>
-            <button class="green_button">Accepteren</button>
-        </td>
-    </tr>
-    <tr class="tr_bg">
-        <td>Katja Ryzhkova</td>
-        <td>
-            <b>22 Nov 2022 &ndash; 24 Nov 2022</b><br />
-            <i>3 dagen</i>
-        </td>
-        <td><span class="accepted">Goedgekeurd</span></td>
-        <td>Ziekte</td>
-        <td>2 Nov 2022</td>
-        <td></td>
-    </tr>
-    <tr class="tr_bg">
-        <td>Chinook Walther</td>
-        <td>
-            <b>28 Nov 2022 &ndash; 31 Nov 2022</b><br />
-            <i>4 dagen</i>
-        </td>
-        <td><span class="rejected">Afgekeurd</span></td>
-        <td>Vakantie</td>
-        <td>10 Jul 2022</td>
-        <td></td>
-    </tr>
-    <tr class="tr_bg">
-        <td>Thampie Anthonyrajah</td>
-        <td>
-            <b>9 Nov 2022 &ndash; 31 Nov 2022</b><br />
-            <i>23 dagen</i>
-        </td>
-        <td><span class="accepted">Goedgekeurd</span></td>
-        <td>Vakantie</td>
-        <td>8 Jul 2022</td>
-        <td></td>
-    </tr>
 </table>
 <p class="align_right">
     Pagina 1 van 1
@@ -134,3 +93,4 @@
     <a asp-controller="Manager" asp-action="LeaveRequests" class="visible_link">Vorige pagina</a>
     <a asp-controller="Manager" asp-action="LeaveRequests" class="visible_link">Volgende pagina</a>
 </p>
+
