@@ -6,7 +6,7 @@ namespace WebApp.Domain
 {
     public class BumboDbContext : IdentityDbContext<Account>
     {
-        CsvReader csvReader = new CsvReader();
+        private CsvReader csvReader = new CsvReader();
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set;}
         public DbSet<Schedule> Schedules { get; set; }

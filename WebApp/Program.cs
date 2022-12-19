@@ -16,7 +16,6 @@ builder.Services.AddIdentity<Account, IdentityRole>(
     options =>
     {
         options.SignIn.RequireConfirmedAccount = false;
-
         options.Password.RequireDigit = false;
         options.Password.RequiredLength = 6;
         options.Password.RequireNonAlphanumeric = false;

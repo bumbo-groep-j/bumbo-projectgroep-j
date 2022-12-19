@@ -12,13 +12,6 @@ namespace WebApp.Domain.CSV
     public class CsvReader
     {
         private string _csvFilePath;
-
-
-        public CsvReader()
-        {
-            
-        }
-
         public void getHoursExport()
         {
             _csvFilePath = @"wwwroot/src/hours_export_1year.csv";
@@ -29,19 +22,15 @@ namespace WebApp.Domain.CSV
             _csvFilePath = @"wwwroot/src/medewerkers_export.csv";
         }
 
-
         public List<Employee> GetEmployeesFromCSV( )
         {
             StreamReader reader = new StreamReader(_csvFilePath);
             List<Employee> employeesFromCSV = new List<Employee>();
-
             string[]columns = reader.ReadLine().Split(',');
             int id = 1;
-
             while (!reader.EndOfStream)
             {
-                int count = 0;
-                
+                int count = 0
                 string[] rows = reader.ReadLine().Split(',');
                 Employee employee = new Employee();
                 foreach ( string column in columns )
@@ -100,11 +89,9 @@ namespace WebApp.Domain.CSV
             List<WorkedHour> hoursFromCSV = new List<WorkedHour>();
             string[] columns = reader.ReadLine().Split(',');
             int id = 1;
-
             while (id < 500)
             {
                 int count = 0;
-
                 string[] rows = reader.ReadLine().Split(',');
                 WorkedHour hour = new WorkedHour();
                 Employee employee = employees.First(e => rows[1].Contains(e.FirstName + ' ' + e.MiddleName));
@@ -132,18 +119,15 @@ namespace WebApp.Domain.CSV
             }
             return hoursFromCSV;
         }
-
         public List<Schedule> GetSchedulesFromCSV(List<Employee> employees)
         {
             StreamReader reader = new StreamReader(_csvFilePath);
             List<Schedule> schedulesFromCSV = new List<Schedule>();
             string[] columns = reader.ReadLine().Split(',');
             int id = 1;
-
             while ( id < 500)
             {
                 int count = 0;
-
                 string[] rows = reader.ReadLine().Split(',');
                 Schedule schedule = new Schedule();
                 Employee employee = employees.First(e => rows[1].Contains(e.FirstName + ' ' + e.MiddleName));
@@ -160,7 +144,6 @@ namespace WebApp.Domain.CSV
                     }
                     count++;
                 }
-
                 schedule.Department = employee.Department.Name;
                 schedulesFromCSV.Add(schedule);
                 schedule.EmployeeId = employee.Id;
