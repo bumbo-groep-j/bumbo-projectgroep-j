@@ -20,9 +20,7 @@
         <th>Actie</th>
     </tr>
 
-    <!-- for each request show the following: the employee name, the start and endate in shortdatestring,
-            if the request is approved, rejected or pending, the comment of the leave request, the date it got inserted and the buttons if
-            the leave request hasn't been accepted or rejecteed-->
+
     @if (!ViewBag.IsEmpty)
     {
         @foreach (var entry in ViewBag.Requests)
@@ -30,19 +28,24 @@
             var request = entry.Item1;
             var employeeName = entry.Item2.Name;
 
-            <!-- for each request show the following: the employee name, the start and endate in shortdatestring,
-            if the request is approved, rejected or pending, the comment of the leave request, the date it got inserted and the buttons if
-            the leave request hasn't been accepted or rejecteed-->
-
             <form>
             <tr class="tr_bg">
-
-                <!-- show the EmployeeName viewbag values-->
                 <td> @employeeName </td>
 
                 <td>
                     <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
-                    <i>@request.EndDate.Subtract(request.StartDate)</i>
+                        @{
+                            var duration = request.EndDate.Subtract(request.StartDate);
+                            var days = duration.Days + 1;
+                        }
+                        @if (days == 1)
+                        {
+                        <i>@days dag</i>
+                        }
+                        else
+                        {
+                        <i>@days dagen</i>
+                        }
                 </td>
 
                 <td>
