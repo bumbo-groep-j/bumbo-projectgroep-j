@@ -12,8 +12,8 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    [Migration("20221216083603_schedules_from_csv_500")]
-    partial class schedulesfromcsv500
+    [Migration("20221219093638_schedule_from_csv_500")]
+    partial class schedulefromcsv500
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -14311,3994 +14311,3994 @@ namespace WebApp.Domain.Migrations
                         new
                         {
                             Id = -1,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -152,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -2,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -313,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -3,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -295,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -4,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -114,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -5,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -373,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -6,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -500,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -7,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -155,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -8,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -92,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -9,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -487,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -10,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -57,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -11,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -376,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -12,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -78,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -13,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -261,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -14,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -228,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -15,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -414,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -16,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -357,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -17,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -194,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -18,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -198,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -19,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -432,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -20,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -241,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -21,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -495,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -22,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -460,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -23,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -457,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -24,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -437,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -25,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -435,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -26,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -297,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -27,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -176,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -28,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -38,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -29,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -182,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -30,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -365,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -31,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -96,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -32,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -486,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -33,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -45,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -34,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -154,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -35,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -49,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -36,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -468,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -37,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -477,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -38,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -98,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -39,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -490,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -40,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -110,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -41,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -324,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -42,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -164,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -43,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -3,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -44,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -288,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -45,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -430,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -46,
                             Department = "Kassa",
                             EmployeeId = -255,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -47,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -119,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -48,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -214,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -49,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -298,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -50,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -14,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -51,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -128,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -52,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -475,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -53,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -277,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -54,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -201,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -55,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -252,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -56,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -290,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -57,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -24,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -58,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -142,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -59,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -51,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -60,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -459,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -61,
                             Department = "Kassa",
                             EmployeeId = -104,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -62,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -217,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -63,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -452,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -64,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -125,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -65,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -15,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -66,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -163,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -67,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -43,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -68,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -354,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -69,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -306,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -70,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -224,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -71,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -169,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -72,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -239,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -73,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -33,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -74,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -356,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -75,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -402,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -76,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -25,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -77,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -215,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -78,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -206,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -79,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -209,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -80,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -6,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -81,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -236,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -82,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -421,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -83,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -375,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -84,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -259,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -85,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -234,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -86,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -156,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -87,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -122,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -88,
                             Department = "Kassa",
                             EmployeeId = -37,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -89,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -134,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -90,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -361,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -91,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -284,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -92,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -133,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -93,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -426,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -94,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -443,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -95,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -233,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -96,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -246,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -97,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -251,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -98,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -12,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -99,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -423,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -100,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -289,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -101,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -118,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -102,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -388,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -103,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -137,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -104,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -335,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -105,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -279,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -106,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -448,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -107,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -99,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -108,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -329,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -109,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -320,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -110,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -277,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -111,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -7,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -112,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -204,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -113,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -90,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -114,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -120,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -115,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -492,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -116,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -11,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -117,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -200,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -118,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -428,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -119,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -49,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -120,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -370,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -121,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -487,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -122,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -472,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -123,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -304,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -124,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -420,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -125,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -280,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -126,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -379,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -127,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -432,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -128,
                             Department = "Kassa",
                             EmployeeId = -255,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -129,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -28,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -130,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -275,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -131,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -365,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -132,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -326,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -133,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -184,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -134,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -394,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -135,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -40,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -136,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -155,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -137,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -217,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -138,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -334,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -139,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -346,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -140,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -78,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -141,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -369,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -142,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -342,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -143,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -10,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -144,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -422,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -145,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -340,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -146,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -189,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -147,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -166,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -148,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -419,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -149,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -479,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -150,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -234,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -151,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -68,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -152,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -240,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -153,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -176,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -154,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -224,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -155,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -190,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -156,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -173,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -157,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -269,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -158,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -264,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -159,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -464,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -160,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -33,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -161,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -72,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -162,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -59,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -163,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -163,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -164,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -359,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -165,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -158,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -166,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -109,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -167,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -360,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -168,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -268,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -169,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -205,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -170,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -460,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -171,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -384,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -172,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -392,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -173,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -389,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -174,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -484,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -175,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -159,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -176,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -66,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -177,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -227,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -178,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -222,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -179,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -374,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -180,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -306,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -181,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -73,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -182,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -404,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -183,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -431,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -184,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -6,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -185,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -486,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -186,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -1,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -187,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -480,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -188,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -156,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -189,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -127,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -190,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -434,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -191,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -329,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -192,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -184,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -193,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -491,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -194,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -119,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -195,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -36,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -196,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -375,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -197,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -229,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -198,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -115,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -199,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -445,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -200,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -376,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -201,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -374,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -202,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -218,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -203,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -415,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -204,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -11,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -205,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -350,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -206,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -209,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -207,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -9,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -208,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -285,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -209,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -455,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -210,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -142,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -211,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -419,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -212,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -385,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -213,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -492,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -214,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -325,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -215,
                             Department = "Kassa",
                             EmployeeId = -58,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -216,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -149,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -217,
                             Department = "Kassa",
                             EmployeeId = -18,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -218,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -63,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -219,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -382,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -220,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -132,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -221,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -303,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -222,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -410,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -223,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -332,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -224,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -198,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -225,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -3,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -226,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -195,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -227,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -134,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -228,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -499,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -229,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -106,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -230,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -446,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -231,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -384,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -232,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -27,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -233,
                             Department = "Kassa",
                             EmployeeId = -177,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -234,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -136,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -235,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -153,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -236,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -73,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -237,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -406,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -238,
                             Department = "Kassa",
                             EmployeeId = -193,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -239,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -6,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -240,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -94,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -241,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -368,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -242,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -76,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -243,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -129,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -244,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -389,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -245,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -161,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -246,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -16,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -247,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -86,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -248,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -288,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -249,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -321,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -250,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -151,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -251,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -403,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -252,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -482,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -253,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -42,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -254,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -317,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -255,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -340,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -256,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -159,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -257,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -248,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -258,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -232,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -259,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -462,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -260,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -476,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -261,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -75,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -262,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -373,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -263,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -74,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -264,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -192,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -265,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -13,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -266,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -284,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -267,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -249,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -268,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -473,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -269,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -44,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -270,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -107,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -271,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -250,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -272,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -81,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -273,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -245,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -274,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -114,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -275,
                             Department = "Kassa",
                             EmployeeId = -255,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -276,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -392,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -277,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -381,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -278,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -338,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -279,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -5,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -280,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -280,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -281,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -313,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -282,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -414,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -283,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -320,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -284,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -64,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -285,
                             Department = "Kassa",
                             EmployeeId = -58,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -286,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -144,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -287,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -21,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -288,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -376,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -289,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -204,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -290,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -474,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -291,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -136,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -292,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -481,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -293,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -82,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -294,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -166,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -295,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -266,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -296,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -264,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -297,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -362,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -298,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -375,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -299,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -462,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -300,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -374,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -301,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -403,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -302,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -157,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -303,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -294,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -304,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -145,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -305,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -227,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -306,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -335,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -307,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -90,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -308,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -6,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -309,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -137,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -310,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -482,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -311,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -386,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -312,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -249,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -313,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -305,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -314,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -343,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -315,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -10,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -316,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -441,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -317,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -93,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -318,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -357,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -319,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -234,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -320,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -420,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -321,
                             Department = "Kassa",
                             EmployeeId = -390,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -322,
                             Department = "Kassa",
                             EmployeeId = -311,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -323,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -161,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -324,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -289,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -325,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -196,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -326,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -119,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -327,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -400,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -328,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -299,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -329,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -422,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -330,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -459,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -331,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -351,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -332,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -391,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -333,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -499,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -334,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -260,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -335,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -180,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -336,
                             Department = "Kassa",
                             EmployeeId = -162,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -337,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -466,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -338,
                             Department = "Kassa",
                             EmployeeId = -301,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -339,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -433,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -340,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -349,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -341,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -30,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -342,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -257,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -343,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -200,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -344,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -50,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -345,
                             Department = "Kassa",
                             EmployeeId = -429,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -346,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -340,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -347,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -35,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -348,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -500,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -349,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -215,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -350,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -463,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -351,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -173,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -352,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -337,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -353,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -495,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -354,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -236,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -355,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -235,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -356,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -229,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -357,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -364,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -358,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -232,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -359,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -57,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -360,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -148,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -361,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -184,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -362,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -475,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -363,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -476,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -364,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -367,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -365,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -211,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -366,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -499,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -367,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -241,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -368,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -183,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -369,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -30,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -370,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -135,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -371,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -108,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -372,
                             Department = "Kassa",
                             EmployeeId = -396,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -373,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -408,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -374,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -216,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -375,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -33,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -376,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -306,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -377,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -424,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -378,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -125,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -379,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -418,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -380,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -460,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -381,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -303,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -382,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -323,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -383,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -225,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -384,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -309,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -385,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -299,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -386,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -70,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -387,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -41,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -388,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -133,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -389,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -157,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -390,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -271,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -391,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -38,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -392,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -319,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -393,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -393,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -394,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -226,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -395,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -130,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -396,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -179,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -397,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -273,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -398,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -81,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -399,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -423,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -400,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -107,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -401,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -420,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -402,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -46,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -403,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -344,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -404,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -441,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -405,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -142,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -406,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -123,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -407,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -102,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -408,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -464,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -409,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -146,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -410,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -15,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -411,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -305,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -412,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -343,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -413,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -246,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -414,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -459,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -415,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -75,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -416,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -77,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -417,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -412,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -418,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -260,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -419,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -28,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -420,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -377,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -421,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -328,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -422,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -175,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -423,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -217,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -424,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -336,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -425,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -206,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -426,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -16,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -427,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -86,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -428,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -24,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -429,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -240,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -430,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -17,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -431,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -440,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -432,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -51,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -433,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -395,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -434,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -238,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -435,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -439,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -436,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -427,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -437,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -163,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -438,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -417,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -439,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -490,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -440,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -218,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -441,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -428,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -442,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -2,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -443,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -223,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -444,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -287,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -445,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -122,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -446,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -240,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -447,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -267,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -448,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -244,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -449,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -77,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -450,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -68,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -451,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -381,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -452,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -231,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -453,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -352,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -454,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -94,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -455,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -123,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -456,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -223,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -457,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -195,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -458,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -411,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -459,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -274,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -460,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -175,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -461,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -453,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -462,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -192,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -463,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -277,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -464,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -221,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -465,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -460,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -466,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -407,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -467,
                             Department = "Kassa",
                             EmployeeId = -58,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -468,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -303,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -469,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -101,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -470,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -304,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -471,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -222,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -472,
                             Department = "Kassa",
                             EmployeeId = -170,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -473,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -178,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -474,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -400,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -475,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -491,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -476,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -28,
-                            EndTime = new DateTime(2022, 12, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -477,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -201,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -478,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -458,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -479,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -374,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -480,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -268,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -481,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -284,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -482,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -7,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -483,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -157,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -484,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -465,
-                            EndTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -485,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -387,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -486,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -468,
-                            EndTime = new DateTime(2022, 12, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -487,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -477,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -488,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -43,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -489,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -291,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -490,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -148,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -491,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -307,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -492,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -11,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -493,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -361,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -494,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -92,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -495,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -190,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -496,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -447,
-                            EndTime = new DateTime(2022, 12, 16, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -497,
                             Department = "Kassa",
                             EmployeeId = -193,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -498,
-                            Department = "Kassa",
+                            Department = "VKK",
                             EmployeeId = -134,
-                            EndTime = new DateTime(2022, 12, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = -499,
-                            Department = "Kassa",
+                            Department = "Vers",
                             EmployeeId = -389,
-                            EndTime = new DateTime(2022, 12, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 

@@ -42,6 +42,9 @@ namespace WebApp.Domain
         public bool Inactive { get; set; }
 
         [NotMapped]
+        public Department Department { get; set; }
+
+        [NotMapped]
         public string Name
         {
             get

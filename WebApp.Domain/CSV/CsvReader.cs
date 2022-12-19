@@ -63,6 +63,23 @@ namespace WebApp.Domain.CSV
                         case "Geboortedatum":
                             employee.DateOfBirth = DateTime.Parse(rows[count]);
                             break;
+                        case "Functie":
+                            switch (rows[count])
+                            {
+                                case "Slager":
+                                    employee.Department = new Department { Name = "Vers", PredictionValueName = "Colli" };
+                                    break;
+                                case "Vers":
+                                    employee.Department = new Department { Name = "Vers", PredictionValueName = "Colli" };
+                                    break;
+                                case "Vakkenvuller":
+                                    employee.Department = new Department { Name = "VKK", PredictionValueName = "Colli" };
+                                    break;
+                                case "Teamleider":
+                                    employee.Department = new Department { Name = "Kassa", PredictionValueName = "Bezoekers" };
+                                    break;
+                            }
+                            break;
                     }
                     count++;
                 }
@@ -144,7 +161,7 @@ namespace WebApp.Domain.CSV
                     count++;
                 }
 
-                schedule.Department = new Department { Name = "Kassa", PredictionValueName = "Bezoekers" }.Name;
+                schedule.Department = employee.Department.Name;
                 schedulesFromCSV.Add(schedule);
                 schedule.EmployeeId = employee.Id;
                 schedule.Id = -id;

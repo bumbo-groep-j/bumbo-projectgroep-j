@@ -12,8 +12,8 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    [Migration("20221216083508_employees_from_csv")]
-    partial class employeesfromcsv
+    [Migration("20221219093703_workedhours_from_csv_500")]
+    partial class workedhoursfromcsv500
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -14306,6 +14306,4000 @@ namespace WebApp.Domain.Migrations
                     b.HasIndex("EmployeeId");
 
                     b.ToTable("Schedules");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = -1,
+                            Department = "VKK",
+                            EmployeeId = -152,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -2,
+                            Department = "VKK",
+                            EmployeeId = -313,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -3,
+                            Department = "VKK",
+                            EmployeeId = -295,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -4,
+                            Department = "Vers",
+                            EmployeeId = -114,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -5,
+                            Department = "VKK",
+                            EmployeeId = -373,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -6,
+                            Department = "Vers",
+                            EmployeeId = -500,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -7,
+                            Department = "Vers",
+                            EmployeeId = -155,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -8,
+                            Department = "Vers",
+                            EmployeeId = -92,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -9,
+                            Department = "VKK",
+                            EmployeeId = -487,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -10,
+                            Department = "VKK",
+                            EmployeeId = -57,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -11,
+                            Department = "Vers",
+                            EmployeeId = -376,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -12,
+                            Department = "VKK",
+                            EmployeeId = -78,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -13,
+                            Department = "VKK",
+                            EmployeeId = -261,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -14,
+                            Department = "Vers",
+                            EmployeeId = -228,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -15,
+                            Department = "Vers",
+                            EmployeeId = -414,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -16,
+                            Department = "VKK",
+                            EmployeeId = -357,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -17,
+                            Department = "VKK",
+                            EmployeeId = -194,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -18,
+                            Department = "Vers",
+                            EmployeeId = -198,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -19,
+                            Department = "Vers",
+                            EmployeeId = -432,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -20,
+                            Department = "VKK",
+                            EmployeeId = -241,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -21,
+                            Department = "VKK",
+                            EmployeeId = -495,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -22,
+                            Department = "VKK",
+                            EmployeeId = -460,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -23,
+                            Department = "VKK",
+                            EmployeeId = -457,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -24,
+                            Department = "Vers",
+                            EmployeeId = -437,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -25,
+                            Department = "VKK",
+                            EmployeeId = -435,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -26,
+                            Department = "VKK",
+                            EmployeeId = -297,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -27,
+                            Department = "VKK",
+                            EmployeeId = -176,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -28,
+                            Department = "Vers",
+                            EmployeeId = -38,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -29,
+                            Department = "Vers",
+                            EmployeeId = -182,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -30,
+                            Department = "VKK",
+                            EmployeeId = -365,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -31,
+                            Department = "VKK",
+                            EmployeeId = -96,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -32,
+                            Department = "VKK",
+                            EmployeeId = -486,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -33,
+                            Department = "VKK",
+                            EmployeeId = -45,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -34,
+                            Department = "VKK",
+                            EmployeeId = -154,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -35,
+                            Department = "VKK",
+                            EmployeeId = -49,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -36,
+                            Department = "Vers",
+                            EmployeeId = -468,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -37,
+                            Department = "VKK",
+                            EmployeeId = -477,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -38,
+                            Department = "Vers",
+                            EmployeeId = -98,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -39,
+                            Department = "VKK",
+                            EmployeeId = -490,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -40,
+                            Department = "Vers",
+                            EmployeeId = -110,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -41,
+                            Department = "VKK",
+                            EmployeeId = -324,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -42,
+                            Department = "VKK",
+                            EmployeeId = -164,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -43,
+                            Department = "Vers",
+                            EmployeeId = -3,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -44,
+                            Department = "VKK",
+                            EmployeeId = -288,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -45,
+                            Department = "VKK",
+                            EmployeeId = -430,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -46,
+                            Department = "Kassa",
+                            EmployeeId = -255,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -47,
+                            Department = "VKK",
+                            EmployeeId = -119,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -48,
+                            Department = "VKK",
+                            EmployeeId = -214,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -49,
+                            Department = "Vers",
+                            EmployeeId = -298,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -50,
+                            Department = "VKK",
+                            EmployeeId = -14,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -51,
+                            Department = "Vers",
+                            EmployeeId = -128,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -52,
+                            Department = "VKK",
+                            EmployeeId = -475,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -53,
+                            Department = "VKK",
+                            EmployeeId = -277,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -54,
+                            Department = "VKK",
+                            EmployeeId = -201,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -55,
+                            Department = "VKK",
+                            EmployeeId = -252,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -56,
+                            Department = "Vers",
+                            EmployeeId = -290,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -57,
+                            Department = "VKK",
+                            EmployeeId = -24,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -58,
+                            Department = "VKK",
+                            EmployeeId = -142,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -59,
+                            Department = "Vers",
+                            EmployeeId = -51,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -60,
+                            Department = "Vers",
+                            EmployeeId = -459,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -61,
+                            Department = "Kassa",
+                            EmployeeId = -104,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -62,
+                            Department = "Vers",
+                            EmployeeId = -217,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -63,
+                            Department = "Vers",
+                            EmployeeId = -452,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -64,
+                            Department = "Vers",
+                            EmployeeId = -125,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -65,
+                            Department = "VKK",
+                            EmployeeId = -15,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -66,
+                            Department = "VKK",
+                            EmployeeId = -163,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -67,
+                            Department = "Vers",
+                            EmployeeId = -43,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -68,
+                            Department = "Vers",
+                            EmployeeId = -354,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -69,
+                            Department = "VKK",
+                            EmployeeId = -306,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -70,
+                            Department = "VKK",
+                            EmployeeId = -224,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -71,
+                            Department = "VKK",
+                            EmployeeId = -169,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -72,
+                            Department = "VKK",
+                            EmployeeId = -239,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -73,
+                            Department = "VKK",
+                            EmployeeId = -33,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -74,
+                            Department = "Vers",
+                            EmployeeId = -356,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -75,
+                            Department = "VKK",
+                            EmployeeId = -402,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -76,
+                            Department = "VKK",
+                            EmployeeId = -25,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -77,
+                            Department = "VKK",
+                            EmployeeId = -215,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -78,
+                            Department = "VKK",
+                            EmployeeId = -206,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -79,
+                            Department = "Vers",
+                            EmployeeId = -209,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -80,
+                            Department = "VKK",
+                            EmployeeId = -6,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -81,
+                            Department = "Vers",
+                            EmployeeId = -236,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -82,
+                            Department = "Vers",
+                            EmployeeId = -421,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -83,
+                            Department = "VKK",
+                            EmployeeId = -375,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -84,
+                            Department = "VKK",
+                            EmployeeId = -259,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -85,
+                            Department = "VKK",
+                            EmployeeId = -234,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -86,
+                            Department = "VKK",
+                            EmployeeId = -156,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -87,
+                            Department = "Vers",
+                            EmployeeId = -122,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -88,
+                            Department = "Kassa",
+                            EmployeeId = -37,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -89,
+                            Department = "VKK",
+                            EmployeeId = -134,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -90,
+                            Department = "VKK",
+                            EmployeeId = -361,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -91,
+                            Department = "VKK",
+                            EmployeeId = -284,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -92,
+                            Department = "VKK",
+                            EmployeeId = -133,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -93,
+                            Department = "VKK",
+                            EmployeeId = -426,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -94,
+                            Department = "VKK",
+                            EmployeeId = -443,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -95,
+                            Department = "Vers",
+                            EmployeeId = -233,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -96,
+                            Department = "VKK",
+                            EmployeeId = -246,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -97,
+                            Department = "Vers",
+                            EmployeeId = -251,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -98,
+                            Department = "VKK",
+                            EmployeeId = -12,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -99,
+                            Department = "VKK",
+                            EmployeeId = -423,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -100,
+                            Department = "Vers",
+                            EmployeeId = -289,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -101,
+                            Department = "Vers",
+                            EmployeeId = -118,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -102,
+                            Department = "Vers",
+                            EmployeeId = -388,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -103,
+                            Department = "Vers",
+                            EmployeeId = -137,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -104,
+                            Department = "Vers",
+                            EmployeeId = -335,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -105,
+                            Department = "VKK",
+                            EmployeeId = -279,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -106,
+                            Department = "VKK",
+                            EmployeeId = -448,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -107,
+                            Department = "VKK",
+                            EmployeeId = -99,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -108,
+                            Department = "Vers",
+                            EmployeeId = -329,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -109,
+                            Department = "VKK",
+                            EmployeeId = -320,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -110,
+                            Department = "VKK",
+                            EmployeeId = -277,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -111,
+                            Department = "VKK",
+                            EmployeeId = -7,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -112,
+                            Department = "Vers",
+                            EmployeeId = -204,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -113,
+                            Department = "VKK",
+                            EmployeeId = -90,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -114,
+                            Department = "VKK",
+                            EmployeeId = -120,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -115,
+                            Department = "Vers",
+                            EmployeeId = -492,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -116,
+                            Department = "VKK",
+                            EmployeeId = -11,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -117,
+                            Department = "Vers",
+                            EmployeeId = -200,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -118,
+                            Department = "VKK",
+                            EmployeeId = -428,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -119,
+                            Department = "VKK",
+                            EmployeeId = -49,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -120,
+                            Department = "VKK",
+                            EmployeeId = -370,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -121,
+                            Department = "VKK",
+                            EmployeeId = -487,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -122,
+                            Department = "VKK",
+                            EmployeeId = -472,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -123,
+                            Department = "Vers",
+                            EmployeeId = -304,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -124,
+                            Department = "VKK",
+                            EmployeeId = -420,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -125,
+                            Department = "VKK",
+                            EmployeeId = -280,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -126,
+                            Department = "VKK",
+                            EmployeeId = -379,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -127,
+                            Department = "Vers",
+                            EmployeeId = -432,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -128,
+                            Department = "Kassa",
+                            EmployeeId = -255,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -129,
+                            Department = "VKK",
+                            EmployeeId = -28,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -130,
+                            Department = "Vers",
+                            EmployeeId = -275,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -131,
+                            Department = "VKK",
+                            EmployeeId = -365,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -132,
+                            Department = "VKK",
+                            EmployeeId = -326,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -133,
+                            Department = "Vers",
+                            EmployeeId = -184,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -134,
+                            Department = "Vers",
+                            EmployeeId = -394,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -135,
+                            Department = "VKK",
+                            EmployeeId = -40,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -136,
+                            Department = "Vers",
+                            EmployeeId = -155,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -137,
+                            Department = "Vers",
+                            EmployeeId = -217,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -138,
+                            Department = "Vers",
+                            EmployeeId = -334,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -139,
+                            Department = "Vers",
+                            EmployeeId = -346,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -140,
+                            Department = "VKK",
+                            EmployeeId = -78,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -141,
+                            Department = "VKK",
+                            EmployeeId = -369,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -142,
+                            Department = "VKK",
+                            EmployeeId = -342,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -143,
+                            Department = "VKK",
+                            EmployeeId = -10,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -144,
+                            Department = "VKK",
+                            EmployeeId = -422,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -145,
+                            Department = "VKK",
+                            EmployeeId = -340,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -146,
+                            Department = "Vers",
+                            EmployeeId = -189,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -147,
+                            Department = "Vers",
+                            EmployeeId = -166,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -148,
+                            Department = "Vers",
+                            EmployeeId = -419,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -149,
+                            Department = "VKK",
+                            EmployeeId = -479,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -150,
+                            Department = "VKK",
+                            EmployeeId = -234,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -151,
+                            Department = "VKK",
+                            EmployeeId = -68,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -152,
+                            Department = "VKK",
+                            EmployeeId = -240,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -153,
+                            Department = "VKK",
+                            EmployeeId = -176,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -154,
+                            Department = "VKK",
+                            EmployeeId = -224,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -155,
+                            Department = "Vers",
+                            EmployeeId = -190,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -156,
+                            Department = "Vers",
+                            EmployeeId = -173,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -157,
+                            Department = "VKK",
+                            EmployeeId = -269,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -158,
+                            Department = "VKK",
+                            EmployeeId = -264,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -159,
+                            Department = "Vers",
+                            EmployeeId = -464,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -160,
+                            Department = "VKK",
+                            EmployeeId = -33,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -161,
+                            Department = "Vers",
+                            EmployeeId = -72,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -162,
+                            Department = "Vers",
+                            EmployeeId = -59,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -163,
+                            Department = "VKK",
+                            EmployeeId = -163,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -164,
+                            Department = "VKK",
+                            EmployeeId = -359,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -165,
+                            Department = "VKK",
+                            EmployeeId = -158,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -166,
+                            Department = "Vers",
+                            EmployeeId = -109,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -167,
+                            Department = "Vers",
+                            EmployeeId = -360,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -168,
+                            Department = "VKK",
+                            EmployeeId = -268,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -169,
+                            Department = "VKK",
+                            EmployeeId = -205,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -170,
+                            Department = "VKK",
+                            EmployeeId = -460,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -171,
+                            Department = "VKK",
+                            EmployeeId = -384,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -172,
+                            Department = "VKK",
+                            EmployeeId = -392,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -173,
+                            Department = "Vers",
+                            EmployeeId = -389,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -174,
+                            Department = "VKK",
+                            EmployeeId = -484,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -175,
+                            Department = "VKK",
+                            EmployeeId = -159,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -176,
+                            Department = "VKK",
+                            EmployeeId = -66,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -177,
+                            Department = "Vers",
+                            EmployeeId = -227,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -178,
+                            Department = "VKK",
+                            EmployeeId = -222,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -179,
+                            Department = "VKK",
+                            EmployeeId = -374,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -180,
+                            Department = "VKK",
+                            EmployeeId = -306,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -181,
+                            Department = "VKK",
+                            EmployeeId = -73,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -182,
+                            Department = "Vers",
+                            EmployeeId = -404,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -183,
+                            Department = "VKK",
+                            EmployeeId = -431,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -184,
+                            Department = "VKK",
+                            EmployeeId = -6,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -185,
+                            Department = "VKK",
+                            EmployeeId = -486,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -186,
+                            Department = "Vers",
+                            EmployeeId = -1,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -187,
+                            Department = "Vers",
+                            EmployeeId = -480,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -188,
+                            Department = "VKK",
+                            EmployeeId = -156,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -189,
+                            Department = "VKK",
+                            EmployeeId = -127,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -190,
+                            Department = "Vers",
+                            EmployeeId = -434,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -191,
+                            Department = "Vers",
+                            EmployeeId = -329,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -192,
+                            Department = "Vers",
+                            EmployeeId = -184,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -193,
+                            Department = "Vers",
+                            EmployeeId = -491,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -194,
+                            Department = "VKK",
+                            EmployeeId = -119,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -195,
+                            Department = "VKK",
+                            EmployeeId = -36,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -196,
+                            Department = "VKK",
+                            EmployeeId = -375,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -197,
+                            Department = "Vers",
+                            EmployeeId = -229,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -198,
+                            Department = "VKK",
+                            EmployeeId = -115,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -199,
+                            Department = "VKK",
+                            EmployeeId = -445,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -200,
+                            Department = "Vers",
+                            EmployeeId = -376,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -201,
+                            Department = "VKK",
+                            EmployeeId = -374,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -202,
+                            Department = "Vers",
+                            EmployeeId = -218,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -203,
+                            Department = "VKK",
+                            EmployeeId = -415,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -204,
+                            Department = "VKK",
+                            EmployeeId = -11,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -205,
+                            Department = "Vers",
+                            EmployeeId = -350,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -206,
+                            Department = "Vers",
+                            EmployeeId = -209,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -207,
+                            Department = "Vers",
+                            EmployeeId = -9,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -208,
+                            Department = "VKK",
+                            EmployeeId = -285,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -209,
+                            Department = "Vers",
+                            EmployeeId = -455,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -210,
+                            Department = "VKK",
+                            EmployeeId = -142,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -211,
+                            Department = "Vers",
+                            EmployeeId = -419,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -212,
+                            Department = "VKK",
+                            EmployeeId = -385,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -213,
+                            Department = "Vers",
+                            EmployeeId = -492,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -214,
+                            Department = "Vers",
+                            EmployeeId = -325,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -215,
+                            Department = "Kassa",
+                            EmployeeId = -58,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -216,
+                            Department = "VKK",
+                            EmployeeId = -149,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -217,
+                            Department = "Kassa",
+                            EmployeeId = -18,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -218,
+                            Department = "VKK",
+                            EmployeeId = -63,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -219,
+                            Department = "VKK",
+                            EmployeeId = -382,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -220,
+                            Department = "Vers",
+                            EmployeeId = -132,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -221,
+                            Department = "VKK",
+                            EmployeeId = -303,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -222,
+                            Department = "VKK",
+                            EmployeeId = -410,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -223,
+                            Department = "VKK",
+                            EmployeeId = -332,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -224,
+                            Department = "Vers",
+                            EmployeeId = -198,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -225,
+                            Department = "Vers",
+                            EmployeeId = -3,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -226,
+                            Department = "VKK",
+                            EmployeeId = -195,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -227,
+                            Department = "VKK",
+                            EmployeeId = -134,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -228,
+                            Department = "VKK",
+                            EmployeeId = -499,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -229,
+                            Department = "Vers",
+                            EmployeeId = -106,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -230,
+                            Department = "Vers",
+                            EmployeeId = -446,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -231,
+                            Department = "VKK",
+                            EmployeeId = -384,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -232,
+                            Department = "VKK",
+                            EmployeeId = -27,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -233,
+                            Department = "Kassa",
+                            EmployeeId = -177,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -234,
+                            Department = "VKK",
+                            EmployeeId = -136,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -235,
+                            Department = "Vers",
+                            EmployeeId = -153,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -236,
+                            Department = "VKK",
+                            EmployeeId = -73,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -237,
+                            Department = "Vers",
+                            EmployeeId = -406,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -238,
+                            Department = "Kassa",
+                            EmployeeId = -193,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -239,
+                            Department = "VKK",
+                            EmployeeId = -6,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -240,
+                            Department = "Vers",
+                            EmployeeId = -94,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -241,
+                            Department = "VKK",
+                            EmployeeId = -368,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -242,
+                            Department = "Vers",
+                            EmployeeId = -76,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -243,
+                            Department = "Vers",
+                            EmployeeId = -129,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -244,
+                            Department = "Vers",
+                            EmployeeId = -389,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -245,
+                            Department = "Vers",
+                            EmployeeId = -161,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -246,
+                            Department = "Vers",
+                            EmployeeId = -16,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -247,
+                            Department = "Vers",
+                            EmployeeId = -86,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -248,
+                            Department = "VKK",
+                            EmployeeId = -288,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -249,
+                            Department = "Vers",
+                            EmployeeId = -321,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -250,
+                            Department = "VKK",
+                            EmployeeId = -151,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -251,
+                            Department = "VKK",
+                            EmployeeId = -403,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -252,
+                            Department = "Vers",
+                            EmployeeId = -482,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -253,
+                            Department = "Vers",
+                            EmployeeId = -42,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -254,
+                            Department = "Vers",
+                            EmployeeId = -317,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -255,
+                            Department = "VKK",
+                            EmployeeId = -340,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -256,
+                            Department = "VKK",
+                            EmployeeId = -159,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -257,
+                            Department = "VKK",
+                            EmployeeId = -248,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -258,
+                            Department = "VKK",
+                            EmployeeId = -232,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -259,
+                            Department = "Vers",
+                            EmployeeId = -462,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -260,
+                            Department = "VKK",
+                            EmployeeId = -476,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -261,
+                            Department = "Vers",
+                            EmployeeId = -75,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -262,
+                            Department = "VKK",
+                            EmployeeId = -373,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -263,
+                            Department = "VKK",
+                            EmployeeId = -74,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -264,
+                            Department = "VKK",
+                            EmployeeId = -192,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -265,
+                            Department = "VKK",
+                            EmployeeId = -13,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -266,
+                            Department = "VKK",
+                            EmployeeId = -284,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -267,
+                            Department = "Vers",
+                            EmployeeId = -249,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -268,
+                            Department = "VKK",
+                            EmployeeId = -473,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -269,
+                            Department = "Vers",
+                            EmployeeId = -44,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -270,
+                            Department = "VKK",
+                            EmployeeId = -107,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -271,
+                            Department = "Vers",
+                            EmployeeId = -250,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -272,
+                            Department = "VKK",
+                            EmployeeId = -81,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -273,
+                            Department = "VKK",
+                            EmployeeId = -245,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -274,
+                            Department = "Vers",
+                            EmployeeId = -114,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -275,
+                            Department = "Kassa",
+                            EmployeeId = -255,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -276,
+                            Department = "VKK",
+                            EmployeeId = -392,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -277,
+                            Department = "Vers",
+                            EmployeeId = -381,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -278,
+                            Department = "VKK",
+                            EmployeeId = -338,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -279,
+                            Department = "Vers",
+                            EmployeeId = -5,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -280,
+                            Department = "VKK",
+                            EmployeeId = -280,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -281,
+                            Department = "VKK",
+                            EmployeeId = -313,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -282,
+                            Department = "Vers",
+                            EmployeeId = -414,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -283,
+                            Department = "VKK",
+                            EmployeeId = -320,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -284,
+                            Department = "VKK",
+                            EmployeeId = -64,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -285,
+                            Department = "Kassa",
+                            EmployeeId = -58,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -286,
+                            Department = "Vers",
+                            EmployeeId = -144,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -287,
+                            Department = "Vers",
+                            EmployeeId = -21,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -288,
+                            Department = "Vers",
+                            EmployeeId = -376,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -289,
+                            Department = "Vers",
+                            EmployeeId = -204,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -290,
+                            Department = "Vers",
+                            EmployeeId = -474,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -291,
+                            Department = "VKK",
+                            EmployeeId = -136,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -292,
+                            Department = "Vers",
+                            EmployeeId = -481,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -293,
+                            Department = "VKK",
+                            EmployeeId = -82,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -294,
+                            Department = "Vers",
+                            EmployeeId = -166,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -295,
+                            Department = "VKK",
+                            EmployeeId = -266,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -296,
+                            Department = "VKK",
+                            EmployeeId = -264,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -297,
+                            Department = "VKK",
+                            EmployeeId = -362,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -298,
+                            Department = "VKK",
+                            EmployeeId = -375,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -299,
+                            Department = "Vers",
+                            EmployeeId = -462,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -300,
+                            Department = "VKK",
+                            EmployeeId = -374,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -301,
+                            Department = "VKK",
+                            EmployeeId = -403,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -302,
+                            Department = "Vers",
+                            EmployeeId = -157,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -303,
+                            Department = "VKK",
+                            EmployeeId = -294,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -304,
+                            Department = "VKK",
+                            EmployeeId = -145,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -305,
+                            Department = "Vers",
+                            EmployeeId = -227,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -306,
+                            Department = "Vers",
+                            EmployeeId = -335,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -307,
+                            Department = "VKK",
+                            EmployeeId = -90,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -308,
+                            Department = "VKK",
+                            EmployeeId = -6,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -309,
+                            Department = "Vers",
+                            EmployeeId = -137,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -310,
+                            Department = "Vers",
+                            EmployeeId = -482,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -311,
+                            Department = "Vers",
+                            EmployeeId = -386,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -312,
+                            Department = "Vers",
+                            EmployeeId = -249,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -313,
+                            Department = "Vers",
+                            EmployeeId = -305,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -314,
+                            Department = "Vers",
+                            EmployeeId = -343,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -315,
+                            Department = "VKK",
+                            EmployeeId = -10,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -316,
+                            Department = "VKK",
+                            EmployeeId = -441,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -317,
+                            Department = "Vers",
+                            EmployeeId = -93,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -318,
+                            Department = "VKK",
+                            EmployeeId = -357,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -319,
+                            Department = "VKK",
+                            EmployeeId = -234,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -320,
+                            Department = "VKK",
+                            EmployeeId = -420,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -321,
+                            Department = "Kassa",
+                            EmployeeId = -390,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -322,
+                            Department = "Kassa",
+                            EmployeeId = -311,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -323,
+                            Department = "Vers",
+                            EmployeeId = -161,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -324,
+                            Department = "Vers",
+                            EmployeeId = -289,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -325,
+                            Department = "VKK",
+                            EmployeeId = -196,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -326,
+                            Department = "VKK",
+                            EmployeeId = -119,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -327,
+                            Department = "Vers",
+                            EmployeeId = -400,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -328,
+                            Department = "Vers",
+                            EmployeeId = -299,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -329,
+                            Department = "VKK",
+                            EmployeeId = -422,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -330,
+                            Department = "Vers",
+                            EmployeeId = -459,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -331,
+                            Department = "Vers",
+                            EmployeeId = -351,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -332,
+                            Department = "Vers",
+                            EmployeeId = -391,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -333,
+                            Department = "VKK",
+                            EmployeeId = -499,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -334,
+                            Department = "VKK",
+                            EmployeeId = -260,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -335,
+                            Department = "Vers",
+                            EmployeeId = -180,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -336,
+                            Department = "Kassa",
+                            EmployeeId = -162,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -337,
+                            Department = "VKK",
+                            EmployeeId = -466,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -338,
+                            Department = "Kassa",
+                            EmployeeId = -301,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -339,
+                            Department = "VKK",
+                            EmployeeId = -433,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -340,
+                            Department = "Vers",
+                            EmployeeId = -349,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -341,
+                            Department = "VKK",
+                            EmployeeId = -30,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -342,
+                            Department = "Vers",
+                            EmployeeId = -257,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -343,
+                            Department = "Vers",
+                            EmployeeId = -200,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -344,
+                            Department = "Vers",
+                            EmployeeId = -50,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -345,
+                            Department = "Kassa",
+                            EmployeeId = -429,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -346,
+                            Department = "VKK",
+                            EmployeeId = -340,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -347,
+                            Department = "VKK",
+                            EmployeeId = -35,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -348,
+                            Department = "Vers",
+                            EmployeeId = -500,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -349,
+                            Department = "VKK",
+                            EmployeeId = -215,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -350,
+                            Department = "Vers",
+                            EmployeeId = -463,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -351,
+                            Department = "Vers",
+                            EmployeeId = -173,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -352,
+                            Department = "VKK",
+                            EmployeeId = -337,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -353,
+                            Department = "VKK",
+                            EmployeeId = -495,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -354,
+                            Department = "Vers",
+                            EmployeeId = -236,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -355,
+                            Department = "Vers",
+                            EmployeeId = -235,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -356,
+                            Department = "Vers",
+                            EmployeeId = -229,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -357,
+                            Department = "VKK",
+                            EmployeeId = -364,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -358,
+                            Department = "VKK",
+                            EmployeeId = -232,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -359,
+                            Department = "VKK",
+                            EmployeeId = -57,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -360,
+                            Department = "VKK",
+                            EmployeeId = -148,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -361,
+                            Department = "Vers",
+                            EmployeeId = -184,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -362,
+                            Department = "VKK",
+                            EmployeeId = -475,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -363,
+                            Department = "VKK",
+                            EmployeeId = -476,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -364,
+                            Department = "VKK",
+                            EmployeeId = -367,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -365,
+                            Department = "VKK",
+                            EmployeeId = -211,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -366,
+                            Department = "VKK",
+                            EmployeeId = -499,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -367,
+                            Department = "VKK",
+                            EmployeeId = -241,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -368,
+                            Department = "Vers",
+                            EmployeeId = -183,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -369,
+                            Department = "VKK",
+                            EmployeeId = -30,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -370,
+                            Department = "VKK",
+                            EmployeeId = -135,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -371,
+                            Department = "VKK",
+                            EmployeeId = -108,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -372,
+                            Department = "Kassa",
+                            EmployeeId = -396,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -373,
+                            Department = "Vers",
+                            EmployeeId = -408,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -374,
+                            Department = "VKK",
+                            EmployeeId = -216,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -375,
+                            Department = "VKK",
+                            EmployeeId = -33,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -376,
+                            Department = "VKK",
+                            EmployeeId = -306,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -377,
+                            Department = "VKK",
+                            EmployeeId = -424,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -378,
+                            Department = "Vers",
+                            EmployeeId = -125,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -379,
+                            Department = "Vers",
+                            EmployeeId = -418,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -380,
+                            Department = "VKK",
+                            EmployeeId = -460,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -381,
+                            Department = "VKK",
+                            EmployeeId = -303,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -382,
+                            Department = "VKK",
+                            EmployeeId = -323,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -383,
+                            Department = "VKK",
+                            EmployeeId = -225,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -384,
+                            Department = "VKK",
+                            EmployeeId = -309,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -385,
+                            Department = "Vers",
+                            EmployeeId = -299,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -386,
+                            Department = "Vers",
+                            EmployeeId = -70,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -387,
+                            Department = "Vers",
+                            EmployeeId = -41,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -388,
+                            Department = "VKK",
+                            EmployeeId = -133,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -389,
+                            Department = "Vers",
+                            EmployeeId = -157,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -390,
+                            Department = "Vers",
+                            EmployeeId = -271,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -391,
+                            Department = "Vers",
+                            EmployeeId = -38,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -392,
+                            Department = "VKK",
+                            EmployeeId = -319,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -393,
+                            Department = "VKK",
+                            EmployeeId = -393,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -394,
+                            Department = "Vers",
+                            EmployeeId = -226,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -395,
+                            Department = "VKK",
+                            EmployeeId = -130,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -396,
+                            Department = "Vers",
+                            EmployeeId = -179,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -397,
+                            Department = "VKK",
+                            EmployeeId = -273,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -398,
+                            Department = "VKK",
+                            EmployeeId = -81,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -399,
+                            Department = "VKK",
+                            EmployeeId = -423,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -400,
+                            Department = "VKK",
+                            EmployeeId = -107,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -401,
+                            Department = "VKK",
+                            EmployeeId = -420,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -402,
+                            Department = "VKK",
+                            EmployeeId = -46,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -403,
+                            Department = "VKK",
+                            EmployeeId = -344,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -404,
+                            Department = "VKK",
+                            EmployeeId = -441,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -405,
+                            Department = "VKK",
+                            EmployeeId = -142,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -406,
+                            Department = "Vers",
+                            EmployeeId = -123,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -407,
+                            Department = "Vers",
+                            EmployeeId = -102,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -408,
+                            Department = "Vers",
+                            EmployeeId = -464,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -409,
+                            Department = "Vers",
+                            EmployeeId = -146,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -410,
+                            Department = "VKK",
+                            EmployeeId = -15,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -411,
+                            Department = "Vers",
+                            EmployeeId = -305,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -412,
+                            Department = "Vers",
+                            EmployeeId = -343,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -413,
+                            Department = "VKK",
+                            EmployeeId = -246,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -414,
+                            Department = "Vers",
+                            EmployeeId = -459,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -415,
+                            Department = "Vers",
+                            EmployeeId = -75,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -416,
+                            Department = "VKK",
+                            EmployeeId = -77,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -417,
+                            Department = "Vers",
+                            EmployeeId = -412,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -418,
+                            Department = "VKK",
+                            EmployeeId = -260,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -419,
+                            Department = "VKK",
+                            EmployeeId = -28,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -420,
+                            Department = "Vers",
+                            EmployeeId = -377,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -421,
+                            Department = "VKK",
+                            EmployeeId = -328,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -422,
+                            Department = "VKK",
+                            EmployeeId = -175,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -423,
+                            Department = "Vers",
+                            EmployeeId = -217,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -424,
+                            Department = "Vers",
+                            EmployeeId = -336,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -425,
+                            Department = "VKK",
+                            EmployeeId = -206,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -426,
+                            Department = "Vers",
+                            EmployeeId = -16,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -427,
+                            Department = "Vers",
+                            EmployeeId = -86,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -428,
+                            Department = "VKK",
+                            EmployeeId = -24,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -429,
+                            Department = "VKK",
+                            EmployeeId = -240,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -430,
+                            Department = "Vers",
+                            EmployeeId = -17,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -431,
+                            Department = "VKK",
+                            EmployeeId = -440,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -432,
+                            Department = "Vers",
+                            EmployeeId = -51,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -433,
+                            Department = "VKK",
+                            EmployeeId = -395,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -434,
+                            Department = "VKK",
+                            EmployeeId = -238,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -435,
+                            Department = "Vers",
+                            EmployeeId = -439,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -436,
+                            Department = "VKK",
+                            EmployeeId = -427,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -437,
+                            Department = "VKK",
+                            EmployeeId = -163,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -438,
+                            Department = "VKK",
+                            EmployeeId = -417,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -439,
+                            Department = "VKK",
+                            EmployeeId = -490,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -440,
+                            Department = "Vers",
+                            EmployeeId = -218,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -441,
+                            Department = "VKK",
+                            EmployeeId = -428,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -442,
+                            Department = "VKK",
+                            EmployeeId = -2,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -443,
+                            Department = "Vers",
+                            EmployeeId = -223,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -444,
+                            Department = "Vers",
+                            EmployeeId = -287,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -445,
+                            Department = "Vers",
+                            EmployeeId = -122,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -446,
+                            Department = "VKK",
+                            EmployeeId = -240,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -447,
+                            Department = "VKK",
+                            EmployeeId = -267,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -448,
+                            Department = "Vers",
+                            EmployeeId = -244,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -449,
+                            Department = "VKK",
+                            EmployeeId = -77,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -450,
+                            Department = "VKK",
+                            EmployeeId = -68,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -451,
+                            Department = "Vers",
+                            EmployeeId = -381,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -452,
+                            Department = "VKK",
+                            EmployeeId = -231,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -453,
+                            Department = "VKK",
+                            EmployeeId = -352,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -454,
+                            Department = "Vers",
+                            EmployeeId = -94,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -455,
+                            Department = "Vers",
+                            EmployeeId = -123,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -456,
+                            Department = "Vers",
+                            EmployeeId = -223,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -457,
+                            Department = "VKK",
+                            EmployeeId = -195,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -458,
+                            Department = "VKK",
+                            EmployeeId = -411,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -459,
+                            Department = "Vers",
+                            EmployeeId = -274,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -460,
+                            Department = "VKK",
+                            EmployeeId = -175,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -461,
+                            Department = "Vers",
+                            EmployeeId = -453,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -462,
+                            Department = "VKK",
+                            EmployeeId = -192,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -463,
+                            Department = "VKK",
+                            EmployeeId = -277,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -464,
+                            Department = "VKK",
+                            EmployeeId = -221,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -465,
+                            Department = "VKK",
+                            EmployeeId = -460,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -466,
+                            Department = "Vers",
+                            EmployeeId = -407,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -467,
+                            Department = "Kassa",
+                            EmployeeId = -58,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -468,
+                            Department = "VKK",
+                            EmployeeId = -303,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -469,
+                            Department = "Vers",
+                            EmployeeId = -101,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -470,
+                            Department = "Vers",
+                            EmployeeId = -304,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -471,
+                            Department = "VKK",
+                            EmployeeId = -222,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -472,
+                            Department = "Kassa",
+                            EmployeeId = -170,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -473,
+                            Department = "VKK",
+                            EmployeeId = -178,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -474,
+                            Department = "Vers",
+                            EmployeeId = -400,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -475,
+                            Department = "Vers",
+                            EmployeeId = -491,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -476,
+                            Department = "VKK",
+                            EmployeeId = -28,
+                            EndTime = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -477,
+                            Department = "VKK",
+                            EmployeeId = -201,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -478,
+                            Department = "VKK",
+                            EmployeeId = -458,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -479,
+                            Department = "VKK",
+                            EmployeeId = -374,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -480,
+                            Department = "VKK",
+                            EmployeeId = -268,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -481,
+                            Department = "VKK",
+                            EmployeeId = -284,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -482,
+                            Department = "VKK",
+                            EmployeeId = -7,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -483,
+                            Department = "Vers",
+                            EmployeeId = -157,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -484,
+                            Department = "VKK",
+                            EmployeeId = -465,
+                            EndTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -485,
+                            Department = "Vers",
+                            EmployeeId = -387,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -486,
+                            Department = "Vers",
+                            EmployeeId = -468,
+                            EndTime = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -487,
+                            Department = "VKK",
+                            EmployeeId = -477,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -488,
+                            Department = "Vers",
+                            EmployeeId = -43,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -489,
+                            Department = "Vers",
+                            EmployeeId = -291,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -490,
+                            Department = "VKK",
+                            EmployeeId = -148,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -491,
+                            Department = "Vers",
+                            EmployeeId = -307,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -492,
+                            Department = "VKK",
+                            EmployeeId = -11,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -493,
+                            Department = "VKK",
+                            EmployeeId = -361,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -494,
+                            Department = "Vers",
+                            EmployeeId = -92,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -495,
+                            Department = "Vers",
+                            EmployeeId = -190,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -496,
+                            Department = "Vers",
+                            EmployeeId = -447,
+                            EndTime = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -497,
+                            Department = "Kassa",
+                            EmployeeId = -193,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -498,
+                            Department = "VKK",
+                            EmployeeId = -134,
+                            EndTime = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = -499,
+                            Department = "Vers",
+                            EmployeeId = -389,
+                            EndTime = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("WebApp.Domain.SchoolSchedule", b =>
@@ -14371,6 +18365,4998 @@ namespace WebApp.Domain.Migrations
                     b.HasIndex("ScheduleId");
 
                     b.ToTable("WorkedHours");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = -1,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -1
+                        },
+                        new
+                        {
+                            Id = -2,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -2
+                        },
+                        new
+                        {
+                            Id = -3,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -3
+                        },
+                        new
+                        {
+                            Id = -4,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -4
+                        },
+                        new
+                        {
+                            Id = -5,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -5
+                        },
+                        new
+                        {
+                            Id = -6,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -6
+                        },
+                        new
+                        {
+                            Id = -7,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -7
+                        },
+                        new
+                        {
+                            Id = -8,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -8
+                        },
+                        new
+                        {
+                            Id = -9,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -9
+                        },
+                        new
+                        {
+                            Id = -10,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -10
+                        },
+                        new
+                        {
+                            Id = -11,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -11
+                        },
+                        new
+                        {
+                            Id = -12,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -12
+                        },
+                        new
+                        {
+                            Id = -13,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -13
+                        },
+                        new
+                        {
+                            Id = -14,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -14
+                        },
+                        new
+                        {
+                            Id = -15,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -15
+                        },
+                        new
+                        {
+                            Id = -16,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -16
+                        },
+                        new
+                        {
+                            Id = -17,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -17
+                        },
+                        new
+                        {
+                            Id = -18,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -18
+                        },
+                        new
+                        {
+                            Id = -19,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -19
+                        },
+                        new
+                        {
+                            Id = -20,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -20
+                        },
+                        new
+                        {
+                            Id = -21,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -21
+                        },
+                        new
+                        {
+                            Id = -22,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -22
+                        },
+                        new
+                        {
+                            Id = -23,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -23
+                        },
+                        new
+                        {
+                            Id = -24,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -24
+                        },
+                        new
+                        {
+                            Id = -25,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -25
+                        },
+                        new
+                        {
+                            Id = -26,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -26
+                        },
+                        new
+                        {
+                            Id = -27,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -27
+                        },
+                        new
+                        {
+                            Id = -28,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -28
+                        },
+                        new
+                        {
+                            Id = -29,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -29
+                        },
+                        new
+                        {
+                            Id = -30,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -30
+                        },
+                        new
+                        {
+                            Id = -31,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -31
+                        },
+                        new
+                        {
+                            Id = -32,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -32
+                        },
+                        new
+                        {
+                            Id = -33,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -33
+                        },
+                        new
+                        {
+                            Id = -34,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -34
+                        },
+                        new
+                        {
+                            Id = -35,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -35
+                        },
+                        new
+                        {
+                            Id = -36,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -36
+                        },
+                        new
+                        {
+                            Id = -37,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -37
+                        },
+                        new
+                        {
+                            Id = -38,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -38
+                        },
+                        new
+                        {
+                            Id = -39,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -39
+                        },
+                        new
+                        {
+                            Id = -40,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -40
+                        },
+                        new
+                        {
+                            Id = -41,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -41
+                        },
+                        new
+                        {
+                            Id = -42,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -42
+                        },
+                        new
+                        {
+                            Id = -43,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -43
+                        },
+                        new
+                        {
+                            Id = -44,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -44
+                        },
+                        new
+                        {
+                            Id = -45,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -45
+                        },
+                        new
+                        {
+                            Id = -46,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -46
+                        },
+                        new
+                        {
+                            Id = -47,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -47
+                        },
+                        new
+                        {
+                            Id = -48,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -48
+                        },
+                        new
+                        {
+                            Id = -49,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -49
+                        },
+                        new
+                        {
+                            Id = -50,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -50
+                        },
+                        new
+                        {
+                            Id = -51,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -51
+                        },
+                        new
+                        {
+                            Id = -52,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -52
+                        },
+                        new
+                        {
+                            Id = -53,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -53
+                        },
+                        new
+                        {
+                            Id = -54,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -54
+                        },
+                        new
+                        {
+                            Id = -55,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -55
+                        },
+                        new
+                        {
+                            Id = -56,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -56
+                        },
+                        new
+                        {
+                            Id = -57,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -57
+                        },
+                        new
+                        {
+                            Id = -58,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -58
+                        },
+                        new
+                        {
+                            Id = -59,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -59
+                        },
+                        new
+                        {
+                            Id = -60,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -60
+                        },
+                        new
+                        {
+                            Id = -61,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -61
+                        },
+                        new
+                        {
+                            Id = -62,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -62
+                        },
+                        new
+                        {
+                            Id = -63,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -63
+                        },
+                        new
+                        {
+                            Id = -64,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -64
+                        },
+                        new
+                        {
+                            Id = -65,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -65
+                        },
+                        new
+                        {
+                            Id = -66,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -66
+                        },
+                        new
+                        {
+                            Id = -67,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -67
+                        },
+                        new
+                        {
+                            Id = -68,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -68
+                        },
+                        new
+                        {
+                            Id = -69,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -69
+                        },
+                        new
+                        {
+                            Id = -70,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -70
+                        },
+                        new
+                        {
+                            Id = -71,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -71
+                        },
+                        new
+                        {
+                            Id = -72,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -72
+                        },
+                        new
+                        {
+                            Id = -73,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -73
+                        },
+                        new
+                        {
+                            Id = -74,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -74
+                        },
+                        new
+                        {
+                            Id = -75,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -75
+                        },
+                        new
+                        {
+                            Id = -76,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -76
+                        },
+                        new
+                        {
+                            Id = -77,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -77
+                        },
+                        new
+                        {
+                            Id = -78,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -78
+                        },
+                        new
+                        {
+                            Id = -79,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -79
+                        },
+                        new
+                        {
+                            Id = -80,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -80
+                        },
+                        new
+                        {
+                            Id = -81,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -81
+                        },
+                        new
+                        {
+                            Id = -82,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -82
+                        },
+                        new
+                        {
+                            Id = -83,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -83
+                        },
+                        new
+                        {
+                            Id = -84,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -84
+                        },
+                        new
+                        {
+                            Id = -85,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -85
+                        },
+                        new
+                        {
+                            Id = -86,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -86
+                        },
+                        new
+                        {
+                            Id = -87,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -87
+                        },
+                        new
+                        {
+                            Id = -88,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -88
+                        },
+                        new
+                        {
+                            Id = -89,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -89
+                        },
+                        new
+                        {
+                            Id = -90,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -90
+                        },
+                        new
+                        {
+                            Id = -91,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -91
+                        },
+                        new
+                        {
+                            Id = -92,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -92
+                        },
+                        new
+                        {
+                            Id = -93,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -93
+                        },
+                        new
+                        {
+                            Id = -94,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -94
+                        },
+                        new
+                        {
+                            Id = -95,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -95
+                        },
+                        new
+                        {
+                            Id = -96,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -96
+                        },
+                        new
+                        {
+                            Id = -97,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -97
+                        },
+                        new
+                        {
+                            Id = -98,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -98
+                        },
+                        new
+                        {
+                            Id = -99,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -99
+                        },
+                        new
+                        {
+                            Id = -100,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -100
+                        },
+                        new
+                        {
+                            Id = -101,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -101
+                        },
+                        new
+                        {
+                            Id = -102,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -102
+                        },
+                        new
+                        {
+                            Id = -103,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -103
+                        },
+                        new
+                        {
+                            Id = -104,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -104
+                        },
+                        new
+                        {
+                            Id = -105,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -105
+                        },
+                        new
+                        {
+                            Id = -106,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -106
+                        },
+                        new
+                        {
+                            Id = -107,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -107
+                        },
+                        new
+                        {
+                            Id = -108,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -108
+                        },
+                        new
+                        {
+                            Id = -109,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -109
+                        },
+                        new
+                        {
+                            Id = -110,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -53
+                        },
+                        new
+                        {
+                            Id = -111,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -111
+                        },
+                        new
+                        {
+                            Id = -112,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -112
+                        },
+                        new
+                        {
+                            Id = -113,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -113
+                        },
+                        new
+                        {
+                            Id = -114,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -114
+                        },
+                        new
+                        {
+                            Id = -115,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -115
+                        },
+                        new
+                        {
+                            Id = -116,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -116
+                        },
+                        new
+                        {
+                            Id = -117,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -117
+                        },
+                        new
+                        {
+                            Id = -118,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -118
+                        },
+                        new
+                        {
+                            Id = -119,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -35
+                        },
+                        new
+                        {
+                            Id = -120,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -120
+                        },
+                        new
+                        {
+                            Id = -121,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -9
+                        },
+                        new
+                        {
+                            Id = -122,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -122
+                        },
+                        new
+                        {
+                            Id = -123,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -123
+                        },
+                        new
+                        {
+                            Id = -124,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -124
+                        },
+                        new
+                        {
+                            Id = -125,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -125
+                        },
+                        new
+                        {
+                            Id = -126,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -126
+                        },
+                        new
+                        {
+                            Id = -127,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -19
+                        },
+                        new
+                        {
+                            Id = -128,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -46
+                        },
+                        new
+                        {
+                            Id = -129,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -129
+                        },
+                        new
+                        {
+                            Id = -130,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -130
+                        },
+                        new
+                        {
+                            Id = -131,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -30
+                        },
+                        new
+                        {
+                            Id = -132,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -132
+                        },
+                        new
+                        {
+                            Id = -133,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -133
+                        },
+                        new
+                        {
+                            Id = -134,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -134
+                        },
+                        new
+                        {
+                            Id = -135,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -135
+                        },
+                        new
+                        {
+                            Id = -136,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -7
+                        },
+                        new
+                        {
+                            Id = -137,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -62
+                        },
+                        new
+                        {
+                            Id = -138,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -138
+                        },
+                        new
+                        {
+                            Id = -139,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -139
+                        },
+                        new
+                        {
+                            Id = -140,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -12
+                        },
+                        new
+                        {
+                            Id = -141,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -141
+                        },
+                        new
+                        {
+                            Id = -142,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -142
+                        },
+                        new
+                        {
+                            Id = -143,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -143
+                        },
+                        new
+                        {
+                            Id = -144,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -144
+                        },
+                        new
+                        {
+                            Id = -145,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -145
+                        },
+                        new
+                        {
+                            Id = -146,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -146
+                        },
+                        new
+                        {
+                            Id = -147,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -147
+                        },
+                        new
+                        {
+                            Id = -148,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -148
+                        },
+                        new
+                        {
+                            Id = -149,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -149
+                        },
+                        new
+                        {
+                            Id = -150,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -85
+                        },
+                        new
+                        {
+                            Id = -151,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -151
+                        },
+                        new
+                        {
+                            Id = -152,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -152
+                        },
+                        new
+                        {
+                            Id = -153,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -27
+                        },
+                        new
+                        {
+                            Id = -154,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -70
+                        },
+                        new
+                        {
+                            Id = -155,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -155
+                        },
+                        new
+                        {
+                            Id = -156,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -156
+                        },
+                        new
+                        {
+                            Id = -157,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -157
+                        },
+                        new
+                        {
+                            Id = -158,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -158
+                        },
+                        new
+                        {
+                            Id = -159,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -159
+                        },
+                        new
+                        {
+                            Id = -160,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -73
+                        },
+                        new
+                        {
+                            Id = -161,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -161
+                        },
+                        new
+                        {
+                            Id = -162,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -162
+                        },
+                        new
+                        {
+                            Id = -163,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -66
+                        },
+                        new
+                        {
+                            Id = -164,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -164
+                        },
+                        new
+                        {
+                            Id = -165,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -165
+                        },
+                        new
+                        {
+                            Id = -166,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -166
+                        },
+                        new
+                        {
+                            Id = -167,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -167
+                        },
+                        new
+                        {
+                            Id = -168,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -168
+                        },
+                        new
+                        {
+                            Id = -169,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -169
+                        },
+                        new
+                        {
+                            Id = -170,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -22
+                        },
+                        new
+                        {
+                            Id = -171,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -171
+                        },
+                        new
+                        {
+                            Id = -172,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -172
+                        },
+                        new
+                        {
+                            Id = -173,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -173
+                        },
+                        new
+                        {
+                            Id = -174,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -174
+                        },
+                        new
+                        {
+                            Id = -175,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -175
+                        },
+                        new
+                        {
+                            Id = -176,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -176
+                        },
+                        new
+                        {
+                            Id = -177,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -177
+                        },
+                        new
+                        {
+                            Id = -178,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -178
+                        },
+                        new
+                        {
+                            Id = -179,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -179
+                        },
+                        new
+                        {
+                            Id = -180,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -69
+                        },
+                        new
+                        {
+                            Id = -181,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -181
+                        },
+                        new
+                        {
+                            Id = -182,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -182
+                        },
+                        new
+                        {
+                            Id = -183,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -183
+                        },
+                        new
+                        {
+                            Id = -184,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -80
+                        },
+                        new
+                        {
+                            Id = -185,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -32
+                        },
+                        new
+                        {
+                            Id = -186,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -186
+                        },
+                        new
+                        {
+                            Id = -187,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -187
+                        },
+                        new
+                        {
+                            Id = -188,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -86
+                        },
+                        new
+                        {
+                            Id = -189,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -189
+                        },
+                        new
+                        {
+                            Id = -190,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -190
+                        },
+                        new
+                        {
+                            Id = -191,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -108
+                        },
+                        new
+                        {
+                            Id = -192,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -133
+                        },
+                        new
+                        {
+                            Id = -193,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -193
+                        },
+                        new
+                        {
+                            Id = -194,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -47
+                        },
+                        new
+                        {
+                            Id = -195,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -195
+                        },
+                        new
+                        {
+                            Id = -196,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -83
+                        },
+                        new
+                        {
+                            Id = -197,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -197
+                        },
+                        new
+                        {
+                            Id = -198,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -198
+                        },
+                        new
+                        {
+                            Id = -199,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -199
+                        },
+                        new
+                        {
+                            Id = -200,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -11
+                        },
+                        new
+                        {
+                            Id = -201,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -179
+                        },
+                        new
+                        {
+                            Id = -202,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -202
+                        },
+                        new
+                        {
+                            Id = -203,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -203
+                        },
+                        new
+                        {
+                            Id = -204,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -116
+                        },
+                        new
+                        {
+                            Id = -205,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -205
+                        },
+                        new
+                        {
+                            Id = -206,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -79
+                        },
+                        new
+                        {
+                            Id = -207,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -207
+                        },
+                        new
+                        {
+                            Id = -208,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -208
+                        },
+                        new
+                        {
+                            Id = -209,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -209
+                        },
+                        new
+                        {
+                            Id = -210,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -58
+                        },
+                        new
+                        {
+                            Id = -211,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -148
+                        },
+                        new
+                        {
+                            Id = -212,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -212
+                        },
+                        new
+                        {
+                            Id = -213,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -115
+                        },
+                        new
+                        {
+                            Id = -214,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -214
+                        },
+                        new
+                        {
+                            Id = -215,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -215
+                        },
+                        new
+                        {
+                            Id = -216,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -216
+                        },
+                        new
+                        {
+                            Id = -217,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -217
+                        },
+                        new
+                        {
+                            Id = -218,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -218
+                        },
+                        new
+                        {
+                            Id = -219,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -219
+                        },
+                        new
+                        {
+                            Id = -220,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -220
+                        },
+                        new
+                        {
+                            Id = -221,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -221
+                        },
+                        new
+                        {
+                            Id = -222,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -222
+                        },
+                        new
+                        {
+                            Id = -223,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -223
+                        },
+                        new
+                        {
+                            Id = -224,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -18
+                        },
+                        new
+                        {
+                            Id = -225,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -43
+                        },
+                        new
+                        {
+                            Id = -226,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -226
+                        },
+                        new
+                        {
+                            Id = -227,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -89
+                        },
+                        new
+                        {
+                            Id = -228,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -228
+                        },
+                        new
+                        {
+                            Id = -229,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -229
+                        },
+                        new
+                        {
+                            Id = -230,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -230
+                        },
+                        new
+                        {
+                            Id = -231,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -171
+                        },
+                        new
+                        {
+                            Id = -232,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -232
+                        },
+                        new
+                        {
+                            Id = -233,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -233
+                        },
+                        new
+                        {
+                            Id = -234,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -234
+                        },
+                        new
+                        {
+                            Id = -235,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -235
+                        },
+                        new
+                        {
+                            Id = -236,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -181
+                        },
+                        new
+                        {
+                            Id = -237,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -237
+                        },
+                        new
+                        {
+                            Id = -238,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -238
+                        },
+                        new
+                        {
+                            Id = -239,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -80
+                        },
+                        new
+                        {
+                            Id = -240,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -240
+                        },
+                        new
+                        {
+                            Id = -241,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -241
+                        },
+                        new
+                        {
+                            Id = -242,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -242
+                        },
+                        new
+                        {
+                            Id = -243,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -243
+                        },
+                        new
+                        {
+                            Id = -244,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -173
+                        },
+                        new
+                        {
+                            Id = -245,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -245
+                        },
+                        new
+                        {
+                            Id = -246,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -246
+                        },
+                        new
+                        {
+                            Id = -247,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -247
+                        },
+                        new
+                        {
+                            Id = -248,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -44
+                        },
+                        new
+                        {
+                            Id = -249,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -249
+                        },
+                        new
+                        {
+                            Id = -250,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -250
+                        },
+                        new
+                        {
+                            Id = -251,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -251
+                        },
+                        new
+                        {
+                            Id = -252,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -252
+                        },
+                        new
+                        {
+                            Id = -253,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -253
+                        },
+                        new
+                        {
+                            Id = -254,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -254
+                        },
+                        new
+                        {
+                            Id = -255,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -145
+                        },
+                        new
+                        {
+                            Id = -256,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -175
+                        },
+                        new
+                        {
+                            Id = -257,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -257
+                        },
+                        new
+                        {
+                            Id = -258,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -258
+                        },
+                        new
+                        {
+                            Id = -259,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -259
+                        },
+                        new
+                        {
+                            Id = -260,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -260
+                        },
+                        new
+                        {
+                            Id = -261,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -261
+                        },
+                        new
+                        {
+                            Id = -262,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -5
+                        },
+                        new
+                        {
+                            Id = -263,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -263
+                        },
+                        new
+                        {
+                            Id = -264,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -264
+                        },
+                        new
+                        {
+                            Id = -265,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -265
+                        },
+                        new
+                        {
+                            Id = -266,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -91
+                        },
+                        new
+                        {
+                            Id = -267,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -267
+                        },
+                        new
+                        {
+                            Id = -268,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -268
+                        },
+                        new
+                        {
+                            Id = -269,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -269
+                        },
+                        new
+                        {
+                            Id = -270,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -270
+                        },
+                        new
+                        {
+                            Id = -271,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -271
+                        },
+                        new
+                        {
+                            Id = -272,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -272
+                        },
+                        new
+                        {
+                            Id = -273,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -273
+                        },
+                        new
+                        {
+                            Id = -274,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -4
+                        },
+                        new
+                        {
+                            Id = -275,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -46
+                        },
+                        new
+                        {
+                            Id = -276,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -172
+                        },
+                        new
+                        {
+                            Id = -277,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -277
+                        },
+                        new
+                        {
+                            Id = -278,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -278
+                        },
+                        new
+                        {
+                            Id = -279,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -279
+                        },
+                        new
+                        {
+                            Id = -280,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -125
+                        },
+                        new
+                        {
+                            Id = -281,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -2
+                        },
+                        new
+                        {
+                            Id = -282,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -15
+                        },
+                        new
+                        {
+                            Id = -283,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -109
+                        },
+                        new
+                        {
+                            Id = -284,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -284
+                        },
+                        new
+                        {
+                            Id = -285,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -215
+                        },
+                        new
+                        {
+                            Id = -286,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -286
+                        },
+                        new
+                        {
+                            Id = -287,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -287
+                        },
+                        new
+                        {
+                            Id = -288,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -11
+                        },
+                        new
+                        {
+                            Id = -289,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -112
+                        },
+                        new
+                        {
+                            Id = -290,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -290
+                        },
+                        new
+                        {
+                            Id = -291,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -234
+                        },
+                        new
+                        {
+                            Id = -292,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -292
+                        },
+                        new
+                        {
+                            Id = -293,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -293
+                        },
+                        new
+                        {
+                            Id = -294,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -147
+                        },
+                        new
+                        {
+                            Id = -295,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -295
+                        },
+                        new
+                        {
+                            Id = -296,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -158
+                        },
+                        new
+                        {
+                            Id = -297,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -297
+                        },
+                        new
+                        {
+                            Id = -298,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -83
+                        },
+                        new
+                        {
+                            Id = -299,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -259
+                        },
+                        new
+                        {
+                            Id = -300,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -179
+                        },
+                        new
+                        {
+                            Id = -301,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -251
+                        },
+                        new
+                        {
+                            Id = -302,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -302
+                        },
+                        new
+                        {
+                            Id = -303,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -303
+                        },
+                        new
+                        {
+                            Id = -304,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -304
+                        },
+                        new
+                        {
+                            Id = -305,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -177
+                        },
+                        new
+                        {
+                            Id = -306,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -104
+                        },
+                        new
+                        {
+                            Id = -307,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -113
+                        },
+                        new
+                        {
+                            Id = -308,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -80
+                        },
+                        new
+                        {
+                            Id = -309,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -103
+                        },
+                        new
+                        {
+                            Id = -310,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -252
+                        },
+                        new
+                        {
+                            Id = -311,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -311
+                        },
+                        new
+                        {
+                            Id = -312,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -267
+                        },
+                        new
+                        {
+                            Id = -313,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -313
+                        },
+                        new
+                        {
+                            Id = -314,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -314
+                        },
+                        new
+                        {
+                            Id = -315,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -143
+                        },
+                        new
+                        {
+                            Id = -316,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -316
+                        },
+                        new
+                        {
+                            Id = -317,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -317
+                        },
+                        new
+                        {
+                            Id = -318,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -16
+                        },
+                        new
+                        {
+                            Id = -319,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -85
+                        },
+                        new
+                        {
+                            Id = -320,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -124
+                        },
+                        new
+                        {
+                            Id = -321,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -321
+                        },
+                        new
+                        {
+                            Id = -322,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -322
+                        },
+                        new
+                        {
+                            Id = -323,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -245
+                        },
+                        new
+                        {
+                            Id = -324,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -100
+                        },
+                        new
+                        {
+                            Id = -325,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -325
+                        },
+                        new
+                        {
+                            Id = -326,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -47
+                        },
+                        new
+                        {
+                            Id = -327,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -327
+                        },
+                        new
+                        {
+                            Id = -328,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -328
+                        },
+                        new
+                        {
+                            Id = -329,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -144
+                        },
+                        new
+                        {
+                            Id = -330,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -60
+                        },
+                        new
+                        {
+                            Id = -331,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -331
+                        },
+                        new
+                        {
+                            Id = -332,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -332
+                        },
+                        new
+                        {
+                            Id = -333,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -228
+                        },
+                        new
+                        {
+                            Id = -334,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -334
+                        },
+                        new
+                        {
+                            Id = -335,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -335
+                        },
+                        new
+                        {
+                            Id = -336,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -336
+                        },
+                        new
+                        {
+                            Id = -337,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -337
+                        },
+                        new
+                        {
+                            Id = -338,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -338
+                        },
+                        new
+                        {
+                            Id = -339,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -339
+                        },
+                        new
+                        {
+                            Id = -340,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -340
+                        },
+                        new
+                        {
+                            Id = -341,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -341
+                        },
+                        new
+                        {
+                            Id = -342,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -342
+                        },
+                        new
+                        {
+                            Id = -343,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -117
+                        },
+                        new
+                        {
+                            Id = -344,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -344
+                        },
+                        new
+                        {
+                            Id = -345,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -345
+                        },
+                        new
+                        {
+                            Id = -346,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -145
+                        },
+                        new
+                        {
+                            Id = -347,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -347
+                        },
+                        new
+                        {
+                            Id = -348,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -6
+                        },
+                        new
+                        {
+                            Id = -349,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -77
+                        },
+                        new
+                        {
+                            Id = -350,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -350
+                        },
+                        new
+                        {
+                            Id = -351,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -156
+                        },
+                        new
+                        {
+                            Id = -352,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -352
+                        },
+                        new
+                        {
+                            Id = -353,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -21
+                        },
+                        new
+                        {
+                            Id = -354,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -81
+                        },
+                        new
+                        {
+                            Id = -355,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -355
+                        },
+                        new
+                        {
+                            Id = -356,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -197
+                        },
+                        new
+                        {
+                            Id = -357,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -357
+                        },
+                        new
+                        {
+                            Id = -358,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -258
+                        },
+                        new
+                        {
+                            Id = -359,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -10
+                        },
+                        new
+                        {
+                            Id = -360,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -360
+                        },
+                        new
+                        {
+                            Id = -361,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -133
+                        },
+                        new
+                        {
+                            Id = -362,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -52
+                        },
+                        new
+                        {
+                            Id = -363,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -260
+                        },
+                        new
+                        {
+                            Id = -364,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -364
+                        },
+                        new
+                        {
+                            Id = -365,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -365
+                        },
+                        new
+                        {
+                            Id = -366,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -228
+                        },
+                        new
+                        {
+                            Id = -367,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -20
+                        },
+                        new
+                        {
+                            Id = -368,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -368
+                        },
+                        new
+                        {
+                            Id = -369,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -341
+                        },
+                        new
+                        {
+                            Id = -370,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -370
+                        },
+                        new
+                        {
+                            Id = -371,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -371
+                        },
+                        new
+                        {
+                            Id = -372,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -372
+                        },
+                        new
+                        {
+                            Id = -373,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -373
+                        },
+                        new
+                        {
+                            Id = -374,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -374
+                        },
+                        new
+                        {
+                            Id = -375,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -73
+                        },
+                        new
+                        {
+                            Id = -376,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -69
+                        },
+                        new
+                        {
+                            Id = -377,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -377
+                        },
+                        new
+                        {
+                            Id = -378,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -64
+                        },
+                        new
+                        {
+                            Id = -379,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -379
+                        },
+                        new
+                        {
+                            Id = -380,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -22
+                        },
+                        new
+                        {
+                            Id = -381,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -221
+                        },
+                        new
+                        {
+                            Id = -382,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -382
+                        },
+                        new
+                        {
+                            Id = -383,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -383
+                        },
+                        new
+                        {
+                            Id = -384,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -384
+                        },
+                        new
+                        {
+                            Id = -385,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -328
+                        },
+                        new
+                        {
+                            Id = -386,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -386
+                        },
+                        new
+                        {
+                            Id = -387,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -387
+                        },
+                        new
+                        {
+                            Id = -388,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -92
+                        },
+                        new
+                        {
+                            Id = -389,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -302
+                        },
+                        new
+                        {
+                            Id = -390,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -390
+                        },
+                        new
+                        {
+                            Id = -391,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -28
+                        },
+                        new
+                        {
+                            Id = -392,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -392
+                        },
+                        new
+                        {
+                            Id = -393,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -393
+                        },
+                        new
+                        {
+                            Id = -394,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -394
+                        },
+                        new
+                        {
+                            Id = -395,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -395
+                        },
+                        new
+                        {
+                            Id = -396,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -396
+                        },
+                        new
+                        {
+                            Id = -397,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -397
+                        },
+                        new
+                        {
+                            Id = -398,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -272
+                        },
+                        new
+                        {
+                            Id = -399,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -99
+                        },
+                        new
+                        {
+                            Id = -400,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -270
+                        },
+                        new
+                        {
+                            Id = -401,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -124
+                        },
+                        new
+                        {
+                            Id = -402,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -402
+                        },
+                        new
+                        {
+                            Id = -403,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -403
+                        },
+                        new
+                        {
+                            Id = -404,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -316
+                        },
+                        new
+                        {
+                            Id = -405,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -58
+                        },
+                        new
+                        {
+                            Id = -406,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -406
+                        },
+                        new
+                        {
+                            Id = -407,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -407
+                        },
+                        new
+                        {
+                            Id = -408,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -159
+                        },
+                        new
+                        {
+                            Id = -409,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -409
+                        },
+                        new
+                        {
+                            Id = -410,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -65
+                        },
+                        new
+                        {
+                            Id = -411,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -313
+                        },
+                        new
+                        {
+                            Id = -412,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -314
+                        },
+                        new
+                        {
+                            Id = -413,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -96
+                        },
+                        new
+                        {
+                            Id = -414,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -60
+                        },
+                        new
+                        {
+                            Id = -415,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -261
+                        },
+                        new
+                        {
+                            Id = -416,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -416
+                        },
+                        new
+                        {
+                            Id = -417,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -417
+                        },
+                        new
+                        {
+                            Id = -418,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -334
+                        },
+                        new
+                        {
+                            Id = -419,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -129
+                        },
+                        new
+                        {
+                            Id = -420,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -420
+                        },
+                        new
+                        {
+                            Id = -421,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -421
+                        },
+                        new
+                        {
+                            Id = -422,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -422
+                        },
+                        new
+                        {
+                            Id = -423,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -62
+                        },
+                        new
+                        {
+                            Id = -424,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -424
+                        },
+                        new
+                        {
+                            Id = -425,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -78
+                        },
+                        new
+                        {
+                            Id = -426,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -246
+                        },
+                        new
+                        {
+                            Id = -427,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -247
+                        },
+                        new
+                        {
+                            Id = -428,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -57
+                        },
+                        new
+                        {
+                            Id = -429,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -152
+                        },
+                        new
+                        {
+                            Id = -430,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -430
+                        },
+                        new
+                        {
+                            Id = -431,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -431
+                        },
+                        new
+                        {
+                            Id = -432,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -59
+                        },
+                        new
+                        {
+                            Id = -433,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -433
+                        },
+                        new
+                        {
+                            Id = -434,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -434
+                        },
+                        new
+                        {
+                            Id = -435,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -435
+                        },
+                        new
+                        {
+                            Id = -436,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -436
+                        },
+                        new
+                        {
+                            Id = -437,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -66
+                        },
+                        new
+                        {
+                            Id = -438,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -438
+                        },
+                        new
+                        {
+                            Id = -439,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -39
+                        },
+                        new
+                        {
+                            Id = -440,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -202
+                        },
+                        new
+                        {
+                            Id = -441,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -118
+                        },
+                        new
+                        {
+                            Id = -442,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -442
+                        },
+                        new
+                        {
+                            Id = -443,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -443
+                        },
+                        new
+                        {
+                            Id = -444,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -444
+                        },
+                        new
+                        {
+                            Id = -445,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -87
+                        },
+                        new
+                        {
+                            Id = -446,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -152
+                        },
+                        new
+                        {
+                            Id = -447,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -447
+                        },
+                        new
+                        {
+                            Id = -448,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -448
+                        },
+                        new
+                        {
+                            Id = -449,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -416
+                        },
+                        new
+                        {
+                            Id = -450,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -151
+                        },
+                        new
+                        {
+                            Id = -451,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -277
+                        },
+                        new
+                        {
+                            Id = -452,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -452
+                        },
+                        new
+                        {
+                            Id = -453,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -453
+                        },
+                        new
+                        {
+                            Id = -454,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -240
+                        },
+                        new
+                        {
+                            Id = -455,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -406
+                        },
+                        new
+                        {
+                            Id = -456,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -443
+                        },
+                        new
+                        {
+                            Id = -457,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -226
+                        },
+                        new
+                        {
+                            Id = -458,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -458
+                        },
+                        new
+                        {
+                            Id = -459,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -459
+                        },
+                        new
+                        {
+                            Id = -460,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -422
+                        },
+                        new
+                        {
+                            Id = -461,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -461
+                        },
+                        new
+                        {
+                            Id = -462,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -264
+                        },
+                        new
+                        {
+                            Id = -463,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -53
+                        },
+                        new
+                        {
+                            Id = -464,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -464
+                        },
+                        new
+                        {
+                            Id = -465,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -22
+                        },
+                        new
+                        {
+                            Id = -466,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -466
+                        },
+                        new
+                        {
+                            Id = -467,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -215
+                        },
+                        new
+                        {
+                            Id = -468,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -221
+                        },
+                        new
+                        {
+                            Id = -469,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -469
+                        },
+                        new
+                        {
+                            Id = -470,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -123
+                        },
+                        new
+                        {
+                            Id = -471,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -178
+                        },
+                        new
+                        {
+                            Id = -472,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -472
+                        },
+                        new
+                        {
+                            Id = -473,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -473
+                        },
+                        new
+                        {
+                            Id = -474,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -327
+                        },
+                        new
+                        {
+                            Id = -475,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -193
+                        },
+                        new
+                        {
+                            Id = -476,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -129
+                        },
+                        new
+                        {
+                            Id = -477,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -54
+                        },
+                        new
+                        {
+                            Id = -478,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -478
+                        },
+                        new
+                        {
+                            Id = -479,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -179
+                        },
+                        new
+                        {
+                            Id = -480,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -168
+                        },
+                        new
+                        {
+                            Id = -481,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -91
+                        },
+                        new
+                        {
+                            Id = -482,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -111
+                        },
+                        new
+                        {
+                            Id = -483,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -302
+                        },
+                        new
+                        {
+                            Id = -484,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -484
+                        },
+                        new
+                        {
+                            Id = -485,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -485
+                        },
+                        new
+                        {
+                            Id = -486,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -36
+                        },
+                        new
+                        {
+                            Id = -487,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -37
+                        },
+                        new
+                        {
+                            Id = -488,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -67
+                        },
+                        new
+                        {
+                            Id = -489,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -489
+                        },
+                        new
+                        {
+                            Id = -490,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -360
+                        },
+                        new
+                        {
+                            Id = -491,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -491
+                        },
+                        new
+                        {
+                            Id = -492,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -116
+                        },
+                        new
+                        {
+                            Id = -493,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -90
+                        },
+                        new
+                        {
+                            Id = -494,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -8
+                        },
+                        new
+                        {
+                            Id = -495,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -155
+                        },
+                        new
+                        {
+                            Id = -496,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -496
+                        },
+                        new
+                        {
+                            Id = -497,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Kassa",
+                            ScheduleId = -238
+                        },
+                        new
+                        {
+                            Id = -498,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 7, 30, 0, 0, DateTimeKind.Unspecified),
+                            Department = "VKK",
+                            ScheduleId = -89
+                        },
+                        new
+                        {
+                            Id = -499,
+                            ApprovedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ApprovedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeEnd = new DateTime(2022, 12, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClockedTimeStart = new DateTime(2022, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Department = "Vers",
+                            ScheduleId = -173
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
