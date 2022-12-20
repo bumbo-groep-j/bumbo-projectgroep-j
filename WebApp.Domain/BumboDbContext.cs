@@ -33,6 +33,8 @@ namespace WebApp.Domain
 
         public DbSet<PublicHoliday> PublicHolidays { get; set; }
 
+        public DbSet<CAOBonuses> CAOBonuses { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
             if (!optionBuilder.IsConfigured)
@@ -90,6 +92,12 @@ namespace WebApp.Domain
                 new PublicHoliday { Date = new DateTime(2023,  5, 29) },
                 new PublicHoliday { Date = new DateTime(2023, 12, 25) },
                 new PublicHoliday { Date = new DateTime(2023, 12, 26) }
+            );
+            #endregion
+
+            #region CAOBonuses
+            modelBuilder.Entity<CAOBonuses>().HasData(
+                new CAOBonuses { Id = 1, ValidSince = new DateTime(2022, 1, 1), HolidayBonus = 1.0, SundayBonus = 0.5 }    
             );
             #endregion
 
