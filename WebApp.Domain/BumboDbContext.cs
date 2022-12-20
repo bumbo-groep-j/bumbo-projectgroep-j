@@ -31,6 +31,8 @@ namespace WebApp.Domain
 
         public DbSet<SchoolHoliday> SchoolHolidays { get; set; }
 
+        public DbSet<PublicHoliday> PublicHolidays { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
             if (!optionBuilder.IsConfigured)
@@ -70,6 +72,24 @@ namespace WebApp.Domain
                 new SchoolHoliday { Id = 3, StartDate = new DateTime(2023, 2, 18), EndDate = new DateTime(2023, 2, 26) },
                 new SchoolHoliday { Id = 4, StartDate = new DateTime(2023, 4, 29), EndDate = new DateTime(2023, 5, 7) },
                 new SchoolHoliday { Id = 5, StartDate = new DateTime(2023, 6, 15), EndDate = new DateTime(2023, 7, 27) }
+            );
+            #endregion
+
+            #region PublicHoliday
+            modelBuilder.Entity<PublicHoliday>().HasData(
+                new PublicHoliday { Date = new DateTime(2022, 12, 25) },
+                new PublicHoliday { Date = new DateTime(2022, 12, 26) },
+                new PublicHoliday { Date = new DateTime(2023,  1,  1) },
+                new PublicHoliday { Date = new DateTime(2023,  4,  7) },
+                new PublicHoliday { Date = new DateTime(2023,  4,  9) },
+                new PublicHoliday { Date = new DateTime(2023,  4, 10) },
+                new PublicHoliday { Date = new DateTime(2023,  4, 27) },
+                new PublicHoliday { Date = new DateTime(2023,  5,  5) },
+                new PublicHoliday { Date = new DateTime(2023,  5, 18) },
+                new PublicHoliday { Date = new DateTime(2023,  5, 28) },
+                new PublicHoliday { Date = new DateTime(2023,  5, 29) },
+                new PublicHoliday { Date = new DateTime(2023, 12, 25) },
+                new PublicHoliday { Date = new DateTime(2023, 12, 26) }
             );
             #endregion
 
