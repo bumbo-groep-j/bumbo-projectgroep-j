@@ -11,6 +11,11 @@
     padding: 5px;
 }
 
+.date_input {
+    max-width: 150px;
+    padding: 5px;
+}
+
 input[type="text"]::placeholder {
     text-align: center;
 }
@@ -93,8 +98,51 @@ input[type="text"]::placeholder {
     padding: 2px 8px 4px 8px;
 }
 
-.department_workschedule{
-    text-align:center;
+.delete_button {
+    margin-top: -30px;
+    padding: 2px 8px 4px 8px;
+    border-color: red;
+    color: red;
+    float: right;
+}
+
+.delete_button:hover {
+    border-color: darkred;
+    color: darkred;
+}
+
+.department_workschedule {
+    text-align: center;
+}
+
+/*popup edit page for school schedule css*/
+.content_page {
+    margin: 10px;
+    padding-top: 30px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.form_page {
+    margin: 30px;
+}
+
+.closewindow_button {
+    float: right;
+    border-color: red;
+    margin-top: -20px;
+    text-align: center;
+    color: red;
+    width: 50px;
+}
+
+.closewindow_button:hover {
+    float: right;
+    border-color: darkred;
+    margin-top: -20px;
+    text-align: center;
+    color: darkred;
+    width: 50px;
 }
 
 input[type="time"],
@@ -119,4 +167,34 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
 
 input[type="date"] {
     right: -34px;
+}
+
+/*popup edit page for school schedule css*/
+.content_page {
+    margin: 10px;
+    padding-top: 30px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.form_page {
+    margin: 30px;
+}
+
+.closewindow_button {
+    float: right;
+    border-color: red;
+    margin-top: -20px;
+    text-align: center;
+    color: red;
+    width: 50px;
+}
+
+.closewindow_button:hover {
+    float: right;
+    border-color: darkred;
+    margin-top: -20px;
+    text-align: center;
+    color: darkred;
+    width: 50px;
 }
