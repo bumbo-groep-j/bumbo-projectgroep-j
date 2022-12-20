@@ -789,5 +789,10 @@ namespace Bumbo.Controllers
 
             return View(model);
         }
+
+        [Authorize(Roles = "Manager")]
+        public string GenerateToken(Account model) {
+            return Guid.NewGuid().ToString();
+        }
     }
 }
