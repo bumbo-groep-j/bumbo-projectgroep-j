@@ -663,6 +663,46 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
+        public string ExportAllHours(int year, int month, int day) {
+            var values = (from WorkedHour in db.WorkedHours where WorkedHour.ClockedTimeStart.Year == year && WorkedHour.ClockedTimeStart.Month == month && WorkedHour.ClockedTimeStart.Day == day select WorkedHour).ToList();
+
+            string csv = "Voornaam,Tussenvoegsel,Achternaam,Datum,Starttijd,Eindtijd,Gewerkte uren,Afdeling,Uurloon,Toeslag\n";
+            double bonus = 0.0;
+            var bonuses = (from CAOBonuses in db.CAOBonuses orderby CAOBonuses.ValidSince descending select CAOBonuses).First();
+
+            if(new DateTime(year, month, day).DayOfWeek == DayOfWeek.Sunday) bonus = bonuses.SundayBonus;
+            if((from PublicHoliday in db.PublicHolidays where PublicHoliday.Date == new DateTime(year, month, day) select PublicHoliday).Any()) bonus = bonuses.HolidayBonus;
+
+            foreach(var value in values) {
+                if(value.ApprovalTime.HasValue) {
+                    var employee = (from Employee in db.Employees
+                                    join Schedule in db.Schedules
+                                    on Employee.Id equals Schedule.EmployeeId
+                                    where Schedule.Id == value.ScheduleId
+                                    select Employee).First();
+                    
+                    value.ApprovalTime = DateTime.Now;
+
+                    csv += employee.FirstName + ","
+                        +  employee.MiddleName + ","
+                        +  employee.LastName + "," 
+                        +  day + "-" + month + "-" + year + ","
+                        +  value.ApprovedTimeStart.Value.ToString("HH:mm:ss") + ","
+                        +  value.ApprovedTimeEnd.Value.ToString("HH:mm:ss") + ","
+                        + (value.ApprovedTimeEnd.Value - value.ApprovedTimeStart.Value).ToString("hh\\:mm") + ","
+                        +  value.Department + ",\""
+                        +  employee.HourlyWage.ToString("C2") + "\",+"
+                        + (int)(bonus * 100.0) + "%\n";
+                }
+
+            }
+
+            db.SaveChanges();
+
+            return csv;
+        }
+
+        [Authorize(Roles = "Manager")]
         public IActionResult ListEmployees()
         {
             return View((
