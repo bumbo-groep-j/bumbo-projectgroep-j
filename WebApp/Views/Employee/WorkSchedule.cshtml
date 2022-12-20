@@ -1,4 +1,7 @@
-﻿@{
+﻿@using WebApp.Domain;
+
+
+@{
     ViewData["Title"] = "rooster";
     ViewData["Stylesheet"] = "/css/employee.css";
 
@@ -39,14 +42,17 @@
             <td style="color:white; font-size:0">00:00</td>
         </tr>
         <br>
-        @foreach (var item in ViewData["Days"] as List<string>)
+        @foreach (var item in ViewBag.Days as List<WebApp.Domain.Weekday>)
         {
             <tr class="tr_style">
-                <td class="day_div"><b>@item</b></td>
-                @{dateNumber++;}
-            <td>@dateNumber</td>
-                @switch(@item){
-                    case "Maandag":
+                <td class="day_div"><b>@WebApp.Domain.Weekdays.GetName(item)</b></td>
+                @{
+                    dateNumber++;
+                }
+                <td>@dateNumber</td>
+                @switch (item)
+                {
+                    case Weekday.Monday:
                         <td class="length_hour" colspan="15">
                             <div class="work_line space_between" style="width: 530px; margin-left: 90px;">
                                 <span>08:00</span>
@@ -56,7 +62,7 @@
                         </td>
                         <td>08:00</td>
                         break;
-                    case "Dinsdag":
+                    case Weekday.Tuesday:
                         <td class="length_hour" colspan="15">
                             <div class="work_line space_between" style=";width: 530px; margin-left: 155px;">
                                 <span>09:00</span>
@@ -66,19 +72,17 @@
                         </td>
                         <td>08:00</td>
                         break;
-                    case "Woensdag":
+                    case Weekday.Wednesday:
                         <td class="length_hour" colspan="15">
-                           
                         </td>
                         <td>00:00</td>
                         break;
-                    case "Donderdag":
+                    case Weekday.Thursday:
                         <td class="length_hour" colspan="15">
-                            
                         </td>
                         <td>00:00</td>
                         break;
-                    case "Vrijdag":
+                    case Weekday.Friday:
                         <td class="length_hour" colspan="15">
                             <div class="work_line space_between" style="width: 330px; margin-left: 90px;">
                                 <span>08:00</span>
@@ -88,20 +92,18 @@
                         </td>
                         <td>05:00</td>
                         break;
-                    case "Zaterdag":
+                    case Weekday.Saturday:
                         <td class="length_hour" colspan="15">
-                           
                         </td>
                         <td>00:00</td>
                         break;
-                    case "Zondag":
+                    case Weekday.Sunday:
                         <td class="length_hour" colspan="15">
-                         
                         </td>
                         <td>00:00</td>
                         break;
                 }
-                
+
             </tr>
         }
     </table>
