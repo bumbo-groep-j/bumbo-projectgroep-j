@@ -7,9 +7,6 @@
 <header>
     <h1>Verlofaanvragen</h1>
 </header>
-<div class="watermark_concept">
-    <p class="concept_text">CONCEPT</p>
-</div>
 <table>
     <tr class="tr_bg">
         <th>Naam</th>
@@ -20,34 +17,47 @@
         <th>Actie</th>
     </tr>
 
+
     @if (!ViewBag.IsEmpty)
     {
-        foreach (var request in ViewBag.Requests)
+        @foreach (var entry in ViewBag.Requests)
         {
+            var request = entry.Item1;
+            var employeeName = entry.Item2.Name;
+
             <form>
             <tr class="tr_bg">
-
-                <!-- show the EmployeeName viewbag values-->
-                <td> @ViewBag.EmployeeName </td>
+                <td> @employeeName </td>
 
                 <td>
                     <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
-                    <i>@request.EndDate.Subtract(request.StartDate)</i>
+                    @{
+                        var duration = request.EndDate.Subtract(request.StartDate);
+                        var days = duration.Days + 1;
+                    }
+                    @if (days == 1)
+                    {
+                        <i>@days dag</i>
+                    }
+                    else
+                    {
+                        <i>@days dagen</i>
+                    }
                 </td>
 
                 <td>
-                        @if (request.Approved)
-                        {
+                    @if (request.Approved)
+                    {
                         <span class="accepted">Goedgekeurd</span>
-                        }
-                        else if (request.Rejected)
-                        {
+                    }
+                    else if (request.Rejected)
+                    {
                         <span class="rejected">afgekeurd</span>
-                        }
-                        else
-                        {
+                    }
+                    else
+                    {
                         <span class="pending">Openstaand</span>
-                        }
+                    }
                 </td>
 
                 <td>@request.Comment</td>
@@ -73,54 +83,6 @@
     {
         <tr class="align_center">Er zijn geen aanvragen</tr>
     }
-
-    <tr class="tr_bg">
-        <td>Kevin Schuren</td>
-        <td>
-            <b>23 Nov 2022 &ndash; 27 Nov 2022</b><br />
-            <i>5 dagen</i>
-        </td>
-        <td><span class="pending">Openstaand</span></td>
-        <td>Vakantie</td>
-        <td>6 Nov 2022</td>
-        <td>
-            <button class="red_button">Weigeren</button>
-            <button class="green_button">Accepteren</button>
-        </td>
-    </tr>
-    <tr class="tr_bg">
-        <td>Katja Ryzhkova</td>
-        <td>
-            <b>22 Nov 2022 &ndash; 24 Nov 2022</b><br />
-            <i>3 dagen</i>
-        </td>
-        <td><span class="accepted">Goedgekeurd</span></td>
-        <td>Ziekte</td>
-        <td>2 Nov 2022</td>
-        <td></td>
-    </tr>
-    <tr class="tr_bg">
-        <td>Chinook Walther</td>
-        <td>
-            <b>28 Nov 2022 &ndash; 31 Nov 2022</b><br />
-            <i>4 dagen</i>
-        </td>
-        <td><span class="rejected">Afgekeurd</span></td>
-        <td>Vakantie</td>
-        <td>10 Jul 2022</td>
-        <td></td>
-    </tr>
-    <tr class="tr_bg">
-        <td>Thampie Anthonyrajah</td>
-        <td>
-            <b>9 Nov 2022 &ndash; 31 Nov 2022</b><br />
-            <i>23 dagen</i>
-        </td>
-        <td><span class="accepted">Goedgekeurd</span></td>
-        <td>Vakantie</td>
-        <td>8 Jul 2022</td>
-        <td></td>
-    </tr>
 </table>
 <p class="align_right">
     Pagina 1 van 1
@@ -134,3 +96,4 @@
     <a asp-controller="Manager" asp-action="LeaveRequests" class="visible_link">Vorige pagina</a>
     <a asp-controller="Manager" asp-action="LeaveRequests" class="visible_link">Volgende pagina</a>
 </p>
+
