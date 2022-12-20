@@ -318,7 +318,7 @@ namespace Bumbo.Controllers
 
             foreach(Employee employee in ViewBag.Employees)
             {
-                employee.CanWork = employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today && !(
+                employee.OnLeave = (
                     from LeaveRequest
                     in db.LeaveRequests
                     where LeaveRequest.EmployeeId == employee.Id
@@ -326,6 +326,8 @@ namespace Bumbo.Controllers
                     && LeaveRequest.EndDate >= date
                     select LeaveRequest
                 ).Any();
+
+                employee.CanWork = employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today && !employee.OnLeave;
 
                 if(employee.DateOfBirth.AddYears(18) <= DateTime.Today)
                 {

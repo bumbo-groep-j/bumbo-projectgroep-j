@@ -103,6 +103,10 @@
                                 i++;
                             }
                         }
+                        else if(employee.OnLeave)
+                        {
+                            <td class="align_center" colspan="@(ViewBag.EndHour - ViewBag.StartHour + 1)">Deze medewerker is vrij.</td>
+                        }
                     </tr>
                 }
             </table>

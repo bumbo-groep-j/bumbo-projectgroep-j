@@ -51,6 +51,9 @@ namespace WebApp.Domain
         }
 
         [NotMapped]
+        public bool OnLeave { get; set; }
+
+        [NotMapped]
         public bool CanWork { get; set; }
 
         [NotMapped]
