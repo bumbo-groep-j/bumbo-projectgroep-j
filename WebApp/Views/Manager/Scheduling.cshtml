@@ -5,16 +5,16 @@
     int weekday = 1;
     switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)
     {
-        case DayOfWeek.Monday:    weekday = 1; break;
-        case DayOfWeek.Tuesday:   weekday = 2; break;
+        case DayOfWeek.Monday: weekday = 1; break;
+        case DayOfWeek.Tuesday: weekday = 2; break;
         case DayOfWeek.Wednesday: weekday = 3; break;
-        case DayOfWeek.Thursday:  weekday = 4; break;
-        case DayOfWeek.Friday:    weekday = 5; break;
-        case DayOfWeek.Saturday:  weekday = 6; break;
-        case DayOfWeek.Sunday:    weekday = 7; break;
+        case DayOfWeek.Thursday: weekday = 4; break;
+        case DayOfWeek.Friday: weekday = 5; break;
+        case DayOfWeek.Saturday: weekday = 6; break;
+        case DayOfWeek.Sunday: weekday = 7; break;
     }
 
-    string link = "/Manager/Scheduling?departmentName=" + ViewBag.DepartmentName + "&";
+    string link = "/Manager/Scheduling?departmentName=" + ViewBag.Department.Name + "&";
 }
 
 <div class="content_container">
@@ -55,6 +55,9 @@
             <input type="hidden" asp-for="Day" value="@ViewBag.Date.Day" />
             <input type="hidden" asp-for="Month" value="@ViewBag.Date.Month" />
             <input type="hidden" asp-for="Year" value="@ViewBag.Date.Year" />
+            <div class="space_around">
+                <button type="submit">Opslaan</button>
+            </div>
             <table>
                 <tr>
                     <td class="align_center"></td>
@@ -79,26 +82,30 @@
                 }
                 @foreach(var employee in ViewBag.Employees)
                 {
+                    <span class="hidden" id="today_employee_@employee.Id">@employee.AllowedHoursToday</span>
+                    <span class="hidden" id="week_employee_@employee.Id">@employee.AllowedHoursWeek</span>
+                    <span class="hidden" id="weeks_employee_@employee.Id">@employee.AllowedHours4Weeks</span>
                     <tr>
                         <td class="align_right" colspan="3">@employee.Name</td>
-                        @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                        @if(employee.CanWork)
                         {
-                            if(Model.IsChecked[i])
+                            for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
                             {
-                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" checked /></td>
+                                if(!Model.Availabilities.Any(availability => availability.StartTime.Hour <= hour && availability.EndTime.Hour > hour && availability.EmployeeId == employee.Id)
+                                || Model.Schedules.Any(schedule => schedule.StartTime.Hour <= hour && schedule.EndTime.Hour >= hour && schedule.EmployeeId == employee.Id))
+                                {
+                                    <td class="align_center"><input id="@i" type="checkbox" class="employee_@employee.Id checkbox_hour_@hour scheduling_checkbox unavailable_checkbox" onclick="update_text(@hour); update_constraints(@employee.Id);" asp-for="IsChecked[i]" disabled /></td>
+                                }
+                                else
+                                {
+                                    <td class="align_center"><input id="@i" type="checkbox" class="employee_@employee.Id checkbox_hour_@hour scheduling_checkbox" onclick="update_text(@hour); update_constraints(@employee.Id);" asp-for="IsChecked[i]" /></td>
+                                }
+                                i++;
                             }
-                            else
-                            {
-                                <td class="align_center"><input id="@i" type="checkbox" class="checkbox_hour_@hour" onclick="update_text(@hour);" asp-for="IsChecked[i]" /></td>
-                            }
-                            i++;
                         }
                     </tr>
                 }
             </table>
-            <div class="space_around">
-                <button type="submit">Opslaan</button>
-            </div>
         </form>
     </div>
 </div>
@@ -107,19 +114,82 @@
         var max = $("#text_hour_" + id).text().split("/")[1];
         var current = 0;
 
-        $(".checkbox_hour_" + id).each(function() {
-            if($(this).prop("checked")) current++;
+        $(".checkbox_hour_" + id).each(function () {
+            if ($(this).prop("checked")) current++;
         })
 
         $("#text_hour_" + id).text(current + "/" + max);
 
-        if(max == current) $("#text_hour_" + id).removeClass("prognosis_mismatch");
-        else if(!$("#text_hour_" + id).hasClass("prognosis_mismatch")) $("#text_hour_" + id).addClass("prognosis_mismatch");
+        if (max == current) $("#text_hour_" + id).removeClass("prognosis_mismatch");
+        else if (!$("#text_hour_" + id).hasClass("prognosis_mismatch")) $("#text_hour_" + id).addClass("prognosis_mismatch");
+    }
+
+    function update_constraints(id) {
+        var hours_worked = 0;
+
+        $(".employee_" + id).each(function () {
+            if ($(this).prop("checked")) hours_worked++;
+        })
+
+        if (hours_worked >= $("#today_employee_" + id).text()) {
+            $(".employee_" + id).each(function () {
+                if (!$(this).prop("checked") && !$(this).prop("disabled")) {
+                    $(this).prop("disabled", true);
+                    $(this).addClass("overworked_today");
+                }
+            })
+        } else {
+            $(".employee_" + id).each(function () {
+                if ($(this).hasClass("overworked_today")) {
+                    $(this).prop("disabled", false);
+                    $(this).removeClass("overworked_today");
+                }
+            })
+        }
+
+        if (hours_worked >= $("#week_employee_" + id).text()) {
+            $(".employee_" + id).each(function () {
+                if (!$(this).prop("checked") && !$(this).prop("disabled")) {
+                    $(this).prop("disabled", true);
+                    $(this).addClass("overworked_week");
+                }
+            })
+        } else {
+            $(".employee_" + id).each(function () {
+                if ($(this).hasClass("overworked_week")) {
+                    $(this).prop("disabled", false);
+                    $(this).removeClass("overworked_week");
+                }
+            })
+        }
+
+        if (hours_worked >= $("#weeks_employee_" + id).text()) {
+            $(".employee_" + id).each(function () {
+                if (!$(this).prop("checked") && !$(this).prop("disabled")) {
+                    $(this).prop("disabled", true);
+                    $(this).addClass("overworked_4weeks");
+                }
+            })
+        } else {
+            $(".employee_" + id).each(function () {
+                if ($(this).hasClass("overworked_4weeks")) {
+                    $(this).prop("disabled", false);
+                    $(this).removeClass("overworked_4weeks");
+                }
+            })
+        }
     }
 
     window.onload = function () {
-        for(let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) { 
+        for (let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) {
             update_text(i);
+        }
+
+        let ids = "@string.Join(",", ViewBag.EmployeeIds)";
+        let idList = ids.split(",");
+
+        for (let i = 0; i < @ViewBag.EmployeeIds.Count; i++) {
+            update_constraints(idList[i]);
         }
     }
 </script>
