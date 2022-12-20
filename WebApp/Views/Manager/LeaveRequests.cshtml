@@ -31,33 +31,33 @@
 
                 <td>
                     <b>@request.StartDate.ToShortDateString() &ndash; @request.EndDate.ToShortDateString()</b><br>
-                        @{
-                            var duration = request.EndDate.Subtract(request.StartDate);
-                            var days = duration.Days + 1;
-                        }
-                        @if (days == 1)
-                        {
+                    @{
+                        var duration = request.EndDate.Subtract(request.StartDate);
+                        var days = duration.Days + 1;
+                    }
+                    @if (days == 1)
+                    {
                         <i>@days dag</i>
-                        }
-                        else
-                        {
+                    }
+                    else
+                    {
                         <i>@days dagen</i>
-                        }
+                    }
                 </td>
 
                 <td>
-                        @if (request.Approved)
-                        {
+                    @if (request.Approved)
+                    {
                         <span class="accepted">Goedgekeurd</span>
-                        }
-                        else if (request.Rejected)
-                        {
+                    }
+                    else if (request.Rejected)
+                    {
                         <span class="rejected">afgekeurd</span>
-                        }
-                        else
-                        {
+                    }
+                    else
+                    {
                         <span class="pending">Openstaand</span>
-                        }
+                    }
                 </td>
 
                 <td>@request.Comment</td>
