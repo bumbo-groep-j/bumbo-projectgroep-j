@@ -161,7 +161,7 @@ tr {
     color: #808080;
 }
 
-input[type=checkbox] {
+.scheduling_checkbox {
     width: 18px;
     height: 18px;
     outline: 2px solid #b1b2b5;
@@ -171,8 +171,58 @@ input[type=checkbox] {
     cursor: pointer;
 }
 
-input[type=checkbox]:checked {
+.scheduling_checkbox:checked {
     background-color: #b1b2b5;
+}
+
+input[type=checkbox]:disabled {
+    outline-color: rgba(255, 0, 0, 0.25);
+    position: relative;
+}
+
+input[type=checkbox]:disabled:hover::before {
+    position: absolute;
+    top: 24px;
+    width: 340px;
+    color: black;
+    font-size: 13pt;
+    padding-top: 10px;
+    padding-left: 48px;
+    left: -4px;
+    background-color: #ffe0e8;
+    height: 48px;
+}
+
+input[type=checkbox]:disabled:hover::after {
+    position: absolute;
+    top: 32px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    border: 2px solid red;
+    content: "!"; 
+    line-height: 1.07;
+    padding-left: 10px;
+    font-size: 18pt;
+    font-weight: bold;
+    color: red;
+}
+
+.unavailable_checkbox:hover::before {
+    content: "Deze medewerker is niet beschikbaar";
+}
+
+.overworked_today:hover::before {
+    content: "Toegestane aantal uur overschreden";
+}
+
+.overworked_week:hover::before {
+    content: "Toegestane aantal uur overschreden";
+}
+
+.overworked_4weeks:hover::before {
+    content: "Toegestane aantal uur overschreden";
 }
 
 .unavailable {

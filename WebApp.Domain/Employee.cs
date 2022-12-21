@@ -49,5 +49,20 @@ namespace WebApp.Domain
                 return FirstName + " " + (MiddleName != null ? MiddleName + " " : "") + LastName;
             }
         }
+
+        [NotMapped]
+        public bool OnLeave { get; set; }
+
+        [NotMapped]
+        public bool CanWork { get; set; }
+
+        [NotMapped]
+        public int AllowedHoursToday { get; set; }
+
+        [NotMapped]
+        public int AllowedHoursWeek { get; set; }
+
+        [NotMapped]
+        public int AllowedHours4Weeks { get; set; }
     }
 }
