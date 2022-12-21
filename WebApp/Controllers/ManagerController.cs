@@ -578,7 +578,6 @@ namespace Bumbo.Controllers
                     employee.HourlyWage = model.HourlyWage;
 
                     db.SaveChanges();
-
                     return RedirectToAction("ListEmployees");
                 }
             }

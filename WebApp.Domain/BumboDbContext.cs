@@ -32,19 +32,6 @@ namespace WebApp.Domain
             base.OnModelCreating(modelBuilder);
 
             #region Employees
-            csvReader.getEmployeesExport();
-            List<Employee> employees = csvReader.GetEmployeesFromCSV();
-            modelBuilder.Entity<Employee>().HasData(
-                employees
-            );
-            #endregion
-
-            #region Department
-            modelBuilder.Entity<Department>().HasData(
-                new Department { Name = "Kassa", PredictionValueName = "Bezoekers" },
-                new Department { Name = "VKK",   PredictionValueName = "Colli" },
-                new Department { Name = "Vers",  PredictionValueName = "Colli" }
-            );
             #endregion
 
             #region SchoolSchedule
@@ -56,19 +43,9 @@ namespace WebApp.Domain
             #endregion
 
             #region Schedule
-            csvReader.getHoursExport();
-            List<Schedule> schedules = csvReader.GetSchedulesFromCSV(employees);
-            modelBuilder.Entity<Schedule>().HasData(
-                schedules
-            );
             #endregion
 
             #region WorkedHours
-            csvReader.getHoursExport();
-            List<WorkedHour> hours = csvReader.GetHoursFromCSV(schedules, employees);
-            modelBuilder.Entity<WorkedHour>().HasData(
-                hours
-            );
             #endregion
 
             #region DataSet

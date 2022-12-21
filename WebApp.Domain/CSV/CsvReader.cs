@@ -12,25 +12,15 @@ namespace WebApp.Domain.CSV
     public class CsvReader
     {
         private string _csvFilePath;
-        public void getHoursExport()
-        {
-            _csvFilePath = @"wwwroot/src/hours_export_1year.csv";
-        }
 
-        public void getEmployeesExport()
+        public List<Employee> GetEmployeesFromCSV( StreamReader reader )
         {
-            _csvFilePath = @"wwwroot/src/medewerkers_export.csv";
-        }
-
-        public List<Employee> GetEmployeesFromCSV( )
-        {
-            StreamReader reader = new StreamReader(_csvFilePath);
             List<Employee> employeesFromCSV = new List<Employee>();
             string[]columns = reader.ReadLine().Split(',');
             int id = 1;
             while (!reader.EndOfStream)
             {
-                int count = 0
+                int count = 0;
                 string[] rows = reader.ReadLine().Split(',');
                 Employee employee = new Employee();
                 foreach ( string column in columns )
@@ -74,9 +64,9 @@ namespace WebApp.Domain.CSV
                 }
                 employee.UserName = employee.UserName.Replace(" ", "");
                 employee.NFCToken = "Token" + id;
-                employee.HourlyWage = 5;
+                //employee.HourlyWage = 5;
                 employee.Inactive = false;
-                employee.Id = -id;
+                employee.Id = id;
                 employeesFromCSV.Add(employee);
                 id++;
             }
