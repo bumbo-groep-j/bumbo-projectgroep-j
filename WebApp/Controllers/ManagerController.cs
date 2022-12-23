@@ -457,19 +457,19 @@ namespace Bumbo.Controllers
                 {
                     int curHour = i % hours;
 
+                    if(schedule != null && (!model.IsChecked[i] || curHour == 0))
+                    {
+                        schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 59, 59);
+                        db.Schedules.Add(schedule);
+                        schedule = null;
+                    }
+
                     if (model.IsChecked[i] && schedule == null)
                     {
                         schedule = new Schedule();
                         schedule.StartTime = new DateTime(model.Year, model.Month, model.Day, curHour + startHour, 0, 0);
                         schedule.EmployeeId = employees[i / hours].Id;
                         schedule.Department = model.DepartmentName;
-                    }
-
-                    else if (schedule != null && (!model.IsChecked[i] || curHour == 0))
-                    {
-                        schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 59, 59);
-                        db.Schedules.Add(schedule);
-                        schedule = null;
                     }
                 }
 
