@@ -30,11 +30,6 @@ namespace WebApp.Domain
         [Required(ErrorMessage = "Het NFCToken veld is verplicht")]
         public string NFCToken { get; set; }
 
-        [Required(ErrorMessage = "Het Uurloon veld is verplicht")]
-        [DisplayName("Uurloon")]
-        [Range(0.01, Double.MaxValue, ErrorMessage = "Het Uurloon moet meer dan 0 zijn")]
-        public double HourlyWage { get; set; }
-
         [ForeignKey("Account")]
         [DisplayName("Gebruikersnaam")]
         public string UserName { get; set; }

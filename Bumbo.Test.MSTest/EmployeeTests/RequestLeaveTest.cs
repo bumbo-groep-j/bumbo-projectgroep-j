@@ -66,7 +66,6 @@ namespace Bumbo.Test.MSTest.EmployeeTests
                 LastName = "Test",
                 DateOfBirth = DateTime.Now,
                 NFCToken = "123456789",
-                HourlyWage = 10,
             };
             
             leaveRequest.EmployeeId = employee.Id;

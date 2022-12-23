@@ -18,7 +18,6 @@
             <th>@Html.DisplayNameFor(model => model.Employee.LastName)</th>
             <th>@Html.DisplayNameFor(model => model.Employee.DateOfBirth)</th>
             <th>@Html.DisplayNameFor(model => model.Employee.NFCToken)</th>
-            <th>@Html.DisplayNameFor(model => model.Employee.HourlyWage)</th>
             <th width="15%">Actie</th>
         </tr>
     </thead>
@@ -34,7 +33,6 @@
                     <td>@employee.Employee.LastName</td>
                     <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
                     <td>@employee.Employee.NFCToken</td>
-                    <td>&euro;@employee.Employee.HourlyWage.ToString("n2")</td>
                     <td>
                         <div class="index_links">
                             <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
@@ -55,7 +53,6 @@
                     <td>@employee.Employee.LastName</td>
                     <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
                     <td>@employee.Employee.NFCToken</td>
-                    <td>&euro;@employee.Employee.HourlyWage.ToString("n2")</td>
                     <td>
                         <div class="index_links">
                             <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>

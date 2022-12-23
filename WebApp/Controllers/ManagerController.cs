@@ -666,7 +666,7 @@ namespace Bumbo.Controllers
         public string ExportAllHours(int year, int month, int day) {
             var values = (from WorkedHour in db.WorkedHours where WorkedHour.ClockedTimeStart.Year == year && WorkedHour.ClockedTimeStart.Month == month && WorkedHour.ClockedTimeStart.Day == day select WorkedHour).ToList();
 
-            string csv = "Voornaam,Tussenvoegsel,Achternaam,Datum,Starttijd,Eindtijd,Gewerkte uren,Afdeling,Uurloon,Toeslag\n";
+            string csv = "Voornaam,Tussenvoegsel,Achternaam,Datum,Starttijd,Eindtijd,Gewerkte uren,Afdeling,Toeslag\n";
             double bonus = 0.0;
             var bonuses = (from CAOBonuses in db.CAOBonuses orderby CAOBonuses.ValidSince descending select CAOBonuses).First();
 
@@ -690,15 +690,12 @@ namespace Bumbo.Controllers
                         +  value.ApprovedTimeStart.Value.ToString("HH:mm:ss") + ","
                         +  value.ApprovedTimeEnd.Value.ToString("HH:mm:ss") + ","
                         + (value.ApprovedTimeEnd.Value - value.ApprovedTimeStart.Value).ToString("hh\\:mm") + ","
-                        +  value.Department + ",\""
-                        +  employee.HourlyWage.ToString("C2") + "\",+"
+                        +  value.Department + ","
                         + (int)(bonus * 100.0) + "%\n";
                 }
-
             }
 
             db.SaveChanges();
-
             return csv;
         }
 
@@ -790,7 +787,6 @@ namespace Bumbo.Controllers
                     employee.LastName = model.LastName;
                     employee.DateOfBirth = model.DateOfBirth;
                     employee.NFCToken = model.NFCToken;
-                    employee.HourlyWage = model.HourlyWage;
                     employee.Inactive = model.Inactive;
 
                     db.SaveChanges();
