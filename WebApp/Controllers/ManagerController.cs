@@ -276,8 +276,8 @@ namespace Bumbo.Controllers
 
             model.Availabilities = (
                 from Availability in db.Availabilities
-                where Availability.StartDate <= DateTime.Today
-                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                where Availability.StartDate <= date
+                && (Availability.EndDate == null || Availability.EndDate > date)
                 && Availability.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
                 select Availability
             ).ToList();
