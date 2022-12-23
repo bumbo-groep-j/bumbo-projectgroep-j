@@ -15,6 +15,7 @@
     }
 
     string link = "/Manager/Scheduling?departmentName=" + ViewBag.Department.Name + "&";
+    string fetchDataLink = "/Manager/GetScheduledDays?departmentName=" + ViewBag.Department.Name;
 }
 
 <div class="content_container">
@@ -26,7 +27,8 @@
             Today = DateOnly.FromDateTime(DateTime.Today),
             Selected = DateOnly.FromDateTime(ViewBag.Date),
             MinimumDay = DateOnly.FromDateTime(DateTime.Today),
-            Link = link
+            Link = link,
+            FetchDataLink = fetchDataLink
         };" />
         <hr />
         <p>Afdeling</p>

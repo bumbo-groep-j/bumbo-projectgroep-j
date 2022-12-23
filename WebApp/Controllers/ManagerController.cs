@@ -263,6 +263,8 @@ namespace Bumbo.Controllers
 
             (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Date, false, department.Name);
 
+            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+
             ViewBag.Department = department;
 
             ViewBag.Departments = (from Department in db.Departments select Department).ToList();
@@ -560,7 +562,7 @@ namespace Bumbo.Controllers
             int selectedDay, int selectedMonth, int selectedYear,
             int minimumDay, int minimumMonth, int minimumYear,
             int maximumDay, int maximumMonth, int maximumYear,
-            string link
+            string link, string fetchDataLink
         )
         {
             int weekday = 1;
@@ -588,6 +590,7 @@ namespace Bumbo.Controllers
             if (maximumDay != 0) data.MaximumDay = new DateOnly(maximumYear, maximumMonth, maximumDay);
 
             data.Link = HttpUtility.UrlDecode(link);
+            data.FetchDataLink = HttpUtility.UrlDecode(fetchDataLink);
 
             return PartialView(data);
         }
@@ -826,6 +829,62 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public string GenerateToken(Account model) {
             return Guid.NewGuid().ToString();
+        }
+
+        [Authorize(Roles = "Manager")]
+        public List<string> GetScheduledDays(string departmentName)
+        {
+            List<string> scheduledDays = new List<string>();
+
+            foreach(DateTime date in (from Schedule
+                                      in db.Schedules
+                                      where Schedule.Department == departmentName   
+                                      select Schedule.StartTime.Date).Distinct())
+            {
+                (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet))GetPrognosis(date, false, departmentName);
+                int[] predictedEmployees = dataSet.PredictHourlyEmployees(prognosis.Value);
+
+                bool correct = true;
+
+                for(int i = 0; i < 24; i++)
+                {
+                    int actualEmployees = 0;
+
+                    foreach(Schedule schedule in (from Schedule
+                                                  in db.Schedules
+                                                  where Schedule.Department == departmentName
+                                                  && Schedule.StartTime <= date.AddHours(i)
+                                                  && Schedule.EndTime > date.AddHours(i)
+                                                  select Schedule))
+                        actualEmployees++;
+
+                    if(actualEmployees != predictedEmployees[i]) { correct = false; break; }
+                }
+
+                if(correct) scheduledDays.Add(date.ToString("dd-MM-yyyy"));
+            }
+
+            return scheduledDays;
+        }
+
+        [Authorize(Roles = "Manager")]
+        public List<string> GetApprovedDays()
+        {
+            List<string> approvedDays = new List<string>();
+
+            foreach(DateTime date in (from WorkedHour
+                                      in db.WorkedHours
+                                      where WorkedHour.ApprovalTime != null
+                                      select WorkedHour.ClockedTimeStart.Date).Distinct())
+            {
+                if(!(from WorkedHour
+                     in db.WorkedHours
+                     where WorkedHour.ApprovalTime == null
+                     select WorkedHour.ClockedTimeStart.Date).Any())
+                    approvedDays.Add(date.ToString("dd-MM-yyyy"));
+            }
+
+            return approvedDays;
         }
     }
 }

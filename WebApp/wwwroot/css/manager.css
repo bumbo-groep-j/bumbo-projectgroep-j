@@ -331,3 +331,19 @@ input[type=checkbox]:disabled:hover::after {
 .prognosis_input:focus {
     outline: none;
 }
+
+.completed_day {
+    display: block;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 16px;
+    outline: 2px solid green;
+    outline-offset: -2px;
+    margin: auto;
+}
+
+.selected > .completed_day {
+    outline: 4px solid green !important;
+}
