@@ -15,6 +15,7 @@
     }
 
     string link = "/Manager/WorkedHours?";
+    string fetchDataLink = "/Manager/GetApprovedDays";
 }
 
 <div class="content_container">
@@ -26,7 +27,8 @@
             Today = DateOnly.FromDateTime(DateTime.Today),
             Selected = DateOnly.FromDateTime(ViewBag.Date),
             MaximumDay = DateOnly.FromDateTime(DateTime.Today),
-            Link = link
+            Link = link,
+            FetchDataLink = fetchDataLink
         };" />
     </aside>
     <div>
