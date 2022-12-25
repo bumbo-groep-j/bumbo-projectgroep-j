@@ -3,6 +3,7 @@ using WebApp.Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Bumbo.Models;
+using Microsoft.VisualBasic;
 
 namespace Bumbo.Controllers
 {
@@ -281,10 +282,33 @@ namespace Bumbo.Controllers
 
 
         [Authorize(Roles = "Employee")]
-        public IActionResult WorkSchedule()
+        public IActionResult WorkSchedule(string userName, DateTime date)
         {
-
             if (IsMobile()) return RedirectToAction("WorkSchedule", "Mobile");
+            
+            var employeeId = db.Employees.Where(x => x.UserName == userName).Select(y => y.Id).FirstOrDefault();
+            var schedules = db.Schedules.Where(x => x.EmployeeId == employeeId).ToList();
+
+            ViewBag.Schedules = schedules;
+
+            DateTime today = DateTime.Today;
+            int currentDayOfWeek = (int)today.DayOfWeek;
+            DateTime lastweek = today.AddDays(-currentDayOfWeek);
+            DateTime monday = lastweek.AddDays(1);
+            DateTime sunday = lastweek.AddDays(7);
+
+            if (currentDayOfWeek == 0)
+            {
+                sunday = lastweek.AddDays(0);
+                monday = monday.AddDays(-7);
+            }
+            var dates = Enumerable.Range(0, 7).Select(days => monday.AddDays(days)).ToList();
+
+            ViewBag.Dates = dates;
+            ViewBag.Monday = monday;
+            ViewBag.Sunday = sunday;
+            ViewBag.userName = userName;
+
             List<Weekday> weekdays = Enum.GetValues(typeof(Weekday)).Cast<Weekday>().ToList();
             ViewBag.Days = weekdays;
 

@@ -5,7 +5,6 @@
     ViewData["Title"] = "rooster";
     ViewData["Stylesheet"] = "/css/employee.css";
 
-    int dateNumber = 13;
 }
 
 <div class="watermark_concept">
@@ -14,9 +13,9 @@
 <div class="modal-body">
     <div id="title">
         <h1 class="align_center">
-            <button class="nav_button" asp-action="PreviousDate">&#x2039</button>
-            Rooster: Maandag 14 november - Zondag 20 november
-            <button class="nav_button" asp-action="NextDate">&#x203A</button>
+            <button class="nav_button" asp-action="WorkSchedule" asp-route-userName="@ViewBag.UserName" asp-route-Dat="">&#x2039</button>
+            Rooster:  @ViewBag.Monday.ToString("ddd dd MMMM") -  @ViewBag.Sunday.ToString("ddd dd MMMM")
+            <button class="nav_button" asp-action="WorkSchedule">&#x203A</button>
         </h1>
     </div>
     <br />
@@ -42,69 +41,69 @@
             <td style="color:white; font-size:0">00:00</td>
         </tr>
         <br>
-        @foreach (var item in ViewBag.Days as List<WebApp.Domain.Weekday>)
-        {
-            <tr class="tr_style">
-                <td class="day_div"><b>@WebApp.Domain.Weekdays.GetName(item)</b></td>
-                @{
-                    dateNumber++;
-                }
-                <td>@dateNumber</td>
-                @switch (item)
-                {
-                    case Weekday.Monday:
-                        <td class="length_hour" colspan="15">
-                            <div class="work_line space_between" style="width: 530px; margin-left: 90px;">
-                                <span>08:00</span>
-                                <span>Kassa</span>
-                                <span>16:00</span>
-                            </div>
-                        </td>
-                        <td>08:00</td>
-                        break;
-                    case Weekday.Tuesday:
-                        <td class="length_hour" colspan="15">
-                            <div class="work_line space_between" style=";width: 530px; margin-left: 155px;">
-                                <span>09:00</span>
-                                <span>Vers</span>
-                                <span>17:00</span>
-                            </div>
-                        </td>
-                        <td>08:00</td>
-                        break;
-                    case Weekday.Wednesday:
-                        <td class="length_hour" colspan="15">
-                        </td>
-                        <td>00:00</td>
-                        break;
-                    case Weekday.Thursday:
-                        <td class="length_hour" colspan="15">
-                        </td>
-                        <td>00:00</td>
-                        break;
-                    case Weekday.Friday:
-                        <td class="length_hour" colspan="15">
-                            <div class="work_line space_between" style="width: 330px; margin-left: 90px;">
-                                <span>08:00</span>
-                                <span>VKK</span>
-                                <span>13:00</span>
-                            </div>
-                        </td>
-                        <td>05:00</td>
-                        break;
-                    case Weekday.Saturday:
-                        <td class="length_hour" colspan="15">
-                        </td>
-                        <td>00:00</td>
-                        break;
-                    case Weekday.Sunday:
-                        <td class="length_hour" colspan="15">
-                        </td>
-                        <td>00:00</td>
-                        break;
-                }
 
-            </tr>
+        @{
+            int number = 0;
+            int dbnumber = 0;
         }
+        @if (ViewBag.Schedules != null)
+        {
+            @foreach (var item in ViewBag.Days as List<WebApp.Domain.Weekday>)
+            {
+                <tr class="tr_style">
+                    @if (dbnumber == ViewBag.Schedules.Count)
+                    {
+                        dbnumber = 0;
+                    }
+                    <td class="day_div"><b>@WebApp.Domain.Weekdays.GetName(item)</b></td>
+
+                    <td>@ViewBag.Dates[number].ToString("dd")</td>
+                    @{
+                        TimeSpan totalHours = (ViewBag.Schedules[dbnumber].EndTime - ViewBag.Schedules[dbnumber].StartTime).Duration();
+                    }
+                    @if (ViewBag.Dates[number].ToString("yyyy-MM-dd") == ViewBag.Schedules[dbnumber].StartTime.ToString("yyyy-MM-dd"))
+                    {
+                        <td class="length_hour" colspan="15">
+                            <div class="work_line space_between">
+                                <span>@ViewBag.Schedules[dbnumber].StartTime.ToString("HH:mm")</span>
+                                <span>@ViewBag.Schedules[dbnumber].Department</span>
+                                <span>@ViewBag.Schedules[dbnumber].EndTime.ToString("HH:mm")</span>
+                            </div>
+                        </td>
+
+                        <td>@totalHours.ToString(@"h\:mm")</td>
+                    }
+                    else
+                    {
+                        <td class="length_hour" colspan="15">
+                        </td>
+                        <td>00:00</td>
+                    }
+
+                    @{
+                        number++;
+                        dbnumber++;
+                    }
+
+                </tr>
+            }
+        }
+        else
+        {
+            @foreach (var item in ViewBag.Days as List<WebApp.Domain.Weekday>)
+            {
+                <tr>
+                    <td class="day_div"><b>@WebApp.Domain.Weekdays.GetName(item)</b></td>
+
+                    <td>@ViewBag.Dates[number].ToString("dd")</td>
+                    <td class="length_hour" colspan="15">
+                    </td>
+                    <td>00:00</td>
+                </tr>
+            }  
+        }
+       
     </table>
+   
+
 </div>

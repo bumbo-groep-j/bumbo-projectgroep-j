@@ -20,8 +20,6 @@
                         <input asp-for="EndTime" class="time_input" value="@ViewBag.EndTime" type="time" />
                         <input asp-for="Weekday" value="@ViewBag.Weekday" type="hidden" />
                         <input asp-for="EmployeeId" value="@ViewBag.EmployeeId" type="hidden" />
-                        <input asp-for="StartDate" value="@ViewBag.Date" type="hidden" />
-                        <input asp-for="EndDate" value="@ViewBag.Date" type="hidden" />
                         @if (ViewBag.ScheduleId != null)
                         {
                             <input asp-for="Id" value="@ViewBag.ScheduleId" type="hidden" />
