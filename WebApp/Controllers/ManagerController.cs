@@ -677,6 +677,7 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public IActionResult CreateEmployee()
         {
+            ViewBag.Guid = Guid.NewGuid().ToString();
             return View();
         }
 
