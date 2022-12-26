@@ -314,6 +314,10 @@ textarea {
     margin-right: -1.25px;
 }
 
+.disable_mobile {
+    display: none;
+}
+
 @media(max-width: 350px) {
     header {
         height: 120px;
@@ -353,6 +357,16 @@ textarea {
     main {
         width: auto;
         aspect-ratio: 1290 / 2796;
+    }
+
+    .disable_mobile {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 14px 16px 16px 16px;
+        background-color: #ffffff;
+        border-bottom-left-radius: 16px;
     }
 }
 

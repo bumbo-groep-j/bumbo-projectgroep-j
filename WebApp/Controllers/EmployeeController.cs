@@ -25,7 +25,8 @@ namespace Bumbo.Controllers
                 || userAgent.Contains("android")
                 || userAgent.Contains("windows phone")
                 || userAgent.Contains("ipad")
-                || userAgent.Contains("ipod");
+                || userAgent.Contains("ipod")
+                || Request.Cookies.ContainsKey("ForceMobile");
         }
 
         private DateTime ParseDate(int year, int month, int day, DateTime defaultDate)
@@ -40,12 +41,30 @@ namespace Bumbo.Controllers
             }
         }
 
+        public IActionResult EnableMobile()
+        {
+            Response.Cookies.Append("ForceMobile", "yes");
+            return RedirectToAction("WorkSchedule");
+        }
+
+        public IActionResult DisableMobile()
+        {
+            if(Request.Cookies.ContainsKey("ForceMobile"))
+            {
+                Response.Cookies.Delete("ForceMobile");
+            }
+
+            return RedirectToAction("WorkSchedule");
+        }
+
         private IActionResult LoadPage<MobileModelType, DesktopModelType>(MobileModelType mobileModel, DesktopModelType desktopModel, [CallerMemberName] string caller = "")
         {
-            if(IsMobile()) {
+            if(IsMobile())
+            {
                 ViewBag.IsMobile = true;
                 return View(caller + "Mobile", mobileModel);
-            } else return View(caller + "Desktop", desktopModel);
+            }
+            else return View(caller + "Desktop", desktopModel);
         }
 
         private IActionResult LoadPage<ModelType>(ModelType model, [CallerMemberName] string caller = "")
@@ -53,11 +72,14 @@ namespace Bumbo.Controllers
             return LoadPage(model, model, caller);
         }
 
-        private IActionResult LoadPage([CallerMemberName] string caller = "") {
-            if(IsMobile()) {
+        private IActionResult LoadPage([CallerMemberName] string caller = "")
+        {
+            if(IsMobile())
+            {
                 ViewBag.IsMobile = true;
                 return View(caller + "Mobile");
-            } else return View(caller + "Desktop");
+            }
+            else return View(caller + "Desktop");
         }
 
         [Authorize(Roles = "Employee")]
