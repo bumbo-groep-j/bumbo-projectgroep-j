@@ -302,14 +302,30 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult LeaveRequests() {
-            return LoadPage((
+        public IActionResult DeleteRequest(int id)
+        {
+            var request = db.LeaveRequests.FirstOrDefault(r => r.Id == id);
+            if (request != null)
+            {
+                db.LeaveRequests.Remove(request);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("LeaveRequests");
+        }
+
+        [Authorize(Roles = "Employee")]
+        public IActionResult LeaveRequests()
+        {
+            ViewBag.Requests = (
                 from LeaveRequest in db.LeaveRequests
                 join Employee in db.Employees
                 on LeaveRequest.EmployeeId equals Employee.Id
                 where Employee.UserName == userManager.GetUserName(User)
                 select LeaveRequest
-            ).ToList());
+            ).ToList();
+
+            return LoadPage();
         }
 
         [Authorize(Roles = "Employee")]

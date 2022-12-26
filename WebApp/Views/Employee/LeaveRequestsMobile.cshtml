@@ -1,5 +1,4 @@
 ﻿@using WebApp.Domain
-@model IEnumerable<LeaveRequest>
 @{
     ViewData["Title"] = "Verlof";
     ViewData["Stylesheet"] = "/css/mobile.css";
@@ -9,7 +8,7 @@
     <h1>Verlof<a asp-action="RequestLeave"><span class="add_button">+</span></a></h1>
 </header>
 <div class="content">
-    @foreach(var request in Model)
+    @foreach(var request in ViewBag.Requests)
     {
         <div class="inner_div">
             <h5><b>@request.StartDate.ToString("ddd") </b><span class="date">@request.StartDate.ToShortDateString()</span> &ndash; <b>@request.EndDate.ToString("ddd") </b><span class="date">@request.EndDate.ToShortDateString()</span></h5>

@@ -7,7 +7,7 @@ namespace Bumbo.Controllers
 {
     public class DesktopController : Controller
     {
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager,Employee")]
         public IActionResult Calendar(
             int month, int year,
             int todayDay, int todayMonth, int todayYear,
