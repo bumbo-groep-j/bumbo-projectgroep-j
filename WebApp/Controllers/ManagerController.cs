@@ -17,10 +17,6 @@ namespace Bumbo.Controllers
             db = dbContext;
         }
 
-        public ManagerController()
-        {
-        }
-
         private Prognosis GetPrognosis(DateTime date, bool isHoliday, string departmentName, bool getEmployeePrognosis = false)
         {
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();

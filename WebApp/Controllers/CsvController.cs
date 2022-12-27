@@ -12,10 +12,12 @@ namespace Bumbo.Controllers
 {
     public class CSVController : Controller
     {
-
-        public CSVController()
+        private BumboDbContext db;
+        private UserManager<Account> userManager;
+        public CSVController(UserManager<Account> user, BumboDbContext dbContext)
         {
-            //TODO files uitlezen.
+            userManager = user;
+            db = dbContext;
         }
 
         [Authorize(Roles = "Manager")]
@@ -45,6 +47,7 @@ namespace Bumbo.Controllers
                         account.Employee = employee;
                         account.Role = "Employee";
 
+                        
 
 
                     }
