@@ -3,7 +3,8 @@
     ViewData["Stylesheet"] = "/css/manager.css";
 
     int weekday = 1;
-    switch(new DateOnly(ViewBag.StartDate.Year, ViewBag.StartDate.Month, 1).DayOfWeek) {
+    switch(new DateOnly(ViewBag.StartDate.Year, ViewBag.StartDate.Month, 1).DayOfWeek)
+    {
         case DayOfWeek.Monday:    weekday = 1; break;
         case DayOfWeek.Tuesday:   weekday = 2; break;
         case DayOfWeek.Wednesday: weekday = 3; break;
@@ -18,7 +19,7 @@
 
 <div class="content_container">
     <aside>
-        <partial name="Calendar" model="new CalendarData {
+        <partial name="../Desktop/Calendar.cshtml" model="new CalendarData {
             CurrentMonth = ViewBag.StartDate.Month,
             CurrentYear = ViewBag.StartDate.Year,
             FirstWeekdayOfMonth = weekday,

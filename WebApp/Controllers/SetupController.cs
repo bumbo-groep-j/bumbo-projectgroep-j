@@ -48,7 +48,7 @@ namespace Bumbo.Controllers
                         await userManager.AddToRoleAsync(model, "Manager");
                         await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, false);
 
-                        return LocalRedirect("~/");
+                        return RedirectToAction("ListEmployees", "Manager");
                     }
 
                     foreach(var error in result.Errors)
