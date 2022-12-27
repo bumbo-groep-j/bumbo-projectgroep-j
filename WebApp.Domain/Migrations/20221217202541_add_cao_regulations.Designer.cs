@@ -12,8 +12,8 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    [Migration("20221204145607_prognosis_editing")]
-    partial class prognosisediting
+    [Migration("20221217202541_add_cao_regulations")]
+    partial class addcaoregulations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -225,16 +225,16 @@ namespace WebApp.Domain.Migrations
 
             modelBuilder.Entity("WebApp.Domain.Availability", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Weekday")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndTime")
@@ -246,9 +246,71 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EmployeeId", "Weekday", "Id");
+                    b.Property<int>("Weekday")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("Availabilities");
+                });
+
+            modelBuilder.Entity("WebApp.Domain.CAORegulation", b =>
+                {
+                    b.Property<int>("Age")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Age"));
+
+                    b.Property<int>("AllowedHours4Weeks")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AllowedHoursNotSchoolDay")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AllowedHoursNotSchoolWeek")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AllowedHoursSchoolDay")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AllowedHoursSchoolWeek")
+                        .HasColumnType("int");
+
+                    b.HasKey("Age");
+
+                    b.ToTable("CAORegulations");
+
+                    b.HasData(
+                        new
+                        {
+                            Age = 13,
+                            AllowedHours4Weeks = 140,
+                            AllowedHoursNotSchoolDay = 7,
+                            AllowedHoursNotSchoolWeek = 35,
+                            AllowedHoursSchoolDay = 2,
+                            AllowedHoursSchoolWeek = 12
+                        },
+                        new
+                        {
+                            Age = 15,
+                            AllowedHours4Weeks = 160,
+                            AllowedHoursNotSchoolDay = 8,
+                            AllowedHoursNotSchoolWeek = 40,
+                            AllowedHoursSchoolDay = 2,
+                            AllowedHoursSchoolWeek = 12
+                        },
+                        new
+                        {
+                            Age = 16,
+                            AllowedHours4Weeks = 160,
+                            AllowedHoursNotSchoolDay = 9,
+                            AllowedHoursNotSchoolWeek = 45,
+                            AllowedHoursSchoolDay = 9,
+                            AllowedHoursSchoolWeek = 45
+                        });
                 });
 
             modelBuilder.Entity("WebApp.Domain.DataPoint", b =>
@@ -7956,6 +8018,9 @@ namespace WebApp.Domain.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("MinimumAge")
+                        .HasColumnType("int");
+
                     b.Property<string>("PredictionValueName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -7968,16 +8033,19 @@ namespace WebApp.Domain.Migrations
                         new
                         {
                             Name = "Kassa",
+                            MinimumAge = 16,
                             PredictionValueName = "Bezoekers"
                         },
                         new
                         {
                             Name = "VKK",
+                            MinimumAge = 13,
                             PredictionValueName = "Colli"
                         },
                         new
                         {
                             Name = "Vers",
+                            MinimumAge = 16,
                             PredictionValueName = "Colli"
                         });
                 });
@@ -8247,6 +8315,12 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Rejected")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
@@ -8308,16 +8382,16 @@ namespace WebApp.Domain.Migrations
 
             modelBuilder.Entity("WebApp.Domain.SchoolSchedule", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Weekday")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndTime")
@@ -8329,7 +8403,12 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EmployeeId", "Weekday", "Id");
+                    b.Property<int>("Weekday")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("SchoolSchedules");
                 });

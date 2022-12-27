@@ -39,6 +39,7 @@
         </header>
         <div class="space_around">
             <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveAllHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day', success: function(data) { $('#worked_hours').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #worked_hours > *'); }});">Alle openstaande uren accorderen</button>
+            <a class="button" asp-action="ExportAllHours" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day" download="verloonde-uren-@ViewBag.Date.Day-@ViewBag.Date.Month-@(ViewBag.Date.Year).csv">Alle goedgekeurde uren exporteren</a>
         </div>
         <table id="worked_hours">
             <tr class="tr_bg">

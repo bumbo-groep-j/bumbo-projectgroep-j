@@ -31,14 +31,21 @@ namespace Bumbo.Controllers
             model.PasswordConfirmation = model.Password;
             ModelState.Clear();
             TryValidateModel(model);
+
             if(ModelState.IsValid)
             {
+                if((from Employee in db.Employees where Employee.UserName == model.UserName && Employee.Inactive select Employee).Any())
+                {
+                    ModelState.AddModelError(string.Empty, "Deze medewerker is inactief.");
+                    return View();
+                }
+
                 var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, false);
 
                 if(result.Succeeded)
                     return LocalRedirect("~/");
                 else
-                    ModelState.AddModelError(string.Empty, "Username or password invalid.");
+                    ModelState.AddModelError(string.Empty, "Gebruikersnaam of wachtwoord onjuist.");
             }
 
             return View();

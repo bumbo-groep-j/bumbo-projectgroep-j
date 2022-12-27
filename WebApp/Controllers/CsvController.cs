@@ -1,5 +1,7 @@
-﻿using CsvHelper;
+﻿using Bumbo.Models;
+using CsvHelper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using System.IO.Pipelines;
@@ -7,16 +9,11 @@ using WebApp.Domain;
 
 namespace Bumbo.Controllers
 {
-    public class CsvController : Controller
+    public class CSVController : Controller
     {
-        // GET: CsvController
-        private CsvReader csvReader;
-        private List<Employee> csvEmployees;
-        private List<WorkedHour> csvHours;
-        private List<Schedule> csvSchedules;
-        private List<Account> csvAccounts;
+        private UserManager<Account> userManager;
 
-        public CsvController()
+        public CSVController()
         {
             //TODO files uitlezen.
         }
@@ -26,6 +23,7 @@ namespace Bumbo.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         public Task<ActionResult> ReadFromCSV(IFormCollection collection)
         {
@@ -41,6 +39,11 @@ namespace Bumbo.Controllers
 
                     foreach (Employee employee in records)
                     {
+                        employee.NFCToken = Guid.NewGuid().ToString();
+                        EmployeeAccount account = new EmployeeAccount();
+                        account.Employee = employee;
+                        account.Role = "Employee";
+                        userManager.AddToRoleAsync(account.Account, account.Role);
 
                     }
                 }

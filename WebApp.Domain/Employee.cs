@@ -47,9 +47,6 @@ namespace WebApp.Domain
         public bool Inactive { get; set; }
 
         [NotMapped]
-        public Department Department { get; set; }
-
-        [NotMapped]
         public string Name
         {
             get
@@ -57,5 +54,20 @@ namespace WebApp.Domain
                 return FirstName + " " + (MiddleName != null ? MiddleName + " " : "") + LastName;
             }
         }
+
+        [NotMapped]
+        public bool OnLeave { get; set; }
+
+        [NotMapped]
+        public bool CanWork { get; set; }
+
+        [NotMapped]
+        public int AllowedHoursToday { get; set; }
+
+        [NotMapped]
+        public int AllowedHoursWeek { get; set; }
+
+        [NotMapped]
+        public int AllowedHours4Weeks { get; set; }
     }
 }

@@ -12,8 +12,8 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    [Migration("20221127153328_fix_workedhours")]
-    partial class fixworkedhours
+    [Migration("20221212154257_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,18 +25,216 @@ namespace WebApp.Domain.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("WebApp.Domain.Account", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("WebApp.Domain.Availability", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Weekday")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndTime")
@@ -48,51 +246,14 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EmployeeId", "Weekday", "Id");
+                    b.Property<int>("Weekday")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("Availabilities");
-
-                    b.HasData(
-                        new
-                        {
-                            EmployeeId = 1,
-                            Weekday = 0,
-                            Id = 1,
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            EmployeeId = 1,
-                            Weekday = 3,
-                            Id = 2,
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new DateTime(2022, 11, 24, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 24, 11, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            EmployeeId = 2,
-                            Weekday = 1,
-                            Id = 3,
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            EmployeeId = 3,
-                            Weekday = 1,
-                            Id = 4,
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("WebApp.Domain.DataPoint", b =>
@@ -7758,6 +7919,9 @@ namespace WebApp.Domain.Migrations
                     b.Property<int>("MinimumEmployees")
                         .HasColumnType("int");
 
+                    b.Property<bool>("ShouldEstimateValue")
+                        .HasColumnType("bit");
+
                     b.HasKey("DepartmentName");
 
                     b.ToTable("DataSets");
@@ -7769,7 +7933,8 @@ namespace WebApp.Domain.Migrations
                             DepartmentEndHour = 22,
                             DepartmentStartHour = 8,
                             EmployeeWorkLoad = 25,
-                            MinimumEmployees = 2
+                            MinimumEmployees = 2,
+                            ShouldEstimateValue = true
                         },
                         new
                         {
@@ -7777,7 +7942,8 @@ namespace WebApp.Domain.Migrations
                             DepartmentEndHour = 22,
                             DepartmentStartHour = 7,
                             EmployeeWorkLoad = 2,
-                            MinimumEmployees = 2
+                            MinimumEmployees = 2,
+                            ShouldEstimateValue = false
                         },
                         new
                         {
@@ -7785,7 +7951,8 @@ namespace WebApp.Domain.Migrations
                             DepartmentEndHour = 22,
                             DepartmentStartHour = 6,
                             EmployeeWorkLoad = 1,
-                            MinimumEmployees = 2
+                            MinimumEmployees = 2,
+                            ShouldEstimateValue = false
                         });
                 });
 
@@ -7794,6 +7961,10 @@ namespace WebApp.Domain.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("PredictionValueName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Name");
 
                     b.ToTable("Departments");
@@ -7801,15 +7972,18 @@ namespace WebApp.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Name = "Kassa"
+                            Name = "Kassa",
+                            PredictionValueName = "Bezoekers"
                         },
                         new
                         {
-                            Name = "VKK"
+                            Name = "VKK",
+                            PredictionValueName = "Colli"
                         },
                         new
                         {
-                            Name = "Vers"
+                            Name = "Vers",
+                            PredictionValueName = "Colli"
                         });
                 });
 
@@ -7831,6 +8005,9 @@ namespace WebApp.Domain.Migrations
                     b.Property<double>("HourlyWage")
                         .HasColumnType("float");
 
+                    b.Property<bool>("Inactive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -7842,41 +8019,13 @@ namespace WebApp.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateOfBirth = new DateTime(2000, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "testUser1FirstName",
-                            HourlyWage = 0.0,
-                            LastName = "testUser1LastName",
-                            MiddleName = "",
-                            NFCToken = "Token1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateOfBirth = new DateTime(1999, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "testUser2FirstName",
-                            HourlyWage = 0.0,
-                            LastName = "testUser2LastName",
-                            MiddleName = "",
-                            NFCToken = "Token2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateOfBirth = new DateTime(1985, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "testUser3FirstName",
-                            HourlyWage = 0.0,
-                            LastName = "testUser3LastName",
-                            MiddleName = "testUser3MiddelName",
-                            NFCToken = "Token3"
-                        });
                 });
 
             modelBuilder.Entity("WebApp.Domain.HourlyPoint", b =>
@@ -8083,6 +8232,37 @@ namespace WebApp.Domain.Migrations
                         });
                 });
 
+            modelBuilder.Entity("WebApp.Domain.LeaveRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Approved")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Rejected")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LeaveRequests");
+                });
+
             modelBuilder.Entity("WebApp.Domain.Prognosis", b =>
                 {
                     b.Property<int>("Id")
@@ -8132,86 +8312,20 @@ namespace WebApp.Domain.Migrations
                     b.HasIndex("EmployeeId");
 
                     b.ToTable("Schedules");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Department = "VKK",
-                            EmployeeId = 1,
-                            EndTime = new DateTime(2022, 11, 24, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 24, 11, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Department = "Kassa",
-                            EmployeeId = 1,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Department = "Kassa",
-                            EmployeeId = 2,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Department = "Vers",
-                            EmployeeId = 3,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Department = "Vers",
-                            EmployeeId = 1,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Department = "Vers",
-                            EmployeeId = 1,
-                            EndTime = new DateTime(2022, 11, 24, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 24, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Department = "Kassa",
-                            EmployeeId = 2,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Department = "VKK",
-                            EmployeeId = 3,
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("WebApp.Domain.SchoolSchedule", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Weekday")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndTime")
@@ -8223,51 +8337,14 @@ namespace WebApp.Domain.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EmployeeId", "Weekday", "Id");
+                    b.Property<int>("Weekday")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("SchoolSchedules");
-
-                    b.HasData(
-                        new
-                        {
-                            EmployeeId = 1,
-                            Weekday = 0,
-                            Id = 1,
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new DateTime(2022, 11, 21, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 21, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            EmployeeId = 1,
-                            Weekday = 2,
-                            Id = 2,
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new DateTime(2022, 11, 22, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 22, 13, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            EmployeeId = 2,
-                            Weekday = 4,
-                            Id = 3,
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new DateTime(2022, 11, 25, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 25, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            EmployeeId = 3,
-                            Weekday = 1,
-                            Id = 4,
-                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new DateTime(2022, 11, 24, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new DateTime(2022, 11, 24, 8, 30, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("WebApp.Domain.WorkedHour", b =>
@@ -8305,40 +8382,57 @@ namespace WebApp.Domain.Migrations
                     b.HasIndex("ScheduleId");
 
                     b.ToTable("WorkedHours");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 3, 0, 0, DateTimeKind.Unspecified),
-                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 32, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Vers",
-                            ScheduleId = 5
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ClockedTimeEnd = new DateTime(2022, 11, 24, 16, 53, 0, 0, DateTimeKind.Unspecified),
-                            ClockedTimeStart = new DateTime(2022, 11, 24, 8, 31, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Vers",
-                            ScheduleId = 6
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ClockedTimeEnd = new DateTime(2022, 11, 22, 15, 59, 0, 0, DateTimeKind.Unspecified),
-                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 28, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Kassa",
-                            ScheduleId = 7
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ClockedTimeEnd = new DateTime(2022, 11, 22, 16, 1, 0, 0, DateTimeKind.Unspecified),
-                            ClockedTimeStart = new DateTime(2022, 11, 22, 8, 34, 0, 0, DateTimeKind.Unspecified),
-                            Department = "VKK",
-                            ScheduleId = 8
-                        });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("WebApp.Domain.Account", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("WebApp.Domain.Account", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebApp.Domain.Account", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("WebApp.Domain.Account", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("WebApp.Domain.Availability", b =>

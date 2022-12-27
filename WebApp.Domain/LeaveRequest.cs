@@ -18,10 +18,13 @@ namespace WebApp.Domain
 
         [Required(ErrorMessage = "Dit veld is verplicht")]
         public DateTime EndDate { get; set; }
-        
+
         public string? Comment { get; set; }
+
+        public DateTime InsertDate { get; set; }
 
         public bool Approved { get; set; }
 
+        public bool Rejected { get; set; }
     }
 }
