@@ -43,7 +43,7 @@ namespace Bumbo.Controllers
                         EmployeeAccount account = new EmployeeAccount();
                         account.Employee = employee;
                         account.Role = "Employee";
-                        userManager.AddToRoleAsync(account.Account, account.Role);
+                        //await userManager.AddToRoleAsync(account.Account, account.Role);
 
                     }
                 }
