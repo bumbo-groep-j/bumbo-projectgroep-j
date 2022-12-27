@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using System.IO.Pipelines;
+using System.Web.WebPages;
 using WebApp.Domain;
 
 namespace Bumbo.Controllers
 {
     public class CSVController : Controller
     {
-        private UserManager<Account> userManager;
 
         public CSVController()
         {
@@ -25,7 +25,7 @@ namespace Bumbo.Controllers
         }
         [Authorize(Roles = "Manager")]
         [HttpPost]
-        public Task<ActionResult> ReadFromCSV(IFormCollection collection)
+        public async Task<ActionResult> ReadFromCSV(IFormCollection collection)
         {
             StreamReader reader;
             foreach ( FormFile file in collection.Files)
@@ -35,6 +35,7 @@ namespace Bumbo.Controllers
                 if (file.FileName.Contains("medewerkers"))
                 {
                     var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
                     List<Employee> records = csv.GetRecords<Employee>().ToList();
 
                     foreach (Employee employee in records)
@@ -43,7 +44,8 @@ namespace Bumbo.Controllers
                         EmployeeAccount account = new EmployeeAccount();
                         account.Employee = employee;
                         account.Role = "Employee";
-                        //await userManager.AddToRoleAsync(account.Account, account.Role);
+
+
 
                     }
                 }

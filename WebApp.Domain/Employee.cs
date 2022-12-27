@@ -3,12 +3,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 
 namespace WebApp.Domain
 {
     public class Employee
     {
         [Key]
+        [Ignore]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Het Voornaam veld is verplicht")]
@@ -28,9 +30,12 @@ namespace WebApp.Domain
         [Column(TypeName = "Date")]
         [Name("Geboortedatum")]
         [DisplayName("Geboortedatum")]
+        [Format("dd/MM/yyyy")]
+
         public DateTime DateOfBirth { get; set; }
 
         [DisplayName("NFC-Token")]
+        [Ignore]
         [Required(ErrorMessage = "Het NFCToken veld is verplicht")]
         public string NFCToken { get; set; }
         
@@ -41,12 +46,15 @@ namespace WebApp.Domain
         */
 
         [ForeignKey("Account")]
+        [Ignore]
         [DisplayName("Gebruikersnaam")]
         public string UserName { get; set; }
 
+        [Ignore]
         public bool Inactive { get; set; }
 
         [NotMapped]
+        [Ignore]
         public string Name
         {
             get
@@ -56,18 +64,23 @@ namespace WebApp.Domain
         }
 
         [NotMapped]
+        [Ignore]
         public bool OnLeave { get; set; }
 
         [NotMapped]
+        [Ignore]
         public bool CanWork { get; set; }
 
         [NotMapped]
+        [Ignore]
         public int AllowedHoursToday { get; set; }
 
         [NotMapped]
+        [Ignore]
         public int AllowedHoursWeek { get; set; }
 
         [NotMapped]
+        [Ignore]
         public int AllowedHours4Weeks { get; set; }
     }
 }
