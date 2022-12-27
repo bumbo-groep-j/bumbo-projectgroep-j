@@ -1,12 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using WebApp.Domain.CSV;
 
 namespace WebApp.Domain
 {
     public class BumboDbContext : IdentityDbContext<Account>
     {
-        private CsvReader csvReader = new CsvReader();
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Department> Departments { get; set;}

@@ -43,14 +43,31 @@ namespace Bumbo.Controllers
                     foreach (Employee employee in records)
                     {
                         employee.NFCToken = Guid.NewGuid().ToString();
+                        employee.UserName = employee.FirstName + employee.LastName;
+                        employee.UserName = employee.UserName.Replace(" ", "");
                         EmployeeAccount account = new EmployeeAccount();
                         account.Employee = employee;
                         account.Role = "Employee";
+                        account.Account = new Account();
+                        account.Account.UserName = employee.UserName;
+                        account.Account.Password = "TempPassword";
 
-                        
+                        var result = await userManager.CreateAsync(account.Account, account.Account.Password);
 
+                        if (result.Succeeded)
+                        {
+                            await userManager.AddToRoleAsync(account.Account, account.Role);
 
+                            if (account.Role == "Employee")
+                            {
+                                db.Employees.Add(account.Employee);
+                            }
+                        }
+
+                        foreach (var error in result.Errors)
+                            ModelState.AddModelError(string.Empty, error.Description);
                     }
+                    db.SaveChanges();
                 }
                 if (file.FileName.Contains("hours"))
                 {
@@ -59,7 +76,7 @@ namespace Bumbo.Controllers
 
             }
 
-            return null;
+            return RedirectToAction( "ListEmployees", "Manager" );
         }
     }
 }

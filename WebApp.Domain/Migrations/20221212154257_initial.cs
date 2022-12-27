@@ -91,7 +91,6 @@ namespace WebApp.Domain.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "Date", nullable: false),
                     NFCToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HourlyWage = table.Column<double>(type: "float", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Inactive = table.Column<bool>(type: "bit", nullable: false)
                 },
