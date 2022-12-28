@@ -45,6 +45,7 @@ namespace Bumbo.Controllers
                         employee.NFCToken = Guid.NewGuid().ToString();
                         employee.UserName = employee.FirstName + employee.LastName;
                         employee.UserName = employee.UserName.Replace(" ", "");
+
                         EmployeeAccount account = new EmployeeAccount();
                         account.Employee = employee;
                         account.Role = "Employee";
@@ -68,15 +69,43 @@ namespace Bumbo.Controllers
                             ModelState.AddModelError(string.Empty, error.Description);
                     }
                     db.SaveChanges();
+
                 }
                 if (file.FileName.Contains("hours"))
                 {
-                    
+                    var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+                    List<Schedule> records = csv.GetRecords<Schedule>().ToList();
+                    int countSchedules = db.Schedules.Count();
+                    if (countSchedules == 0)
+                        countSchedules++;
+                    foreach ( Schedule schedule in records )
+                    {
+
+                        Employee employee = db.Employees.First( e => e.BID == schedule.BID );
+                        schedule.Employee = employee;
+                        schedule.EmployeeId = employee.Id;
+                        schedule.Id = countSchedules;
+                        
+                        db.Schedules.Add( schedule );
+                        countSchedules++;
+
+                        WorkedHour workedHour = new WorkedHour();
+                        workedHour.ScheduleId = schedule.Id;
+                        workedHour.Schedule = schedule;
+                        workedHour.ClockedTimeStart = schedule.StartTime;
+                        workedHour.ClockedTimeEnd = schedule.EndTime;
+                        workedHour.Department = schedule.Department;
+
+                        db.WorkedHours.Add(workedHour);
+                    }
+
+
+                    db.SaveChanges();
                 }
 
             }
-
-            return RedirectToAction( "ListEmployees", "Manager" );
+            return Redirect("CsvImport");
         }
     }
 }

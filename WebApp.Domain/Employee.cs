@@ -13,6 +13,9 @@ namespace WebApp.Domain
         [Ignore]
         public int Id { get; set; }
 
+        [Name("BID")]
+        public string BID { get; set; }
+
         [Required(ErrorMessage = "Het Voornaam veld is verplicht")]
         [DisplayName("Voornaam")]
         [Name("Vn")]
