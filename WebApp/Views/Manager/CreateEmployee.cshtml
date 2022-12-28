@@ -56,15 +56,10 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Employee.NFCToken" class="control-label"></label>
-                    <input asp-for="Employee.NFCToken" class="form-control" id="nfc-token" readonly /><br />
+                    <input asp-for="Employee.NFCToken" class="form-control" id="nfc-token" value="@ViewBag.Guid" readonly /><br />
                     <button onclick="$.ajax({ type: 'GET', url: '/Manager/GenerateToken', success: function(data) { $('#nfc-token').val(data); }});" type="button">Nieuwe token</button>
                     <span asp-validation-for="Employee.NFCToken" class="text-danger"></span>
                 </div>
-                <!--<div class="form-group">
-                    <label asp-for="Employee.HourlyWage" class="control-label"></label>
-                    <input asp-for="Employee.HourlyWage" type="number" step="0.01" class="form-control" data-val-number="Het Uurloon moet een nummer zijn" title="Uurloon is ongeldig" />
-                    <span asp-validation-for="Employee.HourlyWage" class="text-danger"></span>
-                </div>-->
             </div>
             <br />
             <div class="form-group">

@@ -16,7 +16,7 @@
                 <span>Geen school</span>
             } else {
                 var schedule = Model.First(schedule => schedule.Weekday == weekday);
-                <span>@schedule.StartTime.ToString("HH-mm") - @schedule.EndTime.ToString("HH-mm")</span>
+                <span>@schedule.StartTime.ToString("HH:mm") - @schedule.EndTime.ToString("HH:mm")</span>
             }
             <a asp-action="EditSchoolSchedule" asp-route-weekday="@weekday"><span class="edit_availability">Wijzigen</span></a>
         </div>

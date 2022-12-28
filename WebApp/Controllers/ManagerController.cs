@@ -17,7 +17,7 @@ namespace Bumbo.Controllers
             db = dbContext;
         }
 
-        private Prognosis GetPrognosis(DateTime date, bool isHoliday, string departmentName, bool getEmployeePrognosis = false)
+        private (Prognosis, DataSet) GetPrognosis(DateTime date, bool isHoliday, string departmentName)
         {
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
 
@@ -45,10 +45,7 @@ namespace Bumbo.Controllers
                 db.SaveChanges();
             }
 
-            if (getEmployeePrognosis)
-                ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
-
-            return prognosis;
+            return (prognosis, dataSet);
         }
 
 
@@ -183,7 +180,7 @@ namespace Bumbo.Controllers
             for (int i = 0; i < 7; i++)
             {
                 ViewBag.Dates[i] = date.AddDays(i);
-                model.Prognoses[i] = GetPrognosis(ViewBag.Dates[i], false, department.Name);
+                (model.Prognoses[i], DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Dates[i], false, department.Name);
 
                 switch (ViewBag.Dates[i].DayOfWeek)
                 {
@@ -264,7 +261,9 @@ namespace Bumbo.Controllers
                 department = (from Department in db.Departments select Department).First();
             }
 
-            GetPrognosis(ViewBag.Date, false, department.Name, true);
+            (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Date, false, department.Name);
+
+            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
 
             ViewBag.Department = department;
 
@@ -279,8 +278,8 @@ namespace Bumbo.Controllers
 
             model.Availabilities = (
                 from Availability in db.Availabilities
-                where Availability.StartDate <= DateTime.Today
-                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                where Availability.StartDate <= date
+                && (Availability.EndDate == null || Availability.EndDate > date)
                 && Availability.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
                 select Availability
             ).ToList();
@@ -460,19 +459,19 @@ namespace Bumbo.Controllers
                 {
                     int curHour = i % hours;
 
+                    if(schedule != null && (!model.IsChecked[i] || curHour == 0))
+                    {
+                        schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 59, 59);
+                        db.Schedules.Add(schedule);
+                        schedule = null;
+                    }
+
                     if (model.IsChecked[i] && schedule == null)
                     {
                         schedule = new Schedule();
                         schedule.StartTime = new DateTime(model.Year, model.Month, model.Day, curHour + startHour, 0, 0);
                         schedule.EmployeeId = employees[i / hours].Id;
                         schedule.Department = model.DepartmentName;
-                    }
-
-                    else if (schedule != null && (!model.IsChecked[i] || curHour == 0))
-                    {
-                        schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 59, 59);
-                        db.Schedules.Add(schedule);
-                        schedule = null;
                     }
                 }
 
@@ -557,45 +556,6 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult Calendar(
-            int month, int year,
-            int todayDay, int todayMonth, int todayYear,
-            int selectedDay, int selectedMonth, int selectedYear,
-            int minimumDay, int minimumMonth, int minimumYear,
-            int maximumDay, int maximumMonth, int maximumYear,
-            string link
-        )
-        {
-            int weekday = 1;
-            switch (new DateOnly(year, month, 1).DayOfWeek)
-            {
-                case DayOfWeek.Monday: weekday = 1; break;
-                case DayOfWeek.Tuesday: weekday = 2; break;
-                case DayOfWeek.Wednesday: weekday = 3; break;
-                case DayOfWeek.Thursday: weekday = 4; break;
-                case DayOfWeek.Friday: weekday = 5; break;
-                case DayOfWeek.Saturday: weekday = 6; break;
-                case DayOfWeek.Sunday: weekday = 7; break;
-            }
-
-            CalendarData data = new CalendarData
-            {
-                CurrentMonth = month,
-                CurrentYear = year,
-                FirstWeekdayOfMonth = weekday,
-                Today = new DateOnly(todayYear, todayMonth, todayDay),
-                Selected = new DateOnly(selectedYear, selectedMonth, selectedDay)
-            };
-
-            if (minimumDay != 0) data.MinimumDay = new DateOnly(minimumYear, minimumMonth, minimumDay);
-            if (maximumDay != 0) data.MaximumDay = new DateOnly(maximumYear, maximumMonth, maximumDay);
-
-            data.Link = HttpUtility.UrlDecode(link);
-
-            return PartialView(data);
-        }
-
-        [Authorize(Roles = "Manager")]
         public IActionResult EditWorkedHours(int year, int month, int day, int id)
         {
             ApprovedHoursForm data = (
@@ -666,7 +626,7 @@ namespace Bumbo.Controllers
         public string ExportAllHours(int year, int month, int day) {
             var values = (from WorkedHour in db.WorkedHours where WorkedHour.ClockedTimeStart.Year == year && WorkedHour.ClockedTimeStart.Month == month && WorkedHour.ClockedTimeStart.Day == day select WorkedHour).ToList();
 
-            string csv = "Voornaam,Tussenvoegsel,Achternaam,Datum,Starttijd,Eindtijd,Gewerkte uren,Afdeling,Uurloon,Toeslag\n";
+            string csv = "Voornaam,Tussenvoegsel,Achternaam,Datum,Starttijd,Eindtijd,Gewerkte uren,Afdeling,Toeslag\n";
             double bonus = 0.0;
             var bonuses = (from CAOBonuses in db.CAOBonuses orderby CAOBonuses.ValidSince descending select CAOBonuses).First();
 
@@ -690,15 +650,11 @@ namespace Bumbo.Controllers
                         +  value.ApprovedTimeStart.Value.ToString("HH:mm:ss") + ","
                         +  value.ApprovedTimeEnd.Value.ToString("HH:mm:ss") + ","
                         + (value.ApprovedTimeEnd.Value - value.ApprovedTimeStart.Value).ToString("hh\\:mm") + ","
-                        +  value.Department + ",\""
-                        //+  employee.HourlyWage.ToString("C2") + "\",+"
                         + (int)(bonus * 100.0) + "%\n";
                 }
-
             }
 
             db.SaveChanges();
-
             return csv;
         }
 
@@ -720,6 +676,7 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public IActionResult CreateEmployee()
         {
+            ViewBag.Guid = Guid.NewGuid().ToString();
             return View();
         }
 
@@ -790,7 +747,6 @@ namespace Bumbo.Controllers
                     employee.LastName = model.LastName;
                     employee.DateOfBirth = model.DateOfBirth;
                     employee.NFCToken = model.NFCToken;
-                    //employee.HourlyWage = model.HourlyWage;
                     employee.Inactive = model.Inactive;
 
                     db.SaveChanges();
@@ -832,6 +788,62 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public string GenerateToken(Account model) {
             return Guid.NewGuid().ToString();
+        }
+
+        [Authorize(Roles = "Manager")]
+        public List<string> GetScheduledDays(string departmentName)
+        {
+            List<string> scheduledDays = new List<string>();
+
+            foreach(DateTime date in (from Schedule
+                                      in db.Schedules
+                                      where Schedule.Department == departmentName   
+                                      select Schedule.StartTime.Date).Distinct())
+            {
+                (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet))GetPrognosis(date, false, departmentName);
+                int[] predictedEmployees = dataSet.PredictHourlyEmployees(prognosis.Value);
+
+                bool correct = true;
+
+                for(int i = 0; i < 24; i++)
+                {
+                    int actualEmployees = 0;
+
+                    foreach(Schedule schedule in (from Schedule
+                                                  in db.Schedules
+                                                  where Schedule.Department == departmentName
+                                                  && Schedule.StartTime <= date.AddHours(i)
+                                                  && Schedule.EndTime > date.AddHours(i)
+                                                  select Schedule))
+                        actualEmployees++;
+
+                    if(actualEmployees != predictedEmployees[i]) { correct = false; break; }
+                }
+
+                if(correct) scheduledDays.Add(date.ToString("dd-MM-yyyy"));
+            }
+
+            return scheduledDays;
+        }
+
+        [Authorize(Roles = "Manager")]
+        public List<string> GetApprovedDays()
+        {
+            List<string> approvedDays = new List<string>();
+
+            foreach(DateTime date in (from WorkedHour
+                                      in db.WorkedHours
+                                      where WorkedHour.ApprovalTime != null
+                                      select WorkedHour.ClockedTimeStart.Date).Distinct())
+            {
+                if(!(from WorkedHour
+                     in db.WorkedHours
+                     where WorkedHour.ApprovalTime == null
+                     select WorkedHour.ClockedTimeStart.Date).Any())
+                    approvedDays.Add(date.ToString("dd-MM-yyyy"));
+            }
+
+            return approvedDays;
         }
     }
 }

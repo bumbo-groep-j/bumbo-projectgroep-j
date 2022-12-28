@@ -15,7 +15,8 @@
         + "&maximumDay="       + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Day   : 0)
         + "&maximumMonth="     + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
         + "&maximumYear="      + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0)
-        + "&link="             + Model.EscapedLink;
+        + "&link="             + Model.EscapedLink
+        + "&fetchDataLink="    + Model.EscapedFetchDataLink;
 
     string Next = "month="     + (Model.CurrentMonth == 12 ? 1 : Model.CurrentMonth + 1)
         + "&year="             + (Model.CurrentMonth == 12 ? Model.CurrentYear + 1 : Model.CurrentYear)
@@ -31,15 +32,16 @@
         + "&maximumDay="       + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Day   : 0)
         + "&maximumMonth="     + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
         + "&maximumYear="      + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0)
-        + "&link="             + Model.EscapedLink;
+        + "&link="             + Model.EscapedLink
+        + "&fetchDataLink="    + Model.EscapedFetchDataLink;
 }
 
-<div class="calendar">
+<div class="calendar" onload="updateCompletedDays();">
     <div class="space_between">
         <b>@Model.Month @Model.CurrentYear</b>
         <span class="chevron">
-            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Manager/Calendar?@Previous');">&#x2039;</a>
-            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Manager/Calendar?@Next');">&#x203A;</a>
+            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Desktop/Calendar?@Previous');">&#x2039;</a>
+            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Desktop/Calendar?@Next');">&#x203A;</a>
         </span>
     </div>
     <table>
@@ -93,17 +95,23 @@
                             }
                         }
 
+                        string tdId = "" + monthday;
+
+                        if(tdId.Length == 1) tdId = "0" + tdId;
+
+                        tdId += "-" + Model.CurrentMonth + "-" + Model.CurrentYear;
+
                         if(!allowed)
                         {
                             if(classes != "") classes += " ";
                             classes += "forbidden";
 
-                            <td class="@classes">@(monthday++)</td>
+                            <td class="@classes" id="@tdId">@(monthday++)</td>
                         }
                         else if(Model.Link != null && Model.Link != "")
                         {
                             string link = Model.Link + "year=" + Model.CurrentYear + "&month=" + Model.CurrentMonth + "&day=" + monthday;
-                            <td class="@classes"><a href="@link">@(monthday++)</a></td>
+                            <td class="@classes" id="@tdId"><a href="@link">@(monthday++)</a></td>
                         }
                     }
                 </tr>
@@ -118,4 +126,19 @@
             }
         }
     </table>
+    @if(Model.FetchDataLink != null && Model.FetchDataLink != "")
+    {
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+            $.ajax({
+                type: "GET",
+                url: "@Model.FetchDataLink",
+                success: function (data) {
+                    for (let i = 0; i < data.length; i++) {
+                        $("#" + data[i] + " > a").addClass("completed_day");
+                    }
+                }
+            });
+        </script>
+    }
 </div>

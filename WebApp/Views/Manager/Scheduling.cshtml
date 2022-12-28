@@ -5,28 +5,30 @@
     int weekday = 1;
     switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)
     {
-        case DayOfWeek.Monday: weekday = 1; break;
-        case DayOfWeek.Tuesday: weekday = 2; break;
+        case DayOfWeek.Monday:    weekday = 1; break;
+        case DayOfWeek.Tuesday:   weekday = 2; break;
         case DayOfWeek.Wednesday: weekday = 3; break;
-        case DayOfWeek.Thursday: weekday = 4; break;
-        case DayOfWeek.Friday: weekday = 5; break;
-        case DayOfWeek.Saturday: weekday = 6; break;
-        case DayOfWeek.Sunday: weekday = 7; break;
+        case DayOfWeek.Thursday:  weekday = 4; break;
+        case DayOfWeek.Friday:    weekday = 5; break;
+        case DayOfWeek.Saturday:  weekday = 6; break;
+        case DayOfWeek.Sunday:    weekday = 7; break;
     }
 
     string link = "/Manager/Scheduling?departmentName=" + ViewBag.Department.Name + "&";
+    string fetchDataLink = "/Manager/GetScheduledDays?departmentName=" + ViewBag.Department.Name;
 }
 
 <div class="content_container">
     <aside>
-        <partial name="Calendar" model="new CalendarData {
+        <partial name="../Desktop/Calendar.cshtml" model="new CalendarData {
             CurrentMonth = ViewBag.Date.Month,
             CurrentYear = ViewBag.Date.Year,
             FirstWeekdayOfMonth = weekday,
             Today = DateOnly.FromDateTime(DateTime.Today),
             Selected = DateOnly.FromDateTime(ViewBag.Date),
             MinimumDay = DateOnly.FromDateTime(DateTime.Today),
-            Link = link
+            Link = link,
+            FetchDataLink = fetchDataLink
         };" />
         <hr />
         <p>Afdeling</p>
@@ -85,11 +87,11 @@
                     <span class="hidden" id="today_employee_@employee.Id">@employee.AllowedHoursToday</span>
                     <span class="hidden" id="week_employee_@employee.Id">@employee.AllowedHoursWeek</span>
                     <span class="hidden" id="weeks_employee_@employee.Id">@employee.AllowedHours4Weeks</span>
-                    <tr>
-                        <td class="align_right" colspan="3">@employee.Name</td>
-                        @if(employee.CanWork)
-                        {
-                            for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
+                    @if(employee.CanWork)
+                    {
+                        <tr>
+                            <td class="align_right" colspan="3">@employee.Name</td>
+                            @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
                             {
                                 if(!Model.Availabilities.Any(availability => availability.StartTime.Hour <= hour && availability.EndTime.Hour > hour && availability.EmployeeId == employee.Id)
                                 || Model.Schedules.Any(schedule => schedule.StartTime.Hour <= hour && schedule.EndTime.Hour >= hour && schedule.EmployeeId == employee.Id))
@@ -102,12 +104,15 @@
                                 }
                                 i++;
                             }
-                        }
-                        else if(employee.OnLeave)
-                        {
+                        </tr>
+                    }
+                    else if(employee.OnLeave)
+                    {
+                        <tr>
+                            <td class="align_right" colspan="3">@employee.Name</td>
                             <td class="align_center" colspan="@(ViewBag.EndHour - ViewBag.StartHour + 1)">Deze medewerker is vrij.</td>
-                        }
-                    </tr>
+                        </tr>
+                    }
                 }
             </table>
         </form>

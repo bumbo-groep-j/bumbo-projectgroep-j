@@ -5,28 +5,30 @@
     int weekday = 1;
     switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)
     {
-        case DayOfWeek.Monday: weekday = 1; break;
-        case DayOfWeek.Tuesday: weekday = 2; break;
+        case DayOfWeek.Monday:    weekday = 1; break;
+        case DayOfWeek.Tuesday:   weekday = 2; break;
         case DayOfWeek.Wednesday: weekday = 3; break;
-        case DayOfWeek.Thursday: weekday = 4; break;
-        case DayOfWeek.Friday: weekday = 5; break;
-        case DayOfWeek.Saturday: weekday = 6; break;
-        case DayOfWeek.Sunday: weekday = 7; break;
+        case DayOfWeek.Thursday:  weekday = 4; break;
+        case DayOfWeek.Friday:    weekday = 5; break;
+        case DayOfWeek.Saturday:  weekday = 6; break;
+        case DayOfWeek.Sunday:    weekday = 7; break;
     }
 
     string link = "/Manager/WorkedHours?";
+    string fetchDataLink = "/Manager/GetApprovedDays";
 }
 
 <div class="content_container">
     <aside>
-        <partial name="Calendar" model="new CalendarData {
+        <partial name="../Desktop/Calendar.cshtml" model="new CalendarData {
             CurrentMonth = ViewBag.Date.Month,
             CurrentYear = ViewBag.Date.Year,
             FirstWeekdayOfMonth = weekday,
             Today = DateOnly.FromDateTime(DateTime.Today),
             Selected = DateOnly.FromDateTime(ViewBag.Date),
             MaximumDay = DateOnly.FromDateTime(DateTime.Today),
-            Link = link
+            Link = link,
+            FetchDataLink = fetchDataLink
         };" />
     </aside>
     <div>

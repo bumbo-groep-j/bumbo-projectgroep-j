@@ -61,5 +61,15 @@ namespace Bumbo.Controllers
         {
             return RedirectToAction("Login");
         }
+
+        public ActionResult Index()
+        {
+            if(signInManager.IsSignedIn(User))
+            {
+                if(User.IsInRole("Manager")) return RedirectToAction("Scheduling", "Manager");
+                else return RedirectToAction("WorkSchedule", "Employee");
+            }
+            else return RedirectToAction("Login");
+        }
     }
 }
