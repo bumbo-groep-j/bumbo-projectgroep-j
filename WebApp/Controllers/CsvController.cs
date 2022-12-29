@@ -30,7 +30,7 @@ namespace Bumbo.Controllers
         public async Task<ActionResult> ReadFromCSV(IFormCollection collection)
         {
             StreamReader reader;
-            foreach ( FormFile file in collection.Files)
+            foreach (FormFile file in collection.Files)
             {
                 reader = new StreamReader(file.OpenReadStream());
 
@@ -73,7 +73,34 @@ namespace Bumbo.Controllers
                 }
                 if (file.FileName.Contains("hours"))
                 {
-                    var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+                    // Temporary while using modified .csv file...
+                    string content = reader.ReadToEnd();
+                    string fixedContent = "";
+                    if (content.Contains("/"))
+                    {
+                        foreach (string line in content.Split("\n"))
+                        {
+                            if (!line.Contains("/"))
+                            {
+                                fixedContent += line + '\n';
+                                continue;
+                            }
+                            var values = line.Split(",");
+                            var dateValues = values[2].Split("/");
+
+                            fixedContent += values[0] + ","
+                                + values[1] + ","
+                                + dateValues[2] + "-" + dateValues[1] + "-" + dateValues[0] + ","
+                                + values[3] + ","
+                                + values[4] + ","
+                                + values[5] + "\n";
+                        }
+                    }
+                    else fixedContent = content;
+
+                    var contentReader = new StringReader(fixedContent);
+
+                    var csv = new CsvReader(contentReader, CultureInfo.InvariantCulture);
 
                     List<Schedule> records = csv.GetRecords<Schedule>().ToList();
                     int countSchedules = db.Schedules.Count() + 1;
