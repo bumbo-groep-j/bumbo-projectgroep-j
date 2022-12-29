@@ -370,7 +370,7 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult EditSchoolSchedule(Weekday weekday, DateTime date) {
+        public IActionResult EditSchoolSchedule(Weekday weekday) {
             ViewBag.CanCreateInstantly = !(from SchoolSchedule in db.SchoolSchedules
                                            join Employee in db.Employees
                                            on SchoolSchedule.EmployeeId equals Employee.Id
@@ -380,17 +380,16 @@ namespace Bumbo.Controllers
             ).Any();
 
             ViewBag.Weekday = weekday;
-            ViewBag.Date = date;
-            // this code gives everytime null
-                return LoadPage((from SchoolSchedule in db.SchoolSchedules
-                           join Employee in db.Employees
-                           on SchoolSchedule.EmployeeId equals Employee.Id
-                           where Employee.UserName == userManager.GetUserName(User)
-                           && SchoolSchedule.StartDate <= DateTime.Today
-                           && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
-                           && SchoolSchedule.Weekday == weekday
-                           select SchoolSchedule
-              ).FirstOrDefault());
+
+            return LoadPage((from SchoolSchedule in db.SchoolSchedules
+                             join Employee in db.Employees
+                             on SchoolSchedule.EmployeeId equals Employee.Id
+                             where Employee.UserName == userManager.GetUserName(User)
+                             && SchoolSchedule.StartDate <= DateTime.Today
+                             && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                             && SchoolSchedule.Weekday == weekday
+                             select SchoolSchedule
+          ).FirstOrDefault());
         }
 
         [HttpPost]

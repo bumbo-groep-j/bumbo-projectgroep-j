@@ -73,7 +73,7 @@
                 <th></th>
                 <th >
                     <button type="button" data-toggle="ajax-modal" data-target="#editSchoolSchedule"
-                        data-url="@Url.Action("EditSchoolSchedule", new{weekday = Enum.GetValues<Weekday>()[i], date = @ViewBag.Date.AddDays(i)})" class="edit_button">
+                        data-url="@Url.Action("EditSchoolSchedule", new{weekday = Enum.GetValues<Weekday>()[i]})" class="edit_button">
                         Wijzigen
                     </button>
                 </th>
