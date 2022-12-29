@@ -76,9 +76,7 @@ namespace Bumbo.Controllers
                     var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
 
                     List<Schedule> records = csv.GetRecords<Schedule>().ToList();
-                    int countSchedules = db.Schedules.Count();
-                    if (countSchedules == 0)
-                        countSchedules++;
+                    int countSchedules = db.Schedules.Count() + 1;
                     foreach ( Schedule schedule in records )
                     {
 
@@ -87,6 +85,8 @@ namespace Bumbo.Controllers
                             Employee employee = db.Employees.First(e => e.BID == schedule.BID);
                             schedule.Employee = employee;
                             schedule.EmployeeId = employee.Id;
+                            schedule.StartTime = new DateTime(schedule.Date.Year, schedule.Date.Month, schedule.Date.Day, schedule.StartTime.Hour, schedule.StartTime.Minute, schedule.StartTime.Second);
+                            schedule.EndTime = new DateTime(schedule.Date.Year, schedule.Date.Month, schedule.Date.Day, schedule.EndTime.Hour, schedule.EndTime.Minute, schedule.EndTime.Second);
                             schedule.Id = countSchedules;
 
                             db.Schedules.Add(schedule);
@@ -107,8 +107,7 @@ namespace Bumbo.Controllers
                         }
                     }
 
-
-                     db.SaveChanges();
+                    db.SaveChangesWithIdentityInsert<Schedule>();
                 }
 
             }

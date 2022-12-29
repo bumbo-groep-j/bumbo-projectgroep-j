@@ -23,7 +23,7 @@ namespace WebApp.Domain
         public string Department { get; set; }
 
         [Required]
-        [Name("Clock out")]
+        [Name("Clock in")]
         public DateTime StartTime { get; set; }
 
         [Required]
@@ -33,5 +33,9 @@ namespace WebApp.Domain
         [NotMapped]
         [Name("BID")]
         public string BID {get; set;}
+
+        [NotMapped]
+        [Name("Date")]
+        public DateTime Date { get; set; }
     }
 }
