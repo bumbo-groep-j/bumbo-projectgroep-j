@@ -82,26 +82,33 @@ namespace Bumbo.Controllers
                     foreach ( Schedule schedule in records )
                     {
 
-                        Employee employee = db.Employees.First( e => e.BID == schedule.BID );
-                        schedule.Employee = employee;
-                        schedule.EmployeeId = employee.Id;
-                        schedule.Id = countSchedules;
-                        
-                        db.Schedules.Add( schedule );
-                        countSchedules++;
+                        try
+                        {
+                            Employee employee = db.Employees.First(e => e.BID == schedule.BID);
+                            schedule.Employee = employee;
+                            schedule.EmployeeId = employee.Id;
+                            schedule.Id = countSchedules;
 
-                        WorkedHour workedHour = new WorkedHour();
-                        workedHour.ScheduleId = schedule.Id;
-                        workedHour.Schedule = schedule;
-                        workedHour.ClockedTimeStart = schedule.StartTime;
-                        workedHour.ClockedTimeEnd = schedule.EndTime;
-                        workedHour.Department = schedule.Department;
+                            db.Schedules.Add(schedule);
+                            countSchedules++;
 
-                        db.WorkedHours.Add(workedHour);
+                            WorkedHour workedHour = new WorkedHour();
+                            workedHour.ScheduleId = schedule.Id;
+                            workedHour.Schedule = schedule;
+                            workedHour.ClockedTimeStart = schedule.StartTime;
+                            workedHour.ClockedTimeEnd = schedule.EndTime;
+                            workedHour.Department = schedule.Department;
+
+                            db.WorkedHours.Add(workedHour);
+                        }
+                        catch (Exception exception)
+                        {
+                            ModelState.AddModelError(string.Empty, "Een medewerker kon niet worden gevonden in de database");
+                        }
                     }
 
 
-                    db.SaveChanges();
+                     db.SaveChanges();
                 }
 
             }
