@@ -1,4 +1,83 @@
+@using WebApp.Domain
+@model IEnumerable<SchoolSchedule>
 @{
-    ViewData["Title"] = "Schoolrooster";
+    ViewData["Title"] = "rooster";
     ViewData["Stylesheet"] = "/css/employee.css";
 }
+
+<div id="EditTime"></div>
+<div>
+    <div class="align-items-center" id="title">
+        <h1 class="text-center">
+            Schoolrooster
+        </h1>
+    </div>
+    <table class="schedule_table">
+        <tr>
+            <th colspan="9"></th>
+            @for (int i = 0; i < 24; i++)
+            {
+                if (i < 10)
+                {
+                    <th colspan="4" class="align_center">@("0" + i):00</th>
+                }
+                else
+                {
+                    <th colspan="4" class="align_center">@i:00</th>
+                }
+            }
+            <td class="invisible" class="align_center">24:00</td>
+        </tr>
+        @for (int i = 0; i < 5; i++)
+        {
+            var weekday = Enum.GetValues<Weekday>()[i];
+            <tr>
+                <th colspan="9">@Weekdays.GetName(Enum.GetValues<Weekday>()[i])</th>
+                @for (int j = 0; j <= 96; j++)
+                {
+                    
+                    if (Model.Any(schedule => schedule.Weekday == weekday && schedule.StartTime.Hour == j / 4))
+                    {
+                        SchoolSchedule current = Model.Where(schedule => schedule.Weekday == weekday && schedule.StartTime.Hour == j / 4).First();
+                        int colspan = (current.EndTime.Hour - current.StartTime.Hour) * 4;
+                        j += colspan - 1;
+                        <td class="schedule" colspan="@colspan">@current.StartTime.Hour:00 - @(current.EndTime.Hour):00<br /></td>
+                        <td class="spacer"></td>
+                        <td class="spacer"></td>
+                        <td class="spacer"></td>
+             
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }
+                <th>
+                    @{
+                        SchoolSchedule schoolSchedule;
+                        TimeSpan time = new TimeSpan();
+                        if (Model.Any(schedule => schedule.Weekday == weekday))
+                        {
+                            schoolSchedule = Model.Where(schedule => schedule.Weekday == weekday).First();
+                            time = (schoolSchedule.StartTime - schoolSchedule.EndTime).Duration();
+                        }
+                        else
+                        {
+                            time = new TimeSpan(00,00,00);
+                        }
+
+                    }
+                    @time.ToString("h\\:mm")
+                </th>
+                <th></th>
+                <th></th>
+                <th >
+                    <button type="button" data-toggle="ajax-modal" data-target="#editSchoolSchedule"
+                        data-url="@Url.Action("EditSchoolSchedule", new{weekday = Enum.GetValues<Weekday>()[i], date = @ViewBag.Date.AddDays(i)})" class="edit_button">
+                        Wijzigen
+                    </button>
+                </th>
+            </tr>
+        }
+    </table>
+</div>

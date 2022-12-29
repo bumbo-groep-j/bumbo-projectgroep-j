@@ -1,0 +1,48 @@
+﻿@using WebApp.Domain
+@model SchoolSchedule
+@{
+    Layout = "";
+    ViewData["Title"] = "EditSchoolSchedule";
+    ViewData["Stylesheet"] = "/css/employee.css";
+}
+
+<div class="modal fade" id="editSchoolSchedule">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="content_page">
+                <button type="button" data-bs-dismiss="modal" class="closewindow_button"><span>X</span></button>
+                <h4>@Weekdays.GetName(ViewBag.Weekday)</h4>
+            </div>
+            <div class="form_page">
+                <form method="post" asp-action="EditSchoolSchedule">
+                    <div class="form-group">
+                        <span>Van </span>
+                        <input asp-for="StartTime" class="time_input" type="time" />
+                        <span>tot </span>
+                        <input asp-for="EndTime" class="time_input"  type="time" />
+                        <br />
+                        <br />
+                        @if (ViewBag.CanCreateInstantly)
+                        {
+                            <button type="submit" class="ok_button">OK</button>
+                        }
+                        else
+                        {
+                            <a href="javascript:void(0)" class="ok_button" onclick="$('#overlay').removeClass('hidden');">OK</a>
+                        }
+                    </div>
+                </form>
+                <div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+                    <div>
+                        <div class="alert">
+                            Deze wijziging gaat in over 3 weken.
+                        </div>
+                        <button class="cancel">Annuleren</button>
+                        <button type="submit" class="confirm" form="edit_school_schedule_form">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
