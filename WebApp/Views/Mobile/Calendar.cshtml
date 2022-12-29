@@ -74,8 +74,8 @@
         <span class="chevron">
             @if(fullSize)
             {
-                <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@Previous .calendar > *');">&#x2039;</a>
-                <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@Next .calendar > *');">&#x203A;</a>
+                <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/Calendar?@Previous .calendar > *');">&#x2039;</a>
+                <a class="selected" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/Calendar?@Next .calendar > *');">&#x203A;</a>
             }
             else
             {
@@ -192,5 +192,5 @@
             </tr>
         }
     </table>
-    <b><a class="center" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/InlineCalendar?@ToggleSize');">&mdash;&mdash;&mdash;</a></b>
+    <b><a class="center" href="javascript:void(0)" onclick="$('.calendar').load('/Mobile/Calendar?@ToggleSize .calendar > *');">&mdash;&mdash;&mdash;</a></b>
 </div>

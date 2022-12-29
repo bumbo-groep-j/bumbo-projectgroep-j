@@ -40,8 +40,8 @@
     <div class="space_between">
         <b>@Model.Month @Model.CurrentYear</b>
         <span class="chevron">
-            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Manager/Calendar?@Previous');">&#x2039;</a>
-            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Manager/Calendar?@Next');">&#x203A;</a>
+            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Desktop/Calendar?@Previous');">&#x2039;</a>
+            <a class="blue" href="javascript:void(0)" onclick="$('.calendar').load('/Desktop/Calendar?@Next');">&#x203A;</a>
         </span>
     </div>
     <table>
@@ -126,9 +126,10 @@
             }
         }
     </table>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script>
-        function updateCompletedDays() {
+    @if(Model.FetchDataLink != null && Model.FetchDataLink != "")
+    {
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script>
             $.ajax({
                 type: "GET",
                 url: "@Model.FetchDataLink",
@@ -138,7 +139,6 @@
                     }
                 }
             });
-        }
-        updateCompletedDays();
-    </script>
+        </script>
+    }
 </div>

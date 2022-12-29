@@ -1,8 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using WebApp.Domain;
+﻿using Bumbo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Bumbo.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
+using WebApp.Domain;
 
 namespace Bumbo.Controllers
 {
@@ -13,11 +14,10 @@ namespace Bumbo.Controllers
 
         public EmployeeController(BumboDbContext dbContext, UserManager<Account> user) { db = dbContext; userManager = user; }
 
-        private bool IsMobile()
-        {
+        private bool IsMobile() {
             var userAgent = Request.Headers["User-Agent"].ToString().ToLower();
 
-            if (userAgent == null) return false;
+            if(userAgent == null) return false;
 
             return userAgent.Contains("blackberry")
                 || userAgent.Contains("webos")
@@ -26,14 +26,84 @@ namespace Bumbo.Controllers
                 || userAgent.Contains("android")
                 || userAgent.Contains("windows phone")
                 || userAgent.Contains("ipad")
-                || userAgent.Contains("ipod");
+                || userAgent.Contains("ipod")
+                || Request.Cookies.ContainsKey("ForceMobile");
+        }
+
+        private DateTime ParseDate(int year, int month, int day, DateTime defaultDate)
+        {
+            try
+            {
+                return new DateTime(year, month, day);
+            }
+            catch(Exception)
+            {
+                return defaultDate;
+            }
+        }
+
+        public IActionResult EnableMobile()
+        {
+            Response.Cookies.Append("ForceMobile", "yes");
+            return RedirectToAction("WorkSchedule");
+        }
+
+        public IActionResult DisableMobile()
+        {
+            if(Request.Cookies.ContainsKey("ForceMobile"))
+            {
+                Response.Cookies.Delete("ForceMobile");
+            }
+
+            return RedirectToAction("WorkSchedule");
+        }
+
+        private IActionResult LoadPage<MobileModelType, DesktopModelType>(MobileModelType mobileModel, DesktopModelType desktopModel, [CallerMemberName] string caller = "")
+        {
+            if(IsMobile())
+            {
+                ViewBag.IsMobile = true;
+                return View(caller + "Mobile", mobileModel);
+            }
+            else return View(caller + "Desktop", desktopModel);
+        }
+
+        private IActionResult LoadPage<ModelType>(ModelType model, [CallerMemberName] string caller = "")
+        {
+            return LoadPage(model, model, caller);
+        }
+
+        private IActionResult LoadPage([CallerMemberName] string caller = "")
+        {
+            if(IsMobile())
+            {
+                ViewBag.IsMobile = true;
+                return View(caller + "Mobile");
+            }
+            else return View(caller + "Desktop");
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult Availability()
+        public IActionResult WorkSchedule(int year, int month, int day, bool fullSize)
         {
-            if (IsMobile()) return RedirectToAction("Availability", "Mobile");
+            DateTime date = ParseDate(year, month, day, DateTime.Today);
 
+            date = date.AddDays(1 - (int)date.DayOfWeek);
+
+            ViewBag.Date = date;
+            ViewBag.FullSize = fullSize;
+
+            return LoadPage((
+                from Schedule in db.Schedules
+                join Employee in db.Employees
+                on Schedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) && Schedule.StartTime.Date >= date && Schedule.EndTime.Date < date.AddDays(7)
+                select Schedule
+            ).ToList().OrderBy(schedule => schedule.StartTime));
+        }
+
+        [Authorize(Roles = "Employee")]
+        public IActionResult Availability() {
             WeeklyAvailabilityForm form = new WeeklyAvailabilityForm();
 
             form.Availability = new List<Availability>();
@@ -68,12 +138,12 @@ namespace Bumbo.Controllers
                     select Availability
                 ).Any());
 
-            return View(form);
+            return LoadPage(availabilities, form);
         }
 
         [HttpPost]
         [Authorize(Roles = "Employee")]
-        public IActionResult Availability(WeeklyAvailabilityForm form) 
+        public IActionResult DesktopAvailability(WeeklyAvailabilityForm form) 
         {
             List<Availability>[] oldAvailability = new List<Availability>[7];
             bool[] canCreateInstantly = new bool[7];
@@ -129,6 +199,109 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Employee")]
+        public IActionResult EditAvailability(Weekday weekday) {
+            AvailabilityForm form = new AvailabilityForm();
+            form.Weekday = weekday;
+
+            var availability = (from Availability in db.Availabilities
+                                join Employee in db.Employees
+                on Availability.EmployeeId equals Employee.Id
+                                where Employee.UserName == userManager.GetUserName(User)
+                && Availability.StartDate <= DateTime.Today
+                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                && Availability.Weekday == weekday
+                                select Availability
+            ).ToList();
+
+            form.HasAvailability1 = availability.Count > 0;
+            form.HasAvailability2 = availability.Count == 2;
+
+            if(form.HasAvailability1) form.Availability1 = availability[0];
+            if(form.HasAvailability2) form.Availability2 = availability[1];
+
+            ViewBag.CanCreateInstantly = !(from Availability in db.Availabilities
+                                           join Employee in db.Employees
+                                           on Availability.EmployeeId equals Employee.Id
+                                           where Employee.UserName == userManager.GetUserName(User)
+                                           && Availability.Weekday == weekday
+                                           select Availability
+            ).Any();
+
+            return LoadPage(form);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Employee")]
+        public IActionResult EditAvailability(AvailabilityForm form) {
+            if(form.HasAvailability1 && form.Availability1.EndTime < form.Availability1.StartTime)
+                (form.Availability1.EndTime, form.Availability1.StartTime) = (form.Availability1.StartTime, form.Availability1.EndTime);
+
+            if(form.HasAvailability2 && form.Availability2.EndTime < form.Availability2.StartTime)
+                (form.Availability2.EndTime, form.Availability2.StartTime) = (form.Availability2.StartTime, form.Availability2.EndTime);
+
+            var oldAvailability = (from Availability in db.Availabilities
+                                   join Employee in db.Employees
+                on Availability.EmployeeId equals Employee.Id
+                                   where Employee.UserName == userManager.GetUserName(User)
+                && Availability.StartDate <= DateTime.Today
+                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                && Availability.Weekday == form.Weekday
+                                   select Availability
+            ).ToList();
+
+            bool canCreateInstantly = !(from Availability in db.Availabilities
+                                        join Employee in db.Employees
+                on Availability.EmployeeId equals Employee.Id
+                                        where Employee.UserName == userManager.GetUserName(User)
+                && Availability.Weekday == form.Weekday
+                                        select Availability
+            ).Any();
+
+            if(form.HasAvailability1) {
+                form.Availability1.Weekday = form.Weekday;
+
+                if(canCreateInstantly) form.Availability1.StartDate = DateTime.Today;
+                else form.Availability1.StartDate = DateTime.Today.AddDays(21);
+
+                form.Availability1.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
+
+                // Round up start time and round down end time
+                if(form.Availability1.StartTime.Minute != 0)
+                    form.Availability1.StartTime = form.Availability1.StartTime.AddHours(1).AddMinutes(-form.Availability1.StartTime.Minute);
+
+                if(form.Availability1.EndTime.Minute != 0)
+                    form.Availability1.EndTime = form.Availability1.EndTime.AddMinutes(-form.Availability1.EndTime.Minute);
+
+                db.Availabilities.Add(form.Availability1);
+            }
+
+            if(form.HasAvailability2) {
+                form.Availability2.Weekday = form.Weekday;
+
+                if(canCreateInstantly) form.Availability2.StartDate = DateTime.Today;
+                else form.Availability2.StartDate = DateTime.Today.AddDays(21);
+
+                form.Availability2.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
+
+                // Round up start time and round down end time
+                if(form.Availability2.StartTime.Minute != 0)
+                    form.Availability2.StartTime = form.Availability2.StartTime.AddHours(1).AddMinutes(-form.Availability2.StartTime.Minute);
+
+                if(form.Availability2.EndTime.Minute != 0)
+                    form.Availability2.EndTime = form.Availability2.EndTime.AddMinutes(-form.Availability2.EndTime.Minute);
+
+                db.Availabilities.Add(form.Availability2);
+            }
+
+            if(oldAvailability.Count > 0) oldAvailability[0].EndDate = DateTime.Today.AddDays(21);
+            if(oldAvailability.Count > 1) oldAvailability[1].EndDate = DateTime.Today.AddDays(21);
+
+            db.SaveChanges();
+            return RedirectToAction("Availability");
+        }
+
+        [Authorize(Roles = "Employee")]
         public IActionResult DeleteRequest(int id)
         {
             var request = db.LeaveRequests.FirstOrDefault(r => r.Id == id);
@@ -138,14 +311,12 @@ namespace Bumbo.Controllers
                 db.SaveChanges();
             }
 
-            return RedirectToAction("RequestLeave");
+            return RedirectToAction("LeaveRequests");
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult RequestLeave()
+        public IActionResult LeaveRequests()
         {
-            if(IsMobile()) return RedirectToAction("RequestLeave", "Mobile");
-
             ViewBag.Requests = (
                 from LeaveRequest in db.LeaveRequests
                 join Employee in db.Employees
@@ -154,141 +325,109 @@ namespace Bumbo.Controllers
                 select LeaveRequest
             ).ToList();
 
-            return View();
+            return LoadPage();
+        }
+
+        [Authorize(Roles = "Employee")]
+        public IActionResult RequestLeave() {
+            return LoadPage();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee")]
-        public IActionResult RequestLeave(LeaveRequest request)
-        {
-            if (ModelState.IsValid)
-            {
+        public IActionResult RequestLeave(LeaveRequest request) {
+            if(ModelState.IsValid) {
                 if(request.EndDate < request.StartDate) (request.StartDate, request.EndDate) = (request.EndDate, request.StartDate);
 
-                request.InsertDate = DateTime.Now;
                 request.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
 
                 db.LeaveRequests.Add(request);
                 db.SaveChanges();
 
-                return RedirectToAction("RequestLeave");
+                return RedirectToAction("LeaveRequests");
             }
 
-            return View(request);
+            return LoadPage(request);
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult SchoolSchedule(string UserName)
-        {
-
-            if (IsMobile()) return RedirectToAction("SchoolSchedule", "Mobile");
-
-            var employeeId = db.Employees.Where(x => x.UserName == UserName).Select(x => x.Id).FirstOrDefault();
-            List<SchoolSchedule> schoolSchedules = db.SchoolSchedules.Where(x => (x.EmployeeId == employeeId)).ToList();
-
-            List<Weekday> weekdays = Enum.GetValues(typeof(Weekday)).Cast<Weekday>().Take(5).ToList();
-            ViewBag.Days = weekdays;
-
-            ViewBag.Schedule = (schoolSchedules.Count == 0) ? null : schoolSchedules;
-            ViewBag.EmployeeId = employeeId;
-            return View();
-        }
-
-
-
-        [Authorize(Roles = "Employee")]
-        public IActionResult DeleteSingleSchoolSchedule(int schoolScheduleId, int employeeId)
-        {
-            var userName = db.Employees.Where(x => x.Id == employeeId).Select(y => y.UserName).FirstOrDefault();
-            try
-            {
-                var schedule = db.SchoolSchedules.Where(x => x.Id == schoolScheduleId).FirstOrDefault();
-                db.SchoolSchedules.Remove(schedule);
-                db.SaveChanges();
-            }
-            catch (Exception e)
-            {
-
-            }
-            return RedirectToAction("SchoolSchedule", new { UserName = userName });
+        public IActionResult SchoolSchedule() {
+            return LoadPage((
+                from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) && SchoolSchedule.StartDate <= DateTime.Today && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                select SchoolSchedule
+            ).ToList().OrderBy(schedule => schedule.StartTime));
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult DeleteAllSchoolSchedule(int employeeId)
-        {
-            var userName = db.Employees.Where(x => x.Id == employeeId).Select(y => y.UserName).FirstOrDefault();
+        public IActionResult EditSchoolSchedule(Weekday weekday) {
+            ViewBag.CanCreateInstantly = !(from SchoolSchedule in db.SchoolSchedules
+                                           join Employee in db.Employees
+                                           on SchoolSchedule.EmployeeId equals Employee.Id
+                                           where Employee.UserName == userManager.GetUserName(User)
+                                           && SchoolSchedule.Weekday == weekday
+                                           select SchoolSchedule
+            ).Any();
 
-            foreach (var schedule in db.SchoolSchedules.Where(x => x.EmployeeId == employeeId))
-            {
-                db.SchoolSchedules.Remove(schedule);
-                db.SaveChanges();
-            }
+            ViewBag.Weekday = weekday;
 
-            return RedirectToAction("SchoolSchedule", new { UserName = userName });
+            return LoadPage((from SchoolSchedule in db.SchoolSchedules
+                         join Employee in db.Employees
+                         on SchoolSchedule.EmployeeId equals Employee.Id
+                         where Employee.UserName == userManager.GetUserName(User)
+                         && SchoolSchedule.StartDate <= DateTime.Today
+                         && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                         && SchoolSchedule.Weekday == weekday
+                         select SchoolSchedule
+            ).FirstOrDefault());
         }
 
-        [HttpGet]
-        public IActionResult EditSchoolSchedule(string day, Weekday weekDay, int? schoolScheduleId, int? employeeId)
-        {
-            try
-            {
-                if (schoolScheduleId != null)
-                {
-                    var schedule = db.SchoolSchedules.Where(x => x.Id == schoolScheduleId).FirstOrDefault();
-                    ViewBag.ScheduleId = schedule.Id;
-                    ViewBag.StartTime = schedule.StartTime.ToString("HH:mm");
-                    ViewBag.EndTime = schedule.EndTime.ToString("HH:mm");
-                }
-
-            }
-            catch (Exception e)
-            {
-
-            }
-            ViewBag.EmployeeId = employeeId;
-            ViewBag.WeekDay = weekDay;
-            ViewBag.Day = day;
-            return PartialView("EditSchoolSchedule");
-        }
-
-        [Authorize(Roles = "Employee")]
         [HttpPost]
-        public IActionResult EditSchoolSchedule(SchoolSchedule schedule)
-        {
-            var userName = db.Employees.Where(x => x.Id == schedule.EmployeeId).Select(y => y.UserName).FirstOrDefault();
-            try
-            {
-                if (schedule.EndTime < schedule.StartTime)
-                    (schedule.EndTime, schedule.StartTime) = (schedule.StartTime, schedule.EndTime);
-
-                bool canCreateInStantly = !db.SchoolSchedules.Where(x => x.EmployeeId == schedule.EmployeeId
-                                                            && x.Weekday == schedule.Weekday).Any();
-
-                if (canCreateInStantly) schedule.StartDate = DateTime.Today;
-                else schedule.EndDate = DateTime.Today.AddDays(21);
-
-                db.SchoolSchedules.Update(schedule);
-
-                db.SaveChanges();
-
-            }
-            catch (Exception e)
-            {
-            }
-            return RedirectToAction("SchoolSchedule", new { UserName = userName });
-        }
-
-
+        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee")]
-        public IActionResult WorkSchedule()
-        {
+        public IActionResult EditSchoolSchedule(SchoolSchedule schedule) {
+            if(schedule.EndTime < schedule.StartTime)
+                (schedule.EndTime, schedule.StartTime) = (schedule.StartTime, schedule.EndTime);
 
-            if (IsMobile()) return RedirectToAction("WorkSchedule", "Mobile");
-            List<Weekday> weekdays = Enum.GetValues(typeof(Weekday)).Cast<Weekday>().ToList();
-            ViewBag.Days = weekdays;
+            var oldSchedule = (from SchoolSchedule in db.SchoolSchedules
+                               join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                               where Employee.UserName == userManager.GetUserName(User)
+                && SchoolSchedule.StartDate <= DateTime.Today
+                && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                && SchoolSchedule.Weekday == schedule.Weekday
+                               select SchoolSchedule
+            ).ToList();
 
-            return View();
+            bool canCreateInstantly = !(from SchoolSchedule in db.SchoolSchedules
+                                        join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                                        where Employee.UserName == userManager.GetUserName(User)
+                && SchoolSchedule.Weekday == schedule.Weekday
+                                        select SchoolSchedule
+            ).Any();
+
+            if(canCreateInstantly) schedule.StartDate = DateTime.Today;
+            else schedule.StartDate = DateTime.Today.AddDays(21);
+
+            schedule.EmployeeId = (from Employee in db.Employees where Employee.UserName == userManager.GetUserName(User) select Employee.Id).First();
+
+            // Round down start time and round up end time
+            if(schedule.StartTime.Minute != 0)
+                schedule.StartTime = schedule.StartTime.AddMinutes(-schedule.StartTime.Minute);
+
+            if(schedule.EndTime.Minute != 0)
+                schedule.EndTime = schedule.EndTime.AddHours(1).AddMinutes(-schedule.EndTime.Minute);
+
+            db.SchoolSchedules.Add(schedule);
+
+            if(oldSchedule.Count > 0) oldSchedule[0].EndDate = DateTime.Today.AddDays(21);
+
+            db.SaveChanges();
+            return RedirectToAction("SchoolSchedule");
         }
 
         [Authorize(Roles = "Employee")]
