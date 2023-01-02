@@ -18,18 +18,20 @@
                     <input type="hidden" asp-for="Weekday" value="@ViewBag.Weekday">
                     <div class="form-group">
                         <span>Van </span>
-                        <input asp-for="StartTime" class="time_input" type="time" />
+                        <input asp-for="StartTime" min="07:00" max="21:00" class="time_input" required type="time" />
+                        <span class="text-danger" asp-validation-for="StartTime"></span>
                         <span>tot </span>
-                        <input asp-for="EndTime" class="time_input"  type="time" />
+                        <input asp-for="EndTime" min="07:00" max="21:00" class="time_input" required type="time" />
+                        <span class="text-danger" asp-validation-for="EndTime"></span>
                         <br />
                         <br />
                         @if (ViewBag.CanCreateInstantly)
                         {
-                            <button type="submit" class="ok_button">OK</button>
+                            <button class="edit_button">OK</button>
                         }
                         else
                         {
-                            <a href="javascript:void(0)" class="ok_button" onclick="$('#overlay').removeClass('hidden');">OK</a>
+                            <a onclick="$('#overlay').removeClass('hidden')"; class="edit_link">OK</a>
                         }
                     </div>
                 </form>
@@ -38,7 +40,7 @@
                         <div class="alert">
                             Deze wijziging gaat in over 3 weken.
                         </div>
-                        <button class="cancel">Annuleren</button>
+                        <button class="cancel" data-bs-dismiss="modal">Annuleren</button>
                         <button type="submit" class="confirm" form="edit_school_schedule_form">OK</button>
                     </div>
                 </div>

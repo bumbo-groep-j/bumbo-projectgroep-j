@@ -1,7 +1,7 @@
 @using WebApp.Domain
 @model IEnumerable<SchoolSchedule>
 @{
-    ViewData["Title"] = "rooster";
+    ViewData["Title"] = "Schoolrooster";
     ViewData["Stylesheet"] = "/css/employee.css";
 }
 
@@ -28,7 +28,7 @@
             }
             <td class="invisible" class="align_center">24:00</td>
         </tr>
-        @for (int i = 0; i < 5; i++)
+        @for (int i = 0; i < Enum.GetNames(typeof(Weekday)).Length - 2; i++)
         {
             var weekday = Enum.GetValues<Weekday>()[i];
             <tr>
@@ -45,7 +45,6 @@
                         <td class="spacer"></td>
                         <td class="spacer"></td>
                         <td class="spacer"></td>
-             
                     }
                     else
                     {
@@ -69,6 +68,7 @@
                     }
                     @time.ToString("h\\:mm")
                 </th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th >
