@@ -86,12 +86,12 @@ namespace WebApp.Domain.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Bid = table.Column<string>(type: "nvarchar(max)"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "Date", nullable: false),
                     NFCToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HourlyWage = table.Column<double>(type: "float", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Inactive = table.Column<bool>(type: "bit", nullable: false)
                 },
