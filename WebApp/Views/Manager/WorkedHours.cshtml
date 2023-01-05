@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<ClockedHour>
 @{
     ViewData["Stylesheet"] = "/css/manager.css";
+    ViewData["Title"] = "Uren verlonen";
 
     int weekday = 1;
     switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)

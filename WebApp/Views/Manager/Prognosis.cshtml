@@ -1,6 +1,7 @@
 ﻿@model PrognosisForm
 @{
     ViewData["Stylesheet"] = "/css/manager.css";
+    ViewData["Title"] = "Prognose";
 
     int weekday = 1;
     switch(new DateOnly(ViewBag.StartDate.Year, ViewBag.StartDate.Month, 1).DayOfWeek)
