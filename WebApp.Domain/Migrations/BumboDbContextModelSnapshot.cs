@@ -250,7 +250,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Availabilities", (string)null);
+                    b.ToTable("Availabilities");
                 });
 
             modelBuilder.Entity("WebApp.Domain.CAOBonuses", b =>
@@ -272,7 +272,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CAOBonuses", (string)null);
+                    b.ToTable("CAOBonuses");
 
                     b.HasData(
                         new
@@ -309,7 +309,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Age");
 
-                    b.ToTable("CAORegulations", (string)null);
+                    b.ToTable("CAORegulations");
 
                     b.HasData(
                         new
@@ -359,7 +359,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasIndex("DepartmentName");
 
-                    b.ToTable("DataPoints", (string)null);
+                    b.ToTable("DataPoints");
 
                     b.HasData(
                         new
@@ -8009,7 +8009,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("DepartmentName");
 
-                    b.ToTable("DataSets", (string)null);
+                    b.ToTable("DataSets");
 
                     b.HasData(
                         new
@@ -8055,7 +8055,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Name");
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
 
                     b.HasData(
                         new
@@ -8113,7 +8113,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("WebApp.Domain.HourlyPoint", b =>
@@ -8129,7 +8129,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("DepartmentName", "Hour");
 
-                    b.ToTable("HourlyPoints", (string)null);
+                    b.ToTable("HourlyPoints");
 
                     b.HasData(
                         new
@@ -8351,7 +8351,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LeaveRequests", (string)null);
+                    b.ToTable("LeaveRequests");
                 });
 
             modelBuilder.Entity("WebApp.Domain.Prognosis", b =>
@@ -8374,7 +8374,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Prognosis", (string)null);
+                    b.ToTable("Prognosis");
                 });
 
             modelBuilder.Entity("WebApp.Domain.PublicHoliday", b =>
@@ -8384,7 +8384,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Date");
 
-                    b.ToTable("PublicHolidays", (string)null);
+                    b.ToTable("PublicHolidays");
 
                     b.HasData(
                         new
@@ -8466,7 +8466,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Schedules", (string)null);
+                    b.ToTable("Schedules");
                 });
 
             modelBuilder.Entity("WebApp.Domain.SchoolHoliday", b =>
@@ -8485,7 +8485,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SchoolHolidays", (string)null);
+                    b.ToTable("SchoolHolidays");
 
                     b.HasData(
                         new
@@ -8550,7 +8550,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("SchoolSchedules", (string)null);
+                    b.ToTable("SchoolSchedules");
                 });
 
             modelBuilder.Entity("WebApp.Domain.WorkedHour", b =>
@@ -8587,7 +8587,7 @@ namespace WebApp.Domain.Migrations
 
                     b.HasIndex("ScheduleId");
 
-                    b.ToTable("WorkedHours", (string)null);
+                    b.ToTable("WorkedHours");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -109,7 +109,7 @@ namespace Bumbo.Controllers
 
                         try
                         {
-                            Employee employee = db.Employees.First(e => e.BID == schedule.BID);
+                            Employee employee = db.Employees.First(e => e.NFCToken == schedule.BID);
                             schedule.Employee = employee;
                             schedule.EmployeeId = employee.Id;
                             schedule.StartTime = new DateTime(schedule.Date.Year, schedule.Date.Month, schedule.Date.Day, schedule.StartTime.Hour, schedule.StartTime.Minute, schedule.StartTime.Second);

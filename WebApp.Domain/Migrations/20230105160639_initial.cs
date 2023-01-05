@@ -53,6 +53,38 @@ namespace WebApp.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CAOBonuses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ValidSince = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    HolidayBonus = table.Column<double>(type: "float", nullable: false),
+                    SundayBonus = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CAOBonuses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CAORegulations",
+                columns: table => new
+                {
+                    Age = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AllowedHoursSchoolDay = table.Column<int>(type: "int", nullable: false),
+                    AllowedHoursSchoolWeek = table.Column<int>(type: "int", nullable: false),
+                    AllowedHoursNotSchoolDay = table.Column<int>(type: "int", nullable: false),
+                    AllowedHoursNotSchoolWeek = table.Column<int>(type: "int", nullable: false),
+                    AllowedHours4Weeks = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CAORegulations", x => x.Age);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DataSets",
                 columns: table => new
                 {
@@ -73,7 +105,8 @@ namespace WebApp.Domain.Migrations
                 columns: table => new
                 {
                     Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PredictionValueName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PredictionValueName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MinimumAge = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,7 +119,6 @@ namespace WebApp.Domain.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Bid = table.Column<string>(type: "nvarchar(max)"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -110,6 +142,7 @@ namespace WebApp.Domain.Migrations
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Approved = table.Column<bool>(type: "bit", nullable: false),
                     Rejected = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -131,6 +164,31 @@ namespace WebApp.Domain.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Prognosis", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PublicHolidays",
+                columns: table => new
+                {
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PublicHolidays", x => x.Date);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SchoolHolidays",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SchoolHolidays", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -374,6 +432,21 @@ namespace WebApp.Domain.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "CAOBonuses",
+                columns: new[] { "Id", "HolidayBonus", "SundayBonus", "ValidSince" },
+                values: new object[] { 1, 1.0, 0.5, new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+
+            migrationBuilder.InsertData(
+                table: "CAORegulations",
+                columns: new[] { "Age", "AllowedHours4Weeks", "AllowedHoursNotSchoolDay", "AllowedHoursNotSchoolWeek", "AllowedHoursSchoolDay", "AllowedHoursSchoolWeek" },
+                values: new object[,]
+                {
+                    { 13, 140, 7, 35, 2, 12 },
+                    { 15, 160, 8, 40, 2, 12 },
+                    { 16, 160, 9, 45, 9, 45 }
+                });
+
+            migrationBuilder.InsertData(
                 table: "DataSets",
                 columns: new[] { "DepartmentName", "DepartmentEndHour", "DepartmentStartHour", "EmployeeWorkLoad", "MinimumEmployees", "ShouldEstimateValue" },
                 values: new object[,]
@@ -385,12 +458,44 @@ namespace WebApp.Domain.Migrations
 
             migrationBuilder.InsertData(
                 table: "Departments",
-                columns: new[] { "Name", "PredictionValueName" },
+                columns: new[] { "Name", "MinimumAge", "PredictionValueName" },
                 values: new object[,]
                 {
-                    { "Kassa", "Bezoekers" },
-                    { "Vers", "Colli" },
-                    { "VKK", "Colli" }
+                    { "Kassa", 16, "Bezoekers" },
+                    { "Vers", 16, "Colli" },
+                    { "VKK", 13, "Colli" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PublicHolidays",
+                column: "Date",
+                values: new object[]
+                {
+                    new DateTime(2022, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2022, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 4, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                    new DateTime(2023, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                });
+
+            migrationBuilder.InsertData(
+                table: "SchoolHolidays",
+                columns: new[] { "Id", "EndDate", "StartDate" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2022, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, new DateTime(2023, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, new DateTime(2023, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, new DateTime(2023, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 4, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -1614,6 +1719,12 @@ namespace WebApp.Domain.Migrations
                 name: "Availabilities");
 
             migrationBuilder.DropTable(
+                name: "CAOBonuses");
+
+            migrationBuilder.DropTable(
+                name: "CAORegulations");
+
+            migrationBuilder.DropTable(
                 name: "DataPoints");
 
             migrationBuilder.DropTable(
@@ -1627,6 +1738,12 @@ namespace WebApp.Domain.Migrations
 
             migrationBuilder.DropTable(
                 name: "Prognosis");
+
+            migrationBuilder.DropTable(
+                name: "PublicHolidays");
+
+            migrationBuilder.DropTable(
+                name: "SchoolHolidays");
 
             migrationBuilder.DropTable(
                 name: "SchoolSchedules");

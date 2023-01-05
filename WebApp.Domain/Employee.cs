@@ -13,13 +13,11 @@ namespace WebApp.Domain
         [Ignore]
         public int Id { get; set; }
 
-        [Name("BID")]
-        public string BID { get; set; }
-
         [Required(ErrorMessage = "Het Voornaam veld is verplicht")]
         [DisplayName("Voornaam")]
         [Name("Vn")]
         public string FirstName { get; set; }
+
         [Name("Tv")]
         [DisplayName("Tussenvoegsel")]
         public string? MiddleName { get; set; }
@@ -33,11 +31,10 @@ namespace WebApp.Domain
         [Column(TypeName = "Date")]
         [Name("Geboortedatum")]
         [DisplayName("Geboortedatum")]
-        [Format("dd/MM/yyyy")]
-
         public DateTime DateOfBirth { get; set; }
 
         [DisplayName("NFC-Token")]
+        [Name("BID")]
         [Ignore]
         [Required(ErrorMessage = "Het NFCToken veld is verplicht")]
         public string NFCToken { get; set; }
