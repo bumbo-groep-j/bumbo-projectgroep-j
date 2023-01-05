@@ -140,7 +140,10 @@ namespace Bumbo.Controllers
                 date = DateTime.Today;
             }
 
-            date = date.AddDays(1 - (int)date.DayOfWeek);
+            if(date.DayOfWeek == DayOfWeek.Sunday)
+                date = date.AddDays(-6);
+            else
+                date = date.AddDays(1 - (int)date.DayOfWeek);
 
             ViewBag.Date = date;
 
