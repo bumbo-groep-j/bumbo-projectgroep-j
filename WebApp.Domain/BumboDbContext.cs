@@ -5,6 +5,25 @@ namespace WebApp.Domain
 {
     public class BumboDbContext : IdentityDbContext<Account>
     {
+        public void EnableIdentityInsert<T>() => SetIdentityInsert<T>(true);
+        public void DisableIdentityInsert<T>() => SetIdentityInsert<T>(false);
+
+        private void SetIdentityInsert<T>(bool enable)
+        {
+            var entityType = Model.FindEntityType(typeof(T));
+            var value = enable ? "ON" : "OFF";
+            Database.ExecuteSqlRaw($"SET IDENTITY_INSERT {entityType.GetSchema()}.{entityType.GetTableName()} {value}");
+        }
+
+        public void SaveChangesWithIdentityInsert<T>()
+        {
+            using var transaction = Database.BeginTransaction();
+            EnableIdentityInsert<T>();
+            SaveChanges();
+            DisableIdentityInsert<T>();
+            transaction.Commit();
+        }
+
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Department> Departments { get; set;}
@@ -48,7 +67,6 @@ namespace WebApp.Domain
             base.OnModelCreating(modelBuilder);
 
             #region Employees
-
             #endregion
 
             #region Department
@@ -110,11 +128,9 @@ namespace WebApp.Domain
             #endregion
 
             #region Schedule
-
             #endregion
 
             #region WorkedHours
-
             #endregion
 
             #region DataSet

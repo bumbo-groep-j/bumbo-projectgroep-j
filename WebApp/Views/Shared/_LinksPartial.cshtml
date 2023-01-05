@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="ListEmployees">Medewerkers</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="CSV" asp-action="CsvImport">CSV import</a>
+            </li>
             <li class="nav-item"><p class="nav-link text-dark">Hallo <span class="manager_color">@User.Identity.Name</span>!</p></li>
         }
         else if(User.IsInRole("Employee"))

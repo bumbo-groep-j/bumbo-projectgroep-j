@@ -751,7 +751,6 @@ namespace Bumbo.Controllers
                     employee.Inactive = model.Inactive;
 
                     db.SaveChanges();
-
                     return RedirectToAction("ListEmployees");
                 }
             }

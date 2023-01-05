@@ -6,6 +6,8 @@ using WebApp.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 builder.Services.AddDbContext<BumboDbContext>();
 
@@ -13,7 +15,6 @@ builder.Services.AddIdentity<Account, IdentityRole>(
     options =>
     {
         options.SignIn.RequireConfirmedAccount = false;
-
         options.Password.RequireDigit = false;
         options.Password.RequiredLength = 6;
         options.Password.RequireNonAlphanumeric = false;
