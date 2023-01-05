@@ -352,7 +352,9 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult SchoolSchedule() {
+        public IActionResult SchoolSchedule(string? alertMessage) {
+
+            ViewBag.AlertMessage = alertMessage;  
 
             return LoadPage((
                 from SchoolSchedule in db.SchoolSchedules
@@ -392,6 +394,11 @@ namespace Bumbo.Controllers
         public IActionResult EditSchoolSchedule(SchoolSchedule schedule) {
             if(schedule.EndTime < schedule.StartTime)
                 (schedule.EndTime, schedule.StartTime) = (schedule.StartTime, schedule.EndTime);
+
+            if (schedule.EndTime == schedule.StartTime)
+            {
+                return RedirectToAction("SchoolSchedule", new {alertMessage = "Tijden mogen niet hetzelfde zijn"});
+            }
 
             var oldSchedule = (from SchoolSchedule in db.SchoolSchedules
                                join Employee in db.Employees

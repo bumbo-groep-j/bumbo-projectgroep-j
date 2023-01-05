@@ -11,6 +11,7 @@
         <h1 class="text-center">
             Schoolrooster
         </h1>
+        <span class="alert_message">@ViewBag.AlertMessage</span>
     </div>
     <table class="schedule_table">
         <tr>
@@ -51,7 +52,7 @@
                         <td></td>
                     }
                 }
-                <th>
+                <th class="total_time">
                     @{
                         SchoolSchedule schoolSchedule;
                         TimeSpan time = new TimeSpan();
@@ -68,10 +69,7 @@
                     }
                     @time.ToString("h\\:mm")
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th >
+                <th class="edit_section" >
                     <button type="button" data-toggle="ajax-modal" data-target="#editSchoolSchedule"
                         data-url="@Url.Action("EditSchoolSchedule", new{weekday = Enum.GetValues<Weekday>()[i]})" class="edit_button">
                         Wijzigen

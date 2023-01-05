@@ -18,32 +18,32 @@
                     <input type="hidden" asp-for="Weekday" value="@ViewBag.Weekday">
                     <div class="form-group">
                         <span>Van </span>
-                        <input asp-for="StartTime" min="07:00" max="21:00" class="time_input" required type="time" />
+                        <input asp-for="StartTime" class="time_input" required type="time" />
                         <span class="text-danger" asp-validation-for="StartTime"></span>
                         <span>tot </span>
-                        <input asp-for="EndTime" min="07:00" max="21:00" class="time_input" required type="time" />
+                        <input asp-for="EndTime" class="time_input" required type="time" />
                         <span class="text-danger" asp-validation-for="EndTime"></span>
                         <br />
                         <br />
                         @if (ViewBag.CanCreateInstantly)
                         {
-                            <button class="edit_button">OK</button>
+                            <button type="submit" class="edit_button">OK</button>
                         }
                         else
                         {
-                            <a onclick="$('#overlay').removeClass('hidden')"; class="edit_link">OK</a>
+                            <a onclick="$('#overlay').removeClass('hidden')" class="button">OK</a>
+                            <div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+                                <div>
+                                    <div class="alert">
+                                        Deze wijziging gaat in over 3 weken.
+                                    </div>
+                                    <button class="cancel" data-bs-dismiss="modal">Annuleren</button>
+                                    <button type="submit" class="confirm">Accepteren</button>
+                                </div>
+                            </div>
                         }
                     </div>
                 </form>
-                <div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
-                    <div>
-                        <div class="alert">
-                            Deze wijziging gaat in over 3 weken.
-                        </div>
-                        <button class="cancel" data-bs-dismiss="modal">Annuleren</button>
-                        <button type="submit" class="confirm" form="edit_school_schedule_form">Accepteren</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
