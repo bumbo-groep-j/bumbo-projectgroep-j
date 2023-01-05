@@ -488,7 +488,7 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult WorkedHours(int year, int month, int day)
+        public IActionResult WorkedHours(int year, int month, int day, int pageId, int optionsPerPage)
         {
             DateTime date;
 
@@ -551,7 +551,23 @@ namespace Bumbo.Controllers
                 }
             ).ToList();
 
-            return View(model);
+            if(optionsPerPage < 10) optionsPerPage = 10;
+
+            ViewBag.PageCount = model.Count / optionsPerPage;
+            if(ViewBag.PageCount <= 0) ViewBag.PageCount = 1;
+
+            ViewBag.PageId = pageId;
+            if(ViewBag.PageId > ViewBag.Pages) ViewBag.PageId = ViewBag.Pages;
+            if(ViewBag.PageId <= 0) ViewBag.PageId = 1;
+
+            ViewBag.OptionsPerPage = optionsPerPage;
+
+            List<ClockedHour> realModel = new List<ClockedHour>();
+
+            for(int i = (ViewBag.PageId - 1) * optionsPerPage; i < ViewBag.PageId * optionsPerPage && i < model.Count; i++)
+                realModel.Add(model[i]);
+
+            return View(realModel);
         }
 
         [Authorize(Roles = "Manager")]

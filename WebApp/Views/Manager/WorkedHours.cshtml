@@ -14,7 +14,7 @@
         case DayOfWeek.Sunday:    weekday = 7; break;
     }
 
-    string link = "/Manager/WorkedHours?";
+    string link = "/Manager/WorkedHours?optionsPerPage=" + ViewBag.OptionsPerPage + "&";
     string fetchDataLink = "/Manager/GetApprovedDays";
 }
 
@@ -34,9 +34,9 @@
     <div>
         <header>
             <h1 class="align_center">
-                <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(-1).Year" asp-route-month="@ViewBag.Date.AddDays(-1).Month" asp-route-day="@ViewBag.Date.AddDays(-1).Day">&#x2039;</a>
+                <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(-1).Year" asp-route-month="@ViewBag.Date.AddDays(-1).Month" asp-route-day="@ViewBag.Date.AddDays(-1).Day" asp-route-optionsPerPage="@ViewBag.OptionsPerPage">&#x2039;</a>
                 Uren verlonen: @ViewBag.DutchDate
-                <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(1).Year" asp-route-month="@ViewBag.Date.AddDays(1).Month" asp-route-day="@ViewBag.Date.AddDays(1).Day">&#x203A;</a>
+                <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(1).Year" asp-route-month="@ViewBag.Date.AddDays(1).Month" asp-route-day="@ViewBag.Date.AddDays(1).Day" asp-route-optionsPerPage="@ViewBag.OptionsPerPage">&#x203A;</a>
             </h1>
         </header>
         <div class="space_around">
@@ -95,27 +95,44 @@
             <div> </div>
             <div>
                 <p class="align_right">
-                    Pagina 1 van 1
-                    <select>
-                        <option>10 per pagina</option>
-                        <option>25 per pagina</option>
-                        <option>50 per pagina</option>
+                    Pagina @ViewBag.PageId van @ViewBag.PageCount
+                    <select onchange="load_page(this.value)">
+                        @if(ViewBag.OptionsPerPage == 10)
+                        {
+                            <option selected>10 per pagina</option>
+                        }
+                        else
+                        {
+                            <option>10 per pagina</option>
+                        }
+                        @if(ViewBag.OptionsPerPage == 25)
+                        {
+                            <option selected>25 per pagina</option>
+                        }
+                        else
+                        {
+                            <option>25 per pagina</option>
+                        }
+                        @if(ViewBag.OptionsPerPage == 50)
+                        {
+                            <option selected>50 per pagina</option>
+                        }
+                        else
+                        {
+                            <option>50 per pagina</option>
+                        }
                     </select>
                 </p>
                 <p class="align_right">
-                    <a asp-controller="Manager" asp-action="WorkedHours" class="visible_link">Vorige pagina</a>
-                    <a asp-controller="Manager" asp-action="WorkedHours" class="visible_link">Volgende pagina</a>
+                    <a asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day" asp-route-pageId="@(ViewBag.PageId - 1)" asp-route-optionsPerPage="@ViewBag.OptionsPerPage" class="visible_link">Vorige pagina</a>
+                    <a asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day" asp-route-pageId="@(ViewBag.PageId + 1)" asp-route-optionsPerPage="@ViewBag.OptionsPerPage" class="visible_link">Volgende pagina</a>
                 </p>
             </div>
         </div>
     </div>
 </div>
-<div class="hidden" id="overlay"></div>
 <script>
-    window.onload = function () {
-        $("#overlay").click(function(e) {
-            if(e.target != this) return;
-            $(this).addClass('hidden');
-        });
-    };
+    function load_page(value) {
+        window.location.replace("/Manager/WorkedHours?year=@(ViewBag.Date.Year)&month=@(ViewBag.Date.Month)&day=@(ViewBag.Date.Day)&pageId=@(ViewBag.PageId)&optionsPerPage=" + value.split(" ")[0]);
+    }
 </script>
