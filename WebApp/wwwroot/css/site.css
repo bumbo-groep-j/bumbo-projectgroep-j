@@ -158,8 +158,21 @@ nav p {
     display: none;
 }
 
+nav div {
+    position: relative;
+}
+
 nav img {
+    max-height: 48px;
     width: 48px;
+}
+
+nav img:hover + p {
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 64px;
 }
 
 .end-of-page-links {
@@ -167,4 +180,12 @@ nav img {
     bottom: 0;
     font-size: 10pt;
     color: #808080;
+}
+
+.unselected {
+    color: #808080;
+}
+
+.selected {
+    color: #007aff;
 }
