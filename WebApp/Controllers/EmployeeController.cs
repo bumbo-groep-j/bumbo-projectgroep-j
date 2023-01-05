@@ -352,7 +352,10 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult SchoolSchedule() {
+        public IActionResult SchoolSchedule(string? alertMessage) {
+
+            ViewBag.AlertMessage = alertMessage;  
+
             return LoadPage((
                 from SchoolSchedule in db.SchoolSchedules
                 join Employee in db.Employees
@@ -375,14 +378,14 @@ namespace Bumbo.Controllers
             ViewBag.Weekday = weekday;
 
             return LoadPage((from SchoolSchedule in db.SchoolSchedules
-                         join Employee in db.Employees
-                         on SchoolSchedule.EmployeeId equals Employee.Id
-                         where Employee.UserName == userManager.GetUserName(User)
-                         && SchoolSchedule.StartDate <= DateTime.Today
-                         && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
-                         && SchoolSchedule.Weekday == weekday
-                         select SchoolSchedule
-            ).FirstOrDefault());
+                   join Employee in db.Employees
+                   on SchoolSchedule.EmployeeId equals Employee.Id
+                   where Employee.UserName == userManager.GetUserName(User)
+                   && SchoolSchedule.StartDate <= DateTime.Today
+                   && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                   && SchoolSchedule.Weekday == weekday
+                   select SchoolSchedule
+          ).FirstOrDefault());
         }
 
         [HttpPost]
@@ -391,6 +394,11 @@ namespace Bumbo.Controllers
         public IActionResult EditSchoolSchedule(SchoolSchedule schedule) {
             if(schedule.EndTime < schedule.StartTime)
                 (schedule.EndTime, schedule.StartTime) = (schedule.StartTime, schedule.EndTime);
+
+            if (schedule.EndTime == schedule.StartTime)
+            {
+                return RedirectToAction("SchoolSchedule", new {alertMessage = "Tijden mogen niet hetzelfde zijn"});
+            }
 
             var oldSchedule = (from SchoolSchedule in db.SchoolSchedules
                                join Employee in db.Employees

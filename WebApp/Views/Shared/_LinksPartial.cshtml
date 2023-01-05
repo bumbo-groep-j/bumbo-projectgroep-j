@@ -1,59 +1,158 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 @using WebApp.Domain;
 @inject SignInManager<Account> SignInManager
 
-<ul class="navbar-nav flex-grow-1">
-    @if(SignInManager.IsSignedIn(User))
+@if(SignInManager.IsSignedIn(User))
+{
+    @if(User.IsInRole("Manager"))
     {
-        @if(User.IsInRole("Manager")) {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="Scheduling">Inroostering</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="Prognosis">Prognose</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="WorkedHours">Uren verlonen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="LeaveRequests">Verlofaanvragen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="ListEmployees">Medewerkers</a>
-            </li>
-            <li class="nav-item"><p class="nav-link text-dark">Hallo <span class="manager_color">@User.Identity.Name</span>!</p></li>
-        }
-        else if(User.IsInRole("Employee"))
-        {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="WorkSchedule">Werkrooster</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="SchoolSchedule">Schoolrooster</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Availability">Beschikbaarheid</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="LeaveRequests">Verlof</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="EnableMobile">Mobile - TEST</a>
-            </li>
-            <li class="nav-item"><p class="nav-link text-dark">Hallo <span class="employee_color">@User.Identity.Name!</span></p></li>
-        }
-        else
-        {
-            <li class="nav-item"><p class="nav-link text-dark">Hallo @User.Identity.Name!</p></li>
-        }
-        <li class="nav-item">
-           <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Uitloggen</a>
-        </li>
+        <div>
+            <a asp-controller="Manager" asp-action="Scheduling">
+                @if(ViewData["Title"] == "Inroostering")
+                {
+                    <img src="/img/scheduling_selected.svg" />
+                    <p class="selected">Inroostering</p>
+                }
+                else
+                {
+                    <img src="/img/scheduling.svg" />
+                    <p class="unselected">Inroostering</p>
+                }
+            </a>
+        </div>
+        <div>
+            <a asp-controller="Manager" asp-action="Prognosis">
+                @if(ViewData["Title"] == "Prognose")
+                {
+                    <img src="/img/schedule_selected.svg" />
+                    <p class="selected">Prognose</p>
+                }
+                else
+                {
+                    <img src="/img/schedule.svg" />
+                    <p class="unselected">Prognose</p>
+                }
+            </a>
+        </div>
+        <div>
+            <a asp-controller="Manager" asp-action="WorkedHours">
+                @if(ViewData["Title"] == "Uren verlonen") 
+                {
+                    <img src="/img/availability_selected.svg" />
+                    <p class="selected">Uren verlonen</p>
+                }
+                else
+                {
+                    <img src="/img/availability.svg" />
+                    <p class="unselected">Uren verlonen</p>
+                }
+            </a>
+        </div>
+        <div>
+            <a asp-controller="Manager" asp-action="LeaveRequests">
+                @if(ViewData["Title"] == "Verlofaanvragen")
+                {
+                    <img src="/img/vacation_selected.svg" />
+                    <p class="selected">Verlofaanvragen</p>
+                }
+                else
+                {
+                    <img src="/img/vacation.svg" />
+                    <p class="unselected">Verlofaanvragen</p>
+                }
+            </a>
+        </div>
+        <div>
+            <a asp-controller="Manager" asp-action="ListEmployees">
+                @if(ViewData["Title"] == "Medewerkers")
+                {
+                    <img src="/img/staff_selected.svg" />
+                    <p class="selected">Medewerkers</p>
+                }
+                else
+                {
+                    <img src="/img/staff.svg" />
+                    <p class="unselected">Medewerkers</p>
+                }
+            </a>
+        </div>
     }
-    else
+    else if(User.IsInRole("Employee"))
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Inloggen</a>
-        </li>
+        <div>
+            <a asp-controller="Employee" asp-action="WorkSchedule">
+                @if(ViewData["Title"] == "Rooster")
+                {
+                    <img src="/img/schedule_selected.svg" />
+                    <p class="selected">Rooster</p>
+                }
+                else
+                {
+                    <img src="/img/schedule.svg" />
+                    <p class="unselected">Rooster</p>
+                }
+            </a>
+        </div>
+        <div>
+            <a asp-controller="Employee" asp-action="Availability">
+                @if(ViewData["Title"] == "Beschikbaarheid")
+                {
+                    <img src="/img/availability_selected.svg" />
+                    <p class="selected">Beschikbaarheid</p>
+                }
+                else
+                {
+                    <img src="/img/availability.svg" />
+                    <p class="unselected">Beschikbaarheid</p>
+                }
+            </a>
+        </div>
+        <div>
+            <a asp-controller="Employee" asp-action="LeaveRequests">
+                @if(ViewData["Title"] == "Verlof")
+                {
+                    <img src="/img/vacation_selected.svg" />
+                    <p class="selected">Verlof</p>
+                }
+                else
+                {
+                    <img src="/img/vacation.svg" />
+                    <p class="unselected">Verlof</p>
+                }
+            </a>
+        </div>
+        <div>
+            <a asp-controller="Employee" asp-action="SchoolSchedule">
+                @if(ViewData["Title"] == "Schoolrooster")
+                {
+                    <img src="/img/school_selected.svg" />
+                    <p class="selected">Schoolrooster</p>
+                }
+                else
+                {
+                    <img src="/img/school.svg" />
+                    <p class="unselected">Schoolrooster</p>
+                }
+            </a>
+        </div>
     }
-</ul>
+}
+
+@if(!ViewData.ContainsKey("IsMobile"))
+{
+    <div>
+        <a asp-controller="Account" asp-action="Logout">
+            <img src="/img/logout.svg" />
+            <p class="unselected">Uitloggen</p>
+        </a>
+    </div>
+    <div class="end-of-page-links">
+        @if (User.IsInRole("Employee"))
+        {
+            <a asp-controller="Employee" asp-action="EnableMobile">Naar mobiele pagina</a>
+            <br />
+            <br />
+        }
+        <a asp-controller="Account" asp-action="Logout">Uitloggen</a>
+    </div>
+}

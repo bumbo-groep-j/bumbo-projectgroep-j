@@ -18,62 +18,7 @@
         <a asp-action="DisableMobile" class="disable_mobile">Desktop page</a>
         <main>
             <footer>
-                <div>
-                    <a asp-action="WorkSchedule">
-                        @if (ViewData["Title"] == "Rooster")
-                        {
-                            <img src="/img/schedule_selected.svg" />
-                            <p class="selected">Rooster</p>
-                        }
-                        else
-                        {
-                            <img src="/img/schedule.svg" />
-                            <p class="unselected">Rooster</p>
-                        }
-                    </a>
-                </div>
-                <div>
-                    <a asp-action="Availability">
-                        @if (ViewData["Title"] == "Beschikbaarheid")
-                        {
-                            <img src="/img/availability_selected.svg" />
-                            <p class="selected">Beschikbaarheid</p>
-                        }
-                        else
-                        {
-                            <img src="/img/availability.svg" />
-                            <p class="unselected">Beschikbaarheid</p>
-                        }
-                    </a>
-                </div>
-                <div>
-                    <a asp-action="LeaveRequests">
-                        @if (ViewData["Title"] == "Verlof")
-                        {
-                            <img src="/img/vacation_selected.svg" />
-                            <p class="selected">Verlof</p>
-                        }
-                        else
-                        {
-                            <img src="/img/vacation.svg" />
-                            <p class="unselected">Verlof</p>
-                        }
-                    </a>
-                </div>
-                <div>
-                    <a asp-action="SchoolSchedule">
-                        @if (ViewData["Title"] == "Schoolrooster")
-                        {
-                            <img src="/img/school_selected.svg" />
-                            <p class="selected">Schoolrooster</p>
-                        }
-                        else
-                        {
-                            <img src="/img/school.svg" />
-                            <p class="unselected">Schoolrooster</p>
-                        }
-                    </a>
-                </div>
+                <partial name="_LinksPartial" />
             </footer>
             @RenderBody()
         </main>
@@ -86,17 +31,8 @@
         if(!ViewData.ContainsKey("HideNavBar"))
         {
             <header>
-                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Index">Bumbo</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                            <partial name="_LinksPartial" />
-                        </div>
-                    </div>
+                <nav>
+                    <partial name="_LinksPartial" />
                 </nav>
             </header>
         }

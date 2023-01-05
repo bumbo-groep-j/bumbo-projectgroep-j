@@ -134,6 +134,7 @@ input[type="text"]::placeholder {
     width: 100px;
 }
 
+
 .length_hour {
     padding: 0px;
     margin: 0px;
@@ -141,10 +142,6 @@ input[type="text"]::placeholder {
     background-color: lightgrey;
 }
 
-
-.extra_info {
-    padding: 0px;
-}
 
 .edit_button {
     padding: 2px 8px 4px 8px;
@@ -167,6 +164,18 @@ input[type="text"]::placeholder {
     text-align: center;
 }
 
+
+.edit_section {
+    padding-left: 35px;
+}
+
+
+.alert_message {
+    text-align: center;
+    margin-left: 510px;
+    color: red;
+    font-size: 20px;
+}
 /*popup edit page for school schedule css*/
 .content_page {
     margin: 10px;
