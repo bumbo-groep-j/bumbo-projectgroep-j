@@ -149,6 +149,22 @@ tr {
     color: #ffffff;
 }
 
+.calendar .selectedweek {
+    background-color: #007aff;
+    border-radius: 0;
+    margin: 0;
+    height: 32px;
+    color: #ffffff;
+}
+
+.calendar .selectedweek:first-child {
+    border-radius: 16px 0 0 16px;
+}
+
+.calendar .selectedweek:last-child {
+    border-radius: 0 16px 16px 0;
+}
+
 .weekday {
     text-align: center;
     font-family: var(--bs-font-monospace);

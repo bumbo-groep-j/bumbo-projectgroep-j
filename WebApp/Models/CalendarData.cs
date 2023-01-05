@@ -20,6 +20,8 @@ namespace Bumbo.Models
 
         public bool? FullSize;
 
+        public bool? SelectWeek;
+
         public string Month
         {
             get
