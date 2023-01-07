@@ -73,7 +73,6 @@ namespace Bumbo.Controllers
 
                     foreach (Employee employee in records)
                     {
-                        employee.NFCToken = Guid.NewGuid().ToString();
                         employee.UserName = employee.FirstName + employee.LastName;
                         employee.UserName = employee.UserName.Replace(" ", "");
 

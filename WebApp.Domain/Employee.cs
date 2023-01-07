@@ -35,7 +35,6 @@ namespace WebApp.Domain
 
         [DisplayName("NFC-Token")]
         [Name("BID")]
-        [Ignore]
         [Required(ErrorMessage = "Het NFCToken veld is verplicht")]
         public string NFCToken { get; set; }
 
