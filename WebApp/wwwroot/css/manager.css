@@ -277,20 +277,24 @@ input[type=checkbox]:disabled:hover::after {
     background-color: rgba(0, 0, 0, 0.20);
 }
 
-#overlay > form {
-    position: absolute;
+#overlay > div {
+    position: fixed;
     top: 50%;
     left: 50%;
-    width: 256px;
-    height: 196px;
+    width: 512px;
+    height: 256px;
     transform: translate(-50%, -50%);
     background-color: #ffffff;
     border-radius: 16px;
+}
+
+#overlay form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    height: 100%;
     padding: 0 32px;
-    gap: 8px;
+    text-align: center;
 }
 
 #overlay label {
@@ -362,4 +366,8 @@ input[type=checkbox]:disabled:hover::after {
 
 .selected > .completed_day {
     outline: 4px solid green !important;
+}
+
+td {
+    overflow-wrap: break-word;
 }

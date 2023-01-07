@@ -40,9 +40,10 @@
                 <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(1).Year" asp-route-month="@ViewBag.Date.AddDays(1).Month" asp-route-day="@ViewBag.Date.AddDays(1).Day" asp-route-optionsPerPage="@ViewBag.OptionsPerPage">&#x203A;</a>
             </h1>
         </header>
-        <div class="space_around">
+        <div class="space_between">
             <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveAllHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day', success: function(data) { $('#worked_hours').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #worked_hours > *'); }});">Alle openstaande uren accorderen</button>
             <a class="button" asp-action="ExportAllHours" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day" download="verloonde-uren-@ViewBag.Date.Day-@ViewBag.Date.Month-@(ViewBag.Date.Year).csv">Alle goedgekeurde uren exporteren</a>
+            <a class="button" href="javascript:void(0)" onclick="$('#overlay').removeClass('hidden');">CSV importeren</a>
         </div>
         <table id="worked_hours">
             <tr class="tr_bg">
@@ -137,3 +138,9 @@
         window.location.replace("/Manager/WorkedHours?year=@(ViewBag.Date.Year)&month=@(ViewBag.Date.Month)&day=@(ViewBag.Date.Day)&pageId=@(ViewBag.PageId)&optionsPerPage=" + value.split(" ")[0]);
     }
 </script>
+
+<div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+    <div onclick="event.stopPropagation();">
+        <partial name="CSVImport" />
+    </div>
+</div>

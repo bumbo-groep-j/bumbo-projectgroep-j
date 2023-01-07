@@ -861,5 +861,10 @@ namespace Bumbo.Controllers
 
             return approvedDays;
         }
+
+        [Authorize(Roles = "Manager")]
+        public ActionResult CSVImport() {
+            return PartialView();
+        }
     }
 }

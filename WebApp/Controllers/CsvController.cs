@@ -21,11 +21,6 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
-        public ActionResult CsvImport()
-        {
-            return View();
-        }
-        [Authorize(Roles = "Manager")]
         [HttpPost]
         public async Task<ActionResult> ReadFromCSV(IFormCollection collection)
         {
@@ -34,9 +29,45 @@ namespace Bumbo.Controllers
             {
                 reader = new StreamReader(file.OpenReadStream());
 
+                string content = reader.ReadToEnd().Replace("\r", "");
+                string fixedContent = "";
+                if (content.Contains("/"))
+                {
+                    foreach (string line in content.Split("\n"))
+                    {
+                        if (!line.Contains("/"))
+                        {
+                            fixedContent += line + '\n';
+                            continue;
+                        }
+
+                        var values = line.Split(",");
+
+                        for (int i = 0; i < values.Length; i++)
+                            if(values[i].Contains('/'))
+                            {
+                                var dateValues = values[i].Split("/");
+                                values[i] = dateValues[2] + "-" + dateValues[1] + "-" + dateValues[0];
+                            }
+
+                        for (int i = 0; i < values.Length; i++)
+                        {
+                            fixedContent += values[i];
+                            if (i != values.Length - 1)
+                                fixedContent += ',';
+                        }
+
+                        fixedContent += '\n';
+                    }
+                }
+                else fixedContent = content;
+
                 if (file.FileName.Contains("medewerkers"))
                 {
-                    var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+                    var contentReader = new StringReader(fixedContent);
+
+                    var csv = new CsvReader(contentReader, CultureInfo.InvariantCulture);
 
                     List<Employee> records = csv.GetRecords<Employee>().ToList();
 
@@ -73,40 +104,33 @@ namespace Bumbo.Controllers
                 }
                 if (file.FileName.Contains("hours"))
                 {
-                    // Temporary while using modified .csv file...
-                    string content = reader.ReadToEnd();
-                    string fixedContent = "";
-                    if (content.Contains("/"))
+                    if(!fixedContent.Split('\n')[0].Contains("Afdeling"))
                     {
-                        foreach (string line in content.Split("\n"))
+                        content = "";
+                        bool firstLine = true;
+
+                        foreach (string line in fixedContent.Split("\n"))
                         {
-                            if (!line.Contains("/"))
+                            if (firstLine)
                             {
-                                fixedContent += line + '\n';
-                                continue;
+                                content += line + ",Afdeling\n";
+                                firstLine = false;
                             }
-                            var values = line.Split(",");
-                            var dateValues = values[2].Split("/");
-
-                            fixedContent += values[0] + ","
-                                + values[1] + ","
-                                + dateValues[2] + "-" + dateValues[1] + "-" + dateValues[0] + ","
-                                + values[3] + ","
-                                + values[4] + ","
-                                + values[5] + "\n";
+                            else if (line != "")
+                            {
+                                content += line + ",Kassa\n";
+                            }
                         }
-                    }
-                    else fixedContent = content;
+                    } else content = fixedContent;
 
-                    var contentReader = new StringReader(fixedContent);
+                    var contentReader = new StringReader(content);
 
                     var csv = new CsvReader(contentReader, CultureInfo.InvariantCulture);
 
                     List<Schedule> records = csv.GetRecords<Schedule>().ToList();
                     int countSchedules = db.Schedules.Count() + 1;
-                    foreach ( Schedule schedule in records )
+                    foreach (Schedule schedule in records)
                     {
-
                         try
                         {
                             Employee employee = db.Employees.First(e => e.NFCToken == schedule.BID);
@@ -138,7 +162,7 @@ namespace Bumbo.Controllers
                 }
 
             }
-            return Redirect("CsvImport");
+            return RedirectToAction("ListEmployees", "Manager");
         }
     }
 }
