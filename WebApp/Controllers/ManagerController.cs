@@ -554,10 +554,10 @@ namespace Bumbo.Controllers
             if(optionsPerPage < 10) optionsPerPage = 10;
 
             ViewBag.PageCount = model.Count / optionsPerPage;
-            if(ViewBag.PageCount <= 0) ViewBag.PageCount = 1;
+            if(model.Count % optionsPerPage != 0) ViewBag.PageCount++;
 
             ViewBag.PageId = pageId;
-            if(ViewBag.PageId > ViewBag.Pages) ViewBag.PageId = ViewBag.Pages;
+            if(ViewBag.PageId > ViewBag.PageCount) ViewBag.PageId = ViewBag.PageCount;
             if(ViewBag.PageId <= 0) ViewBag.PageId = 1;
 
             ViewBag.OptionsPerPage = optionsPerPage;
