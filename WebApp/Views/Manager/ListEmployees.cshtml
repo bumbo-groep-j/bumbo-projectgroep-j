@@ -6,7 +6,10 @@
 
 <h1>Lijst van medewerkers</h1>
 
-<a class="button" asp-action="CreateEmployee">Voeg medewerker toe</a>
+<div class="space_between">
+    <a class="button" asp-action="CreateEmployee">Voeg medewerker toe</a>
+    <a class="button" href="javascript:void(0)" onclick="$('#overlay').removeClass('hidden');">CSV importeren</a>
+</div>
 
 <h2>Medewerkers</h2>
 <table class="table">
@@ -104,3 +107,9 @@
         }
     </tbody>
 </table>
+
+<div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+    <div onclick="event.stopPropagation();">
+        <partial name="CSVImport" />
+    </div>
+</div>

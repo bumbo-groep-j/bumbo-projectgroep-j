@@ -94,36 +94,40 @@ namespace Bumbo.Controllers
             return View(request);
         }
 
-        private void GetDutchDate()
+        private string GetDutchDate(DateTime date)
         {
-            switch (ViewBag.Date.DayOfWeek)
+            string dutchDate = "";
+
+            switch (date.DayOfWeek)
             {
-                case DayOfWeek.Monday: ViewBag.DutchDate = "Maandag"; break;
-                case DayOfWeek.Tuesday: ViewBag.DutchDate = "Dinsdag"; break;
-                case DayOfWeek.Wednesday: ViewBag.DutchDate = "Woensdag"; break;
-                case DayOfWeek.Thursday: ViewBag.DutchDate = "Donderdag"; break;
-                case DayOfWeek.Friday: ViewBag.DutchDate = "Vrijdag"; break;
-                case DayOfWeek.Saturday: ViewBag.DutchDate = "Zaterdag"; break;
-                case DayOfWeek.Sunday: ViewBag.DutchDate = "Zondag"; break;
+                case DayOfWeek.Monday:    dutchDate = "Maandag";   break;
+                case DayOfWeek.Tuesday:   dutchDate = "Dinsdag";   break;
+                case DayOfWeek.Wednesday: dutchDate = "Woensdag";  break;
+                case DayOfWeek.Thursday:  dutchDate = "Donderdag"; break;
+                case DayOfWeek.Friday:    dutchDate = "Vrijdag";   break;
+                case DayOfWeek.Saturday:  dutchDate = "Zaterdag";  break;
+                case DayOfWeek.Sunday:    dutchDate = "Zondag";    break;
             }
 
-            ViewBag.DutchDate += " " + ViewBag.Date.Day + " ";
+            dutchDate += " " + date.Day + " ";
 
-            switch (ViewBag.Date.Month)
+            switch (date.Month)
             {
-                case 1: ViewBag.DutchDate += "Januari"; break;
-                case 2: ViewBag.DutchDate += "Februari"; break;
-                case 3: ViewBag.DutchDate += "Maart"; break;
-                case 4: ViewBag.DutchDate += "April"; break;
-                case 5: ViewBag.DutchDate += "Mei"; break;
-                case 6: ViewBag.DutchDate += "Juni"; break;
-                case 7: ViewBag.DutchDate += "Juli"; break;
-                case 8: ViewBag.DutchDate += "Augustus"; break;
-                case 9: ViewBag.DutchDate += "September"; break;
-                case 10: ViewBag.DutchDate += "Oktober"; break;
-                case 11: ViewBag.DutchDate += "November"; break;
-                case 12: ViewBag.DutchDate += "December"; break;
+                case  1: dutchDate += "Januari";   break;
+                case  2: dutchDate += "Februari";  break;
+                case  3: dutchDate += "Maart";     break;
+                case  4: dutchDate += "April";     break;
+                case  5: dutchDate += "Mei";       break;
+                case  6: dutchDate += "Juni";      break;
+                case  7: dutchDate += "Juli";      break;
+                case  8: dutchDate += "Augustus";  break;
+                case  9: dutchDate += "September"; break;
+                case 10: dutchDate += "Oktober";   break;
+                case 11: dutchDate += "November";  break;
+                case 12: dutchDate += "December";  break;
             }
+
+            return dutchDate;
         }
 
         [Authorize(Roles = "Manager")]
@@ -140,21 +144,16 @@ namespace Bumbo.Controllers
                 date = DateTime.Today;
             }
 
-            date = date.AddDays(1 - (int)date.DayOfWeek);
+            if(date.DayOfWeek == DayOfWeek.Sunday)
+                date = date.AddDays(-6);
+            else
+                date = date.AddDays(1 - (int)date.DayOfWeek);
 
-            ViewBag.Date = date;
+            ViewBag.StartDate = date;
+            ViewBag.StartDutchDate = GetDutchDate(date);
 
-            GetDutchDate();
-
-            ViewBag.StartDate = ViewBag.Date;
-            ViewBag.StartDutchDate = ViewBag.DutchDate;
-
-            ViewBag.Date = date.AddDays(6);
-
-            GetDutchDate();
-
-            ViewBag.EndDate = date;
-            ViewBag.EndDutchDate = ViewBag.DutchDate;
+            ViewBag.EndDate = date.AddDays(6);
+            ViewBag.EndDutchDate = GetDutchDate(date.AddDays(6));
 
             var model = new PrognosisForm();
             model.Prognoses = new Prognosis[7];
@@ -184,31 +183,31 @@ namespace Bumbo.Controllers
 
                 switch (ViewBag.Dates[i].DayOfWeek)
                 {
-                    case DayOfWeek.Monday: ViewBag.DutchDates[i] = "Ma"; break;
-                    case DayOfWeek.Tuesday: ViewBag.DutchDates[i] = "Di"; break;
+                    case DayOfWeek.Monday:    ViewBag.DutchDates[i] = "Ma"; break;
+                    case DayOfWeek.Tuesday:   ViewBag.DutchDates[i] = "Di"; break;
                     case DayOfWeek.Wednesday: ViewBag.DutchDates[i] = "Wo"; break;
-                    case DayOfWeek.Thursday: ViewBag.DutchDates[i] = "Do"; break;
-                    case DayOfWeek.Friday: ViewBag.DutchDates[i] = "Vr"; break;
-                    case DayOfWeek.Saturday: ViewBag.DutchDates[i] = "Za"; break;
-                    case DayOfWeek.Sunday: ViewBag.DutchDates[i] = "Zo"; break;
+                    case DayOfWeek.Thursday:  ViewBag.DutchDates[i] = "Do"; break;
+                    case DayOfWeek.Friday:    ViewBag.DutchDates[i] = "Vr"; break;
+                    case DayOfWeek.Saturday:  ViewBag.DutchDates[i] = "Za"; break;
+                    case DayOfWeek.Sunday:    ViewBag.DutchDates[i] = "Zo"; break;
                 }
 
                 ViewBag.DutchDates[i] += " " + ViewBag.Dates[i].Day + " ";
 
                 switch (ViewBag.Dates[i].Month)
                 {
-                    case 1: ViewBag.DutchDates[i] += "Januari"; break;
-                    case 2: ViewBag.DutchDates[i] += "Februari"; break;
-                    case 3: ViewBag.DutchDates[i] += "Maart"; break;
-                    case 4: ViewBag.DutchDates[i] += "April"; break;
-                    case 5: ViewBag.DutchDates[i] += "Mei"; break;
-                    case 6: ViewBag.DutchDates[i] += "Juni"; break;
-                    case 7: ViewBag.DutchDates[i] += "Juli"; break;
-                    case 8: ViewBag.DutchDates[i] += "Augustus"; break;
-                    case 9: ViewBag.DutchDates[i] += "September"; break;
-                    case 10: ViewBag.DutchDates[i] += "Oktober"; break;
-                    case 11: ViewBag.DutchDates[i] += "November"; break;
-                    case 12: ViewBag.DutchDates[i] += "December"; break;
+                    case  1: ViewBag.DutchDates[i] += "Januari";   break;
+                    case  2: ViewBag.DutchDates[i] += "Februari";  break;
+                    case  3: ViewBag.DutchDates[i] += "Maart";     break;
+                    case  4: ViewBag.DutchDates[i] += "April";     break;
+                    case  5: ViewBag.DutchDates[i] += "Mei";       break;
+                    case  6: ViewBag.DutchDates[i] += "Juni";      break;
+                    case  7: ViewBag.DutchDates[i] += "Juli";      break;
+                    case  8: ViewBag.DutchDates[i] += "Augustus";  break;
+                    case  9: ViewBag.DutchDates[i] += "September"; break;
+                    case 10: ViewBag.DutchDates[i] += "Oktober";   break;
+                    case 11: ViewBag.DutchDates[i] += "November";  break;
+                    case 12: ViewBag.DutchDates[i] += "December";  break;
                 }
             }
 
@@ -248,7 +247,7 @@ namespace Bumbo.Controllers
 
             ViewBag.Date = date;
 
-            GetDutchDate();
+            ViewBag.DutchDate = GetDutchDate(date);
 
             Department department;
 
@@ -489,7 +488,7 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult WorkedHours(int year, int month, int day)
+        public IActionResult WorkedHours(int year, int month, int day, int pageId, int optionsPerPage)
         {
             DateTime date;
 
@@ -505,7 +504,7 @@ namespace Bumbo.Controllers
 
             ViewBag.Date = date;
 
-            GetDutchDate();
+            ViewBag.DutchDate = GetDutchDate(date);
 
             List<ClockedHour> model = (
                 from WorkedHour
@@ -552,7 +551,23 @@ namespace Bumbo.Controllers
                 }
             ).ToList();
 
-            return View(model);
+            if(optionsPerPage < 10) optionsPerPage = 10;
+
+            ViewBag.PageCount = model.Count / optionsPerPage;
+            if(model.Count % optionsPerPage != 0) ViewBag.PageCount++;
+
+            ViewBag.PageId = pageId;
+            if(ViewBag.PageId > ViewBag.PageCount) ViewBag.PageId = ViewBag.PageCount;
+            if(ViewBag.PageId <= 0) ViewBag.PageId = 1;
+
+            ViewBag.OptionsPerPage = optionsPerPage;
+
+            List<ClockedHour> realModel = new List<ClockedHour>();
+
+            for(int i = (ViewBag.PageId - 1) * optionsPerPage; i < ViewBag.PageId * optionsPerPage && i < model.Count; i++)
+                realModel.Add(model[i]);
+
+            return View(realModel);
         }
 
         [Authorize(Roles = "Manager")]
@@ -845,6 +860,11 @@ namespace Bumbo.Controllers
             }
 
             return approvedDays;
+        }
+
+        [Authorize(Roles = "Manager")]
+        public ActionResult CSVImport() {
+            return PartialView();
         }
     }
 }

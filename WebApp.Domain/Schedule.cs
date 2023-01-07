@@ -32,7 +32,7 @@ namespace WebApp.Domain
 
         [NotMapped]
         [Name("BID")]
-        public string BID {get; set;}
+        public string BID { get; set; }
 
         [NotMapped]
         [Name("Date")]

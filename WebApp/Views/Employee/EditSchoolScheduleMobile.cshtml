@@ -36,7 +36,7 @@
     </div>
 </form>
 <div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
-    <div>
+    <div onclick="event.stopPropagation();">
         <div class="alert">
             Deze wijziging gaat in over 3 weken.
         </div>

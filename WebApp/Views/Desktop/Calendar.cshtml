@@ -1,6 +1,8 @@
 ﻿@model CalendarData
 
 @{
+    bool selectWeek = (Model.SelectWeek.HasValue && Model.SelectWeek.Value);
+
     string Previous = "month=" + (Model.CurrentMonth == 1 ? 12 : Model.CurrentMonth - 1)
         + "&year="             + (Model.CurrentMonth == 1 ? Model.CurrentYear - 1 : Model.CurrentYear)
         + "&todayDay="         +  Model.Today.Day
@@ -16,7 +18,8 @@
         + "&maximumMonth="     + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
         + "&maximumYear="      + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0)
         + "&link="             + Model.EscapedLink
-        + "&fetchDataLink="    + Model.EscapedFetchDataLink;
+        + "&fetchDataLink="    + Model.EscapedFetchDataLink
+        + "&selectWeek="       + selectWeek;
 
     string Next = "month="     + (Model.CurrentMonth == 12 ? 1 : Model.CurrentMonth + 1)
         + "&year="             + (Model.CurrentMonth == 12 ? Model.CurrentYear + 1 : Model.CurrentYear)
@@ -33,7 +36,8 @@
         + "&maximumMonth="     + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Month : 0)
         + "&maximumYear="      + (Model.MaximumDay.HasValue ? Model.MaximumDay.Value.Year  : 0)
         + "&link="             + Model.EscapedLink
-        + "&fetchDataLink="    + Model.EscapedFetchDataLink;
+        + "&fetchDataLink="    + Model.EscapedFetchDataLink
+        + "&selectWeek="       + selectWeek;
 }
 
 <div class="calendar" onload="updateCompletedDays();">
@@ -72,6 +76,8 @@
 
                         if(Model.CurrentMonth == Model.Selected.Month && Model.CurrentYear == Model.Selected.Year && monthday == Model.Selected.Day) classes = "selected";
                         else if(Model.CurrentMonth == Model.Today.Month && Model.CurrentYear == Model.Today.Year && monthday == Model.Today.Day) classes = "today";
+
+                        if(selectWeek && Model.CurrentMonth == Model.Selected.Month && Model.CurrentYear == Model.Selected.Year && monthday + 1 - i == Model.Selected.Day) classes = "selectedweek";
 
                         bool allowed = true;
 
