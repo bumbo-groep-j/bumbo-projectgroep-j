@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
-using System.IO.Pipelines;
-using System.Web.WebPages;
 using WebApp.Domain;
 
 namespace Bumbo.Controllers

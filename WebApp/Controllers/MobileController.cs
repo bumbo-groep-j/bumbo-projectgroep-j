@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using WebApp.Domain;
 using Microsoft.AspNetCore.Identity;
 using System.Web;
-using Azure.Core;
 
 namespace Bumbo.Controllers
 {
