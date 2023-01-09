@@ -21,7 +21,17 @@ namespace Bumbo.Controllers
 
         private bool CanRunSetup()
         {
-            return db.Users.Count() == 0;
+            return db.Users.Count() == 0 || (
+                from UserRole
+                in db.UserRoles
+                where UserRole.RoleId == (
+                    from Role
+                    in db.Roles
+                    where Role.Name == "Manager"
+                    select Role.Id
+                ).First()
+                select UserRole
+            ).Count() == 0;
         }
 
         public IActionResult Index()

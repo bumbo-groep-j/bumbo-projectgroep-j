@@ -19,14 +19,34 @@ namespace Bumbo.Controllers
 
         public ActionResult Login()
         {
-            if(db.Users.Count() == 0) return RedirectToAction("Index", "Setup");
+            if(db.Users.Count() == 0 || (
+                from UserRole
+                in db.UserRoles
+                where UserRole.RoleId == (
+                    from Role
+                    in db.Roles
+                    where Role.Name == "Manager"
+                    select Role.Id
+                ).First()
+                select UserRole
+            ).Count() == 0) return RedirectToAction("Index", "Setup");
             return View();
         }
 
         [HttpPost]
         public async Task<ActionResult> Login(Account model)
         {
-            if(db.Users.Count() == 0) return RedirectToAction("Index", "Setup");
+            if(db.Users.Count() == 0 || (
+                from UserRole
+                in db.UserRoles
+                where UserRole.RoleId == (
+                    from Role
+                    in db.Roles
+                    where Role.Name == "Manager"
+                    select Role.Id
+                ).First()
+                select UserRole
+            ).Count() == 0) return RedirectToAction("Index", "Setup");
 
             model.PasswordConfirmation = model.Password;
             ModelState.Clear();
