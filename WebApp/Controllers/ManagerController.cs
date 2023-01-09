@@ -322,6 +322,7 @@ namespace Bumbo.Controllers
                     where LeaveRequest.EmployeeId == employee.Id
                     && LeaveRequest.StartDate <= date
                     && LeaveRequest.EndDate >= date
+                    && LeaveRequest.Approved == true
                     select LeaveRequest
                 ).Any();
 
