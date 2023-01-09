@@ -96,10 +96,7 @@
                     <td></td>
                     <td>
                         <div class="index_links">
-                            @if(employee.Account.UserName != User.Identity.Name)
-                            {
-                                <a asp-action="DeleteManager" asp-route-username="@employee.Account.UserName" class="button red_button">Verwijderen</a>
-                            }
+                            <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
                         </div>
                     </td>
                 </tr>

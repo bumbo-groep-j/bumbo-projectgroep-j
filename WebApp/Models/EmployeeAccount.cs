@@ -3,7 +3,7 @@ using WebApp.Domain;
 
 namespace Bumbo.Models {
     public class EmployeeAccount {
-        public Employee? Employee { get; set; }
+        public Employee Employee { get; set; }
         public Account Account { get; set; }
 
         [Display(Name = "Rol")]

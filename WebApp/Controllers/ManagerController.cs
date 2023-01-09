@@ -271,7 +271,7 @@ namespace Bumbo.Controllers
             ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
             ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
 
-            ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
+            ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive && Employee.Role == "Employee" select Employee).ToList();
 
             ScheduleForm model = new ScheduleForm();
 
@@ -312,7 +312,7 @@ namespace Bumbo.Controllers
 
             var regulations = (from CAORegulation in db.CAORegulations orderby CAORegulation.Age descending select CAORegulation).ToList();
 
-            ViewBag.EmployeeIds = (from Employee in db.Employees where !Employee.Inactive select Employee.Id).ToList();
+            ViewBag.EmployeeIds = (from Employee in db.Employees where !Employee.Inactive && Employee.Role == "Employee" select Employee.Id).ToList();
 
             foreach(Employee employee in ViewBag.Employees)
             {
@@ -447,7 +447,7 @@ namespace Bumbo.Controllers
 
                 foreach (var s in existingSchedule) db.Schedules.Remove(s);
 
-                var employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
+                var employees = (from Employee in db.Employees where !Employee.Inactive && Employee.Role == "Employee" select Employee).ToList();
 
                 Schedule? schedule = null;
 
@@ -701,11 +701,8 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public async Task<IActionResult> CreateEmployee(EmployeeAccount model)
         {
-            if (model.Role == "Employee")
-                model.Employee.UserName = model.Account.Username;
-            else
-                model.Employee = null;
-
+            model.Employee.UserName = model.Account.Username;
+            model.Employee.Role = model.Role;
             model.Account.UserName = model.Account.Username;
             ModelState.Clear();
             TryValidateModel(model);
@@ -738,11 +735,13 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult EditEmployee(string userName)
+        public async Task<IActionResult> EditEmployee(string userName)
         {
             try
             {
-                return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
+                Employee model = (from Employee in db.Employees where Employee.UserName == userName select Employee).First();
+                model.Role = (await userManager.GetRolesAsync(await userManager.FindByNameAsync(userName))).First();
+                return View(model);
             }
             catch { }
 
@@ -751,7 +750,7 @@ namespace Bumbo.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Manager")]
-        public IActionResult EditEmployee(Employee model)
+        public async Task<IActionResult> EditEmployee(Employee model)
         {
             try
             {
@@ -765,6 +764,17 @@ namespace Bumbo.Controllers
                     employee.DateOfBirth = model.DateOfBirth;
                     employee.NFCToken = model.NFCToken;
                     employee.Inactive = model.Inactive;
+                    employee.Role = model.Role;
+
+                    Account account = await userManager.FindByNameAsync(employee.UserName);
+
+                    try
+                    {
+                        await userManager.RemoveFromRoleAsync(account, (await userManager.GetRolesAsync(account)).First());
+                    }
+                    catch(ArgumentNullException) { }
+
+                    await userManager.AddToRoleAsync(account, model.Role);
 
                     db.SaveChanges();
                     return RedirectToAction("ListEmployees");

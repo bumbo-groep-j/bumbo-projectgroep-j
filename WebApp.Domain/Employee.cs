@@ -74,5 +74,8 @@ namespace WebApp.Domain
         [NotMapped]
         [Ignore]
         public int AllowedHours4Weeks { get; set; }
+
+        [Ignore]
+        public string Role { get; set; }
     }
 }
