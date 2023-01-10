@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Bumbo.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Domain;
@@ -38,25 +39,33 @@ namespace Bumbo.Controllers
         {
             if(!CanRunSetup()) return LocalRedirect("~/");
 
+            ViewBag.Guid = Guid.NewGuid().ToString();
+
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(Account model)
+        public async Task<IActionResult> Index(EmployeeAccount model)
         {
             if(!CanRunSetup()) return LocalRedirect("~/");
 
-            model.UserName = model.Username;
+            model.Employee.UserName = model.Account.Username;
+            model.Employee.Role = model.Role;
+            model.Account.UserName = model.Account.Username;
+            ModelState.Clear();
+            TryValidateModel(model);
             try
             {
-                if (ModelState.IsValid)
+                if(ModelState.IsValid)
                 {
-                    var result = await userManager.CreateAsync(model, model.Password);
+                    var result = await userManager.CreateAsync(model.Account, model.Account.Password);
 
                     if(result.Succeeded)
                     {
-                        await userManager.AddToRoleAsync(model, "Manager");
-                        await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, false);
+                        await userManager.AddToRoleAsync(model.Account, model.Role);
+
+                        db.Employees.Add(model.Employee);
+                        db.SaveChanges();
 
                         return RedirectToAction("ListEmployees", "Manager");
                     }

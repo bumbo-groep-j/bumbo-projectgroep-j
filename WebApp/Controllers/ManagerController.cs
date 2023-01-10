@@ -724,11 +724,8 @@ namespace Bumbo.Controllers
                     {
                         await userManager.AddToRoleAsync(model.Account, model.Role);
 
-                        if (model.Role == "Employee")
-                        {
-                            db.Employees.Add(model.Employee);
-                            db.SaveChanges();
-                        }
+                        db.Employees.Add(model.Employee);
+                        db.SaveChanges();
 
                         return RedirectToAction("ListEmployees");
                     }
