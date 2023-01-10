@@ -112,13 +112,13 @@
                             <td class="align_right" colspan="2">
                                 @if(!Model.Sicknesses[eid++])
                                 {
-                                    <a href="javascript:void(0)" id="sickness_button_employee_@employee.Id" class="button red_button" onclick="enable_sick_leave(@employee.Id); update_constraints(@employee.Id);">Ziek</a>
-                                    <a href="javascript:void(0)" id="undo_sickness_button_employee_@employee.Id" class="button hidden" onclick="disable_sick_leave(@employee.Id); update_constraints(@employee.Id);">Annuleren</a>
+                                    <a href="javascript:void(0)" id="sickness_button_employee_@employee.Id" class="button red_button" onclick="enable_sick_leave(@employee.Id);">Ziek</a>
+                                    <a href="javascript:void(0)" id="undo_sickness_button_employee_@employee.Id" class="button hidden" onclick="disable_sick_leave(@employee.Id);">Annuleren</a>
                                 }
                                 else
                                 {
-                                    <a href="javascript:void(0)" id="sickness_button_employee_@employee.Id" class="button hidden red_button" onclick="enable_sick_leave(@employee.Id); update_constraints(@employee.Id);">Ziek</a>
-                                    <a href="javascript:void(0)" id="undo_sickness_button_employee_@employee.Id" class="button" onclick="disable_sick_leave(@employee.Id); update_constraints(@employee.Id);">Annuleren</a>
+                                    <a href="javascript:void(0)" id="sickness_button_employee_@employee.Id" class="button hidden red_button" onclick="enable_sick_leave(@employee.Id);">Ziek</a>
+                                    <a href="javascript:void(0)" id="undo_sickness_button_employee_@employee.Id" class="button" onclick="disable_sick_leave(@employee.Id);">Annuleren</a>
                                 }
                             </td>
                         </tr>
@@ -234,10 +234,22 @@
 
     function enable_sick_leave(id) {
         $("#sickness_employee_" + id).prop("value", "True");
+
+        update_constraints(id);
+        
+        for (let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) {
+            update_text(i);
+        }
     }
 
     function disable_sick_leave(id) {
         $("#sickness_employee_" + id).prop("value", "False");
+
+        update_constraints(id);
+        
+        for (let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) {
+            update_text(i);
+        }
     }
 
     function submit() {
@@ -249,15 +261,15 @@
     }
 
     window.onload = function () {
-        for (let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) {
-            update_text(i);
-        }
-
         let ids = "@string.Join(",", ViewBag.EmployeeIds)";
         let idList = ids.split(",");
 
         for (let i = 0; i < @ViewBag.EmployeeIds.Count; i++) {
             update_constraints(idList[i]);
+        }
+
+        for (let i = @ViewBag.StartHour; i <= @ViewBag.EndHour; i++) {
+            update_text(i);
         }
     }
 </script>
