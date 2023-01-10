@@ -4,7 +4,7 @@
       "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/bumbo-j/databases/bumbo",
       "type": "mssql.azure",
-      "connectionId": "ConnectionStrings:BumboConnectionString"
+      "connectionId": "bumbo"
     }
   }
 }

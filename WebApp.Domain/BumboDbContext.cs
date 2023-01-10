@@ -58,7 +58,7 @@ namespace WebApp.Domain
         {
             if (!optionBuilder.IsConfigured)
             {
-                optionBuilder.UseSqlServer("Server=.;Database=BumboDB;Trusted_Connection=True;Encrypt=False;MultipleActiveResultSets=True;");
+                optionBuilder.UseSqlServer("Data Source=tcp:bumbo-j.database.windows.net,1433;Initial Catalog=bumbo;User Id=user@bumbo-j;Password=bumboadmin12#");
             }
         }
 
