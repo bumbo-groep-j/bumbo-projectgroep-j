@@ -86,9 +86,16 @@ namespace Bumbo.Controllers
         {
             DateTime date = ParseDate(year, month, day, DateTime.Today);
 
-            date = date.AddDays(1 - (int)date.DayOfWeek);
+            date = ManagerController.GetStartOfWeek(date);
 
             ViewBag.Date = date;
+
+            ViewBag.StartDate = date;
+            ViewBag.StartDutchDate = ManagerController.GetDutchDate(date);
+
+            ViewBag.EndDate = date.AddDays(6);
+            ViewBag.EndDutchDate = ManagerController.GetDutchDate(date.AddDays(6));
+
             ViewBag.FullSize = fullSize;
 
             return LoadPage((

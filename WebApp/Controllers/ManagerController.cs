@@ -104,7 +104,19 @@ namespace Bumbo.Controllers
             return View(request);
         }
 
-        private string GetDutchDate(DateTime date)
+        public static DateTime GetStartOfWeek(DateTime date)
+        {
+            if(date.DayOfWeek == DayOfWeek.Sunday)
+                return date.AddDays(-6);
+            else
+                return date.AddDays(1 - (int)date.DayOfWeek);
+        }
+
+        public static DateTime GetEndOfWeek(DateTime date) {
+            return GetStartOfWeek(date).AddDays(6);
+        }
+
+        public static string GetDutchDate(DateTime date)
         {
             string dutchDate = "";
 
@@ -153,11 +165,8 @@ namespace Bumbo.Controllers
             {
                 date = DateTime.Today;
             }
-
-            if(date.DayOfWeek == DayOfWeek.Sunday)
-                date = date.AddDays(-6);
-            else
-                date = date.AddDays(1 - (int)date.DayOfWeek);
+            
+            date = GetStartOfWeek(date);
 
             ViewBag.StartDate = date;
             ViewBag.StartDutchDate = GetDutchDate(date);
@@ -389,8 +398,8 @@ namespace Bumbo.Controllers
                 foreach(var schedule in (
                     from Schedule
                     in db.Schedules
-                    where Schedule.StartTime.Date >= date.AddDays(1 - (int)date.DayOfWeek)
-                    && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
+                    where Schedule.StartTime.Date >= GetStartOfWeek(date)
+                    && Schedule.StartTime.Date <= GetEndOfWeek(date)
                     && Schedule.EmployeeId == employee.Id
                     select Schedule
                 )) if(!existingSchedule.Contains(schedule)) workedHoursWeek += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
@@ -398,8 +407,8 @@ namespace Bumbo.Controllers
                 foreach(var schedule in (
                     from Schedule
                     in db.Schedules
-                    where Schedule.StartTime.Date >= date.AddDays(-20 - (int)date.DayOfWeek)
-                    && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
+                    where Schedule.StartTime.Date >= GetStartOfWeek(date.AddDays(-21))
+                    && Schedule.StartTime.Date <= GetEndOfWeek(date)
                     && Schedule.EmployeeId == employee.Id
                     select Schedule
                 )) if(!existingSchedule.Contains(schedule)) workedHours4Weeks += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
