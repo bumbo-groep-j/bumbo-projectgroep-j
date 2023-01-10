@@ -1,0 +1,69 @@
+﻿@using WebApp.Domain
+@model IEnumerable<Schedule>
+@{
+    ViewData["Title"] = "Rooster";
+    ViewData["Stylesheet"] = "/css/mobile.css";
+
+    int previousMonthMonth = (ViewBag.Date.Month == 1 ? 12 : ViewBag.Date.Month - 1);
+    int previousMonthYear  = (ViewBag.Date.Month == 1 ? ViewBag.Date.Year - 1 : ViewBag.Date.Year);
+
+    int mondayDay   = ViewBag.Date.Day;
+    int mondayMonth = ViewBag.Date.Month;
+    int mondayYear  = ViewBag.Date.Year;
+
+    int firstWeekdayOfMonth = 1;
+
+    switch(new DateOnly(mondayYear, mondayMonth, 1).DayOfWeek)
+    {
+        case DayOfWeek.Tuesday:   firstWeekdayOfMonth = 2; break;
+        case DayOfWeek.Wednesday: firstWeekdayOfMonth = 3; break;
+        case DayOfWeek.Thursday:  firstWeekdayOfMonth = 4; break;
+        case DayOfWeek.Friday:    firstWeekdayOfMonth = 5; break;
+        case DayOfWeek.Saturday:  firstWeekdayOfMonth = 6; break;
+        case DayOfWeek.Sunday:    firstWeekdayOfMonth = 7; break;
+    }
+
+    if(mondayDay < 1)
+    {
+        mondayDay  += DateTime.DaysInMonth(previousMonthYear, previousMonthMonth);
+        mondayMonth = previousMonthMonth;
+        mondayYear  = previousMonthYear;
+    }
+
+    string link = "/Employee/WorkSchedule?";
+}
+
+<header>
+    <h1>Rooster</h1>
+</header>
+<div class="content">
+    <partial name="../Mobile/Calendar.cshtml" model="new CalendarData {
+        CurrentMonth = mondayMonth,
+        CurrentYear = mondayYear,
+        FirstWeekdayOfMonth = firstWeekdayOfMonth,
+        Today = DateOnly.FromDateTime(DateTime.Today),
+        Selected = new DateOnly(mondayYear, mondayMonth, mondayDay),
+        Link = link,
+        FullSize = ViewBag.FullSize
+    };" />
+    @for(int i = 0; i < 7; i++)
+    {
+        @if(Model.Any(schedule => schedule.StartTime.Date == ViewBag.Date.AddDays(i)))
+        {
+            bool hasDate = false;
+            <div class="outer_div">
+                @foreach(var schedule in Model.Where(schedule => schedule.StartTime.Date == ViewBag.Date.AddDays(i)))
+                {
+                    <div class="inner_div">
+                        @if(!hasDate)
+                        {
+                            hasDate = true;
+                            <h5><b>@schedule.StartTime.ToString("dddd") </b><span class="date">@schedule.StartTime.ToShortDateString()</span></h5>
+                        }
+                        <b>@schedule.StartTime.ToString("HH:mm") - @schedule.EndTime.AddMinutes(1).ToString("HH:mm")</b><span class="department"> @schedule.Department</span>
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>

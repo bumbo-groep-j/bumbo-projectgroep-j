@@ -13,6 +13,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="UserName" class="form-control" type="hidden" />
             <div class="form-group">
+                <label asp-for="Role" class="control-label"></label><br />
+                <input asp-for="Role" type="radio" id="employeeradio" value="Employee" />
+                <label>Medewerker</label>
+                <input asp-for="Role" type="radio" id="managerradio" value="Manager" />
+                <label>Manager</label>
+            </div>
+            <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
@@ -37,11 +44,6 @@
                 <input asp-for="NFCToken" class="form-control" id="nfc-token" readonly /><br />
                 <button onclick="$.ajax({ type: 'GET', url: '/Manager/GenerateToken', success: function(data) { $('#nfc-token').val(data); }});" type="button">Nieuwe token</button>
                 <span asp-validation-for="NFCToken" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HourlyWage" class="control-label"></label>
-                <input asp-for="HourlyWage" type="number" step="0.01" class="form-control" data-val-number="Het Uurloon moet een nummer zijn" title="Uurloon is ongeldig" />
-                <span asp-validation-for="HourlyWage" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Inactive">

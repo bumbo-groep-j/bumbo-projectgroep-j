@@ -1,4 +1,4 @@
-﻿@model WebApp.Domain.Account
+﻿@model Bumbo.Models.EmployeeAccount
 @{
     ViewData["Title"] = "Opstelling";
     ViewData["Stylesheet"] = "/css/login.css";
@@ -10,10 +10,20 @@
         <h1>Nog geen account?</h1>
         <h2>Nieuw account aanmaken</h2>
         <hr />
-        <input asp-for="Username" placeholder="Gebruikersnaam" class="form-control" />
-        <input asp-for="Password" placeholder="Wachtwoord" class="form-control" type="password" />
-        <input asp-for="PasswordConfirmation" placeholder="Wachtwoord bevestigen" class="form-control" type="password" />
         <div asp-validation-summary="All" class="text-danger"></div>
+        <input asp-for="Role" type="hidden" value="Manager" />
+        <input asp-for="Account.Username" class="form-control" placeholder="Gebruikersnaam" />
+        <input asp-for="Account.Password" class="form-control" type="password" placeholder="Wachtwoord" />
+        <input asp-for="Account.PasswordConfirmation" class="form-control" type="password" placeholder="Wachtwoord bevestigen" />
+        <input asp-for="Employee.FirstName" class="form-control" placeholder="Voornaam" />
+        <input asp-for="Employee.MiddleName" class="form-control" placeholder="Tussenvoegsel" />
+        <input asp-for="Employee.LastName" class="form-control" placeholder="Achternaam" />
+        <input asp-for="Employee.DateOfBirth" min="1900-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")" lang="nl" type="date" class="form-control" title="Geboortedatum is ongeldig" placeholder="Geboortedatum" />
+        <input asp-for="Employee.NFCToken" class="form-control" id="nfc-token" value="@ViewBag.Guid" readonly placeholder="NFC-Token" />
+        <div class="space_around">
+            <button onclick="$.ajax({ type: 'GET', url: '/Manager/GenerateToken', success: function(data) { $('#nfc-token').val(data); }});" type="button">Nieuwe token</button>
+        </div>
+        <br />
         <div class="space_around">
             <button type="submit">Aanmaken</button>
         </div>

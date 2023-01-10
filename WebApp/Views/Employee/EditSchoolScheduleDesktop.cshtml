@@ -1,0 +1,51 @@
+﻿@using WebApp.Domain
+@model SchoolSchedule
+@{
+    Layout = "";
+    ViewData["Title"] = "EditSchoolSchedule";
+    ViewData["Stylesheet"] = "/css/employee.css";
+}
+
+<div class="modal fade" id="editSchoolSchedule">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="content_page">
+                <button type="button" data-bs-dismiss="modal" class="closewindow_button"><span>X</span></button>
+                <h4>@Weekdays.GetName(ViewBag.Weekday)</h4>
+            </div>
+            <div class="form_page">
+                <form method="post" asp-action="EditSchoolSchedule">
+                    <input type="hidden" asp-for="Weekday" value="@ViewBag.Weekday">
+                    <div class="form-group">
+                        <span>Van </span>
+                        <input asp-for="StartTime" class="time_input" required type="time" />
+                        <span class="text-danger" asp-validation-for="StartTime"></span>
+                        <span>tot </span>
+                        <input asp-for="EndTime" class="time_input" required type="time" />
+                        <span class="text-danger" asp-validation-for="EndTime"></span>
+                        <br />
+                        <br />
+                        @if (ViewBag.CanCreateInstantly)
+                        {
+                            <button type="submit" class="edit_button">OK</button>
+                        }
+                        else
+                        {
+                            <a onclick="$('#overlay').removeClass('hidden')" class="button">OK</a>
+                            <div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+                                <div onclick="event.stopPropagation();">
+                                    <div class="alert">
+                                        Deze wijziging gaat in over 3 weken.
+                                    </div>
+                                    <button class="cancel" data-bs-dismiss="modal">Annuleren</button>
+                                    <button type="submit" class="confirm">Accepteren</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,82 @@
+﻿@using WebApp.Domain
+@model IEnumerable<Schedule>
+@{
+    ViewData["Title"] = "Rooster";
+    ViewData["Stylesheet"] = "/css/employee.css";
+
+    int weekday = 1;
+    switch(new DateOnly(ViewBag.StartDate.Year, ViewBag.StartDate.Month, 1).DayOfWeek)
+    {
+        case DayOfWeek.Monday:    weekday = 1; break;
+        case DayOfWeek.Tuesday:   weekday = 2; break;
+        case DayOfWeek.Wednesday: weekday = 3; break;
+        case DayOfWeek.Thursday:  weekday = 4; break;
+        case DayOfWeek.Friday:    weekday = 5; break;
+        case DayOfWeek.Saturday:  weekday = 6; break;
+        case DayOfWeek.Sunday:    weekday = 7; break;
+    }
+
+    string link = "/Employee/WorkSchedule?";
+}
+
+@*<partial name="../Desktop/Calendar.cshtml" model="new CalendarData {
+    CurrentMonth = ViewBag.StartDate.Month,
+    CurrentYear = ViewBag.StartDate.Year,
+    FirstWeekdayOfMonth = weekday,
+    Today = DateOnly.FromDateTime(DateTime.Today),
+    Selected = DateOnly.FromDateTime(ViewBag.StartDate),
+    MinimumDay = DateOnly.FromDateTime(DateTime.Today),
+    Link = link,
+    FetchDataLink = null
+};" />*@
+
+<div>
+    <header>
+        <h1 class="align_center">
+            <a class="button nav_button" asp-controller="Employee" asp-action="WorkSchedule" asp-route-year="@ViewBag.StartDate.AddDays(-7).Year" asp-route-month="@ViewBag.StartDate.AddDays(-7).Month" asp-route-day="@ViewBag.StartDate.AddDays(-7).Day">&#x2039;</a>
+            Rooster: @ViewBag.StartDutchDate &mdash; @ViewBag.EndDutchDate
+            <a class="button nav_button" asp-controller="Employee" asp-action="WorkSchedule" asp-route-year="@ViewBag.StartDate.AddDays(7).Year" asp-route-month="@ViewBag.StartDate.AddDays(7).Month" asp-route-day="@ViewBag.StartDate.AddDays(7).Day">&#x203A;</a>
+        </h1>
+    </header>
+    <br />
+    <table class="schedule_table">
+        <tr>
+            <th colspan="9"></th>
+            @for(int i = 0; i < 24; i++)
+            {
+                if(i < 10)
+                {
+                    <th colspan="4" class="align_center">@("0" + i):00</th>
+                }
+                else
+                {
+                    <th colspan="4" class="align_center">@i:00</th>
+                }
+            }
+            <td class="invisible align_center">24:00</td>
+        </tr>
+        @for(int i = 0; i < 7; i++)
+        {
+            <tr>
+                <th colspan="9">@Weekdays.GetName(Enum.GetValues<Weekday>()[i])</th>
+                @for(int j = 0; j <= 96; j++)
+                {
+                    if(Model.Any(schedule => schedule.StartTime.Date == ViewBag.StartDate.AddDays(i) && schedule.StartTime.Hour == j / 4))
+                    {
+                        Schedule current = Model.Where(schedule => schedule.StartTime.Date == ViewBag.StartDate.AddDays(i) && schedule.StartTime.Hour == j / 4).First();
+                        int colspan = (current.EndTime.Hour - current.StartTime.Hour + 1) * 4;
+                        j += colspan - 1;
+                        <td class="schedule" colspan="@colspan">@current.StartTime.Hour:00 - @(current.EndTime.Hour + 1):00<br />@current.Department</td>
+                        <td class="spacer"></td>
+                        <td class="spacer"></td>
+                        <td class="spacer"></td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }
+            </tr>
+        }
+    </table>
+</div>

@@ -149,6 +149,22 @@ tr {
     color: #ffffff;
 }
 
+.calendar .selectedweek {
+    background-color: #007aff;
+    border-radius: 0;
+    margin: 0;
+    height: 32px;
+    color: #ffffff;
+}
+
+.calendar .selectedweek:first-child {
+    border-radius: 16px 0 0 16px;
+}
+
+.calendar .selectedweek:last-child {
+    border-radius: 0 16px 16px 0;
+}
+
 .weekday {
     text-align: center;
     font-family: var(--bs-font-monospace);
@@ -213,16 +229,14 @@ input[type=checkbox]:disabled:hover::after {
     content: "Deze medewerker is niet beschikbaar";
 }
 
-.overworked_today:hover::before {
-    content: "Toegestane aantal uur overschreden";
-}
-
-.overworked_week:hover::before {
-    content: "Toegestane aantal uur overschreden";
-}
-
+.overworked_today:hover::before,
+.overworked_week:hover::before,
 .overworked_4weeks:hover::before {
     content: "Toegestane aantal uur overschreden";
+}
+
+.employee_sick:hover::before {
+    content: "Deze medewerker is ziek" !important;
 }
 
 .unavailable {
@@ -261,20 +275,24 @@ input[type=checkbox]:disabled:hover::after {
     background-color: rgba(0, 0, 0, 0.20);
 }
 
-#overlay > form {
-    position: absolute;
+#overlay > div {
+    position: fixed;
     top: 50%;
     left: 50%;
-    width: 256px;
-    height: 196px;
+    width: 512px;
+    height: 256px;
     transform: translate(-50%, -50%);
     background-color: #ffffff;
     border-radius: 16px;
+}
+
+#overlay form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    height: 100%;
     padding: 0 32px;
-    gap: 8px;
+    text-align: center;
 }
 
 #overlay label {
@@ -330,4 +348,24 @@ input[type=checkbox]:disabled:hover::after {
 
 .prognosis_input:focus {
     outline: none;
+}
+
+.completed_day {
+    display: block;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 16px;
+    outline: 2px solid green;
+    outline-offset: -2px;
+    margin: auto;
+}
+
+.selected > .completed_day {
+    outline: 4px solid green !important;
+}
+
+td {
+    overflow-wrap: break-word;
 }

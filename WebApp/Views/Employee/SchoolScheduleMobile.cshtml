@@ -1,0 +1,24 @@
+﻿@using WebApp.Domain;
+@model IEnumerable<SchoolSchedule>
+@{
+    ViewData["Title"] = "Schoolrooster";
+    ViewData["Stylesheet"] = "/css/mobile.css";
+}
+
+<header>
+    <h1>Schoolrooster</h1>
+</header>
+<div class="content">
+    @foreach(var weekday in Enum.GetValues<Weekday>()) {
+        <div class="inner_div">
+            <h5><b>@Weekdays.GetName(weekday)</b></h5> @* Change this with whatever function we made on her branch *@
+            @if(!Model.Any(schedule => schedule.Weekday == weekday)) {
+                <span>Geen school</span>
+            } else {
+                var schedule = Model.First(schedule => schedule.Weekday == weekday);
+                <span>@schedule.StartTime.ToString("HH:mm") - @schedule.EndTime.ToString("HH:mm")</span>
+            }
+            <a asp-action="EditSchoolSchedule" asp-route-weekday="@weekday"><span class="edit_availability">Wijzigen</span></a>
+        </div>
+    }
+</div>

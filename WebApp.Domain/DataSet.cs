@@ -9,15 +9,12 @@ namespace WebApp.Domain
         [ForeignKey("Department")]
         public string DepartmentName { get; set; }
 
+        [Required]
+        public Department Department { get; set; }
+
         // The minimum amount of employees working in this department at any given time
         [Required]
         public int MinimumEmployees { get; set; }
-
-        [Required]
-        public int DepartmentStartHour { get; set; }
-
-        [Required]
-        public int DepartmentEndHour { get; set; }
 
         // This value represents how many customers / colli one employee can handle in an hour. This is used to calculate
         // how many employees are needed based on the amount of customers / colli.
@@ -149,14 +146,33 @@ namespace WebApp.Domain
         // customers are scheduled to arrive at any particular hour, this function calculates how many employees are
         // required for that set amount of customers. This is done by simply dividing the amount of customers at that
         // given hour by the EmployeeWorkload factor (i.e. how many customers one single cashier can service in an hour)
-        public int[] PredictHourlyEmployees(int predictedValue) {
+        public int[] PredictHourlyEmployees(int predictedValue, Weekday weekday) {
             // Calculate weekly and monthly curve if they are still null
             if(MonthlyCurve == null || WeeklyCurve == null) UpdateDataCurves();
 
+            int DepartmentStartHour = Department.StartHourWeekday;
+            int DepartmentEndHour   = Department.EndHourWeekday;
+
+            if(weekday == Weekday.Saturday)
+            {
+                DepartmentStartHour = Department.StartHourSaturday;
+                DepartmentEndHour   = Department.EndHourSaturday;
+            }
+            else if(weekday == Weekday.Sunday)
+            {
+                DepartmentStartHour = Department.StartHourSunday;
+                DepartmentEndHour   = Department.EndHourSunday;
+            }
+
             int[] hourlyValues = new int[24];
 
+            double total = 0.0;
             foreach(HourlyPoint p in HourlyCurve)
-                hourlyValues[p.Hour] = (int)(p.Value * predictedValue / EmployeeWorkLoad);
+                if(p.Hour >= DepartmentStartHour && p.Hour < DepartmentEndHour)
+                    total += p.Value;
+
+            foreach(HourlyPoint p in HourlyCurve)
+                hourlyValues[p.Hour] = (int)Math.Round(p.Value * predictedValue / EmployeeWorkLoad / total);
 
             // Ensure there is always at least the minimum amount of employees scheduled
             for(int i = DepartmentStartHour; i <= DepartmentEndHour; i++)

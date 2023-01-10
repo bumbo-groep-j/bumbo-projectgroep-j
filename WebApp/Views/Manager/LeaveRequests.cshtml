@@ -1,8 +1,8 @@
 ﻿@model WebApp.Domain.LeaveRequest
 
 @{
-    ViewData["Title"] = "RequestLeave";
     ViewData["Stylesheet"] = "/css/manager.css";
+    ViewData["Title"] = "Verlofaanvragen";
 }
 <header>
     <h1>Verlofaanvragen</h1>
@@ -84,16 +84,3 @@
         <tr class="align_center">Er zijn geen aanvragen</tr>
     }
 </table>
-<p class="align_right">
-    Pagina 1 van 1
-    <select>
-        <option>10 per pagina</option>
-        <option>25 per pagina</option>
-        <option>50 per pagina</option>
-    </select>
-</p>
-<p class="align_right">
-    <a asp-controller="Manager" asp-action="LeaveRequests" class="visible_link">Vorige pagina</a>
-    <a asp-controller="Manager" asp-action="LeaveRequests" class="visible_link">Volgende pagina</a>
-</p>
-

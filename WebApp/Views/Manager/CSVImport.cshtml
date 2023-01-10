@@ -1,0 +1,7 @@
+﻿<form asp-controller="Csv" asp-action="ReadFromCSV" enctype="multipart/form-data">
+    <label for="fileUpload" class="control-label">Selecteer bestand</label>
+    <input id="fileUpload" class="form-control" name="fileUpload" type="file" accept=".csv" multiple required />
+    <div class="form-group">
+        <input type="submit" value="Importeren" />
+    </div>
+</form>

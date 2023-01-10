@@ -1,9 +1,11 @@
 ﻿@model PrognosisForm
 @{
     ViewData["Stylesheet"] = "/css/manager.css";
+    ViewData["Title"] = "Prognose";
 
     int weekday = 1;
-    switch(new DateOnly(ViewBag.StartDate.Year, ViewBag.StartDate.Month, 1).DayOfWeek) {
+    switch(new DateOnly(ViewBag.StartDate.Year, ViewBag.StartDate.Month, 1).DayOfWeek)
+    {
         case DayOfWeek.Monday:    weekday = 1; break;
         case DayOfWeek.Tuesday:   weekday = 2; break;
         case DayOfWeek.Wednesday: weekday = 3; break;
@@ -18,13 +20,14 @@
 
 <div class="content_container">
     <aside>
-        <partial name="Calendar" model="new CalendarData {
+        <partial name="../Desktop/Calendar.cshtml" model="new CalendarData {
             CurrentMonth = ViewBag.StartDate.Month,
             CurrentYear = ViewBag.StartDate.Year,
             FirstWeekdayOfMonth = weekday,
             Today = DateOnly.FromDateTime(DateTime.Today),
             Selected = DateOnly.FromDateTime(ViewBag.StartDate),
-            Link = link
+            Link = link,
+            SelectWeek = true
         };" />
         <hr />
         <p>Afdeling</p>
@@ -43,9 +46,9 @@
     <div>
         <header>
             <h2 class="align_center">
-                <button class="nav_button" asp-controller="Manager" asp-action="Prognosis">&#x2039;</button>
+                <a class="button nav_button" asp-controller="Manager" asp-action="Prognosis" asp-route-departmentName="@ViewBag.Department.Name" asp-route-year="@ViewBag.StartDate.AddDays(-7).Year" asp-route-month="@ViewBag.StartDate.AddDays(-7).Month" asp-route-day="@ViewBag.StartDate.AddDays(-7).Day">&#x2039;</a>
                 Prognose: @ViewBag.StartDutchDate &mdash; @ViewBag.EndDutchDate
-                <button class="nav_button" asp-controller="Manager" asp-action="Prognosis">&#x203A;</button>
+                <a class="button nav_button" asp-controller="Manager" asp-action="Prognosis" asp-route-departmentName="@ViewBag.Department.Name" asp-route-year="@ViewBag.StartDate.AddDays(7).Year" asp-route-month="@ViewBag.StartDate.AddDays(7).Month" asp-route-day="@ViewBag.StartDate.AddDays(7).Day">&#x203A;</a>
             </h2>
         </header>
         <form asp-action="Prognosis">

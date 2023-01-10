@@ -13,7 +13,6 @@ builder.Services.AddIdentity<Account, IdentityRole>(
     options =>
     {
         options.SignIn.RequireConfirmedAccount = false;
-
         options.Password.RequireDigit = false;
         options.Password.RequiredLength = 6;
         options.Password.RequireNonAlphanumeric = false;
@@ -50,7 +49,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Index}/{id?}");
 
 app.Use(async (context, next) => {
     var currentThreadCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();

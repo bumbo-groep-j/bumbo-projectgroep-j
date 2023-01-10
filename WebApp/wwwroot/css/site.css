@@ -1,4 +1,4 @@
-﻿/* Basic styling */
+﻿    /* Basic styling */
 
 html {
     font-size: 14px;
@@ -144,12 +144,48 @@ a:hover {
     display: none;
 }
 
-/* Account colors */
-
-.employee_color {
-    color: #007aff !important;
+nav {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    bottom: 16px;
 }
 
-.manager_color {
-    color: #ff3f00 !important;
+nav p {
+    display: none;
+}
+
+nav div {
+    position: relative;
+}
+
+nav img {
+    max-height: 48px;
+    width: 48px;
+}
+
+nav img:hover + p {
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 64px;
+}
+
+.end-of-page-links {
+    position: absolute;
+    bottom: 0;
+    font-size: 10pt;
+    color: #808080;
+}
+
+.unselected {
+    color: #808080;
+}
+
+.selected {
+    color: #007aff;
 }

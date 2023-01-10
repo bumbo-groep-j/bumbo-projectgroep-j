@@ -1,56 +1,61 @@
 ﻿@model IEnumerable<ClockedHour>
 @{
     ViewData["Stylesheet"] = "/css/manager.css";
+    ViewData["Title"] = "Uren verlonen";
 
     int weekday = 1;
     switch(new DateOnly(ViewBag.Date.Year, ViewBag.Date.Month, 1).DayOfWeek)
     {
-        case DayOfWeek.Monday: weekday = 1; break;
-        case DayOfWeek.Tuesday: weekday = 2; break;
+        case DayOfWeek.Monday:    weekday = 1; break;
+        case DayOfWeek.Tuesday:   weekday = 2; break;
         case DayOfWeek.Wednesday: weekday = 3; break;
-        case DayOfWeek.Thursday: weekday = 4; break;
-        case DayOfWeek.Friday: weekday = 5; break;
-        case DayOfWeek.Saturday: weekday = 6; break;
-        case DayOfWeek.Sunday: weekday = 7; break;
+        case DayOfWeek.Thursday:  weekday = 4; break;
+        case DayOfWeek.Friday:    weekday = 5; break;
+        case DayOfWeek.Saturday:  weekday = 6; break;
+        case DayOfWeek.Sunday:    weekday = 7; break;
     }
 
-    string link = "/Manager/WorkedHours?";
+    string link = "/Manager/WorkedHours?optionsPerPage=" + ViewBag.OptionsPerPage + "&";
+    string fetchDataLink = "/Manager/GetApprovedDays";
 }
 
 <div class="content_container">
     <aside>
-        <partial name="Calendar" model="new CalendarData {
+        <partial name="../Desktop/Calendar.cshtml" model="new CalendarData {
             CurrentMonth = ViewBag.Date.Month,
             CurrentYear = ViewBag.Date.Year,
             FirstWeekdayOfMonth = weekday,
             Today = DateOnly.FromDateTime(DateTime.Today),
             Selected = DateOnly.FromDateTime(ViewBag.Date),
             MaximumDay = DateOnly.FromDateTime(DateTime.Today),
-            Link = link
+            Link = link,
+            FetchDataLink = fetchDataLink
         };" />
     </aside>
     <div>
         <header>
             <h1 class="align_center">
-                <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(-1).Year" asp-route-month="@ViewBag.Date.AddDays(-1).Month" asp-route-day="@ViewBag.Date.AddDays(-1).Day">&#x2039;</a>
+                <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(-1).Year" asp-route-month="@ViewBag.Date.AddDays(-1).Month" asp-route-day="@ViewBag.Date.AddDays(-1).Day" asp-route-optionsPerPage="@ViewBag.OptionsPerPage">&#x2039;</a>
                 Uren verlonen: @ViewBag.DutchDate
-                <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(1).Year" asp-route-month="@ViewBag.Date.AddDays(1).Month" asp-route-day="@ViewBag.Date.AddDays(1).Day">&#x203A;</a>
+                <a class="button nav_button" asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.AddDays(1).Year" asp-route-month="@ViewBag.Date.AddDays(1).Month" asp-route-day="@ViewBag.Date.AddDays(1).Day" asp-route-optionsPerPage="@ViewBag.OptionsPerPage">&#x203A;</a>
             </h1>
         </header>
-        <div class="space_around">
+        <div class="space_between">
             <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveAllHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day', success: function(data) { $('#worked_hours').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #worked_hours > *'); }});">Alle openstaande uren accorderen</button>
             <a class="button" asp-action="ExportAllHours" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day" download="verloonde-uren-@ViewBag.Date.Day-@ViewBag.Date.Month-@(ViewBag.Date.Year).csv">Alle goedgekeurde uren exporteren</a>
+            <a class="button" href="javascript:void(0)" onclick="$('#overlay').removeClass('hidden');">CSV importeren</a>
         </div>
         <table id="worked_hours">
             <tr class="tr_bg">
-                <th width="20%">Naam</th>
+                <th width="16%">Naam</th>
                 <th class="align_center">Starttijd</th>
                 <th class="align_center">Eindtijd</th>
                 <th class="align_center">Inkloktijd</th>
                 <th class="align_center">Uitkloktijd</th>
-                <th class="align_center" width="12%">Gewerkte uren</th>
-                <th class="align_center" width="12%">Tijdsverschil</th>
-                <th class="align_center" width="20%">Actie</th>
+                <th class="align_center" width="14%">Gewerkte uren</th>
+                <th class="align_center" width="14%">Tijdsverschil</th>
+                <th class="align_center" width="8%">Toeslag</th>
+                <th class="align_center" width="17%">Actie</th>
             </tr>
             @foreach(var value in Model)
             {
@@ -58,7 +63,11 @@
                     <td>@value.Name</td>
                     <td class="align_center">@value.ScheduledStartTime.ToString("HH:mm")</td>
                     <td class="align_center">@value.ScheduledEndTime.ToString("HH:mm")</td>
-                    @if(value.ApprovedStartTime != null)
+                    @if(value.SickLeave)
+                    {
+                        <td class="align_center" colspan="2">Ziek</td>
+                    }
+                    else if(value.ApprovedStartTime != null)
                     {
                         <td class="align_center">@value.ApprovedStartTime.Value.ToString("HH:mm")</td>
                         <td class="align_center">@value.ApprovedEndTime.Value.ToString("HH:mm")</td>
@@ -75,6 +84,14 @@
                         @asDateTime.ToString("HH:mm")
                     </td>
                     <td class="align_center">@value.TimeDifference</td>
+                    @if(value.SickLeave)
+                    {
+                        <td class="align_center">-30%</td>
+                    }
+                    else
+                    {
+                        <td class="align_center">+@((int)(ViewBag.Bonus * 100.0))%</td>
+                    }
                     <td class="align_center">
                         @if(value.ApprovalTime == null)
                         {
@@ -93,27 +110,50 @@
             <div> </div>
             <div>
                 <p class="align_right">
-                    Pagina 1 van 1
-                    <select>
-                        <option>10 per pagina</option>
-                        <option>25 per pagina</option>
-                        <option>50 per pagina</option>
+                    Pagina @ViewBag.PageId van @ViewBag.PageCount
+                    <select onchange="load_page(this.value)">
+                        @if(ViewBag.OptionsPerPage == 10)
+                        {
+                            <option selected>10 per pagina</option>
+                        }
+                        else
+                        {
+                            <option>10 per pagina</option>
+                        }
+                        @if(ViewBag.OptionsPerPage == 25)
+                        {
+                            <option selected>25 per pagina</option>
+                        }
+                        else
+                        {
+                            <option>25 per pagina</option>
+                        }
+                        @if(ViewBag.OptionsPerPage == 50)
+                        {
+                            <option selected>50 per pagina</option>
+                        }
+                        else
+                        {
+                            <option>50 per pagina</option>
+                        }
                     </select>
                 </p>
                 <p class="align_right">
-                    <a asp-controller="Manager" asp-action="WorkedHours" class="visible_link">Vorige pagina</a>
-                    <a asp-controller="Manager" asp-action="WorkedHours" class="visible_link">Volgende pagina</a>
+                    <a asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day" asp-route-pageId="@(ViewBag.PageId - 1)" asp-route-optionsPerPage="@ViewBag.OptionsPerPage" class="visible_link">Vorige pagina</a>
+                    <a asp-controller="Manager" asp-action="WorkedHours" asp-route-year="@ViewBag.Date.Year" asp-route-month="@ViewBag.Date.Month" asp-route-day="@ViewBag.Date.Day" asp-route-pageId="@(ViewBag.PageId + 1)" asp-route-optionsPerPage="@ViewBag.OptionsPerPage" class="visible_link">Volgende pagina</a>
                 </p>
             </div>
         </div>
     </div>
 </div>
-<div class="hidden" id="overlay"></div>
 <script>
-    window.onload = function () {
-        $("#overlay").click(function(e) {
-            if(e.target != this) return;
-            $(this).addClass('hidden');
-        });
-    };
+    function load_page(value) {
+        window.location.replace("/Manager/WorkedHours?year=@(ViewBag.Date.Year)&month=@(ViewBag.Date.Month)&day=@(ViewBag.Date.Day)&pageId=@(ViewBag.PageId)&optionsPerPage=" + value.split(" ")[0]);
+    }
 </script>
+
+<div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+    <div onclick="event.stopPropagation();">
+        <partial name="CSVImport" />
+    </div>
+</div>

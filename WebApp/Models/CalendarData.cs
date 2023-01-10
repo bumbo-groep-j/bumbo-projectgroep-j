@@ -16,7 +16,11 @@ namespace Bumbo.Models
 
         public string? Link;
 
+        public string? FetchDataLink;
+
         public bool? FullSize;
+
+        public bool? SelectWeek;
 
         public string Month
         {
@@ -48,6 +52,16 @@ namespace Bumbo.Models
                 if(Link == null) return null;
 
                 return HttpUtility.UrlEncode(Link);
+            }
+        }
+
+        public string? EscapedFetchDataLink
+        {
+            get
+            {
+                if(FetchDataLink == null) return null;
+
+                return HttpUtility.UrlEncode(FetchDataLink);
             }
         }
     }

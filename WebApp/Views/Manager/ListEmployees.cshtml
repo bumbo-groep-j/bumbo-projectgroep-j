@@ -6,7 +6,10 @@
 
 <h1>Lijst van medewerkers</h1>
 
-<a class="button" asp-action="CreateEmployee">Voeg medewerker toe</a>
+<div class="space_between">
+    <a class="button" asp-action="CreateEmployee">Voeg medewerker toe</a>
+    <a class="button" href="javascript:void(0)" onclick="$('#overlay').removeClass('hidden');">CSV importeren</a>
+</div>
 
 <h2>Medewerkers</h2>
 <table class="table">
@@ -18,14 +21,13 @@
             <th>@Html.DisplayNameFor(model => model.Employee.LastName)</th>
             <th>@Html.DisplayNameFor(model => model.Employee.DateOfBirth)</th>
             <th>@Html.DisplayNameFor(model => model.Employee.NFCToken)</th>
-            <th>@Html.DisplayNameFor(model => model.Employee.HourlyWage)</th>
             <th width="15%">Actie</th>
         </tr>
     </thead>
     <tbody>
         @foreach(var employee in Model)
         {
-            if(employee.Role == "Employee" && !employee.Employee.Inactive)
+            if(employee.Role == "Employee" && employee.Employee != null && !employee.Employee.Inactive)
             {
                 <tr>
                     <td>@employee.Account.UserName</td>
@@ -34,7 +36,6 @@
                     <td>@employee.Employee.LastName</td>
                     <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
                     <td>@employee.Employee.NFCToken</td>
-                    <td>&euro;@employee.Employee.HourlyWage.ToString("n2")</td>
                     <td>
                         <div class="index_links">
                             <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
@@ -46,8 +47,7 @@
 
         @foreach(var employee in Model) 
         {
-            if(employee.Role == "Employee" && employee.Employee.Inactive)
-            {
+            if(employee.Role == "Employee" && employee.Employee != null && employee.Employee.Inactive) {
                 <tr>
                     <td>@employee.Account.UserName</td>
                     <td>@employee.Employee.FirstName</td>
@@ -55,7 +55,6 @@
                     <td>@employee.Employee.LastName</td>
                     <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
                     <td>@employee.Employee.NFCToken</td>
-                    <td>&euro;@employee.Employee.HourlyWage.ToString("n2")</td>
                     <td>
                         <div class="index_links">
                             <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
@@ -72,12 +71,11 @@
     <thead>
         <tr>
             <th>Gebruikersnaam</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.Employee.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.MiddleName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.DateOfBirth)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.NFCToken)</th>
             <th width="15%">Actie</th>
         </tr>
     </thead>
@@ -88,18 +86,25 @@
             {
                 <tr>
                     <td>@employee.Account.UserName</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    @if (employee.Employee != null)
+                    {
+                        <td>@employee.Employee.FirstName</td>
+                        <td>@employee.Employee.MiddleName</td>
+                        <td>@employee.Employee.LastName</td>
+                        <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
+                        <td>@employee.Employee.NFCToken</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
                     <td>
                         <div class="index_links">
-                            @if(employee.Account.UserName != User.Identity.Name)
-                            {
-                                <a asp-action="DeleteManager" asp-route-username="@employee.Account.UserName" class="button red_button">Verwijderen</a>
-                            }
+                            <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
                         </div>
                     </td>
                 </tr>
@@ -107,3 +112,9 @@
         }
     </tbody>
 </table>
+
+<div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+    <div onclick="event.stopPropagation();">
+        <partial name="CSVImport" />
+    </div>
+</div>

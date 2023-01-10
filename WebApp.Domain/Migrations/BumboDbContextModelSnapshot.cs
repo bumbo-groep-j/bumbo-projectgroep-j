@@ -327,7 +327,7 @@ namespace WebApp.Domain.Migrations
                             AllowedHours4Weeks = 160,
                             AllowedHoursNotSchoolDay = 8,
                             AllowedHoursNotSchoolWeek = 40,
-                            AllowedHoursSchoolDay = 2,
+                            AllowedHoursSchoolDay = 8,
                             AllowedHoursSchoolWeek = 12
                         },
                         new
@@ -335,9 +335,18 @@ namespace WebApp.Domain.Migrations
                             Age = 16,
                             AllowedHours4Weeks = 160,
                             AllowedHoursNotSchoolDay = 9,
-                            AllowedHoursNotSchoolWeek = 45,
+                            AllowedHoursNotSchoolWeek = 40,
                             AllowedHoursSchoolDay = 9,
-                            AllowedHoursSchoolWeek = 45
+                            AllowedHoursSchoolWeek = 40
+                        },
+                        new
+                        {
+                            Age = 18,
+                            AllowedHours4Weeks = 220,
+                            AllowedHoursNotSchoolDay = 12,
+                            AllowedHoursNotSchoolWeek = 60,
+                            AllowedHoursSchoolDay = 12,
+                            AllowedHoursSchoolWeek = 60
                         });
                 });
 
@@ -5449,2541 +5458,2541 @@ namespace WebApp.Domain.Migrations
                             Date = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 135
+                            Value = 2718
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 77
+                            Value = 1543
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1137
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1103
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1014
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1127
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1081
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 73
+                            Value = 1476
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 81
+                            Value = 1638
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 53
+                            Value = 1067
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1108
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 990
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1084
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1030
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 73
+                            Value = 1479
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 78
+                            Value = 1567
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1198
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1145
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 872
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1039
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1194
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1322
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 78
+                            Value = 1578
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1156
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1095
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1027
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1024
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1119
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 71
+                            Value = 1436
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 78
+                            Value = 1571
                         },
                         new
                         {
                             Date = new DateTime(2021, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1050
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 991
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 898
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1003
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 934
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 62
+                            Value = 1253
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 67
+                            Value = 1345
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 48
+                            Value = 964
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 900
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 41
+                            Value = 821
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 48
+                            Value = 968
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 876
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 63
+                            Value = 1263
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 70
+                            Value = 1411
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 938
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 929
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 868
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 48
+                            Value = 976
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 918
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 60
+                            Value = 1209
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 71
+                            Value = 1425
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 909
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 927
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 884
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 902
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 924
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 63
+                            Value = 1264
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 70
+                            Value = 1419
                         },
                         new
                         {
                             Date = new DateTime(2021, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 994
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 762
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 917
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1005
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 58
+                            Value = 1170
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 41
+                            Value = 833
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 767
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 37
+                            Value = 751
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 39
+                            Value = 791
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 775
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1009
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1087
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 40
+                            Value = 817
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 42
+                            Value = 856
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 779
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 877
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 36
+                            Value = 733
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 53
+                            Value = 1064
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 63
+                            Value = 1275
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 875
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 37
+                            Value = 756
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 31
+                            Value = 632
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 40
+                            Value = 811
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 881
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1119
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1122
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 893
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 903
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 37
+                            Value = 740
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 41
+                            Value = 835
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 871
                         },
                         new
                         {
                             Date = new DateTime(2021, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1002
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 65
+                            Value = 1304
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 988
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1002
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 865
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 983
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 47
+                            Value = 947
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 63
+                            Value = 1270
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 70
+                            Value = 1419
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 898
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 980
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 766
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 923
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 48
+                            Value = 969
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 63
+                            Value = 1271
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 72
+                            Value = 1455
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 48
+                            Value = 971
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 938
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 913
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 886
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1010
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 63
+                            Value = 1265
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 67
+                            Value = 1350
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 935
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 894
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 90
+                            Value = 1808
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1038
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 48
+                            Value = 962
                         },
                         new
                         {
                             Date = new DateTime(2021, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 62
+                            Value = 1253
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 73
+                            Value = 1464
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 47
+                            Value = 955
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1026
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 763
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 102
+                            Value = 2040
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1032
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1196
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 72
+                            Value = 1452
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 896
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 917
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 877
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1015
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1006
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 63
+                            Value = 1265
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 72
+                            Value = 1444
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 895
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 48
+                            Value = 972
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 45
+                            Value = 918
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 872
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1002
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1198
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 68
+                            Value = 1365
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1018
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1048
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 872
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 97
+                            Value = 1948
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 874
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 64
+                            Value = 1299
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 64
+                            Value = 1299
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1053
                         },
                         new
                         {
                             Date = new DateTime(2021, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 887
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 991
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1109
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1033
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1331
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 82
+                            Value = 1644
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1103
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1194
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1007
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1058
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1013
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 73
+                            Value = 1477
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 75
+                            Value = 1500
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1140
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1151
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 928
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1198
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1044
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1320
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 81
+                            Value = 1626
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1094
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1039
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1019
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1023
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1199
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1339
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 81
+                            Value = 1624
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 60
+                            Value = 1202
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 53
+                            Value = 1071
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 929
                         },
                         new
                         {
                             Date = new DateTime(2021, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1084
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1137
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 68
+                            Value = 1371
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 83
+                            Value = 1675
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1021
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1141
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 47
+                            Value = 945
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1191
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1130
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 69
+                            Value = 1385
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 80
+                            Value = 1604
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1096
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1051
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 928
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1010
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1024
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 71
+                            Value = 1428
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 74
+                            Value = 1493
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1016
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1117
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 47
+                            Value = 954
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1019
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1138
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 68
+                            Value = 1369
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 73
+                            Value = 1476
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1052
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1122
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1001
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 60
+                            Value = 1201
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1106
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 67
+                            Value = 1342
                         },
                         new
                         {
                             Date = new DateTime(2021, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 74
+                            Value = 1484
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1185
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1150
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1152
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 62
+                            Value = 1243
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1336
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 79
+                            Value = 1580
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 88
+                            Value = 1766
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 64
+                            Value = 1284
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 63
+                            Value = 1264
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1150
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 62
+                            Value = 1255
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 62
+                            Value = 1244
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 77
+                            Value = 1543
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 83
+                            Value = 1673
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1199
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1159
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1143
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1337
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1339
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 78
+                            Value = 1576
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 93
+                            Value = 1862
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1339
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1150
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1120
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 60
+                            Value = 1213
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 58
+                            Value = 1163
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 81
+                            Value = 1633
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 88
+                            Value = 1765
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 58
+                            Value = 1179
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1320
                         },
                         new
                         {
                             Date = new DateTime(2021, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1153
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 53
+                            Value = 1060
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 58
+                            Value = 1161
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 75
+                            Value = 1509
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 74
+                            Value = 1491
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1091
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1159
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 47
+                            Value = 956
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1005
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1037
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 69
+                            Value = 1390
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 76
+                            Value = 1531
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 56
+                            Value = 1131
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1049
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1007
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1089
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 53
+                            Value = 1078
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 67
+                            Value = 1351
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 77
+                            Value = 1545
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1145
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 52
+                            Value = 1047
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 861
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1084
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 60
+                            Value = 1201
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 72
+                            Value = 1440
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 76
+                            Value = 1527
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1024
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 55
+                            Value = 1102
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1002
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 53
+                            Value = 1079
                         },
                         new
                         {
                             Date = new DateTime(2021, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1095
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 84
+                            Value = 1684
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 87
+                            Value = 1748
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 62
+                            Value = 1253
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1141
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 53
+                            Value = 1073
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1144
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 60
+                            Value = 1210
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 77
+                            Value = 1556
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 88
+                            Value = 1761
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1142
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1330
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1018
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 58
+                            Value = 1164
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1143
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 84
+                            Value = 1680
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 92
+                            Value = 1855
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 61
+                            Value = 1226
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 61
+                            Value = 1229
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 989
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 57
+                            Value = 1158
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 64
+                            Value = 1298
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 76
+                            Value = 1527
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 90
+                            Value = 1805
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 65
+                            Value = 1310
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 64
+                            Value = 1295
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 54
+                            Value = 1084
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 66
+                            Value = 1330
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 65
+                            Value = 1317
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 81
+                            Value = 1624
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 92
+                            Value = 1841
                         },
                         new
                         {
                             Date = new DateTime(2021, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 123
+                            Value = 2466
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 37
+                            Value = 752
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 764
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 761
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 876
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 50
+                            Value = 1004
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 59
+                            Value = 1194
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 872
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 39
+                            Value = 787
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 36
+                            Value = 727
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 44
+                            Value = 880
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 866
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 49
+                            Value = 986
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 58
+                            Value = 1161
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 923
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 40
+                            Value = 814
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 36
+                            Value = 738
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 43
+                            Value = 876
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 38
+                            Value = 764
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 51
+                            Value = 1029
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 61
+                            Value = 1231
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 920
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 46
+                            Value = 922
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 35
+                            Value = 706
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 37
+                            Value = 743
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 40
+                            Value = 813
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 53
+                            Value = 1068
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 58
+                            Value = 1170
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 40
+                            Value = 809
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 39
+                            Value = 782
                         },
                         new
                         {
                             Date = new DateTime(2021, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 37
+                            Value = 743
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 76
+                            Value = 1530
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 75
+                            Value = 1517
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 98
+                            Value = 1966
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 106
+                            Value = 2138
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 80
+                            Value = 1602
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 73
+                            Value = 1479
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 65
+                            Value = 1313
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 78
+                            Value = 1571
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 80
+                            Value = 1601
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 95
+                            Value = 1903
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 108
+                            Value = 2179
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 71
+                            Value = 1424
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 72
+                            Value = 1448
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 67
+                            Value = 1345
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 76
+                            Value = 1529
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 78
+                            Value = 1572
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 98
+                            Value = 1971
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 111
+                            Value = 2225
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 73
+                            Value = 1462
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 79
+                            Value = 1598
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 64
+                            Value = 1281
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 78
+                            Value = 1560
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 80
+                            Value = 1612
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 187
+                            Value = 3744
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 219
+                            Value = 4392
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 157
+                            Value = 3154
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 77
+                            Value = 1551
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 62
+                            Value = 1250
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 79
+                            Value = 1589
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = false,
-                            Value = 74
+                            Value = 1482
                         },
                         new
                         {
                             Date = new DateTime(2021, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentName = "Vers",
                             IsHoliday = true,
-                            Value = 189
+                            Value = 3788
                         });
                 });
 
@@ -7991,12 +8000,6 @@ namespace WebApp.Domain.Migrations
                 {
                     b.Property<string>("DepartmentName")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("DepartmentEndHour")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DepartmentStartHour")
-                        .HasColumnType("int");
 
                     b.Property<int>("EmployeeWorkLoad")
                         .HasColumnType("int");
@@ -8015,29 +8018,23 @@ namespace WebApp.Domain.Migrations
                         new
                         {
                             DepartmentName = "Kassa",
-                            DepartmentEndHour = 22,
-                            DepartmentStartHour = 8,
-                            EmployeeWorkLoad = 25,
-                            MinimumEmployees = 2,
+                            EmployeeWorkLoad = 30,
+                            MinimumEmployees = 1,
                             ShouldEstimateValue = true
                         },
                         new
                         {
                             DepartmentName = "VKK",
-                            DepartmentEndHour = 22,
-                            DepartmentStartHour = 7,
                             EmployeeWorkLoad = 2,
-                            MinimumEmployees = 2,
-                            ShouldEstimateValue = false
+                            MinimumEmployees = 1,
+                            ShouldEstimateValue = true
                         },
                         new
                         {
                             DepartmentName = "Vers",
-                            DepartmentEndHour = 22,
-                            DepartmentStartHour = 6,
-                            EmployeeWorkLoad = 1,
-                            MinimumEmployees = 2,
-                            ShouldEstimateValue = false
+                            EmployeeWorkLoad = 100,
+                            MinimumEmployees = 1,
+                            ShouldEstimateValue = true
                         });
                 });
 
@@ -8046,12 +8043,30 @@ namespace WebApp.Domain.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("EndHourSaturday")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EndHourSunday")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EndHourWeekday")
+                        .HasColumnType("int");
+
                     b.Property<int>("MinimumAge")
                         .HasColumnType("int");
 
                     b.Property<string>("PredictionValueName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StartHourSaturday")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StartHourSunday")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StartHourWeekday")
+                        .HasColumnType("int");
 
                     b.HasKey("Name");
 
@@ -8061,20 +8076,38 @@ namespace WebApp.Domain.Migrations
                         new
                         {
                             Name = "Kassa",
+                            EndHourSaturday = 21,
+                            EndHourSunday = 19,
+                            EndHourWeekday = 21,
                             MinimumAge = 16,
-                            PredictionValueName = "Bezoekers"
+                            PredictionValueName = "Bezoekers",
+                            StartHourSaturday = 8,
+                            StartHourSunday = 9,
+                            StartHourWeekday = 8
                         },
                         new
                         {
                             Name = "VKK",
+                            EndHourSaturday = 21,
+                            EndHourSunday = 19,
+                            EndHourWeekday = 21,
                             MinimumAge = 13,
-                            PredictionValueName = "Colli"
+                            PredictionValueName = "Colli",
+                            StartHourSaturday = 8,
+                            StartHourSunday = 9,
+                            StartHourWeekday = 8
                         },
                         new
                         {
                             Name = "Vers",
+                            EndHourSaturday = 21,
+                            EndHourSunday = 19,
+                            EndHourWeekday = 21,
                             MinimumAge = 16,
-                            PredictionValueName = "Colli"
+                            PredictionValueName = "Bezoekers",
+                            StartHourSaturday = 8,
+                            StartHourSunday = 9,
+                            StartHourWeekday = 8
                         });
                 });
 
@@ -8093,9 +8126,6 @@ namespace WebApp.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("HourlyWage")
-                        .HasColumnType("float");
-
                     b.Property<bool>("Inactive")
                         .HasColumnType("bit");
 
@@ -8107,6 +8137,10 @@ namespace WebApp.Domain.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NFCToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -8139,187 +8173,235 @@ namespace WebApp.Domain.Migrations
                         {
                             DepartmentName = "Kassa",
                             Hour = 8,
-                            Value = 0.038668899999999999
+                            Value = 0.042857699999999999
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 9,
-                            Value = 0.065572599999999995
+                            Value = 0.072675699999999996
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 10,
-                            Value = 0.0825322
+                            Value = 0.091472399999999995
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 11,
-                            Value = 0.087778499999999995
+                            Value = 0.097287100000000001
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 12,
-                            Value = 0.090937400000000002
+                            Value = 0.100788
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 13,
-                            Value = 0.091897699999999999
+                            Value = 0.101852
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 14,
-                            Value = 0.085618200000000005
+                            Value = 0.094892799999999999
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 15,
-                            Value = 0.079271800000000003
+                            Value = 0.087858900000000004
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 16,
-                            Value = 0.082291500000000004
+                            Value = 0.091205700000000001
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 17,
-                            Value = 0.081609000000000001
+                            Value = 0.090449199999999993
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 18,
-                            Value = 0.057628600000000002
+                            Value = 0.0638711
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 19,
-                            Value = 0.028573600000000001
+                            Value = 0.031668799999999997
                         },
                         new
                         {
                             DepartmentName = "Kassa",
                             Hour = 20,
-                            Value = 0.029882800000000001
-                        },
-                        new
-                        {
-                            DepartmentName = "Kassa",
-                            Hour = 21,
-                            Value = 0.045992499999999999
-                        },
-                        new
-                        {
-                            DepartmentName = "Kassa",
-                            Hour = 22,
-                            Value = 0.051744699999999998
-                        },
-                        new
-                        {
-                            DepartmentName = "VKK",
-                            Hour = 7,
-                            Value = 0.20000000000000001
+                            Value = 0.033119799999999998
                         },
                         new
                         {
                             DepartmentName = "VKK",
                             Hour = 8,
-                            Value = 0.10000000000000001
+                            Value = 0.076923099999999994
                         },
                         new
                         {
                             DepartmentName = "VKK",
                             Hour = 9,
-                            Value = 0.10000000000000001
+                            Value = 0.076923099999999994
+                        },
+                        new
+                        {
+                            DepartmentName = "VKK",
+                            Hour = 10,
+                            Value = 0.076923099999999994
+                        },
+                        new
+                        {
+                            DepartmentName = "VKK",
+                            Hour = 11,
+                            Value = 0.076923099999999994
+                        },
+                        new
+                        {
+                            DepartmentName = "VKK",
+                            Hour = 12,
+                            Value = 0.076923099999999994
+                        },
+                        new
+                        {
+                            DepartmentName = "VKK",
+                            Hour = 13,
+                            Value = 0.076923099999999994
                         },
                         new
                         {
                             DepartmentName = "VKK",
                             Hour = 14,
-                            Value = 0.14999999999999999
+                            Value = 0.076923099999999994
                         },
                         new
                         {
                             DepartmentName = "VKK",
                             Hour = 15,
-                            Value = 0.14999999999999999
+                            Value = 0.076923099999999994
+                        },
+                        new
+                        {
+                            DepartmentName = "VKK",
+                            Hour = 16,
+                            Value = 0.076923099999999994
+                        },
+                        new
+                        {
+                            DepartmentName = "VKK",
+                            Hour = 17,
+                            Value = 0.076923099999999994
+                        },
+                        new
+                        {
+                            DepartmentName = "VKK",
+                            Hour = 18,
+                            Value = 0.076923099999999994
+                        },
+                        new
+                        {
+                            DepartmentName = "VKK",
+                            Hour = 19,
+                            Value = 0.076923099999999994
                         },
                         new
                         {
                             DepartmentName = "VKK",
                             Hour = 20,
-                            Value = 0.14999999999999999
-                        },
-                        new
-                        {
-                            DepartmentName = "VKK",
-                            Hour = 21,
-                            Value = 0.14999999999999999
-                        },
-                        new
-                        {
-                            DepartmentName = "Vers",
-                            Hour = 6,
-                            Value = 0.13
-                        },
-                        new
-                        {
-                            DepartmentName = "Vers",
-                            Hour = 7,
-                            Value = 0.11
+                            Value = 0.076923099999999994
                         },
                         new
                         {
                             DepartmentName = "Vers",
                             Hour = 8,
-                            Value = 0.10000000000000001
+                            Value = 0.042857699999999999
+                        },
+                        new
+                        {
+                            DepartmentName = "Vers",
+                            Hour = 9,
+                            Value = 0.072675699999999996
+                        },
+                        new
+                        {
+                            DepartmentName = "Vers",
+                            Hour = 10,
+                            Value = 0.091472399999999995
+                        },
+                        new
+                        {
+                            DepartmentName = "Vers",
+                            Hour = 11,
+                            Value = 0.097287100000000001
                         },
                         new
                         {
                             DepartmentName = "Vers",
                             Hour = 12,
-                            Value = 0.13
+                            Value = 0.100788
                         },
                         new
                         {
                             DepartmentName = "Vers",
                             Hour = 13,
-                            Value = 0.11
+                            Value = 0.101852
                         },
                         new
                         {
                             DepartmentName = "Vers",
                             Hour = 14,
-                            Value = 0.089999999999999997
+                            Value = 0.094892799999999999
+                        },
+                        new
+                        {
+                            DepartmentName = "Vers",
+                            Hour = 15,
+                            Value = 0.087858900000000004
+                        },
+                        new
+                        {
+                            DepartmentName = "Vers",
+                            Hour = 16,
+                            Value = 0.091205700000000001
+                        },
+                        new
+                        {
+                            DepartmentName = "Vers",
+                            Hour = 17,
+                            Value = 0.090449199999999993
                         },
                         new
                         {
                             DepartmentName = "Vers",
                             Hour = 18,
-                            Value = 0.13
+                            Value = 0.0638711
                         },
                         new
                         {
                             DepartmentName = "Vers",
                             Hour = 19,
-                            Value = 0.11
+                            Value = 0.031668799999999997
                         },
                         new
                         {
                             DepartmentName = "Vers",
                             Hour = 20,
-                            Value = 0.089999999999999997
+                            Value = 0.033119799999999998
                         });
                 });
 
@@ -8461,6 +8543,9 @@ namespace WebApp.Domain.Migrations
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("SickLeave")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
@@ -8664,6 +8749,17 @@ namespace WebApp.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("DataSet");
+                });
+
+            modelBuilder.Entity("WebApp.Domain.DataSet", b =>
+                {
+                    b.HasOne("WebApp.Domain.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentName")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("WebApp.Domain.HourlyPoint", b =>
