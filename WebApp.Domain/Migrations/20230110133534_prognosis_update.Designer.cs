@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Domain;
 
@@ -11,9 +12,11 @@ using WebApp.Domain;
 namespace WebApp.Domain.Migrations
 {
     [DbContext(typeof(BumboDbContext))]
-    partial class BumboDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230110133534_prognosis_update")]
+    partial class prognosisupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -8019,21 +8022,21 @@ namespace WebApp.Domain.Migrations
                         {
                             DepartmentName = "Kassa",
                             EmployeeWorkLoad = 30,
-                            MinimumEmployees = 1,
+                            MinimumEmployees = 2,
                             ShouldEstimateValue = true
                         },
                         new
                         {
                             DepartmentName = "VKK",
                             EmployeeWorkLoad = 2,
-                            MinimumEmployees = 1,
+                            MinimumEmployees = 2,
                             ShouldEstimateValue = true
                         },
                         new
                         {
                             DepartmentName = "Vers",
                             EmployeeWorkLoad = 100,
-                            MinimumEmployees = 1,
+                            MinimumEmployees = 2,
                             ShouldEstimateValue = true
                         });
                 });

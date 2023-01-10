@@ -17,16 +17,26 @@ namespace Bumbo.Controllers
             db = dbContext;
         }
 
-        private (Prognosis, DataSet) GetPrognosis(DateTime date, bool isHoliday, string departmentName)
+        private (Prognosis, DataSet) GetPrognosis(DateTime date, string departmentName)
         {
+            bool isHoliday = (
+                from PublicHoliday
+                in db.PublicHolidays
+                where PublicHoliday.Date.Date == date.Date
+                select PublicHoliday
+            ).Any();
+
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
 
-            // Hourly curve and data points are not loading automatically for some reason. TODO: fix
+            // Foreign values are not loading automatically for some reason.
             if (dataSet.HourlyCurve == null)
                 dataSet.HourlyCurve = (from HourlyPoint in db.HourlyPoints where HourlyPoint.DepartmentName == departmentName select HourlyPoint).ToList();
 
             if (dataSet.DataPoints == null)
                 dataSet.DataPoints = (from DataPoint in db.DataPoints where DataPoint.DepartmentName == departmentName select DataPoint).ToList();
+
+            if(dataSet.Department == null)
+                dataSet.Department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
 
             Prognosis prognosis;
 
@@ -179,7 +189,7 @@ namespace Bumbo.Controllers
             for (int i = 0; i < 7; i++)
             {
                 ViewBag.Dates[i] = date.AddDays(i);
-                (model.Prognoses[i], DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Dates[i], false, department.Name);
+                (model.Prognoses[i], DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Dates[i], department.Name);
 
                 switch (ViewBag.Dates[i].DayOfWeek)
                 {
@@ -260,16 +270,34 @@ namespace Bumbo.Controllers
                 department = (from Department in db.Departments select Department).First();
             }
 
-            (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Date, false, department.Name);
+            (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Date, department.Name);
 
-            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+            Weekday weekday = Enum.Parse<Weekday>(date.DayOfWeek.ToString());
+
+            int DepartmentStartHour = department.StartHourWeekday;
+            int DepartmentEndHour   = department.EndHourWeekday;
+
+            if(weekday == Weekday.Saturday)
+            {
+                DepartmentStartHour = department.StartHourSaturday;
+                DepartmentEndHour   = department.EndHourSaturday;
+            }
+            else if(weekday == Weekday.Sunday)
+            {
+                DepartmentStartHour = department.StartHourSunday;
+                DepartmentEndHour   = department.EndHourSunday;
+            }
+
+            DepartmentEndHour--;
+
+            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value, weekday);
 
             ViewBag.Department = department;
 
             ViewBag.Departments = (from Department in db.Departments select Department).ToList();
 
-            ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
-            ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
+            ViewBag.StartHour = DepartmentStartHour;
+            ViewBag.EndHour = DepartmentEndHour;
 
             ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive && Employee.Role == "Employee" select Employee).ToList();
 
@@ -474,8 +502,24 @@ namespace Bumbo.Controllers
 
                 Schedule? schedule = null;
 
-                int startHour = (from DataSet in db.DataSets where DataSet.DepartmentName == model.DepartmentName select DataSet.DepartmentStartHour).First();
-                int endHour = (from DataSet in db.DataSets where DataSet.DepartmentName == model.DepartmentName select DataSet.DepartmentEndHour).First();
+                Weekday weekday = Enum.Parse<Weekday>(date.DayOfWeek.ToString());
+
+                int startHour = department.StartHourWeekday;
+                int   endHour = department.EndHourWeekday;
+
+                if(weekday == Weekday.Saturday)
+                {
+                    startHour = department.StartHourSaturday;
+                      endHour = department.EndHourSaturday;
+                }
+                else if(weekday == Weekday.Sunday)
+                {
+                    startHour = department.StartHourSunday;
+                      endHour = department.EndHourSunday;
+                }
+
+                endHour--;
+
                 int hours = endHour - startHour + 1;
 
                 for (int i = 0; i < model.IsChecked.Count; i++)
@@ -855,8 +899,16 @@ namespace Bumbo.Controllers
                                       where Schedule.Department == departmentName   
                                       select Schedule.StartTime.Date).Distinct())
             {
-                (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet))GetPrognosis(date, false, departmentName);
-                int[] predictedEmployees = dataSet.PredictHourlyEmployees(prognosis.Value);
+                Weekday weekday = Enum.Parse<Weekday>(date.DayOfWeek.ToString());
+                    bool holiday = (
+                    from PublicHoliday
+                    in db.PublicHolidays
+                    where PublicHoliday.Date.Date == date.Date
+                    select PublicHoliday
+                ).Any();
+
+                (Prognosis prognosis, DataSet dataSet) = GetPrognosis(date, departmentName);
+                int[] predictedEmployees = dataSet.PredictHourlyEmployees(prognosis.Value, weekday);
 
                 bool correct = true;
 
