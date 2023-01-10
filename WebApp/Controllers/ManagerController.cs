@@ -17,16 +17,26 @@ namespace Bumbo.Controllers
             db = dbContext;
         }
 
-        private (Prognosis, DataSet) GetPrognosis(DateTime date, bool isHoliday, string departmentName)
+        private (Prognosis, DataSet) GetPrognosis(DateTime date, string departmentName)
         {
+            bool isHoliday = (
+                from PublicHoliday
+                in db.PublicHolidays
+                where PublicHoliday.Date.Date == date.Date
+                select PublicHoliday
+            ).Any();
+
             DataSet dataSet = (from DataSet in db.DataSets where DataSet.DepartmentName == departmentName select DataSet).First();
 
-            // Hourly curve and data points are not loading automatically for some reason. TODO: fix
+            // Foreign values are not loading automatically for some reason.
             if (dataSet.HourlyCurve == null)
                 dataSet.HourlyCurve = (from HourlyPoint in db.HourlyPoints where HourlyPoint.DepartmentName == departmentName select HourlyPoint).ToList();
 
             if (dataSet.DataPoints == null)
                 dataSet.DataPoints = (from DataPoint in db.DataPoints where DataPoint.DepartmentName == departmentName select DataPoint).ToList();
+
+            if(dataSet.Department == null)
+                dataSet.Department = (from Department in db.Departments where Department.Name == departmentName select Department).First();
 
             Prognosis prognosis;
 
@@ -94,7 +104,19 @@ namespace Bumbo.Controllers
             return View(request);
         }
 
-        private string GetDutchDate(DateTime date)
+        public static DateTime GetStartOfWeek(DateTime date)
+        {
+            if(date.DayOfWeek == DayOfWeek.Sunday)
+                return date.AddDays(-6);
+            else
+                return date.AddDays(1 - (int)date.DayOfWeek);
+        }
+
+        public static DateTime GetEndOfWeek(DateTime date) {
+            return GetStartOfWeek(date).AddDays(6);
+        }
+
+        public static string GetDutchDate(DateTime date)
         {
             string dutchDate = "";
 
@@ -143,11 +165,8 @@ namespace Bumbo.Controllers
             {
                 date = DateTime.Today;
             }
-
-            if(date.DayOfWeek == DayOfWeek.Sunday)
-                date = date.AddDays(-6);
-            else
-                date = date.AddDays(1 - (int)date.DayOfWeek);
+            
+            date = GetStartOfWeek(date);
 
             ViewBag.StartDate = date;
             ViewBag.StartDutchDate = GetDutchDate(date);
@@ -179,7 +198,7 @@ namespace Bumbo.Controllers
             for (int i = 0; i < 7; i++)
             {
                 ViewBag.Dates[i] = date.AddDays(i);
-                (model.Prognoses[i], DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Dates[i], false, department.Name);
+                (model.Prognoses[i], DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Dates[i], department.Name);
 
                 switch (ViewBag.Dates[i].DayOfWeek)
                 {
@@ -260,18 +279,36 @@ namespace Bumbo.Controllers
                 department = (from Department in db.Departments select Department).First();
             }
 
-            (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Date, false, department.Name);
+            (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet)) GetPrognosis(ViewBag.Date, department.Name);
 
-            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value);
+            Weekday weekday = Enum.Parse<Weekday>(date.DayOfWeek.ToString());
+
+            int DepartmentStartHour = department.StartHourWeekday;
+            int DepartmentEndHour   = department.EndHourWeekday;
+
+            if(weekday == Weekday.Saturday)
+            {
+                DepartmentStartHour = department.StartHourSaturday;
+                DepartmentEndHour   = department.EndHourSaturday;
+            }
+            else if(weekday == Weekday.Sunday)
+            {
+                DepartmentStartHour = department.StartHourSunday;
+                DepartmentEndHour   = department.EndHourSunday;
+            }
+
+            DepartmentEndHour--;
+
+            ViewBag.EmployeePrognosis = dataSet.PredictHourlyEmployees(prognosis.Value, weekday);
 
             ViewBag.Department = department;
 
             ViewBag.Departments = (from Department in db.Departments select Department).ToList();
 
-            ViewBag.StartHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentStartHour).First();
-            ViewBag.EndHour = (from DataSet in db.DataSets where DataSet.DepartmentName == department.Name select DataSet.DepartmentEndHour).First();
+            ViewBag.StartHour = DepartmentStartHour;
+            ViewBag.EndHour = DepartmentEndHour;
 
-            ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
+            ViewBag.Employees = (from Employee in db.Employees where !Employee.Inactive && Employee.Role == "Employee" select Employee).ToList();
 
             ScheduleForm model = new ScheduleForm();
 
@@ -312,7 +349,9 @@ namespace Bumbo.Controllers
 
             var regulations = (from CAORegulation in db.CAORegulations orderby CAORegulation.Age descending select CAORegulation).ToList();
 
-            ViewBag.EmployeeIds = (from Employee in db.Employees where !Employee.Inactive select Employee.Id).ToList();
+            ViewBag.EmployeeIds = (from Employee in db.Employees where !Employee.Inactive && Employee.Role == "Employee" select Employee.Id).ToList();
+
+            model.Sicknesses = new List<bool>();
 
             foreach(Employee employee in ViewBag.Employees)
             {
@@ -322,107 +361,119 @@ namespace Bumbo.Controllers
                     where LeaveRequest.EmployeeId == employee.Id
                     && LeaveRequest.StartDate <= date
                     && LeaveRequest.EndDate >= date
+                    && LeaveRequest.Approved == true
                     select LeaveRequest
                 ).Any();
 
                 employee.CanWork = employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today && !employee.OnLeave;
 
-                if(employee.DateOfBirth.AddYears(18) <= DateTime.Today)
+                if(employee.CanWork)
                 {
-                    employee.AllowedHoursToday  =  24;
-                    employee.AllowedHoursWeek   = 168;
-                    employee.AllowedHours4Weeks = 672;
-                }
-                else
-                {
-                    employee.AllowedHoursToday  = 0;
-                    employee.AllowedHoursWeek   = 0;
-                    employee.AllowedHours4Weeks = 0;
-
-                    int workedHoursToday  = 0;
-                    int workedHoursWeek   = 0;
-                    int workedHours4Weeks = 0;
-
-                    foreach(var schedule in (
+                    model.Sicknesses.Add((
                         from Schedule
                         in db.Schedules
                         where Schedule.StartTime.Date == date
                         && Schedule.EmployeeId == employee.Id
+                        && Schedule.SickLeave
                         select Schedule
-                    )) if(!existingSchedule.Contains(schedule)) workedHoursToday += schedule.EndTime.Hour - schedule.StartTime.Hour;
+                    ).Any());
+                }
 
-                    foreach(var schedule in (
-                        from Schedule
-                        in db.Schedules
-                        where Schedule.StartTime.Date >= date.AddDays(1 - (int)date.DayOfWeek)
-                        && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
-                        && Schedule.EmployeeId == employee.Id
-                        select Schedule
-                    )) if(!existingSchedule.Contains(schedule)) workedHoursWeek += schedule.EndTime.Hour - schedule.StartTime.Hour;
+                employee.AllowedHoursToday  = 0;
+                employee.AllowedHoursWeek   = 0;
+                employee.AllowedHours4Weeks = 0;
 
-                    foreach(var schedule in (
-                        from Schedule
-                        in db.Schedules
-                        where Schedule.StartTime.Date >= date.AddDays(-20 - (int)date.DayOfWeek)
-                        && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
-                        && Schedule.EmployeeId == employee.Id
-                        select Schedule
-                    )) if(!existingSchedule.Contains(schedule)) workedHours4Weeks += schedule.EndTime.Hour - schedule.StartTime.Hour;
+                int workedHoursToday  = 0;
+                int workedHoursWeek   = 0;
+                int workedHours4Weeks = 0;
 
-                    bool schoolDay = !(
-                        from SchoolHoliday
-                        in db.SchoolHolidays
-                        where SchoolHoliday.StartDate <= date
-                        && SchoolHoliday.EndDate > date
-                        select SchoolHoliday
-                    ).Any() && (
-                        from SchoolSchedule
-                        in db.SchoolSchedules
-                        where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
-                        && SchoolSchedule.StartDate <= date
-                        && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
-                        && SchoolSchedule.EmployeeId == employee.Id
-                        select SchoolSchedule
-                    ).Any();
+                foreach(var schedule in (
+                    from Schedule
+                    in db.Schedules
+                    where Schedule.StartTime.Date == date
+                    && Schedule.EmployeeId == employee.Id
+                    select Schedule
+                )) if(!existingSchedule.Contains(schedule)) workedHoursToday += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
 
-                    bool schoolWeek = !(
-                        from SchoolHoliday
-                        in db.SchoolHolidays
-                        where SchoolHoliday.StartDate <= date
-                        && SchoolHoliday.EndDate > date
-                        select SchoolHoliday
-                    ).Any() && (
-                        from SchoolSchedule
-                        in db.SchoolSchedules
-                        where SchoolSchedule.StartDate <= date
-                        && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
-                        && SchoolSchedule.EmployeeId == employee.Id
-                        select SchoolSchedule
-                    ).Any();
+                foreach(var schedule in (
+                    from Schedule
+                    in db.Schedules
+                    where Schedule.StartTime.Date >= GetStartOfWeek(date)
+                    && Schedule.StartTime.Date <= GetEndOfWeek(date)
+                    && Schedule.EmployeeId == employee.Id
+                    select Schedule
+                )) if(!existingSchedule.Contains(schedule)) workedHoursWeek += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
 
-                    foreach(var regulation in regulations)
+                foreach(var schedule in (
+                    from Schedule
+                    in db.Schedules
+                    where Schedule.StartTime.Date >= GetStartOfWeek(date.AddDays(-21))
+                    && Schedule.StartTime.Date <= GetEndOfWeek(date)
+                    && Schedule.EmployeeId == employee.Id
+                    select Schedule
+                )) if(!existingSchedule.Contains(schedule)) workedHours4Weeks += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
+
+                bool schoolDay = !(
+                    from SchoolHoliday
+                    in db.SchoolHolidays
+                    where SchoolHoliday.StartDate <= date
+                    && SchoolHoliday.EndDate > date
+                    select SchoolHoliday
+                ).Any() && (
+                    from SchoolSchedule
+                    in db.SchoolSchedules
+                    where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
+                    && SchoolSchedule.StartDate <= date
+                    && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
+                    && SchoolSchedule.EmployeeId == employee.Id
+                    select SchoolSchedule
+                ).Any();
+
+                bool schoolWeek = !(
+                    from SchoolHoliday
+                    in db.SchoolHolidays
+                    where SchoolHoliday.StartDate <= date
+                    && SchoolHoliday.EndDate > date
+                    select SchoolHoliday
+                ).Any() && (
+                    from SchoolSchedule
+                    in db.SchoolSchedules
+                    where SchoolSchedule.StartDate <= date
+                    && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
+                    && SchoolSchedule.EmployeeId == employee.Id
+                    select SchoolSchedule
+                ).Any();
+
+                foreach(var regulation in regulations)
+                {
+                    if(employee.DateOfBirth.AddYears(regulation.Age) <= DateTime.Today)
                     {
-                        if(employee.DateOfBirth.AddYears(regulation.Age) <= DateTime.Today)
+                        if(schoolDay)
                         {
-                            if(schoolDay)
-                            {
-                                employee.AllowedHoursToday = regulation.AllowedHoursSchoolDay;
-                                employee.AllowedHoursWeek  = regulation.AllowedHoursSchoolWeek;
-                            }
-                            else
-                            {
-                                employee.AllowedHoursToday = regulation.AllowedHoursNotSchoolDay;
-                                employee.AllowedHoursWeek  = regulation.AllowedHoursNotSchoolWeek;
-                            }
+                            SchoolSchedule schedule = (
+                                from SchoolSchedule
+                                in db.SchoolSchedules
+                                where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
+                                && SchoolSchedule.StartDate <= date
+                                && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
+                                && SchoolSchedule.EmployeeId == employee.Id
+                                select SchoolSchedule
+                            ).First();
 
-                            employee.AllowedHours4Weeks  = regulation.AllowedHours4Weeks;
-
-                            employee.AllowedHoursToday  -= workedHoursToday;
-                            employee.AllowedHoursWeek   -= workedHoursWeek;
-                            employee.AllowedHours4Weeks -= workedHours4Weeks;
-
-                            break;
+                            employee.AllowedHoursToday = regulation.AllowedHoursSchoolDay - schedule.EndTime.Hour + schedule.StartTime.Hour;
                         }
+                        else employee.AllowedHoursToday = regulation.AllowedHoursNotSchoolDay;
+
+                        if(schoolWeek) employee.AllowedHoursWeek  = regulation.AllowedHoursSchoolWeek;
+                        else employee.AllowedHoursWeek  = regulation.AllowedHoursNotSchoolWeek;
+
+                        employee.AllowedHours4Weeks  = regulation.AllowedHours4Weeks;
+
+                        employee.AllowedHoursToday  -= workedHoursToday;
+                        employee.AllowedHoursWeek   -= workedHoursWeek;
+                        employee.AllowedHours4Weeks -= workedHours4Weeks;
+
+                        break;
                     }
                 }
             }
@@ -444,14 +495,59 @@ namespace Bumbo.Controllers
                     select Schedule
                 ).ToList();
 
-                foreach (var s in existingSchedule) db.Schedules.Remove(s);
+                foreach (var s in existingSchedule)
+                {
+                    db.Schedules.Remove(s);
+                    if (db.WorkedHours.Any(w => w.ScheduleId == s.Id))
+                        db.WorkedHours.Remove(db.WorkedHours.First(w => w.ScheduleId == s.Id));
+                }
 
-                var employees = (from Employee in db.Employees where !Employee.Inactive select Employee).ToList();
+                var department = (from Department in db.Departments where Department.Name == model.DepartmentName select Department).First();
+
+                var employees = (
+                    from Employee 
+                    in db.Employees 
+                    where !Employee.Inactive 
+                    && Employee.Role == "Employee" 
+                    && Employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today 
+                    select Employee
+                ).ToList();
+
+                DateTime date = new DateTime(model.Year, model.Month, model.Day);
+
+                for(int i = 0; i < employees.Count; i++)
+                {
+                    if((
+                        from LeaveRequest
+                        in db.LeaveRequests
+                        where LeaveRequest.EmployeeId == employees[i].Id
+                        && LeaveRequest.StartDate <= date
+                        && LeaveRequest.EndDate >= date
+                        && LeaveRequest.Approved == true
+                        select LeaveRequest
+                    ).Any()) employees.RemoveAt(i--);
+                }
 
                 Schedule? schedule = null;
 
-                int startHour = (from DataSet in db.DataSets where DataSet.DepartmentName == model.DepartmentName select DataSet.DepartmentStartHour).First();
-                int endHour = (from DataSet in db.DataSets where DataSet.DepartmentName == model.DepartmentName select DataSet.DepartmentEndHour).First();
+                Weekday weekday = Enum.Parse<Weekday>(date.DayOfWeek.ToString());
+
+                int startHour = department.StartHourWeekday;
+                int   endHour = department.EndHourWeekday;
+
+                if(weekday == Weekday.Saturday)
+                {
+                    startHour = department.StartHourSaturday;
+                      endHour = department.EndHourSaturday;
+                }
+                else if(weekday == Weekday.Sunday)
+                {
+                    startHour = department.StartHourSunday;
+                      endHour = department.EndHourSunday;
+                }
+
+                endHour--;
+
                 int hours = endHour - startHour + 1;
 
                 for (int i = 0; i < model.IsChecked.Count; i++)
@@ -462,6 +558,14 @@ namespace Bumbo.Controllers
                     {
                         schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 59, 59);
                         db.Schedules.Add(schedule);
+                        if(schedule.SickLeave)
+                            db.WorkedHours.Add(new WorkedHour
+                            {
+                                Schedule = schedule,
+                                Department = schedule.Department,
+                                ClockedTimeStart = schedule.StartTime,
+                                ClockedTimeEnd = schedule.EndTime
+                            });
                         schedule = null;
                     }
 
@@ -471,6 +575,7 @@ namespace Bumbo.Controllers
                         schedule.StartTime = new DateTime(model.Year, model.Month, model.Day, curHour + startHour, 0, 0);
                         schedule.EmployeeId = employees[i / hours].Id;
                         schedule.Department = model.DepartmentName;
+                        schedule.SickLeave  = model.Sicknesses[i / hours];
                     }
                 }
 
@@ -524,6 +629,7 @@ namespace Bumbo.Controllers
                     ApprovedStartTime = WorkedHour.ApprovedTimeStart,
                     ApprovedEndTime = WorkedHour.ApprovedTimeEnd,
                     ApprovalTime = WorkedHour.ApprovalTime,
+                    SickLeave = Schedule.SickLeave,
                     WorkedHours = WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart,
                     TimeDifference = (
                         (
@@ -566,6 +672,14 @@ namespace Bumbo.Controllers
 
             for(int i = (ViewBag.PageId - 1) * optionsPerPage; i < ViewBag.PageId * optionsPerPage && i < model.Count; i++)
                 realModel.Add(model[i]);
+
+            double bonus = 0.0;
+            var bonuses = (from CAOBonuses in db.CAOBonuses orderby CAOBonuses.ValidSince descending select CAOBonuses).First();
+
+            if(date.DayOfWeek == DayOfWeek.Sunday) bonus = bonuses.SundayBonus;
+            if((from PublicHoliday in db.PublicHolidays where PublicHoliday.Date == date select PublicHoliday).Any()) bonus = bonuses.HolidayBonus;
+
+            ViewBag.Bonus = bonus;
 
             return View(realModel);
         }
@@ -666,7 +780,13 @@ namespace Bumbo.Controllers
                         +  value.ApprovedTimeEnd.Value.ToString("HH:mm:ss") + ","
                         + (value.ApprovedTimeEnd.Value - value.ApprovedTimeStart.Value).ToString("hh\\:mm") + ","
                         +  value.Department + ","
-                        + (int)(bonus * 100.0) + "%\n";
+                        + ((
+                            from Schedule
+                            in db.Schedules
+                            where Schedule.Id == value.ScheduleId
+                            select Schedule.SickLeave
+                          ).First() ? "-30" : ("" + (int)(bonus * 100.0)))
+                        + "%\n";
                 }
             }
 
@@ -677,16 +797,22 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public IActionResult ListEmployees()
         {
-            return View((
+            var accounts = (
                 from Account
                 in db.Users
-                select new EmployeeAccount
-                {
-                    Account = Account,
-                    Employee = (from Employee in db.Employees where Employee.UserName == Account.UserName select Employee).First(),
-                    Role = userManager.GetRolesAsync(Account).Result.FirstOrDefault()
-                }
-            ));
+                select Account
+            ).ToList();
+
+            List<EmployeeAccount> model = new List<EmployeeAccount>();
+
+            foreach(var account in accounts)
+                model.Add(new EmployeeAccount {
+                    Account = account,
+                    Employee = (from Employee in db.Employees where Employee.UserName == account.UserName select Employee).First(),
+                    Role = userManager.GetRolesAsync(account).Result.FirstOrDefault()
+                });
+
+            return View(model);
         }
 
         [Authorize(Roles = "Manager")]
@@ -700,11 +826,8 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public async Task<IActionResult> CreateEmployee(EmployeeAccount model)
         {
-            if (model.Role == "Employee")
-                model.Employee.UserName = model.Account.Username;
-            else
-                model.Employee = null;
-
+            model.Employee.UserName = model.Account.Username;
+            model.Employee.Role = model.Role;
             model.Account.UserName = model.Account.Username;
             ModelState.Clear();
             TryValidateModel(model);
@@ -718,11 +841,8 @@ namespace Bumbo.Controllers
                     {
                         await userManager.AddToRoleAsync(model.Account, model.Role);
 
-                        if (model.Role == "Employee")
-                        {
-                            db.Employees.Add(model.Employee);
-                            db.SaveChanges();
-                        }
+                        db.Employees.Add(model.Employee);
+                        db.SaveChanges();
 
                         return RedirectToAction("ListEmployees");
                     }
@@ -737,11 +857,13 @@ namespace Bumbo.Controllers
         }
 
         [Authorize(Roles = "Manager")]
-        public IActionResult EditEmployee(string userName)
+        public async Task<IActionResult> EditEmployee(string userName)
         {
             try
             {
-                return View((from Employee in db.Employees where Employee.UserName == userName select Employee).First());
+                Employee model = (from Employee in db.Employees where Employee.UserName == userName select Employee).First();
+                model.Role = (await userManager.GetRolesAsync(await userManager.FindByNameAsync(userName))).First();
+                return View(model);
             }
             catch { }
 
@@ -750,7 +872,7 @@ namespace Bumbo.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Manager")]
-        public IActionResult EditEmployee(Employee model)
+        public async Task<IActionResult> EditEmployee(Employee model)
         {
             try
             {
@@ -764,6 +886,17 @@ namespace Bumbo.Controllers
                     employee.DateOfBirth = model.DateOfBirth;
                     employee.NFCToken = model.NFCToken;
                     employee.Inactive = model.Inactive;
+                    employee.Role = model.Role;
+
+                    Account account = await userManager.FindByNameAsync(employee.UserName);
+
+                    try
+                    {
+                        await userManager.RemoveFromRoleAsync(account, (await userManager.GetRolesAsync(account)).First());
+                    }
+                    catch(ArgumentNullException) { }
+
+                    await userManager.AddToRoleAsync(account, model.Role);
 
                     db.SaveChanges();
                     return RedirectToAction("ListEmployees");
@@ -816,8 +949,16 @@ namespace Bumbo.Controllers
                                       where Schedule.Department == departmentName   
                                       select Schedule.StartTime.Date).Distinct())
             {
-                (Prognosis prognosis, DataSet dataSet) = ((Prognosis, DataSet))GetPrognosis(date, false, departmentName);
-                int[] predictedEmployees = dataSet.PredictHourlyEmployees(prognosis.Value);
+                Weekday weekday = Enum.Parse<Weekday>(date.DayOfWeek.ToString());
+                    bool holiday = (
+                    from PublicHoliday
+                    in db.PublicHolidays
+                    where PublicHoliday.Date.Date == date.Date
+                    select PublicHoliday
+                ).Any();
+
+                (Prognosis prognosis, DataSet dataSet) = GetPrognosis(date, departmentName);
+                int[] predictedEmployees = dataSet.PredictHourlyEmployees(prognosis.Value, weekday);
 
                 bool correct = true;
 

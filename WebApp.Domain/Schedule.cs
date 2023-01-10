@@ -1,5 +1,4 @@
 ﻿using CsvHelper.Configuration.Attributes;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -37,5 +36,9 @@ namespace WebApp.Domain
         [NotMapped]
         [Name("Date")]
         public DateTime Date { get; set; }
+
+        [Required]
+        [Ignore]
+        public bool SickLeave { get; set; }
     }
 }

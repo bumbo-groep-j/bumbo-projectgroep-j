@@ -229,16 +229,14 @@ input[type=checkbox]:disabled:hover::after {
     content: "Deze medewerker is niet beschikbaar";
 }
 
-.overworked_today:hover::before {
-    content: "Toegestane aantal uur overschreden";
-}
-
-.overworked_week:hover::before {
-    content: "Toegestane aantal uur overschreden";
-}
-
+.overworked_today:hover::before,
+.overworked_week:hover::before,
 .overworked_4weeks:hover::before {
     content: "Toegestane aantal uur overschreden";
+}
+
+.employee_sick:hover::before {
+    content: "Deze medewerker is ziek" !important;
 }
 
 .unavailable {

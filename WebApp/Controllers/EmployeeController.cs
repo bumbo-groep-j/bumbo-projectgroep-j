@@ -51,9 +51,7 @@ namespace Bumbo.Controllers
         public IActionResult DisableMobile()
         {
             if(Request.Cookies.ContainsKey("ForceMobile"))
-            {
                 Response.Cookies.Delete("ForceMobile");
-            }
 
             return RedirectToAction("WorkSchedule");
         }
@@ -88,9 +86,16 @@ namespace Bumbo.Controllers
         {
             DateTime date = ParseDate(year, month, day, DateTime.Today);
 
-            date = date.AddDays(1 - (int)date.DayOfWeek);
+            date = ManagerController.GetStartOfWeek(date);
 
             ViewBag.Date = date;
+
+            ViewBag.StartDate = date;
+            ViewBag.StartDutchDate = ManagerController.GetDutchDate(date);
+
+            ViewBag.EndDate = date.AddDays(6);
+            ViewBag.EndDutchDate = ManagerController.GetDutchDate(date.AddDays(6));
+
             ViewBag.FullSize = fullSize;
 
             return LoadPage((
@@ -322,6 +327,7 @@ namespace Bumbo.Controllers
                 join Employee in db.Employees
                 on LeaveRequest.EmployeeId equals Employee.Id
                 where Employee.UserName == userManager.GetUserName(User)
+                && LeaveRequest.EndDate >= DateTime.Today
                 select LeaveRequest
             ).ToList();
 
@@ -396,9 +402,7 @@ namespace Bumbo.Controllers
                 (schedule.EndTime, schedule.StartTime) = (schedule.StartTime, schedule.EndTime);
 
             if (schedule.EndTime == schedule.StartTime)
-            {
-                return RedirectToAction("SchoolSchedule", new {alertMessage = "Tijden mogen niet hetzelfde zijn"});
-            }
+                return RedirectToAction("SchoolSchedule", new { alertMessage = "Tijden mogen niet hetzelfde zijn" });
 
             var oldSchedule = (from SchoolSchedule in db.SchoolSchedules
                                join Employee in db.Employees

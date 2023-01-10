@@ -27,7 +27,7 @@
     <tbody>
         @foreach(var employee in Model)
         {
-            if(employee.Role == "Employee" && !employee.Employee.Inactive)
+            if(employee.Role == "Employee" && employee.Employee != null && !employee.Employee.Inactive)
             {
                 <tr>
                     <td>@employee.Account.UserName</td>
@@ -47,8 +47,7 @@
 
         @foreach(var employee in Model) 
         {
-            if(employee.Role == "Employee" && employee.Employee.Inactive)
-            {
+            if(employee.Role == "Employee" && employee.Employee != null && employee.Employee.Inactive) {
                 <tr>
                     <td>@employee.Account.UserName</td>
                     <td>@employee.Employee.FirstName</td>
@@ -72,12 +71,11 @@
     <thead>
         <tr>
             <th>Gebruikersnaam</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.Employee.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.MiddleName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.DateOfBirth)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.NFCToken)</th>
             <th width="15%">Actie</th>
         </tr>
     </thead>
@@ -88,18 +86,25 @@
             {
                 <tr>
                     <td>@employee.Account.UserName</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    @if (employee.Employee != null)
+                    {
+                        <td>@employee.Employee.FirstName</td>
+                        <td>@employee.Employee.MiddleName</td>
+                        <td>@employee.Employee.LastName</td>
+                        <td>@employee.Employee.DateOfBirth.ToShortDateString()</td>
+                        <td>@employee.Employee.NFCToken</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
                     <td>
                         <div class="index_links">
-                            @if(employee.Account.UserName != User.Identity.Name)
-                            {
-                                <a asp-action="DeleteManager" asp-route-username="@employee.Account.UserName" class="button red_button">Verwijderen</a>
-                            }
+                            <a asp-action="EditEmployee" asp-route-username="@employee.Account.UserName" class="button">Edit</a>
                         </div>
                     </td>
                 </tr>

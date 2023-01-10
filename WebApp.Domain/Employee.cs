@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Globalization;
 
 namespace WebApp.Domain
 {
@@ -75,5 +74,8 @@ namespace WebApp.Domain
         [NotMapped]
         [Ignore]
         public int AllowedHours4Weeks { get; set; }
+
+        [Ignore]
+        public string Role { get; set; }
     }
 }
