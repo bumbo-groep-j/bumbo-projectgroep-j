@@ -91,9 +91,9 @@
                     <span class="hidden" id="today_employee_@employee.Id">@employee.AllowedHoursToday</span>
                     <span class="hidden" id="week_employee_@employee.Id">@employee.AllowedHoursWeek</span>
                     <span class="hidden" id="weeks_employee_@employee.Id">@employee.AllowedHours4Weeks</span>
-                    <input type="hidden" id="sickness_employee_@employee.Id" asp-for="Sicknesses[i]" value="@Model.Sicknesses[eid]" />
                     @if(employee.CanWork)
                     {
+                        <input type="hidden" id="sickness_employee_@employee.Id" asp-for="Sicknesses[eid]" value="@Model.Sicknesses[eid]" />
                         <tr>
                             <td class="align_right" colspan="3">@employee.Name</td>
                             @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)

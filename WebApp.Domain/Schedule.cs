@@ -38,7 +38,7 @@ namespace WebApp.Domain
         public DateTime Date { get; set; }
 
         [Required]
-        [Name("Ziek")]
+        [Ignore]
         public bool SickLeave { get; set; }
     }
 }
