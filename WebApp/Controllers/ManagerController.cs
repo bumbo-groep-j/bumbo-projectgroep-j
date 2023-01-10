@@ -753,16 +753,22 @@ namespace Bumbo.Controllers
         [Authorize(Roles = "Manager")]
         public IActionResult ListEmployees()
         {
-            return View((
+            var accounts = (
                 from Account
                 in db.Users
-                select new EmployeeAccount
-                {
-                    Account = Account,
-                    Employee = (from Employee in db.Employees where Employee.UserName == Account.UserName select Employee).First(),
-                    Role = userManager.GetRolesAsync(Account).Result.FirstOrDefault()
-                }
-            ));
+                select Account
+            ).ToList();
+
+            List<EmployeeAccount> model = new List<EmployeeAccount>();
+
+            foreach(var account in accounts)
+                model.Add(new EmployeeAccount {
+                    Account = account,
+                    Employee = (from Employee in db.Employees where Employee.UserName == account.UserName select Employee).First(),
+                    Role = userManager.GetRolesAsync(account).Result.FirstOrDefault()
+                });
+
+            return View(model);
         }
 
         [Authorize(Roles = "Manager")]
