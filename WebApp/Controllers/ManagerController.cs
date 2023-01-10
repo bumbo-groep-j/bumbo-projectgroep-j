@@ -328,102 +328,101 @@ namespace Bumbo.Controllers
 
                 employee.CanWork = employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today && !employee.OnLeave;
 
-                if(employee.DateOfBirth.AddYears(18) <= DateTime.Today)
+                employee.AllowedHoursToday  = 0;
+                employee.AllowedHoursWeek   = 0;
+                employee.AllowedHours4Weeks = 0;
+
+                int workedHoursToday  = 0;
+                int workedHoursWeek   = 0;
+                int workedHours4Weeks = 0;
+
+                foreach(var schedule in (
+                    from Schedule
+                    in db.Schedules
+                    where Schedule.StartTime.Date == date
+                    && Schedule.EmployeeId == employee.Id
+                    select Schedule
+                )) if(!existingSchedule.Contains(schedule)) workedHoursToday += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
+
+                foreach(var schedule in (
+                    from Schedule
+                    in db.Schedules
+                    where Schedule.StartTime.Date >= date.AddDays(1 - (int)date.DayOfWeek)
+                    && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
+                    && Schedule.EmployeeId == employee.Id
+                    select Schedule
+                )) if(!existingSchedule.Contains(schedule)) workedHoursWeek += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
+
+                foreach(var schedule in (
+                    from Schedule
+                    in db.Schedules
+                    where Schedule.StartTime.Date >= date.AddDays(-20 - (int)date.DayOfWeek)
+                    && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
+                    && Schedule.EmployeeId == employee.Id
+                    select Schedule
+                )) if(!existingSchedule.Contains(schedule)) workedHours4Weeks += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
+
+                bool schoolDay = !(
+                    from SchoolHoliday
+                    in db.SchoolHolidays
+                    where SchoolHoliday.StartDate <= date
+                    && SchoolHoliday.EndDate > date
+                    select SchoolHoliday
+                ).Any() && (
+                    from SchoolSchedule
+                    in db.SchoolSchedules
+                    where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
+                    && SchoolSchedule.StartDate <= date
+                    && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
+                    && SchoolSchedule.EmployeeId == employee.Id
+                    select SchoolSchedule
+                ).Any();
+
+                bool schoolWeek = !(
+                    from SchoolHoliday
+                    in db.SchoolHolidays
+                    where SchoolHoliday.StartDate <= date
+                    && SchoolHoliday.EndDate > date
+                    select SchoolHoliday
+                ).Any() && (
+                    from SchoolSchedule
+                    in db.SchoolSchedules
+                    where SchoolSchedule.StartDate <= date
+                    && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
+                    && SchoolSchedule.EmployeeId == employee.Id
+                    select SchoolSchedule
+                ).Any();
+
+                foreach(var regulation in regulations)
                 {
-                    employee.AllowedHoursToday  =  24;
-                    employee.AllowedHoursWeek   = 168;
-                    employee.AllowedHours4Weeks = 672;
-                }
-                else
-                {
-                    employee.AllowedHoursToday  = 0;
-                    employee.AllowedHoursWeek   = 0;
-                    employee.AllowedHours4Weeks = 0;
-
-                    int workedHoursToday  = 0;
-                    int workedHoursWeek   = 0;
-                    int workedHours4Weeks = 0;
-
-                    foreach(var schedule in (
-                        from Schedule
-                        in db.Schedules
-                        where Schedule.StartTime.Date == date
-                        && Schedule.EmployeeId == employee.Id
-                        select Schedule
-                    )) if(!existingSchedule.Contains(schedule)) workedHoursToday += schedule.EndTime.Hour - schedule.StartTime.Hour;
-
-                    foreach(var schedule in (
-                        from Schedule
-                        in db.Schedules
-                        where Schedule.StartTime.Date >= date.AddDays(1 - (int)date.DayOfWeek)
-                        && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
-                        && Schedule.EmployeeId == employee.Id
-                        select Schedule
-                    )) if(!existingSchedule.Contains(schedule)) workedHoursWeek += schedule.EndTime.Hour - schedule.StartTime.Hour;
-
-                    foreach(var schedule in (
-                        from Schedule
-                        in db.Schedules
-                        where Schedule.StartTime.Date >= date.AddDays(-20 - (int)date.DayOfWeek)
-                        && Schedule.StartTime.Date <= date.AddDays(7 - (int)date.DayOfWeek)
-                        && Schedule.EmployeeId == employee.Id
-                        select Schedule
-                    )) if(!existingSchedule.Contains(schedule)) workedHours4Weeks += schedule.EndTime.Hour - schedule.StartTime.Hour;
-
-                    bool schoolDay = !(
-                        from SchoolHoliday
-                        in db.SchoolHolidays
-                        where SchoolHoliday.StartDate <= date
-                        && SchoolHoliday.EndDate > date
-                        select SchoolHoliday
-                    ).Any() && (
-                        from SchoolSchedule
-                        in db.SchoolSchedules
-                        where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
-                        && SchoolSchedule.StartDate <= date
-                        && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
-                        && SchoolSchedule.EmployeeId == employee.Id
-                        select SchoolSchedule
-                    ).Any();
-
-                    bool schoolWeek = !(
-                        from SchoolHoliday
-                        in db.SchoolHolidays
-                        where SchoolHoliday.StartDate <= date
-                        && SchoolHoliday.EndDate > date
-                        select SchoolHoliday
-                    ).Any() && (
-                        from SchoolSchedule
-                        in db.SchoolSchedules
-                        where SchoolSchedule.StartDate <= date
-                        && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
-                        && SchoolSchedule.EmployeeId == employee.Id
-                        select SchoolSchedule
-                    ).Any();
-
-                    foreach(var regulation in regulations)
+                    if(employee.DateOfBirth.AddYears(regulation.Age) <= DateTime.Today)
                     {
-                        if(employee.DateOfBirth.AddYears(regulation.Age) <= DateTime.Today)
+                        if(schoolDay)
                         {
-                            if(schoolDay)
-                            {
-                                employee.AllowedHoursToday = regulation.AllowedHoursSchoolDay;
-                                employee.AllowedHoursWeek  = regulation.AllowedHoursSchoolWeek;
-                            }
-                            else
-                            {
-                                employee.AllowedHoursToday = regulation.AllowedHoursNotSchoolDay;
-                                employee.AllowedHoursWeek  = regulation.AllowedHoursNotSchoolWeek;
-                            }
+                            SchoolSchedule schedule = (
+                                from SchoolSchedule
+                                in db.SchoolSchedules
+                                where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
+                                && SchoolSchedule.StartDate <= date
+                                && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
+                                && SchoolSchedule.EmployeeId == employee.Id
+                                select SchoolSchedule
+                            ).First();
 
-                            employee.AllowedHours4Weeks  = regulation.AllowedHours4Weeks;
-
-                            employee.AllowedHoursToday  -= workedHoursToday;
-                            employee.AllowedHoursWeek   -= workedHoursWeek;
-                            employee.AllowedHours4Weeks -= workedHours4Weeks;
-
-                            break;
+                            employee.AllowedHoursToday = regulation.AllowedHoursSchoolDay - schedule.EndTime.Hour + schedule.StartTime.Hour;
                         }
+                        else employee.AllowedHoursToday = regulation.AllowedHoursNotSchoolDay;
+
+                        if(schoolWeek) employee.AllowedHoursWeek  = regulation.AllowedHoursSchoolWeek;
+                        else employee.AllowedHoursWeek  = regulation.AllowedHoursNotSchoolWeek;
+
+                        employee.AllowedHours4Weeks  = regulation.AllowedHours4Weeks;
+
+                        employee.AllowedHoursToday  -= workedHoursToday;
+                        employee.AllowedHoursWeek   -= workedHoursWeek;
+                        employee.AllowedHours4Weeks -= workedHours4Weeks;
+
+                        break;
                     }
                 }
             }

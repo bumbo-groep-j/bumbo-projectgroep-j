@@ -80,8 +80,9 @@ namespace WebApp.Domain
             #region CAORegulation
             modelBuilder.Entity<CAORegulation>().HasData(
                 new CAORegulation { Age = 13, AllowedHoursSchoolDay = 2, AllowedHoursSchoolWeek = 12, AllowedHoursNotSchoolDay = 7, AllowedHoursNotSchoolWeek = 35, AllowedHours4Weeks = 140 },
-                new CAORegulation { Age = 15, AllowedHoursSchoolDay = 2, AllowedHoursSchoolWeek = 12, AllowedHoursNotSchoolDay = 8, AllowedHoursNotSchoolWeek = 40, AllowedHours4Weeks = 160 },
-                new CAORegulation { Age = 16, AllowedHoursSchoolDay = 9, AllowedHoursSchoolWeek = 45, AllowedHoursNotSchoolDay = 9, AllowedHoursNotSchoolWeek = 45, AllowedHours4Weeks = 160 }
+                new CAORegulation { Age = 15, AllowedHoursSchoolDay = 8, AllowedHoursSchoolWeek = 12, AllowedHoursNotSchoolDay = 8, AllowedHoursNotSchoolWeek = 40, AllowedHours4Weeks = 160 },
+                new CAORegulation { Age = 16, AllowedHoursSchoolDay = 9, AllowedHoursSchoolWeek = 40, AllowedHoursNotSchoolDay = 9, AllowedHoursNotSchoolWeek = 40, AllowedHours4Weeks = 160 },
+                new CAORegulation { Age = 18, AllowedHoursSchoolDay = 12, AllowedHoursSchoolWeek = 60, AllowedHoursNotSchoolDay = 12, AllowedHoursNotSchoolWeek = 60, AllowedHours4Weeks = 220 }
             );
             #endregion
 
