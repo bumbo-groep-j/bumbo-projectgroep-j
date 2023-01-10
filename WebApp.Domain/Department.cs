@@ -12,5 +12,23 @@ namespace WebApp.Domain
 
         [Required]
         public int MinimumAge { get; set; }
+
+        [Required]
+        public int StartHourWeekday { get; set; }
+
+        [Required]
+        public int EndHourWeekday { get; set; }
+
+        [Required]
+        public int StartHourSaturday { get; set; }
+
+        [Required]
+        public int EndHourSaturday { get; set; }
+
+        [Required]
+        public int StartHourSunday { get; set; }
+
+        [Required]
+        public int EndHourSunday { get; set; }
     }
 }

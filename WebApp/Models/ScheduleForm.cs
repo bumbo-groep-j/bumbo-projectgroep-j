@@ -18,6 +18,8 @@ namespace Bumbo.Models
 
         public List<Schedule> Schedules { get; set; }
 
+        public List<bool> Sicknesses { get; set; }
+
         public ScheduleForm()
         {
             IsChecked = new List<bool>();

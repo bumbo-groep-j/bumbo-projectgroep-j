@@ -46,9 +46,9 @@
     <div>
         <header>
             <h2 class="align_center">
-                <button class="nav_button" asp-controller="Manager" asp-action="Prognosis">&#x2039;</button>
+                <a class="button nav_button" asp-controller="Manager" asp-action="Prognosis" asp-route-departmentName="@ViewBag.Department.Name" asp-route-year="@ViewBag.StartDate.AddDays(-7).Year" asp-route-month="@ViewBag.StartDate.AddDays(-7).Month" asp-route-day="@ViewBag.StartDate.AddDays(-7).Day">&#x2039;</a>
                 Prognose: @ViewBag.StartDutchDate &mdash; @ViewBag.EndDutchDate
-                <button class="nav_button" asp-controller="Manager" asp-action="Prognosis">&#x203A;</button>
+                <a class="button nav_button" asp-controller="Manager" asp-action="Prognosis" asp-route-departmentName="@ViewBag.Department.Name" asp-route-year="@ViewBag.StartDate.AddDays(7).Year" asp-route-month="@ViewBag.StartDate.AddDays(7).Month" asp-route-day="@ViewBag.StartDate.AddDays(7).Day">&#x203A;</a>
             </h2>
         </header>
         <form asp-action="Prognosis">

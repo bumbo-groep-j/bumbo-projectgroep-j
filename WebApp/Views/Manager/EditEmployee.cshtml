@@ -13,6 +13,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="UserName" class="form-control" type="hidden" />
             <div class="form-group">
+                <label asp-for="Role" class="control-label"></label><br />
+                <input asp-for="Role" type="radio" id="employeeradio" value="Employee" />
+                <label>Medewerker</label>
+                <input asp-for="Role" type="radio" id="managerradio" value="Manager" />
+                <label>Manager</label>
+            </div>
+            <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
