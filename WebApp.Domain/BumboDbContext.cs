@@ -12,7 +12,7 @@ namespace WebApp.Domain
         {
             var entityType = Model.FindEntityType(typeof(T));
             var value = enable ? "ON" : "OFF";
-            Database.ExecuteSqlRaw($"SET IDENTITY_INSERT {entityType.GetSchema()}.{entityType.GetTableName()} {value}");
+            Database.ExecuteSqlRaw($"SET IDENTITY_INSERT { entityType.GetSchema() }.{ entityType.GetTableName() } { value }");
         }
 
         public void SaveChangesWithIdentityInsert<T>()

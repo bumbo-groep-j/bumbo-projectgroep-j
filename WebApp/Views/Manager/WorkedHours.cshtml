@@ -47,14 +47,15 @@
         </div>
         <table id="worked_hours">
             <tr class="tr_bg">
-                <th width="20%">Naam</th>
+                <th width="16%">Naam</th>
                 <th class="align_center">Starttijd</th>
                 <th class="align_center">Eindtijd</th>
                 <th class="align_center">Inkloktijd</th>
                 <th class="align_center">Uitkloktijd</th>
-                <th class="align_center" width="12%">Gewerkte uren</th>
-                <th class="align_center" width="12%">Tijdsverschil</th>
-                <th class="align_center" width="20%">Actie</th>
+                <th class="align_center" width="14%">Gewerkte uren</th>
+                <th class="align_center" width="14%">Tijdsverschil</th>
+                <th class="align_center" width="8%">Toeslag</th>
+                <th class="align_center" width="17%">Actie</th>
             </tr>
             @foreach(var value in Model)
             {
@@ -79,6 +80,7 @@
                         @asDateTime.ToString("HH:mm")
                     </td>
                     <td class="align_center">@value.TimeDifference</td>
+                    <td class="align_center">+@(ViewBag.Bonus * 100.0)%</td>
                     <td class="align_center">
                         @if(value.ApprovalTime == null)
                         {

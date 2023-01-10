@@ -568,6 +568,14 @@ namespace Bumbo.Controllers
             for(int i = (ViewBag.PageId - 1) * optionsPerPage; i < ViewBag.PageId * optionsPerPage && i < model.Count; i++)
                 realModel.Add(model[i]);
 
+            double bonus = 0.0;
+            var bonuses = (from CAOBonuses in db.CAOBonuses orderby CAOBonuses.ValidSince descending select CAOBonuses).First();
+
+            if(date.DayOfWeek == DayOfWeek.Sunday) bonus = bonuses.SundayBonus;
+            if((from PublicHoliday in db.PublicHolidays where PublicHoliday.Date == date select PublicHoliday).Any()) bonus = bonuses.HolidayBonus;
+
+            ViewBag.Bonus = bonus;
+
             return View(realModel);
         }
 
