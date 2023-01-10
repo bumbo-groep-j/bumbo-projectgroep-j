@@ -63,7 +63,11 @@
                     <td>@value.Name</td>
                     <td class="align_center">@value.ScheduledStartTime.ToString("HH:mm")</td>
                     <td class="align_center">@value.ScheduledEndTime.ToString("HH:mm")</td>
-                    @if(value.ApprovedStartTime != null)
+                    @if(value.SickLeave)
+                    {
+                        <td class="align_center" colspan="2">Ziek</td>
+                    }
+                    else if(value.ApprovedStartTime != null)
                     {
                         <td class="align_center">@value.ApprovedStartTime.Value.ToString("HH:mm")</td>
                         <td class="align_center">@value.ApprovedEndTime.Value.ToString("HH:mm")</td>
@@ -80,7 +84,14 @@
                         @asDateTime.ToString("HH:mm")
                     </td>
                     <td class="align_center">@value.TimeDifference</td>
-                    <td class="align_center">+@(ViewBag.Bonus * 100.0)%</td>
+                    @if(value.SickLeave)
+                    {
+                        <td class="align_center">-30%</td>
+                    }
+                    else
+                    {
+                        <td class="align_center">+@((int)(ViewBag.Bonus * 100.0))%</td>
+                    }
                     <td class="align_center">
                         @if(value.ApprovalTime == null)
                         {

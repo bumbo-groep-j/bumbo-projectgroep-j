@@ -59,7 +59,7 @@
             <input type="hidden" asp-for="Month" value="@ViewBag.Date.Month" />
             <input type="hidden" asp-for="Year" value="@ViewBag.Date.Year" />
             <div class="space_around">
-                <button type="submit">Opslaan</button>
+                <a href="javascript:void(0)" onclick="submit();" class="button">Opslaan</a>
             </div>
             <table>
                 <tr>
@@ -68,8 +68,10 @@
                     <td class="align_center"></td>
                     @for(int hour = ViewBag.StartHour; hour <= ViewBag.EndHour; hour++)
                     {
-                        <td class="align_center">@hour:00</td>
+                        <td class="align_center">@hour:00 - @hour:59</td>
                     }
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
                 </tr>
                 <tr class="seperator"></tr>
                 <tr>
@@ -82,12 +84,14 @@
                 <tr class="seperator"></tr>
                 @{
                     int i = 0;
+                    int eid = 0;
                 }
                 @foreach(var employee in ViewBag.Employees)
                 {
                     <span class="hidden" id="today_employee_@employee.Id">@employee.AllowedHoursToday</span>
                     <span class="hidden" id="week_employee_@employee.Id">@employee.AllowedHoursWeek</span>
                     <span class="hidden" id="weeks_employee_@employee.Id">@employee.AllowedHours4Weeks</span>
+                    <input type="hidden" id="sickness_employee_@employee.Id" asp-for="Sicknesses[i]" value="@Model.Sicknesses[eid]" />
                     @if(employee.CanWork)
                     {
                         <tr>
@@ -105,6 +109,18 @@
                                 }
                                 i++;
                             }
+                            <td class="align_right" colspan="2">
+                                @if(!Model.Sicknesses[eid++])
+                                {
+                                    <a href="javascript:void(0)" id="sickness_button_employee_@employee.Id" class="button red_button" onclick="enable_sick_leave(@employee.Id); update_constraints(@employee.Id);">Ziek</a>
+                                    <a href="javascript:void(0)" id="undo_sickness_button_employee_@employee.Id" class="button hidden" onclick="disable_sick_leave(@employee.Id); update_constraints(@employee.Id);">Annuleren</a>
+                                }
+                                else
+                                {
+                                    <a href="javascript:void(0)" id="sickness_button_employee_@employee.Id" class="button hidden red_button" onclick="enable_sick_leave(@employee.Id); update_constraints(@employee.Id);">Ziek</a>
+                                    <a href="javascript:void(0)" id="undo_sickness_button_employee_@employee.Id" class="button" onclick="disable_sick_leave(@employee.Id); update_constraints(@employee.Id);">Annuleren</a>
+                                }
+                            </td>
                         </tr>
                     }
                     else if(employee.OnLeave)
@@ -125,7 +141,7 @@
         var current = 0;
 
         $(".checkbox_hour_" + id).each(function () {
-            if ($(this).prop("checked")) current++;
+            if ($(this).prop("checked") && !$(this).prop("disabled")) current++;
         })
 
         $("#text_hour_" + id).text(current + "/" + max);
@@ -187,6 +203,48 @@
                     $(this).removeClass("overworked_4weeks");
                 }
             })
+        }
+
+        if ($("#sickness_employee_" + id).prop("value") == "True") {
+            $(".employee_" + id).each(function () {
+                if (!$(this).prop("disabled")) {
+                    $(this).prop("disabled", true);
+                    $(this).addClass("employee_sick");
+                }
+            })
+
+            $("#sickness_button_employee_" + id).addClass("hidden");
+            if ($("#undo_sickness_button_employee_" + id).hasClass("hidden")) {
+                $("#undo_sickness_button_employee_" + id).removeClass("hidden");
+            }
+        } else {
+            $(".employee_" + id).each(function () {
+                if ($(this).hasClass("employee_sick")) {
+                    $(this).prop("disabled", false);
+                    $(this).removeClass("employee_sick");
+                }
+            })
+
+            $("#undo_sickness_button_employee_" + id).addClass("hidden");
+            if ($("#sickness_button_employee_" + id).hasClass("hidden")) {
+                $("#sickness_button_employee_" + id).removeClass("hidden");
+            }
+        }
+    }
+
+    function enable_sick_leave(id) {
+        $("#sickness_employee_" + id).prop("value", "True");
+    }
+
+    function disable_sick_leave(id) {
+        $("#sickness_employee_" + id).prop("value", "False");
+    }
+
+    function submit() {
+        $("input").prop("disabled", false);
+        $("form").submit();
+        for (let i = 0; i < @ViewBag.EmployeeIds.Count; i++) {
+            update_constraints(idList[i]);
         }
     }
 

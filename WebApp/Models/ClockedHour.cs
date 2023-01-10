@@ -23,5 +23,7 @@
         public DateTime? ApprovalTime { get; set; }
 
         public string TimeDifference { get; set; }
+
+        public bool SickLeave { get; set; }
     }
 }

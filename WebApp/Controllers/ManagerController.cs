@@ -342,6 +342,8 @@ namespace Bumbo.Controllers
 
             ViewBag.EmployeeIds = (from Employee in db.Employees where !Employee.Inactive && Employee.Role == "Employee" select Employee.Id).ToList();
 
+            model.Sicknesses = new List<bool>();
+
             foreach(Employee employee in ViewBag.Employees)
             {
                 employee.OnLeave = (
@@ -355,6 +357,18 @@ namespace Bumbo.Controllers
                 ).Any();
 
                 employee.CanWork = employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today && !employee.OnLeave;
+
+                if(employee.CanWork)
+                {
+                    model.Sicknesses.Add((
+                        from Schedule
+                        in db.Schedules
+                        where Schedule.StartTime.Date == date
+                        && Schedule.EmployeeId == employee.Id
+                        && Schedule.SickLeave
+                        select Schedule
+                    ).Any());
+                }
 
                 employee.AllowedHoursToday  = 0;
                 employee.AllowedHoursWeek   = 0;
@@ -472,7 +486,12 @@ namespace Bumbo.Controllers
                     select Schedule
                 ).ToList();
 
-                foreach (var s in existingSchedule) db.Schedules.Remove(s);
+                foreach (var s in existingSchedule)
+                {
+                    db.Schedules.Remove(s);
+                    if (db.WorkedHours.Any(w => w.ScheduleId == s.Id))
+                        db.WorkedHours.Remove(db.WorkedHours.First(w => w.ScheduleId == s.Id));
+                }
 
                 var department = (from Department in db.Departments where Department.Name == model.DepartmentName select Department).First();
 
@@ -530,6 +549,14 @@ namespace Bumbo.Controllers
                     {
                         schedule.EndTime = new DateTime(model.Year, model.Month, model.Day, (i - 1) % hours + startHour, 59, 59);
                         db.Schedules.Add(schedule);
+                        if(schedule.SickLeave)
+                            db.WorkedHours.Add(new WorkedHour
+                            {
+                                Schedule = schedule,
+                                Department = schedule.Department,
+                                ClockedTimeStart = schedule.StartTime,
+                                ClockedTimeEnd = schedule.EndTime
+                            });
                         schedule = null;
                     }
 
@@ -539,6 +566,7 @@ namespace Bumbo.Controllers
                         schedule.StartTime = new DateTime(model.Year, model.Month, model.Day, curHour + startHour, 0, 0);
                         schedule.EmployeeId = employees[i / hours].Id;
                         schedule.Department = model.DepartmentName;
+                        schedule.SickLeave  = model.Sicknesses[i / hours];
                     }
                 }
 
@@ -592,6 +620,7 @@ namespace Bumbo.Controllers
                     ApprovedStartTime = WorkedHour.ApprovedTimeStart,
                     ApprovedEndTime = WorkedHour.ApprovedTimeEnd,
                     ApprovalTime = WorkedHour.ApprovalTime,
+                    SickLeave = Schedule.SickLeave,
                     WorkedHours = WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart,
                     TimeDifference = (
                         (
@@ -742,7 +771,13 @@ namespace Bumbo.Controllers
                         +  value.ApprovedTimeEnd.Value.ToString("HH:mm:ss") + ","
                         + (value.ApprovedTimeEnd.Value - value.ApprovedTimeStart.Value).ToString("hh\\:mm") + ","
                         +  value.Department + ","
-                        + (int)(bonus * 100.0) + "%\n";
+                        + ((
+                            from Schedule
+                            in db.Schedules
+                            where Schedule.Id == value.ScheduleId
+                            select Schedule.SickLeave
+                          ).First() ? "-30" : ("" + (int)(bonus * 100.0)))
+                        + "%\n";
                 }
             }
 
