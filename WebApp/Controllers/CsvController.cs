@@ -73,6 +73,7 @@ namespace Bumbo.Controllers
                     {
                         employee.UserName = employee.FirstName + employee.LastName;
                         employee.UserName = employee.UserName.Replace(" ", "");
+                        employee.Role = "Employee";
 
                         EmployeeAccount account = new EmployeeAccount();
                         account.Employee = employee;
@@ -86,11 +87,7 @@ namespace Bumbo.Controllers
                         if (result.Succeeded)
                         {
                             await userManager.AddToRoleAsync(account.Account, account.Role);
-
-                            if (account.Role == "Employee")
-                            {
-                                db.Employees.Add(account.Employee);
-                            }
+                            db.Employees.Add(account.Employee);
                         }
 
                         foreach (var error in result.Errors)
