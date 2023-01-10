@@ -446,7 +446,31 @@ namespace Bumbo.Controllers
 
                 foreach (var s in existingSchedule) db.Schedules.Remove(s);
 
-                var employees = (from Employee in db.Employees where !Employee.Inactive && Employee.Role == "Employee" select Employee).ToList();
+                var department = (from Department in db.Departments where Department.Name == model.DepartmentName select Department).First();
+
+                var employees = (
+                    from Employee 
+                    in db.Employees 
+                    where !Employee.Inactive 
+                    && Employee.Role == "Employee" 
+                    && Employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today 
+                    select Employee
+                ).ToList();
+
+                DateTime date = new DateTime(model.Year, model.Month, model.Day);
+
+                for(int i = 0; i < employees.Count; i++)
+                {
+                    if((
+                        from LeaveRequest
+                        in db.LeaveRequests
+                        where LeaveRequest.EmployeeId == employees[i].Id
+                        && LeaveRequest.StartDate <= date
+                        && LeaveRequest.EndDate >= date
+                        && LeaveRequest.Approved == true
+                        select LeaveRequest
+                    ).Any()) employees.RemoveAt(i--);
+                }
 
                 Schedule? schedule = null;
 
