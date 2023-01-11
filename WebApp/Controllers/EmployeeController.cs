@@ -343,6 +343,8 @@ namespace Bumbo.Controllers
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee")]
         public IActionResult RequestLeave(LeaveRequest request) {
+            request.InsertDate = DateTime.Today;
+
             if(ModelState.IsValid) {
                 if(request.EndDate < request.StartDate) (request.StartDate, request.EndDate) = (request.EndDate, request.StartDate);
 
