@@ -52,42 +52,29 @@
             </h2>
         </header>
         <form asp-action="Prognosis">
-            <div class="grid4">
-                @for(int i = 0; i < 4; i++)
-                {
-                    <input type="hidden" asp-for="Prognoses[i].Id" />
-                    <input type="hidden" asp-for="Prognoses[i].Date" />
-                    <input type="hidden" asp-for="Prognoses[i].DepartmentName" />
-                    <div>
-                        <h5>@ViewBag.DutchDates[i]</h5><br>
-                        <p>
-                            @ViewBag.ValueName
-                            <span class="input_wrapper">
-                                <span class="width_setter" aria-hidden="true">@Model.Prognoses[i].Value</span>
-                                <input class="prognosis_input" asp-for="Prognoses[i].Value" type="number" min="1" step="1" />
-                            </span>
-                        </p>
-                    </div>
-                }
-            </div>
-            <div class="grid3">
-                @for(int i = 4; i < 7; i++)
-                {
-                    <input type="hidden" asp-for="Prognoses[i].Id" />
-                    <input type="hidden" asp-for="Prognoses[i].Date" />
-                    <input type="hidden" asp-for="Prognoses[i].DepartmentName" />
-                    <div>
-                        <h5>@ViewBag.DutchDates[i]</h5><br>
-                        <p>
-                            @ViewBag.ValueName
-                            <span class="input_wrapper">
-                                <span class="width_setter" aria-hidden="true">@Model.Prognoses[i].Value</span>
-                                <input class="prognosis_input" asp-for="Prognoses[i].Value" type="number" min="1" step="1" />
-                            </span>
-                        </p>
-                    </div>
-                }
-            </div>
+            @for(int size = 4; size >= 3; size--)
+            {
+                <div class="@("grid" + size)">
+                    @for(int i = 0; i < size; i++) {
+                        int id = i;
+                        if(size == 3) id += 4;
+
+                        <input type="hidden" asp-for="Prognoses[id].Id" />
+                        <input type="hidden" asp-for="Prognoses[id].Date" />
+                        <input type="hidden" asp-for="Prognoses[id].DepartmentName" />
+                        <div>
+                            <h5>@ViewBag.DutchDates[id]</h5><br>
+                            <p>
+                                @ViewBag.ValueName
+                                <span class="input_wrapper">
+                                    <span class="width_setter" aria-hidden="true">@Model.Prognoses[id].Value</span>
+                                    <input class="prognosis_input" asp-for="Prognoses[id].Value" type="number" min="1" step="1" />
+                                </span>
+                            </p>
+                        </div>
+                    }
+                </div>
+            }
             <div class="space_around"><input type="submit" value="Opslaan" /></div>
         </form>
     </div>
