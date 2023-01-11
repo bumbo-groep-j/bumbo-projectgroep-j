@@ -95,7 +95,7 @@
                     <td class="align_center">
                         @if(value.ApprovalTime == null)
                         {
-                            <button onclick="$('#overlay').removeClass('hidden'); $('#overlay').load('/Manager/EditWorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day&id=@value.Id');">Edit</button>
+                            <button onclick="$('#editoverlay').removeClass('hidden'); $('#editoverlay').load('/Manager/EditWorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day&id=@value.Id');">Edit</button>
                             <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveHours?id=@value.Id', success: function(data) { $('#@value.Id').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #@value.Id > *'); }});">Accorderen</button>
                         }
                         else
@@ -152,7 +152,9 @@
     }
 </script>
 
-<div class="hidden" id="overlay" onclick="$(this).addClass('hidden');">
+<div class="hidden overlay" id="editoverlay" onclick="$(this).addClass('hidden');"></div>
+
+<div class="hidden overlay csvoverlay" id="overlay" onclick="$(this).addClass('hidden');">
     <div onclick="event.stopPropagation();">
         <partial name="CSVImport" />
     </div>
