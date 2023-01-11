@@ -64,7 +64,7 @@
                             @ViewBag.ValueName
                             <span class="input_wrapper">
                                 <span class="width_setter" aria-hidden="true">@Model.Prognoses[i].Value</span>
-                                <input class="prognosis_input" asp-for="Prognoses[i].Value" type="number" step="1" />
+                                <input class="prognosis_input" asp-for="Prognoses[i].Value" type="number" min="1" step="1" />
                             </span>
                         </p>
                     </div>
@@ -82,7 +82,7 @@
                             @ViewBag.ValueName
                             <span class="input_wrapper">
                                 <span class="width_setter" aria-hidden="true">@Model.Prognoses[i].Value</span>
-                                <input class="prognosis_input" asp-for="Prognoses[i].Value" type="number" step="1" />
+                                <input class="prognosis_input" asp-for="Prognoses[i].Value" type="number" min="1" step="1" />
                             </span>
                         </p>
                     </div>
