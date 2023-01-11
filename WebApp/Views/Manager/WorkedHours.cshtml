@@ -75,7 +75,14 @@
                     else
                     {
                         <td class="align_center">@value.ClockedStartTime.ToString("HH:mm")</td>
-                        <td class="align_center">@value.ClockedEndTime.Value.ToString("HH:mm")</td>
+                        @if(value.ClockedEndTime.HasValue)
+                        {
+                            <td class="align_center">@value.ClockedEndTime.Value.ToString("HH:mm")</td>
+                        }
+                        else
+                        {
+                            <td class="align_center"></td>
+                        }
                     }
                     <td class="align_center">
                         @{
@@ -93,14 +100,17 @@
                         <td class="align_center">+@((int)(ViewBag.Bonus * 100.0))%</td>
                     }
                     <td class="align_center">
-                        @if(value.ApprovalTime == null)
+                        @if (value.ClockedEndTime.HasValue)
                         {
-                            <button onclick="$('#editoverlay').removeClass('hidden'); $('#editoverlay').load('/Manager/EditWorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day&id=@value.Id');">Edit</button>
-                            <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveHours?id=@value.Id', success: function(data) { $('#@value.Id').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #@value.Id > *'); }});">Accorderen</button>
-                        }
-                        else
-                        {
-                            <span class="green">Geaccordeerd</span>
+                            @if (value.ApprovalTime == null)
+                            {
+                                <button onclick="$('#editoverlay').removeClass('hidden'); $('#editoverlay').load('/Manager/EditWorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day&id=@value.Id');">Edit</button>
+                                <button onclick="$.ajax({ type: 'GET', url: '/Manager/ApproveHours?id=@value.Id', success: function(data) { $('#@value.Id').load('/Manager/WorkedHours?year=@ViewBag.Date.Year&month=@ViewBag.Date.Month&day=@ViewBag.Date.Day #@value.Id > *'); }});">Accorderen</button>
+                            }
+                            else
+                            {
+                                <span class="green">Geaccordeerd</span>
+                            }
                         }
                     </td>
                 </tr>
