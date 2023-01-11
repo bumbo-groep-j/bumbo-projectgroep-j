@@ -944,10 +944,10 @@ namespace Bumbo.Controllers
         {
             List<string> scheduledDays = new List<string>();
 
-            foreach(DateTime date in (from Schedule
-                                      in db.Schedules
-                                      where Schedule.Department == departmentName   
-                                      select Schedule.StartTime.Date).Distinct())
+            var dates = (from Schedule in db.Schedules
+                         where Schedule.Department == departmentName
+                         select Schedule.StartTime.Date).Distinct().ToList();
+            foreach (DateTime date in dates)
             {
                 Weekday weekday = Enum.Parse<Weekday>(date.DayOfWeek.ToString());
                     bool holiday = (
