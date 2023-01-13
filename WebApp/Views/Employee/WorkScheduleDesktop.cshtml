@@ -66,7 +66,13 @@
                         Schedule current = Model.Where(schedule => schedule.StartTime.Date == ViewBag.StartDate.AddDays(i) && schedule.StartTime.Hour == j / 4).First();
                         int colspan = (current.EndTime.Hour - current.StartTime.Hour + 1) * 4;
                         j += colspan - 1;
-                        <td class="schedule" colspan="@colspan">@current.StartTime.Hour:00 - @(current.EndTime.Hour + 1):00<br />@current.Department</td>
+                        <td class="schedule" colspan="@colspan">
+                            @current.StartTime.Hour:00 - @(current.EndTime.Hour + 1):00<br />@current.Department
+                            @if(current.SickLeave)
+                            {
+                                <b>(Ziek)</b>
+                            }
+                        </td>
                         <td class="spacer"></td>
                         <td class="spacer"></td>
                         <td class="spacer"></td>
