@@ -102,7 +102,9 @@ namespace Bumbo.Controllers
                 from Schedule in db.Schedules
                 join Employee in db.Employees
                 on Schedule.EmployeeId equals Employee.Id
-                where Employee.UserName == userManager.GetUserName(User) && Schedule.StartTime.Date >= date && Schedule.EndTime.Date < date.AddDays(7)
+                where Employee.UserName == userManager.GetUserName(User) &&
+                Schedule.StartTime.Date >= date &&
+                Schedule.EndTime.Date < date.AddDays(7)
                 select Schedule
             ).ToList().OrderBy(schedule => schedule.StartTime));
         }
@@ -115,12 +117,16 @@ namespace Bumbo.Controllers
             form.HasAvailability = new List<bool>();
             form.CanCreateInstantly = new List<bool>();
 
-            var availabilities = (from Availability in db.Availabilities
+            var availabilities = (
+                from Availability in db.Availabilities
                 join Employee in db.Employees
                 on Availability.EmployeeId equals Employee.Id
-                where Employee.UserName == userManager.GetUserName(User) 
-                && Availability.StartDate <= DateTime.Today 
-                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
+                where Employee.UserName == userManager.GetUserName(User) &&
+                Availability.StartDate <= DateTime.Today &&
+                (
+                    Availability.EndDate == null ||
+                    Availability.EndDate > DateTime.Today
+                )
                 select Availability
             ).ToList();
 
@@ -135,7 +141,8 @@ namespace Bumbo.Controllers
             }
 
             for(int i = 0; i < 7; i++) 
-                form.CanCreateInstantly.Add(!(from Availability in db.Availabilities
+                form.CanCreateInstantly.Add(!(
+                    from Availability in db.Availabilities
                     join Employee in db.Employees
                     on Availability.EmployeeId equals Employee.Id
                     where Employee.UserName == userManager.GetUserName(User) 
@@ -155,21 +162,26 @@ namespace Bumbo.Controllers
 
             for(int i = 0; i < 7; i++)
             {
-                oldAvailability[i] = (from Availability in db.Availabilities
+                oldAvailability[i] = (
+                    from Availability in db.Availabilities
                     join Employee in db.Employees
                     on Availability.EmployeeId equals Employee.Id
-                    where Employee.UserName == userManager.GetUserName(User) 
-                    && Availability.StartDate <= DateTime.Today 
-                    && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
-                    && Availability.Weekday == (Weekday)i
+                    where Employee.UserName == userManager.GetUserName(User) &&
+                    Availability.StartDate <= DateTime.Today &&
+                    (
+                        Availability.EndDate == null ||
+                        Availability.EndDate > DateTime.Today
+                    ) &&
+                    Availability.Weekday == (Weekday)i
                     select Availability
                 ).ToList();
 
-                canCreateInstantly[i] = !(from Availability in db.Availabilities
+                canCreateInstantly[i] = !(
+                    from Availability in db.Availabilities
                     join Employee in db.Employees
                     on Availability.EmployeeId equals Employee.Id
-                    where Employee.UserName == userManager.GetUserName(User) 
-                    && Availability.Weekday == (Weekday)i
+                    where Employee.UserName == userManager.GetUserName(User) &&
+                    Availability.Weekday == (Weekday)i
                     select Availability
                 ).Any();
             }
@@ -208,14 +220,18 @@ namespace Bumbo.Controllers
             AvailabilityForm form = new AvailabilityForm();
             form.Weekday = weekday;
 
-            var availability = (from Availability in db.Availabilities
-                                join Employee in db.Employees
+            var availability = (
+                from Availability in db.Availabilities
+                join Employee in db.Employees
                 on Availability.EmployeeId equals Employee.Id
-                                where Employee.UserName == userManager.GetUserName(User)
-                && Availability.StartDate <= DateTime.Today
-                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
-                && Availability.Weekday == weekday
-                                select Availability
+                where Employee.UserName == userManager.GetUserName(User) &&
+                Availability.StartDate <= DateTime.Today &&
+                (
+                    Availability.EndDate == null ||
+                    Availability.EndDate > DateTime.Today
+                ) &&
+                Availability.Weekday == weekday
+                select Availability
             ).ToList();
 
             form.HasAvailability1 = availability.Count > 0;
@@ -224,12 +240,13 @@ namespace Bumbo.Controllers
             if(form.HasAvailability1) form.Availability1 = availability[0];
             if(form.HasAvailability2) form.Availability2 = availability[1];
 
-            ViewBag.CanCreateInstantly = !(from Availability in db.Availabilities
-                                           join Employee in db.Employees
-                                           on Availability.EmployeeId equals Employee.Id
-                                           where Employee.UserName == userManager.GetUserName(User)
-                                           && Availability.Weekday == weekday
-                                           select Availability
+            ViewBag.CanCreateInstantly = !(
+                from Availability in db.Availabilities
+                join Employee in db.Employees
+                on Availability.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) &&
+                Availability.Weekday == weekday
+                select Availability
             ).Any();
 
             return LoadPage(form);
@@ -245,22 +262,27 @@ namespace Bumbo.Controllers
             if(form.HasAvailability2 && form.Availability2.EndTime < form.Availability2.StartTime)
                 (form.Availability2.EndTime, form.Availability2.StartTime) = (form.Availability2.StartTime, form.Availability2.EndTime);
 
-            var oldAvailability = (from Availability in db.Availabilities
-                                   join Employee in db.Employees
+            var oldAvailability = (
+                from Availability in db.Availabilities
+                join Employee in db.Employees
                 on Availability.EmployeeId equals Employee.Id
-                                   where Employee.UserName == userManager.GetUserName(User)
-                && Availability.StartDate <= DateTime.Today
-                && (Availability.EndDate == null || Availability.EndDate > DateTime.Today)
-                && Availability.Weekday == form.Weekday
-                                   select Availability
+                where Employee.UserName == userManager.GetUserName(User) &&
+                Availability.StartDate <= DateTime.Today &&
+                (
+                    Availability.EndDate == null ||
+                    Availability.EndDate > DateTime.Today
+                ) &&
+                Availability.Weekday == form.Weekday
+                select Availability
             ).ToList();
 
-            bool canCreateInstantly = !(from Availability in db.Availabilities
-                                        join Employee in db.Employees
+            bool canCreateInstantly = !(
+                from Availability in db.Availabilities
+                join Employee in db.Employees
                 on Availability.EmployeeId equals Employee.Id
-                                        where Employee.UserName == userManager.GetUserName(User)
-                && Availability.Weekday == form.Weekday
-                                        select Availability
+                where Employee.UserName == userManager.GetUserName(User) &&
+                Availability.Weekday == form.Weekday
+                select Availability
             ).Any();
 
             if(form.HasAvailability1) {
@@ -326,8 +348,8 @@ namespace Bumbo.Controllers
                 from LeaveRequest in db.LeaveRequests
                 join Employee in db.Employees
                 on LeaveRequest.EmployeeId equals Employee.Id
-                where Employee.UserName == userManager.GetUserName(User)
-                && LeaveRequest.EndDate >= DateTime.Today
+                where Employee.UserName == userManager.GetUserName(User) &&
+                LeaveRequest.EndDate >= DateTime.Today
                 select LeaveRequest
             ).ToList();
 
@@ -366,31 +388,41 @@ namespace Bumbo.Controllers
                 from SchoolSchedule in db.SchoolSchedules
                 join Employee in db.Employees
                 on SchoolSchedule.EmployeeId equals Employee.Id
-                where Employee.UserName == userManager.GetUserName(User) && SchoolSchedule.StartDate <= DateTime.Today && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
+                where Employee.UserName == userManager.GetUserName(User) &&
+                SchoolSchedule.StartDate <= DateTime.Today &&
+                (
+                    SchoolSchedule.EndDate == null ||
+                    SchoolSchedule.EndDate > DateTime.Today
+                )
                 select SchoolSchedule
             ).ToList().OrderBy(schedule => schedule.StartTime));
         }
 
         [Authorize(Roles = "Employee")]
         public IActionResult EditSchoolSchedule(Weekday weekday) {
-            ViewBag.CanCreateInstantly = !(from SchoolSchedule in db.SchoolSchedules
-                                           join Employee in db.Employees
-                                           on SchoolSchedule.EmployeeId equals Employee.Id
-                                           where Employee.UserName == userManager.GetUserName(User)
-                                           && SchoolSchedule.Weekday == weekday
-                                           select SchoolSchedule
+            ViewBag.CanCreateInstantly = !(
+                from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) &&
+                SchoolSchedule.Weekday == weekday
+                select SchoolSchedule
             ).Any();
 
             ViewBag.Weekday = weekday;
 
-            return LoadPage((from SchoolSchedule in db.SchoolSchedules
-                   join Employee in db.Employees
-                   on SchoolSchedule.EmployeeId equals Employee.Id
-                   where Employee.UserName == userManager.GetUserName(User)
-                   && SchoolSchedule.StartDate <= DateTime.Today
-                   && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
-                   && SchoolSchedule.Weekday == weekday
-                   select SchoolSchedule
+            return LoadPage((
+                from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
+                on SchoolSchedule.EmployeeId equals Employee.Id
+                where Employee.UserName == userManager.GetUserName(User) &&
+                SchoolSchedule.StartDate <= DateTime.Today &&
+                (
+                    SchoolSchedule.EndDate == null ||
+                    SchoolSchedule.EndDate > DateTime.Today
+                ) &&
+                SchoolSchedule.Weekday == weekday
+                select SchoolSchedule
           ).FirstOrDefault());
         }
 
@@ -404,22 +436,27 @@ namespace Bumbo.Controllers
             if (schedule.EndTime == schedule.StartTime)
                 return RedirectToAction("SchoolSchedule", new { alertMessage = "Tijden mogen niet hetzelfde zijn" });
 
-            var oldSchedule = (from SchoolSchedule in db.SchoolSchedules
-                               join Employee in db.Employees
+            var oldSchedule = (
+                from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
                 on SchoolSchedule.EmployeeId equals Employee.Id
-                               where Employee.UserName == userManager.GetUserName(User)
-                && SchoolSchedule.StartDate <= DateTime.Today
-                && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > DateTime.Today)
-                && SchoolSchedule.Weekday == schedule.Weekday
-                               select SchoolSchedule
+                where Employee.UserName == userManager.GetUserName(User) &&
+                SchoolSchedule.StartDate <= DateTime.Today &&
+                (
+                    SchoolSchedule.EndDate == null ||
+                    SchoolSchedule.EndDate > DateTime.Today
+                ) &&
+                SchoolSchedule.Weekday == schedule.Weekday
+                select SchoolSchedule
             ).ToList();
 
-            bool canCreateInstantly = !(from SchoolSchedule in db.SchoolSchedules
-                                        join Employee in db.Employees
+            bool canCreateInstantly = !(
+                from SchoolSchedule in db.SchoolSchedules
+                join Employee in db.Employees
                 on SchoolSchedule.EmployeeId equals Employee.Id
-                                        where Employee.UserName == userManager.GetUserName(User)
-                && SchoolSchedule.Weekday == schedule.Weekday
-                                        select SchoolSchedule
+                where Employee.UserName == userManager.GetUserName(User) &&
+                SchoolSchedule.Weekday == schedule.Weekday
+                select SchoolSchedule
             ).Any();
 
             if(canCreateInstantly) schedule.StartDate = DateTime.Today;
