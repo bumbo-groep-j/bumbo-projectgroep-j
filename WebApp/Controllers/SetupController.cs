@@ -22,7 +22,8 @@ namespace Bumbo.Controllers
 
         private bool CanRunSetup()
         {
-            return db.Users.Count() == 0 || (
+            return db.Users.Count() == 0 ||
+            (
                 from UserRole
                 in db.UserRoles
                 where UserRole.RoleId == (
