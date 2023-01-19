@@ -1,5 +1,5 @@
 ﻿@model ApprovedHoursForm
-<form asp-action="EditHours" id="form">
+<form asp-action="EditHours" id="form" onclick="event.stopPropagation();">
     <input type="hidden" asp-for="WorkedHourId" value="@Model.WorkedHourId" />
     <div class="blue inline">
         <label asp-for="StartTime">Starttijd: </label>
@@ -17,7 +17,7 @@
     $("#submit").click(function(e) {
         e.preventDefault();
 
-        $('#overlay').addClass('hidden');
+        $('#editoverlay').addClass('hidden');
 
         var form = $("#form");
         var actionUrl = form.attr('action');

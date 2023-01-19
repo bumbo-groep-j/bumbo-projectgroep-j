@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Web;
 using WebApp.Domain;
 
 namespace Bumbo.Controllers
@@ -65,10 +64,12 @@ namespace Bumbo.Controllers
 
             ViewBag.IsEmpty = !db.LeaveRequests.Any();
 
-            ViewBag.Requests = (from LeaveRequest in db.LeaveRequests
-                                join Employee in db.Employees
-                                on LeaveRequest.EmployeeId equals Employee.Id
-                                select Tuple.Create(LeaveRequest, Employee)).ToList();
+            ViewBag.Requests = (
+                from LeaveRequest in db.LeaveRequests
+                join Employee in db.Employees
+                on LeaveRequest.EmployeeId equals Employee.Id
+                select Tuple.Create(LeaveRequest, Employee)
+            ).ToList();
 
             return View();
 
@@ -314,16 +315,19 @@ namespace Bumbo.Controllers
 
             model.Availabilities = (
                 from Availability in db.Availabilities
-                where Availability.StartDate <= date
-                && (Availability.EndDate == null || Availability.EndDate > date)
-                && Availability.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
+                where Availability.StartDate <= date &&
+                (
+                    Availability.EndDate == null ||
+                    Availability.EndDate > date
+                ) &&
+                Availability.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
                 select Availability
             ).ToList();
 
             model.Schedules = (
                 from Schedule in db.Schedules
-                where Schedule.StartTime.Date == date
-                && Schedule.Department != department.Name
+                where Schedule.StartTime.Date == date &&
+                Schedule.Department != department.Name
                 select Schedule
             ).ToList();
 
@@ -334,8 +338,8 @@ namespace Bumbo.Controllers
             var existingSchedule = (
                 from Schedule
                 in db.Schedules
-                where Schedule.StartTime.Date == date
-                && Schedule.Department == department.Name
+                where Schedule.StartTime.Date == date &&
+                Schedule.Department == department.Name
                 select Schedule
             ).ToList();
 
@@ -358,10 +362,10 @@ namespace Bumbo.Controllers
                 employee.OnLeave = (
                     from LeaveRequest
                     in db.LeaveRequests
-                    where LeaveRequest.EmployeeId == employee.Id
-                    && LeaveRequest.StartDate <= date
-                    && LeaveRequest.EndDate >= date
-                    && LeaveRequest.Approved == true
+                    where LeaveRequest.EmployeeId == employee.Id &&
+                    LeaveRequest.StartDate <= date &&
+                    LeaveRequest.EndDate >= date &&
+                    LeaveRequest.Approved == true
                     select LeaveRequest
                 ).Any();
 
@@ -372,9 +376,9 @@ namespace Bumbo.Controllers
                     model.Sicknesses.Add((
                         from Schedule
                         in db.Schedules
-                        where Schedule.StartTime.Date == date
-                        && Schedule.EmployeeId == employee.Id
-                        && Schedule.SickLeave
+                        where Schedule.StartTime.Date == date &&
+                        Schedule.EmployeeId == employee.Id &&
+                        Schedule.SickLeave
                         select Schedule
                     ).Any());
                 }
@@ -390,57 +394,63 @@ namespace Bumbo.Controllers
                 foreach(var schedule in (
                     from Schedule
                     in db.Schedules
-                    where Schedule.StartTime.Date == date
-                    && Schedule.EmployeeId == employee.Id
+                    where Schedule.StartTime.Date == date &&
+                    Schedule.EmployeeId == employee.Id
                     select Schedule
                 )) if(!existingSchedule.Contains(schedule)) workedHoursToday += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
 
                 foreach(var schedule in (
                     from Schedule
                     in db.Schedules
-                    where Schedule.StartTime.Date >= GetStartOfWeek(date)
-                    && Schedule.StartTime.Date <= GetEndOfWeek(date)
-                    && Schedule.EmployeeId == employee.Id
+                    where Schedule.StartTime.Date >= GetStartOfWeek(date) &&
+                    Schedule.StartTime.Date <= GetEndOfWeek(date) &&
+                    Schedule.EmployeeId == employee.Id
                     select Schedule
                 )) if(!existingSchedule.Contains(schedule)) workedHoursWeek += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
 
                 foreach(var schedule in (
                     from Schedule
                     in db.Schedules
-                    where Schedule.StartTime.Date >= GetStartOfWeek(date.AddDays(-21))
-                    && Schedule.StartTime.Date <= GetEndOfWeek(date)
-                    && Schedule.EmployeeId == employee.Id
+                    where Schedule.StartTime.Date >= GetStartOfWeek(date.AddDays(-21)) &&
+                    Schedule.StartTime.Date <= GetEndOfWeek(date) &&
+                    Schedule.EmployeeId == employee.Id
                     select Schedule
                 )) if(!existingSchedule.Contains(schedule)) workedHours4Weeks += 1 + schedule.EndTime.Hour - schedule.StartTime.Hour;
 
                 bool schoolDay = !(
                     from SchoolHoliday
                     in db.SchoolHolidays
-                    where SchoolHoliday.StartDate <= date
-                    && SchoolHoliday.EndDate > date
+                    where SchoolHoliday.StartDate <= date &&
+                    SchoolHoliday.EndDate > date
                     select SchoolHoliday
                 ).Any() && (
                     from SchoolSchedule
                     in db.SchoolSchedules
-                    where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
-                    && SchoolSchedule.StartDate <= date
-                    && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
-                    && SchoolSchedule.EmployeeId == employee.Id
+                    where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString()) &&
+                    SchoolSchedule.StartDate <= date &&
+                    (
+                        SchoolSchedule.EndDate == null ||
+                        SchoolSchedule.EndDate > date
+                    ) &&
+                    SchoolSchedule.EmployeeId == employee.Id
                     select SchoolSchedule
                 ).Any();
 
                 bool schoolWeek = !(
                     from SchoolHoliday
                     in db.SchoolHolidays
-                    where SchoolHoliday.StartDate <= date
-                    && SchoolHoliday.EndDate > date
+                    where SchoolHoliday.StartDate <= date &&
+                    SchoolHoliday.EndDate > date
                     select SchoolHoliday
                 ).Any() && (
                     from SchoolSchedule
                     in db.SchoolSchedules
-                    where SchoolSchedule.StartDate <= date
-                    && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
-                    && SchoolSchedule.EmployeeId == employee.Id
+                    where SchoolSchedule.StartDate <= date &&
+                    (
+                        SchoolSchedule.EndDate == null ||
+                        SchoolSchedule.EndDate > date
+                    ) &&
+                    SchoolSchedule.EmployeeId == employee.Id
                     select SchoolSchedule
                 ).Any();
 
@@ -453,10 +463,13 @@ namespace Bumbo.Controllers
                             SchoolSchedule schedule = (
                                 from SchoolSchedule
                                 in db.SchoolSchedules
-                                where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString())
-                                && SchoolSchedule.StartDate <= date
-                                && (SchoolSchedule.EndDate == null || SchoolSchedule.EndDate > date)
-                                && SchoolSchedule.EmployeeId == employee.Id
+                                where SchoolSchedule.Weekday == Enum.Parse<Weekday>(date.DayOfWeek.ToString()) &&
+                                SchoolSchedule.StartDate <= date &&
+                                (
+                                    SchoolSchedule.EndDate == null ||
+                                    SchoolSchedule.EndDate > date
+                                ) &&
+                                SchoolSchedule.EmployeeId == employee.Id
                                 select SchoolSchedule
                             ).First();
 
@@ -490,8 +503,10 @@ namespace Bumbo.Controllers
                 var existingSchedule = (
                     from Schedule
                     in db.Schedules
-                    where Schedule.StartTime.Day == model.Day && Schedule.StartTime.Month == model.Month
-                    && Schedule.StartTime.Year == model.Year && Schedule.Department == model.DepartmentName
+                    where Schedule.StartTime.Day == model.Day &&
+                    Schedule.StartTime.Month == model.Month &&
+                    Schedule.StartTime.Year == model.Year &&
+                    Schedule.Department == model.DepartmentName
                     select Schedule
                 ).ToList();
 
@@ -507,9 +522,9 @@ namespace Bumbo.Controllers
                 var employees = (
                     from Employee 
                     in db.Employees 
-                    where !Employee.Inactive 
-                    && Employee.Role == "Employee" 
-                    && Employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today 
+                    where !Employee.Inactive &&
+                    Employee.Role == "Employee" &&
+                    Employee.DateOfBirth.AddYears(department.MinimumAge) <= DateTime.Today 
                     select Employee
                 ).ToList();
 
@@ -520,10 +535,10 @@ namespace Bumbo.Controllers
                     if((
                         from LeaveRequest
                         in db.LeaveRequests
-                        where LeaveRequest.EmployeeId == employees[i].Id
-                        && LeaveRequest.StartDate <= date
-                        && LeaveRequest.EndDate >= date
-                        && LeaveRequest.Approved == true
+                        where LeaveRequest.EmployeeId == employees[i].Id &&
+                        LeaveRequest.StartDate <= date &&
+                        LeaveRequest.EndDate >= date &&
+                        LeaveRequest.Approved == true
                         select LeaveRequest
                     ).Any()) employees.RemoveAt(i--);
                 }
@@ -635,22 +650,24 @@ namespace Bumbo.Controllers
                         (
                             (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
                           - (Schedule.EndTime - Schedule.StartTime)
-                        ).Value.Hours < 0
-                     || (
+                        ).Value.Hours < 0 ||
+                        (
                             (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
                           - (Schedule.EndTime - Schedule.StartTime)
                         ).Value.Minutes < 0 ? "-" : "+"
-                    )
-                  + Math.Abs((
+                    ) +
+                    Math.Abs((
                         (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
                       - (Schedule.EndTime - Schedule.StartTime)
-                    ).Value.Hours) + ":"
-                  + (Math.Abs((
+                    ).Value.Hours) +
+                    ":" +
+                    (
+                        Math.Abs((
                             (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
                           - (Schedule.EndTime - Schedule.StartTime)
                         ).Value.Minutes) < 10 ? "0" : ""
-                    )
-                  + Math.Abs((
+                    ) +
+                    Math.Abs((
                         (WorkedHour.ApprovedTimeStart != null ? WorkedHour.ApprovedTimeEnd - WorkedHour.ApprovedTimeStart : WorkedHour.ClockedTimeEnd - WorkedHour.ClockedTimeStart)
                       - (Schedule.EndTime - Schedule.StartTime)
                     ).Value.Minutes)
@@ -700,8 +717,26 @@ namespace Bumbo.Controllers
                     Month = month,
                     Day = day,
                     WorkedHourId = WorkedHour.Id,
-                    StartTime = new DateTime(year, month, day, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Hour, (WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart).Minute, 0),
-                    EndTime = new DateTime(year, month, day, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Hour, (WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value).Minute, 0),
+                    StartTime = new DateTime(
+                        year, month, day,
+                        (
+                            WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart
+                        ).Hour,
+                        (
+                            WorkedHour.ApprovedTimeStart ?? WorkedHour.ClockedTimeStart
+                        ).Minute,
+                        0
+                    ),
+                    EndTime = new DateTime(
+                        year, month, day,
+                        (
+                            WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value
+                        ).Hour,
+                        (
+                            WorkedHour.ApprovedTimeEnd ?? WorkedHour.ClockedTimeEnd.Value
+                        ).Minute,
+                        0
+                    ),
                 }
             ).First();
 
@@ -764,11 +799,13 @@ namespace Bumbo.Controllers
 
             foreach(var value in values) {
                 if(value.ApprovalTime.HasValue) {
-                    var employee = (from Employee in db.Employees
-                                    join Schedule in db.Schedules
-                                    on Employee.Id equals Schedule.EmployeeId
-                                    where Schedule.Id == value.ScheduleId
-                                    select Employee).First();
+                    var employee = (
+                        from Employee in db.Employees
+                        join Schedule in db.Schedules
+                        on Employee.Id equals Schedule.EmployeeId
+                        where Schedule.Id == value.ScheduleId
+                        select Employee
+                    ).First();
                     
                     value.ApprovalTime = DateTime.Now;
 
@@ -944,9 +981,12 @@ namespace Bumbo.Controllers
         {
             List<string> scheduledDays = new List<string>();
 
-            var dates = (from Schedule in db.Schedules
-                         where Schedule.Department == departmentName
-                         select Schedule.StartTime.Date).Distinct().ToList();
+            var dates = (
+                from Schedule in db.Schedules
+                where Schedule.Department == departmentName
+                select Schedule.StartTime.Date
+            ).Distinct().ToList();
+
             foreach (DateTime date in dates)
             {
                 Weekday weekday = Enum.Parse<Weekday>(date.DayOfWeek.ToString());
@@ -966,12 +1006,14 @@ namespace Bumbo.Controllers
                 {
                     int actualEmployees = 0;
 
-                    foreach(Schedule schedule in (from Schedule
-                                                  in db.Schedules
-                                                  where Schedule.Department == departmentName
-                                                  && Schedule.StartTime <= date.AddHours(i)
-                                                  && Schedule.EndTime > date.AddHours(i)
-                                                  select Schedule))
+                    foreach(Schedule schedule in (
+                        from Schedule
+                        in db.Schedules
+                        where Schedule.Department == departmentName &&
+                        Schedule.StartTime <= date.AddHours(i) &&
+                        Schedule.EndTime > date.AddHours(i)
+                        select Schedule
+                    ))
                         actualEmployees++;
 
                     if(actualEmployees != predictedEmployees[i]) { correct = false; break; }
@@ -988,15 +1030,19 @@ namespace Bumbo.Controllers
         {
             List<string> approvedDays = new List<string>();
 
-            foreach(DateTime date in (from WorkedHour
-                                      in db.WorkedHours
-                                      where WorkedHour.ApprovalTime != null
-                                      select WorkedHour.ClockedTimeStart.Date).Distinct())
+            foreach(DateTime date in (
+                from WorkedHour
+                in db.WorkedHours
+                where WorkedHour.ApprovalTime != null
+                select WorkedHour.ClockedTimeStart.Date
+            ).Distinct())
             {
-                if(!(from WorkedHour
-                     in db.WorkedHours
-                     where WorkedHour.ApprovalTime == null
-                     select WorkedHour.ClockedTimeStart.Date).Any())
+                if(!(
+                    from WorkedHour
+                    in db.WorkedHours
+                    where WorkedHour.ApprovalTime == null
+                    select WorkedHour.ClockedTimeStart.Date
+                ).Any())
                     approvedDays.Add(date.ToString("dd-MM-yyyy"));
             }
 

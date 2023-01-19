@@ -61,6 +61,10 @@
                             <h5><b>@schedule.StartTime.ToString("dddd") </b><span class="date">@schedule.StartTime.ToShortDateString()</span></h5>
                         }
                         <b>@schedule.StartTime.ToString("HH:mm") - @schedule.EndTime.AddMinutes(1).ToString("HH:mm")</b><span class="department"> @schedule.Department</span>
+                        @if(schedule.SickLeave)
+                        {
+                            <b>(Ziek)</b>
+                        }
                     </div>
                 }
             </div>

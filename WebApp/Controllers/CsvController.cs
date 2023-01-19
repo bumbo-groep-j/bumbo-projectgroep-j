@@ -27,15 +27,14 @@ namespace Bumbo.Controllers
             {
                 reader = new StreamReader(file.OpenReadStream());
 
-                string content = reader.ReadToEnd().Replace("\r", "");
-                string fixedContent = "";
-                if (content.Contains("/"))
-                {
-                    foreach (string line in content.Split("\n"))
+                string fileContent = reader.ReadToEnd().Replace("\r", "");
+                string adjustedContent = "";
+                if (fileContent.Contains("/"))
+                    foreach (string line in fileContent.Split("\n"))
                     {
                         if (!line.Contains("/"))
                         {
-                            fixedContent += line + '\n';
+                            adjustedContent += line + '\n';
                             continue;
                         }
 
@@ -50,20 +49,18 @@ namespace Bumbo.Controllers
 
                         for (int i = 0; i < values.Length; i++)
                         {
-                            fixedContent += values[i];
+                            adjustedContent += values[i];
                             if (i != values.Length - 1)
-                                fixedContent += ',';
+                                adjustedContent += ',';
                         }
 
-                        fixedContent += '\n';
+                        adjustedContent += '\n';
                     }
-                }
-                else fixedContent = content;
+                else adjustedContent = fileContent;
 
                 if (file.FileName.Contains("medewerkers"))
                 {
-
-                    var contentReader = new StringReader(fixedContent);
+                    var contentReader = new StringReader(adjustedContent);
 
                     var csv = new CsvReader(contentReader, CultureInfo.InvariantCulture);
 
@@ -98,26 +95,26 @@ namespace Bumbo.Controllers
                 }
                 if (file.FileName.Contains("hours"))
                 {
-                    if(!fixedContent.Split('\n')[0].Contains("Afdeling"))
+                    if(!adjustedContent.Split('\n')[0].Contains("Afdeling"))
                     {
-                        content = "";
+                        fileContent = "";
                         bool firstLine = true;
 
-                        foreach (string line in fixedContent.Split("\n"))
+                        foreach (string line in adjustedContent.Split("\n"))
                         {
                             if (firstLine)
                             {
-                                content += line + ",Afdeling\n";
+                                fileContent += line + ",Afdeling\n";
                                 firstLine = false;
                             }
                             else if (line != "")
                             {
-                                content += line + ",Kassa\n";
+                                fileContent += line + ",Kassa\n";
                             }
                         }
-                    } else content = fixedContent;
+                    } else fileContent = adjustedContent;
 
-                    var contentReader = new StringReader(content);
+                    var contentReader = new StringReader(fileContent);
 
                     var csv = new CsvReader(contentReader, CultureInfo.InvariantCulture);
 
